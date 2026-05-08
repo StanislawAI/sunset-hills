@@ -145,17 +145,13 @@ const routes = {
     eyebrow: "01. INFORMATION ABOUT THE CAPABILITIES OF PRODUCTION IN POLAND",
     heroImage: "/public/assets/optimized/production-map.webp",
     paragraphs: [
-      "Poland is situated in Eastern Europe.It is located close to Paris, London, Berlin, Madrid, Prague and Moscow. Poland has huge capacity to be a place wherein films are made, not only on the basis of the human potential but also because of sophisticated and professional equipment used during production. Poland has lots of talented script writers, brilliant and acknowledged in the whole world directors and cinematographers, directors of photography, interior decorators, make-up artists, editors, composers, production managers and producers.",
-      "We also have the technical staff who manage movie sets (staff responsible for lights position, dolly grips, props masters and many, many assistants). We are very familiar with special effects which are conducted by pyrotechnics or stunt men and also with computer design and high-expert equipment. We are in possession of hi-tech camera equipment, the best lenses, light systems and grips. Moreover we have hi-tech pictures studios (halls/greenscreen and bluebox) together Motion Control technology. In Poland we also have amazing equipment for editing films in the highest definition, to color the picture together with computer graphic processing (2D and 3D animations).",
-      "We also have at our disposal places where the film music and music effects can be recorded. These studios have amazing acoustic tolerance and are equipped to process sound in addition to recording final parts of a film in any surrounding coding sound technology.",
-      "Poland is located in a very interesting area. Firstly, we have clear four seasons with extremely hot summers and frosty and snowy winters. In summer time, while filming on the seaside or by lakes, we can make movies that look like those from the Caribbean or swampy Miami. In Winter, while filming in mountain regions, we freely can pretend we are in Alaska or Siberia. Polish Golden Autumn is an amazing time of billions of colors with a beauty that is hard to describe - we need to film it and then watch it.",
-      "Spring however, after the Winter is a great moment when everything is being brought back to life even while the snow is still present - it is visually both picturesque and fabulous.",
-      "Poland is a country with 1000 years history, so in very beautiful cities which have interesting architecture we are able to film and to imagine we are in any city in the world. These cities of course are not lacking in unique prerequisites. However, historical manifestation and the geopolitical history of our country wherein various cultures and trade routes meet, make Polish architecture one of its kind and outstanding.",
-      "Polish film makers with love and passion for the cinema still create movies, believing that film is still a domain of fine art and the movie screen with its audience are magical places.",
-      "We wish to share with you our passion, the magic of the cinema and the enthusiasm of those who make films. We also want to share with you and the whole world all these amazing places which can only be found in our homeland which will appear in your - our movies.",
-      "Team of the SUNSET HILLS MOTION PICTURES"
+      "Poland is a powerhouse of cinematic potential, strategically located at the crossroads of Europe's major production hubs. We leverage this central position, blending world-class technical capabilities with an unmatched diversity of locations and talent.",
+      "Our infrastructure goes beyond simple filming locations. We offer a comprehensive suite of professional services designed to handle any production scale, from independent projects to blockbuster features.",
+      "With a history spanning over a millennium, Polish architecture offers a versatile canvas. From pristine historical sites to modern urban landscapes, we can recreate almost any city in the world.",
+      "The seasons here offer unique visual narratives. Whether it's the lush, vibrant springs, golden autumnal color palettes, or dramatic winter landscapes that can stand in for Siberia or Alaska, Poland provides a natural studio for every script's needs.",
+      "At Sunset Hills, we believe film is the ultimate fine art. We combine this artistic passion with industry-leading efficiency, providing you with everything from local crew management to state-of-the-art post-production facilities."
     ],
-    render: renderLongForm
+    render: renderProduction
   },
   "/contact/": {
     title: "Contact",
@@ -187,6 +183,31 @@ function mediaFrame(src, label, className = "media-placeholder", mode = "") {
     <div class="${className} ${mode}">
       <img src="${src}" alt="${label}" loading="lazy" />
       <span class="placeholder-label">${label}</span>
+    </div>
+  `;
+}
+
+function storyboardArtifact() {
+  return `
+    <div class="storyboard-artifact">
+      <div class="artifact-visual">
+        <div class="artifact-orbit">
+          <div class="artifact-cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+        <div class="artifact-glow-2026"></div>
+        <div class="artifact-particles"></div>
+      </div>
+      <div class="artifact-content">
+        <span class="artifact-label">Explore</span>
+        <div class="artifact-title">Storyboards</div>
+      </div>
     </div>
   `;
 }
@@ -296,10 +317,19 @@ function longformParagraphs(items = []) {
 function projectFacts(page) {
   if (page.title.includes("TOM")) {
     return `
-      <div class="project-facts">
-        <div><span>Location of pictures</span><strong>Queensland, Australia.</strong></div>
-        <div><span>Estimated budget</span><strong>45 mln dolars.</strong></div>
-        <div><span>Rights</span><strong>Rights reserved by Sunset Hills Motion Pictures</strong></div>
+      <div class="project-facts tom-facts">
+        <div class="fact-item">
+          <span class="fact-label">Budget</span>
+          <strong class="fact-value">$45M</strong>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Location</span>
+          <strong class="fact-value">Queensland, Australia</strong>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Production</span>
+          <strong class="fact-value">Exclusive World Rights</strong>
+        </div>
       </div>
     `;
   }
@@ -327,15 +357,9 @@ function renderNav() {
     .join("");
 }
 
-function renderPageHero(page) {
-  const media = page.heroVideo
-    ? `<video class="page-hero-media" src="${page.heroVideo}" autoplay muted loop playsinline></video>`
-    : page.heroImage || page.image
-      ? `<img class="page-hero-media" src="${page.heroImage || page.image}" alt="" />`
-      : "";
+function renderPageHero(page, bgClass = "bg-default") {
   return `
-    <section class="page-hero">
-      ${media}
+    <section class="page-hero ${bgClass}">
       <div class="page-hero-content">
         <div class="eyebrow">${page.eyebrow || page.role || page.title}</div>
         <h1 class="page-title">${page.title}</h1>
@@ -351,67 +375,119 @@ function renderPageHero(page) {
 
 function renderHome() {
   return `
-    <section class="hero">
-      <video class="hero-bg" src="/public/assets/home-video.mp4" autoplay muted loop playsinline></video>
-      <div class="hero-copy">
-        <div class="eyebrow">Sunset hills</div>
+    <section class="hero-cinematic">
+      <video src="/public/assets/home-video.mp4" autoplay muted loop playsinline></video>
+      <div class="hero-content">
+        <span class="eyebrow">Sunset Hills</span>
         <h1>Motion Pictures</h1>
-        <p class="lead">Our company is able to supervise other productions on commission preparing a photo set, selecting objects.</p>
+        <p>Architecting stories that define the intersection of cinematic tradition and next-generation visual intelligence.</p>
         <div class="hero-actions">
-          ${link("/the-kings-of-life/", "View films")}
-          ${link("/production-in-poland/", "Production in Poland", "text-link secondary")}
+          ${link("/the-kings-of-life/", "View Slate")}
+          ${link("/about-us/", "The Studio", "text-link secondary")}
         </div>
-        ${statRail()}
       </div>
-      <aside class="hero-panel">
-        <video class="hero-video" src="/public/assets/home-video.mp4" autoplay muted loop playsinline></video>
-        <div class="chrome-frame">
-          <span>Production slate</span>
-        </div>
-        <div class="project-marquee">
-          <span>THE ADVENTURES OF TOM</span>
-          <span>THE KINGS OF LIFE</span>
-        </div>
-        <div class="slate-meta">
-          <span>Warsaw</span>
-          <span>London</span>
-          <span>Los Angeles</span>
-        </div>
-      </aside>
+      <div class="hero-scroll-indicator"><span>Explore</span></div>
     </section>
-    ${cinemaTicker()}
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-number">01.</span>
-        <div>
-          <h2>About Us</h2>
-          <p class="lead">We design scenography, we have numerous contacts with companies involved in post-production of films. .</p>
+    <section class="section narrative-section editorial-layout">
+      <div class="technical-mark"></div>
+      <div class="split narrative-layout">
+        <div class="artifact-narrative">
+          <div class="film-strip-vertical">
+            ${[...Array(5)].map((_, i) => `<div class="strip-frame"><img src="/public/assets/optimized/kings-catalog.webp" alt="" /></div>`).join("")}
+          </div>
         </div>
-      </div>
-      <div class="split">
-        ${mediaFrame("/public/assets/optimized/kings-wide.webp", "Close", "media-placeholder editorial-media")}
         <div class="copy-stack">
-          <p>We have the opportunity to hire Polish film crews at every film production, which are famous for doing their job very well.</p>
+          <span class="eyebrow">01. Brand Philosophy</span>
+          <h2 class="title-cinematic">THE DOMAIN OF FINE ART</h2>
+          <p class="lead">We design scenography, we have numerous contacts with companies involved in post-production of films. We have the opportunity to hire Polish film crews at every film production, which are famous for doing their job very well.</p>
+          <div class="philosophy-tags">
+            <span>30+ Years Legacy</span>
+            <span>Hollywood & Poland</span>
+            <span>Global Distribution</span>
+          </div>
           ${link("/about-us/", "Get to know us better")}
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section capability-showcase editorial-layout">
+      <div class="technical-mark"></div>
       <div class="section-header">
         <span class="section-number">02.</span>
-        <h2>focusing on the<br />production of two films:</h2>
+        <h2 class="title-blueprint">CORE CAPABILITIES</h2>
       </div>
-      <div class="feature-grid">
-        ${projectTile("THE ADVENTURES OF TOM", "We already have written and are ready for a production script for the aforementioned part which has been written by one of the Hollywood script writers.", "/the-adventures-of-tom/", "/public/assets/optimized/tom-cinematic.webp", "Feature film")}
-        ${projectTile("THE KINGS OF LIFE", "\"The Kings of Life\" is a modern story about friendship which is full of touching moments, love and fascination with music, but it is also about how to survive in this notoriously “human world”.", "/the-kings-of-life/", "/public/assets/optimized/kings-wide.webp", "Feature film")}
+      <div class="capabilities-mosaic">
+        <article class="cap-tile">
+          <div class="cap-visual"><div class="tech-lines"></div></div>
+          <div class="cap-content">
+            <h3>PRODUCTION DESIGN</h3>
+            <p>Designing scenography and environments that transport audiences to any era.</p>
+          </div>
+        </article>
+        <article class="cap-tile">
+          <div class="cap-visual"><div class="tech-lens"></div></div>
+          <div class="cap-content">
+            <h3>TECHNICAL INFRASTRUCTURE</h3>
+            <p>Access to professional lighting, heavy equipment, and specialized film crews.</p>
+          </div>
+        </article>
+        <article class="cap-tile">
+          <div class="cap-visual"><div class="tech-map"></div></div>
+          <div class="cap-content">
+            <h3>LOGISTICAL MASTERY</h3>
+            <p>Coordinating complex productions across Poland, USA, and Australia.</p>
+          </div>
+        </article>
       </div>
     </section>
-    ${productionCapabilities()}
-    ${slateOverview()}
+
+    <section class="section slate-interactive editorial-layout">
+      <div class="technical-mark"></div>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-neural">CURRENT SLATE</h2>
+      </div>
+      <div class="slate-grid-refined">
+        <a href="/the-adventures-of-tom/" class="slate-card" data-link>
+          <div class="slate-card-bg"><img src="/public/assets/optimized/tom-main.webp" alt="" /></div>
+          <div class="slate-card-content">
+            <span class="eyebrow">01 / FEATURE FILM</span>
+            <h3>THE ADVENTURES OF TOM</h3>
+            <p>A multi-volume cinematic adaptation of Alfred Szklarski's legendary adventures.</p>
+          </div>
+        </a>
+        <a href="/the-kings-of-life/" class="slate-card" data-link>
+          <div class="slate-card-bg"><img src="/public/assets/optimized/kings-catalog.webp" alt="" /></div>
+          <div class="slate-card-content">
+            <span class="eyebrow">02 / FEATURE FILM</span>
+            <h3>THE KINGS OF LIFE</h3>
+            <p>A modern story about friendship, love, and the strength to start again.</p>
+          </div>
+        </a>
+        <a href="/where-the-butterflies-fly/" class="slate-card" data-link>
+          <div class="slate-card-bg"><video src="/public/assets/butterflies-drive-download.mp4" muted loop playsinline></video></div>
+          <div class="slate-card-content">
+            <span class="eyebrow">03 / FILM</span>
+            <h3>WHERE THE BUTTERFLIES FLY</h3>
+            <p>An exploration of delicate motion and visual poetry.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
     ${cinemaTicker()}
-    ${contactSection()}
+    <section class="section closing-action">
+      <div class="split closing-layout">
+        <div class="closing-copy">
+          <span class="eyebrow">04. Collaboration</span>
+          <h2 class="title-cinematic">LET'S START THE NEXT PROJECT</h2>
+          <p>We are always looking for visionary partners and compelling stories. Our teams in Warsaw and London are ready to bring your vision to life.</p>
+          ${link("/contact/", "Get in Touch")}
+        </div>
+        <div class="artifact-globe"></div>
+      </div>
+    </section>
   `;
 }
 
@@ -419,7 +495,7 @@ function renderAbout(page) {
   return `
     ${renderPageHero(page)}
     <section class="section split feature-split">
-      ${mediaFrame("/public/assets/optimized/kings-wide.webp", "Sunset Hills Motion Pictures", "media-placeholder feature-media editorial-media")}
+      ${storyboardArtifact()}
       <div class="copy-stack">${paragraphs(page.paragraphs)}</div>
     </section>
     <section class="section">
@@ -450,8 +526,9 @@ function personCard(name, role, bio, href, label = "Read more", image = "") {
 }
 
 function renderProject(page) {
+  const bg = page.title.includes("TOM") ? "bg-tom" : "bg-kings";
   return `
-    ${renderPageHero(page)}
+    ${renderPageHero(page, bg)}
     ${cinemaTicker()}
     <section class="section split project-intro">
       ${mediaFrame(page.title.includes("TOM") ? "/public/assets/optimized/tom-main.webp" : "/public/assets/optimized/kings-catalog.webp", page.title, "poster-placeholder hero-poster")}
@@ -462,7 +539,7 @@ function renderProject(page) {
     </section>
     ${
       page.title.includes("TOM")
-        ? `<section class="section book-section"><div class="section-header"><span class="section-number">02.</span><h2>Rights reserved by Sunset Hills Motion Pictures</h2></div>${mediaFrame("/public/assets/optimized/tom-cinematic.webp", "THE ADVENTURES OF TOM", "media-placeholder image-band cinematic-band editorial-media")}<div class="book-grid">${tomBooks.map(([label, src], index) => `<div class="book-item"><span>${String(index + 1).padStart(2, "0")}</span>${mediaFrame(src, label, "poster-placeholder", "contain book-cover")}</div>`).join("")}</div></section>`
+        ? `<section class="section book-section"><div class="section-header"><span class="section-number">02.</span><h2>Rights reserved by Sunset Hills Motion Pictures</h2></div><a href="https://drive.google.com/file/d/1cW3f-zy3aPVO_ybidLUMRk6VBu6EtoSy/view" target="_blank" rel="noopener noreferrer">${mediaFrame("/public/assets/optimized/tom-cinematic.webp", "THE ADVENTURES OF TOM", "media-placeholder image-band cinematic-band editorial-media")}</a><div class="book-grid">${tomBooks.map(([label, src], index) => `<div class="book-item"><span>${String(index + 1).padStart(2, "0")}</span>${mediaFrame(src, label, "poster-placeholder", "contain book-cover")}</div>`).join("")}</div></section>`
         : ""
     }
   `;
@@ -470,7 +547,7 @@ function renderProject(page) {
 
 function renderProjectPlaceholder(page) {
   return `
-    ${renderPageHero(page)}
+    ${renderPageHero(page, "bg-butterflies")}
     ${cinemaTicker()}
     <section class="section">
       ${videoFrame("/public/assets/butterflies-drive-download.mp4", "Where the butterflies fly", "media-placeholder image-band cinema-video", "contain")}
@@ -478,27 +555,97 @@ function renderProjectPlaceholder(page) {
   `;
 }
 
-function renderKings(page) {
+function cinematicStack(team) {
   return `
-    ${renderProject(page)}
+    <div class="cinematic-stack">
+      ${team.map((member, i) => `
+        <article class="stack-card" style="--i: ${i}">
+          <div class="stack-image"><img src="${member.image}" alt="${member.name}" /></div>
+          <div class="stack-meta">
+            <span>${member.role}</span>
+            <h3>${member.name}</h3>
+            <p>${member.bio}</p>
+          </div>
+        </article>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderKings(page) {
+  const team = [
+    { name: "JACEK WIELGOPOLAN", role: "Producer / Director", bio: "Creative force since 1991.", image: "/public/assets/optimized/portrait-jack.webp" },
+    { name: "FILIP GUZLA", role: "Producer", bio: "Business partner and producer.", image: "/public/assets/optimized/portrait-filip.webp" },
+    { name: "GERMANO SARACCO", role: "Cinematographer", bio: "Award-winning veteran.", image: "/public/assets/optimized/portrait-germano.webp" },
+    { name: "MACIEJ ZIELIŃSKI", role: "Composer", bio: "Contemporary film music maestro.", image: "/public/assets/optimized/portrait-maciej.webp" }
+  ];
+
+  return `
+    <section class="kings-hero">
+      <img src="${page.heroImage}" alt="" />
+      <div class="kings-hero-content">
+        <span class="hero-eyebrow">Production Dossier</span>
+        <h1>${page.title}</h1>
+        <div class="hero-status"><span class="status-dot"></span><span>Active Development</span></div>
+      </div>
+    </section>
+
+    <section class="section split cinematic-narrative">
+      <div class="narrative-blocks">
+        <div class="block">
+          <span class="block-num">01.</span>
+          <h3>THE PREMISE</h3>
+          <p class="highlight">${page.paragraphs[0]}</p>
+        </div>
+        <div class="block">
+          <span class="block-num">02.</span>
+          <h3>THE CRAFT</h3>
+          <p>${page.paragraphs[1]}</p>
+        </div>
+        <div class="block">
+          <span class="block-num">03.</span>
+          <h3>GLOBAL DISTRIBUTION</h3>
+          <p>${page.paragraphs[2]}</p>
+        </div>
+        <div class="block pull-quote">
+          <p>"${page.paragraphs[3]}"</p>
+        </div>
+        <div class="block">
+          <span class="block-num">04.</span>
+          <h3>THE MISSION</h3>
+          <p>${page.paragraphs[4]}</p>
+        </div>
+      </div>
+      <div class="visual-artifact neural-viz">
+        <svg class="viz-svg" viewBox="0 0 400 400">
+          <circle class="viz-core" cx="200" cy="200" r="40" />
+          <g class="viz-nodes">
+            ${[...Array(8)].map((_, i) => `<circle cx="${200 + Math.cos(i * Math.PI/4) * 120}" cy="${200 + Math.sin(i * Math.PI/4) * 120}" r="6" />`).join("")}
+          </g>
+          <g class="viz-lines">
+            ${[...Array(8)].map((_, i) => `<line x1="200" y1="200" x2="${200 + Math.cos(i * Math.PI/4) * 120}" y2="${200 + Math.sin(i * Math.PI/4) * 120}" />`).join("")}
+          </g>
+        </svg>
+        <div class="artifact-label">Neural Cinematic Intelligence // Real-Time</div>
+      </div>
+    </section>
+
     <section class="section">
-      <div class="section-header">
-        <span class="section-number">02.</span>
-        <h2>PEOPLE ENGADED IN THE PRODUCTION OF THE FILM</h2>
-      </div>
-      ${mediaFrame("/public/assets/optimized/kings-wide.webp", "The Kings of Life", "media-placeholder image-band cinematic-band editorial-media")}
-      <div class="people-grid">
-        ${personCard("JACK WIELGOPOLAN", "Producer / Script writer / Director", "Jack Wielgopolan as a producer, distributor and script writer has been associated with movie brands in the USA and Poland since 1991. Nowadays, apart from “Kings of Life” he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski “Adventures of Tom “. The first part is called “Adventures of Tom: in the Kangaroo Kingdom “. The budget for this production amounts to $45,000,000.", "/jack-wielgopolan/", "Read more about Jack Wielgopolan", "/public/assets/optimized/portrait-jack.webp")}
-        ${personCard("FILIP GUZLA", "Producer", "Filip Guzla – businessman, partner in a law firm, film producer. He co-produced four feature films “Botox”, “Women of mafia” and “Smallworld” directed by Patryk Vega with the stars Enrique Arce known from the series “La Casa de Papel” and “Knightfall”, Piotr Adamczyk from “Karol. A man who became Pope and Aleksey Serebraykov from the Golden Globe and Oscar-nominated Leviathan. Faking Real is at the stage of post-production. He is a member of the Council of the Marcin Gortat Foundation MG13, which promotes sport and a healthy lifestyle among children and teenagers.", "#", "", "/public/assets/optimized/portrait-filip.webp")}
-        ${personCard("GERMANO SARACCO", "Cinematographer", people.germano.paragraphs.slice(0, 3).join(" "), "/germano-saracco/", "Read more about Germano Saracco", "/public/assets/optimized/portrait-germano.webp")}
-        ${personCard("MACIEJ ZIELIŃSKI", "Composer", "Germano Saracco is an award-winning cinematographer and the author of the photos for many images of feature films, documentary, music video and advertising. A graduate of the Istituto Scienze Cinematografiche in Florence and the University of Miami. Participant of the Film Technician Program at the London-based international film school. He speaks three languages – English, Italian and Spanish. He lives permanently in Los Angeles, California. Maciek Zielinski is one of the best-known and talented contemporary film music composers in Poland. For many years, a leading film music composer. He works with many film producers in Europe and Hollywood. More information about the composer’s form can be found on IMBD.", "https://www.imdb.com/name/nm0956201/", "More information about the composer's on IMBD.", "/public/assets/optimized/portrait-maciej.webp")}
-      </div>
+      <div class="section-header"><span class="section-number">02.</span><h2>Production Team</h2></div>
+      <div class="people-grid">${team.map(member => personCard(member.name, member.role, member.bio, "", "", member.image)).join("")}</div>
     </section>
   `;
 }
 
 function renderCoverage(page) {
-  const rows = [
+  const metrics = [
+    ["CONCEPT", "GOOD"],
+    ["STORY LINE", "GOOD"],
+    ["CHARACTERS", "FAIR"],
+    ["DIALOGUE", "FAIR"]
+  ];
+
+  const infoRows = [
     ["TITLE", "THE KINGS OF LIFE"],
     ["WRITER", "Jacek Wielgopolan"],
     ["FORM", "Screenplay"],
@@ -507,43 +654,93 @@ function renderCoverage(page) {
     ["SUB BY", "Dawn Jacobs"],
     ["SUB TO", "Adam Lebovitz"],
     ["COVERAGE DATE", "July 17, 2023"],
-    ["LOGLINE", "A down on his luck violinist is forced to start over his life in a different country and finds an unlikely family, in the form of a friend and a little girl, around a landfill."],
-    ["RECOMMENDATION", "Consider."],
-    ["BRIEF", "The setting makes this a memorable script, but the structure needs to be tighter and Jacob’s character needs to be further developed."]
+    ["LOGLINE", "A down on his luck violinist is forced to start over his life in a different country and finds an unlikely family, in the form of a friend and a little girl, around a landfill."]
   ];
 
   return `
-    ${renderPageHero(page)}
+    ${renderPageHero(page, "bg-coverage")}
     ${cinemaTicker()}
-    <section class="section coverage-section">
+    <section class="section coverage-section dossier-overlay">
       <div class="coverage-layout">
-        ${mediaFrame("/public/assets/optimized/coverage-table.webp", "SCRIPT COVERAGE", "media-placeholder document-frame", "contain")}
-        <div class="coverage">
-          ${rows.map(([key, value]) => `<div><strong>${key}</strong><span>${value}</span></div>`).join("")}
+        <div class="coverage-info">
+          ${infoRows.map(([key, value]) => `
+            <div class="info-row">
+              <strong>${key}</strong>
+              <span>${value}</span>
+            </div>
+          `).join("")}
+        </div>
+        <div class="evaluation-wrapper">
+          <div class="evaluation-grid">
+            ${metrics.map(([label, rating]) => `
+              <div class="evaluation-item">
+                <span class="evaluation-metric">${label}</span>
+                <div class="evaluation-rating">
+                  <span class="rating-label">${rating}</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill"></div>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+          <div class="recommendation-card">
+            <strong>RECOMMENDATION: Consider.</strong>
+            <p>The setting makes this a memorable script, but the structure needs to be tighter and Jacob’s character needs to be further developed.</p>
+          </div>
         </div>
       </div>
     </section>
   `;
 }
 
-function renderLongForm(page) {
+function neuralMap() {
   return `
-    ${renderPageHero(page)}
-    ${cinemaTicker()}
+    <div class="neural-map-container">
+      <svg class="neural-map" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+        <!-- Abstract Poland Node -->
+        <circle cx="500" cy="250" r="12" fill="var(--red)" filter="url(#glow)">
+          <animate attributeName="r" values="10;14;10" dur="3s" repeatCount="indefinite" />
+        </circle>
+        
+        <!-- Connection Lines -->
+        <path class="connection-line" d="M 500 250 Q 400 200 200 150" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000">
+           <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="4s" repeatCount="indefinite" />
+        </path>
+        <path class="connection-line" d="M 500 250 Q 450 350 220 450" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000">
+           <animate attributeName="stroke-dashoffset" from="1000" to="2000" dur="5s" repeatCount="indefinite" />
+        </path>
+        <path class="connection-line" d="M 500 250 Q 600 200 700 300" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="1000" stroke-dashoffset="1000">
+           <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="6s" repeatCount="indefinite" />
+        </path>
+        
+        <!-- City Nodes -->
+        <circle class="city-node" cx="200" cy="150" r="4" fill="var(--ink)" />
+        <circle class="city-node" cx="220" cy="450" r="4" fill="var(--ink)" />
+        <circle class="city-node" cx="700" cy="300" r="4" fill="var(--ink)" />
+      </svg>
+      <div class="map-overlay"></div>
+    </div>
+  `;
+}
+
+function renderProduction(page) {
+  return `
+    ${renderPageHero(page, "production-hero")}
     <section class="section">
-      <div class="split longform-layout">
-        <div class="film-strip">
-          <span>Paris</span>
-          <span>London</span>
-          <span>Berlin</span>
-          <span>Madrid</span>
-          <span>Prague</span>
-          <span>Moscow</span>
-        </div>
-        <div class="copy-stack longform-copy">
-          ${mediaFrame("/public/assets/optimized/production-map.webp", "PRODUCTION IN POLAND", "media-placeholder feature-media editorial-media")}
-          ${longformParagraphs(page.paragraphs)}
-        </div>
+      <div class="production-capabilities-grid">
+        ${page.paragraphs.map((para, i) => `
+          <article class="capability-card">
+            <span class="card-number">0${i + 1}</span>
+            <p>${para}</p>
+          </article>
+        `).join("")}
       </div>
     </section>
   `;
@@ -553,30 +750,29 @@ function officeCards() {
   return `
     <div class="office-grid">
       <article class="info-card">
-        <span class="card-kicker">Poland office</span>
-        <p>Sunset Hills Motion Pictures S.A.<br />02-738 Warsaw, Poland<br />ul. Dominikańska 21B</p>
+        <span class="card-kicker">Poland</span>
+        <p>Sunset Hills Motion Pictures S.A.<br />ul. Dominikańska 21B<br />02-738 Warsaw</p>
       </article>
       <article class="info-card">
-        <span class="card-kicker">United Kingdom office</span>
-        <p>SUNSET HILLS INVESTMENTS LTD<br />27 Old Gloucester Street, London,<br />United Kingdom,<br />WC1N 3AX</p>
+        <span class="card-kicker">United Kingdom</span>
+        <p>SUNSET HILLS INVESTMENTS LTD<br />27 Old Gloucester Street<br />London, WC1N 3AX</p>
       </article>
       <article class="info-card">
-        <span class="card-kicker">Contact</span>
-        <p>cool@world.pl<br />Phone: +48 606 400 500</p>
+        <span class="card-kicker">Direct</span>
+        <p>cool@world.pl<br />+48 606 400 500</p>
       </article>
     </div>
   `;
 }
 
-function contactSection(number = "05.", includeVisual = false) {
+function contactSection(number = "01.", includeVisual = false) {
   return `
-    <section class="section" id="contact">
-      <div class="section-header">
-        <span class="section-number">${number}</span>
-        <h2>Let's Talk<br />Contact</h2>
-      </div>
+    <section class="section contact-section">
       <div class="split contact-layout">
-        ${includeVisual ? `<div class="copy-stack">${mediaFrame("/public/assets/optimized/production-map.webp", "Contact", "media-placeholder feature-media editorial-media")}${officeCards()}</div>` : officeCards()}
+        <div class="copy-stack">
+          <h2>Let's Talk.</h2>
+          ${officeCards()}
+        </div>
         ${contactForm()}
       </div>
     </section>
@@ -586,17 +782,16 @@ function contactSection(number = "05.", includeVisual = false) {
 function contactForm() {
   return `
     <form class="contact-form">
-      <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" /></div>
-      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" /></div>
-      <div class="field"><label for="subject">Subject</label><input id="subject" name="subject" /></div>
-      <div class="field"><label for="message">Message</label><textarea id="message" name="message"></textarea></div>
-      <button class="submit-button" type="submit">Submit</button>
+      <div class="field"><label for="name">Name</label><input id="name" name="name" placeholder="Name" /></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="Email" /></div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Start typing..."></textarea></div>
+      <button class="submit-button" type="submit">Send Message</button>
     </form>
   `;
 }
 
 function renderContact(page) {
-  return `${renderPageHero(page)}${contactSection("01.", true)}`;
+  return `${renderPageHero(page, "bg-contact")}${contactSection("01.", true)}`;
 }
 
 function closingSlate() {
@@ -648,30 +843,61 @@ function renderPerson(page) {
       <aside>
         ${mediaFrame(page.image || "/public/assets/optimized/logo-s.webp", page.title, "portrait-placeholder profile-portrait")}
       </aside>
-      <div class="copy-stack">
+      <div class="copy-stack profile-copy">
         <span class="chip">${page.role}</span>
         <h2>${page.title}</h2>
-        ${paragraphs(page.paragraphs)}
+        <div class="bio-paragraphs">
+          ${paragraphs(page.paragraphs)}
+        </div>
       </div>
     </section>
     ${
       page.films.length
-        ? `<section class="section"><div class="section-header"><span class="section-number">03.</span><h2>${page.title === "GERMANO SARACCO" ? "BEST MOVIES" : "Jack Wielgopolan best movies as producer and co-producer"}</h2></div><div class="poster-grid">${page.films.map(([film, src]) => mediaFrame(src, film, "poster-placeholder")).join("")}</div></section>`
+        ? `<section class="section filmography-section">
+            <div class="section-header">
+              <span class="section-number">03.</span>
+              <h2>Selected Filmography</h2>
+            </div>
+            <div class="poster-grid centered-poster-grid">
+              ${page.films.map(([film, src]) => mediaFrame(src, film, "poster-placeholder")).join("")}
+            </div>
+          </section>`
         : ""
     }
   `;
 }
 
-function route() {
+async function route() {
+  const overlay = document.querySelector(".page-transition-overlay");
   const path = normalizePath(window.location.pathname);
   const page = routes[path] || routes["/"];
+  
+  // Start transition
+  if (overlay) overlay.classList.add("active");
+  
+  // Small delay for cinematic feel
+  await new Promise(r => setTimeout(r, 400));
+  
   document.title = `${page.title} - Sunset Hills Motion Pictures`;
   renderNav();
-  app.innerHTML = page.render(page) + nextPageSlate(path) + (path === "/contact/" ? "" : closingSlate());
+  app.innerHTML = page.render(page);
   window.scrollTo({ top: 0, behavior: "instant" });
   nav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
+  
+  // End transition
+  if (overlay) overlay.classList.remove("active");
+  
+  // Re-trigger scroll progress
+  updateProgress();
 }
+
+document.addEventListener("mousemove", (e) => {
+  const x = (e.clientX / window.innerWidth) * 100;
+  const y = (e.clientY / window.innerHeight) * 100;
+  document.documentElement.style.setProperty("--mouse-x", `${x}%`);
+  document.documentElement.style.setProperty("--mouse-y", `${y}%`);
+});
 
 document.addEventListener("click", (event) => {
   const anchor = event.target.closest("[data-link]");
@@ -702,3 +928,14 @@ function updateProgress() {
 window.addEventListener("scroll", updateProgress, { passive: true });
 window.addEventListener("resize", updateProgress);
 updateProgress();
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.selector-item');
+  if (!btn) return;
+  const index = btn.dataset.target;
+  document.querySelectorAll('.selector-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.talent-profile').forEach(el => el.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelector('.talent-profile[data-index="' + index + '"]').classList.add('active');
+});
+
