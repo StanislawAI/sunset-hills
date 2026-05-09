@@ -374,118 +374,224 @@ function renderPageHero(page, bgClass = "bg-default") {
 }
 
 function renderHome() {
+  const stripImages = [
+    "/public/assets/optimized/kings-wide.webp",
+    "/public/assets/optimized/tom-cinematic.webp",
+    "/public/assets/optimized/kings-catalog.webp",
+    "/public/assets/optimized/germano-mission.webp",
+    "/public/assets/optimized/germano-smokin.webp",
+    "/public/assets/optimized/poster-tkol.webp",
+    "/public/assets/optimized/poster-doubles.webp",
+    "/public/assets/optimized/poster-benefit.webp"
+  ];
+
   return `
-    <section class="hero-cinematic">
+    <section class="hero-cinematic" data-reveal>
       <video src="/public/assets/home-video.mp4" autoplay muted loop playsinline></video>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+      <div class="hero-frame-corners" aria-hidden="true">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+      </div>
+
+      <div class="hero-meta-top" aria-hidden="true">
+        <span class="rec-dot"></span>
+        <span class="rec-label">REC · 24.000fps</span>
+        <span class="hero-meta-sep">/</span>
+        <span>SCN 01</span>
+        <span class="hero-meta-sep">/</span>
+        <span>TAKE 04</span>
+      </div>
+      <div class="hero-meta-right" aria-hidden="true">
+        <span>WARSAW</span><span>·</span><span>LONDON</span><span>·</span><span>LOS ANGELES</span>
+      </div>
+
       <div class="hero-content">
-        <span class="eyebrow">Sunset Hills</span>
-        <h1>Motion Pictures</h1>
-        <p>Architecting stories that define the intersection of cinematic tradition and next-generation visual intelligence.</p>
+        <span class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span>Sunset Hills<span class="eyebrow-line"></span></span>
+        <h1 class="hero-title">
+          <span class="title-line"><span class="word" style="--d:0ms">Motion</span></span>
+          <span class="title-line"><span class="word" style="--d:160ms">Pictures.</span></span>
+        </h1>
+        <p class="hero-tag">Architecting stories at the intersection of cinematic tradition and next-generation visual intelligence — produced across Poland, Great Britain &amp; the United States.</p>
         <div class="hero-actions">
           ${link("/the-kings-of-life/", "View Slate")}
           ${link("/about-us/", "The Studio", "text-link secondary")}
         </div>
       </div>
-      <div class="hero-scroll-indicator"><span>Explore</span></div>
+
+      <div class="hero-scroll-indicator"><span>Scroll</span></div>
+      <div class="hero-bottom-bar" aria-hidden="true">
+        <span>EST. 1991</span>
+        <span class="dot"></span>
+        <span>FILM · TV · DOCUMENTARY</span>
+        <span class="dot"></span>
+        <span>SUNSET HILLS MOTION PICTURES</span>
+      </div>
     </section>
 
-    <section class="section narrative-section editorial-layout">
+    ${cinemaTicker()}
+
+    <section class="section narrative-section editorial-layout" data-reveal>
       <div class="technical-mark"></div>
       <div class="split narrative-layout">
-        <div class="artifact-narrative">
+        <div class="artifact-narrative film-strip-marquee">
           <div class="film-strip-vertical">
-            ${[...Array(5)].map((_, i) => `<div class="strip-frame"><img src="/public/assets/optimized/kings-catalog.webp" alt="" /></div>`).join("")}
+            ${stripImages.map((src) => `<div class="strip-frame"><img src="${src}" alt="" loading="lazy" /></div>`).join("")}
+            ${stripImages.map((src) => `<div class="strip-frame"><img src="${src}" alt="" loading="lazy" /></div>`).join("")}
           </div>
+          <div class="strip-perforation left" aria-hidden="true"></div>
+          <div class="strip-perforation right" aria-hidden="true"></div>
         </div>
         <div class="copy-stack">
           <span class="eyebrow">01. Brand Philosophy</span>
-          <h2 class="title-cinematic">THE DOMAIN OF FINE ART</h2>
-          <p class="lead">We design scenography, we have numerous contacts with companies involved in post-production of films. We have the opportunity to hire Polish film crews at every film production, which are famous for doing their job very well.</p>
+          <h2 class="title-cinematic title-stroke">The Domain<br/>of Fine Art</h2>
+          <p class="lead">For more than three decades we have produced, distributed and supervised motion pictures across continents — pairing Hollywood craft with the rigour of European cinema and the unmatched versatility of Polish locations and crews.</p>
           <div class="philosophy-tags">
             <span>30+ Years Legacy</span>
-            <span>Hollywood & Poland</span>
+            <span>Hollywood &amp; Poland</span>
             <span>Global Distribution</span>
+            <span>Original IP</span>
           </div>
           ${link("/about-us/", "Get to know us better")}
         </div>
       </div>
     </section>
 
-    <section class="section capability-showcase editorial-layout">
-      <div class="technical-mark"></div>
+    <section class="section stats-section" data-reveal>
       <div class="section-header">
         <span class="section-number">02.</span>
-        <h2 class="title-blueprint">CORE CAPABILITIES</h2>
+        <h2 class="title-cinematic">By the Numbers</h2>
       </div>
-      <div class="capabilities-mosaic">
-        <article class="cap-tile">
-          <div class="cap-visual"><div class="tech-lines"></div></div>
-          <div class="cap-content">
-            <h3>PRODUCTION DESIGN</h3>
-            <p>Designing scenography and environments that transport audiences to any era.</p>
-          </div>
-        </article>
-        <article class="cap-tile">
-          <div class="cap-visual"><div class="tech-lens"></div></div>
-          <div class="cap-content">
-            <h3>TECHNICAL INFRASTRUCTURE</h3>
-            <p>Access to professional lighting, heavy equipment, and specialized film crews.</p>
-          </div>
-        </article>
-        <article class="cap-tile">
-          <div class="cap-visual"><div class="tech-map"></div></div>
-          <div class="cap-content">
-            <h3>LOGISTICAL MASTERY</h3>
-            <p>Coordinating complex productions across Poland, USA, and Australia.</p>
-          </div>
-        </article>
+      <div class="stats-grid">
+        <div class="stat-card" data-reveal>
+          <span class="stat-num" data-count="35">00</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Years across Hollywood &amp; Poland</span>
+        </div>
+        <div class="stat-card" data-reveal>
+          <span class="stat-num" data-count="9">00</span>
+          <span class="stat-label">Feature films in The Adventures of Tom</span>
+        </div>
+        <div class="stat-card" data-reveal>
+          <span class="stat-num" data-count="2">0</span>
+          <span class="stat-label">Offices · Warsaw &amp; London</span>
+        </div>
+        <div class="stat-card stat-budget" data-reveal>
+          <span class="stat-prefix">$</span><span class="stat-num" data-count="45">00</span><span class="stat-suffix">M</span>
+          <span class="stat-label">Production budget · Tom · Australia</span>
+        </div>
       </div>
     </section>
 
-    <section class="section slate-interactive editorial-layout">
+    <section class="section capability-showcase editorial-layout" data-reveal>
       <div class="technical-mark"></div>
       <div class="section-header">
         <span class="section-number">03.</span>
-        <h2 class="title-neural">CURRENT SLATE</h2>
+        <h2 class="title-blueprint">Core Capabilities</h2>
+      </div>
+      <div class="capabilities-mosaic">
+        <article class="cap-tile" data-reveal>
+          <div class="cap-visual"><div class="cap-art cap-art-strip" aria-hidden="true"></div></div>
+          <div class="cap-content">
+            <span class="cap-num">01</span>
+            <h3>Production Design</h3>
+            <p>Scenography, set construction and location dressing — recreating any era from medieval kingdoms to brutalist futures.</p>
+          </div>
+        </article>
+        <article class="cap-tile" data-reveal>
+          <div class="cap-visual"><div class="cap-art cap-art-lens" aria-hidden="true"></div></div>
+          <div class="cap-content">
+            <span class="cap-num">02</span>
+            <h3>Technical Infrastructure</h3>
+            <p>Professional lighting, 64m cranes, stunt teams &amp; renowned Polish crews — every department, ready to deploy.</p>
+          </div>
+        </article>
+        <article class="cap-tile" data-reveal>
+          <div class="cap-visual"><div class="cap-art cap-art-map" aria-hidden="true"></div></div>
+          <div class="cap-content">
+            <span class="cap-num">03</span>
+            <h3>Logistical Mastery</h3>
+            <p>Coordinating cross-border productions between Poland, the United Kingdom, the USA and Australia.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section pull-quote-section" data-reveal>
+      <div class="quote-frame">
+        <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote class="quote-body">
+          Among the literally thousands of screenplays I&rsquo;ve read, the scenario written by Jacek Wielgopolan, &ldquo;The Kings of Life&rdquo;, is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears.
+        </blockquote>
+        <div class="quote-attrib">
+          <img src="/public/assets/optimized/portrait-germano.webp" alt="Germano Saracco" loading="lazy" />
+          <div>
+            <strong>Germano Saracco</strong>
+            <span>Cinematographer · Smokin&rsquo; Aces, Hopeful Notes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section slate-interactive editorial-layout" data-reveal>
+      <div class="technical-mark"></div>
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="title-neural">Current Slate</h2>
       </div>
       <div class="slate-grid-refined">
-        <a href="/the-adventures-of-tom/" class="slate-card" data-link>
+        <a href="/the-adventures-of-tom/" class="slate-card" data-link data-reveal>
           <div class="slate-card-bg"><img src="/public/assets/optimized/tom-main.webp" alt="" /></div>
+          <div class="slate-card-overlay"></div>
           <div class="slate-card-content">
-            <span class="eyebrow">01 / FEATURE FILM</span>
-            <h3>THE ADVENTURES OF TOM</h3>
-            <p>A multi-volume cinematic adaptation of Alfred Szklarski's legendary adventures.</p>
+            <span class="eyebrow">01 / Feature Film</span>
+            <h3>The Adventures of Tom</h3>
+            <p>A multi-volume cinematic adaptation of Alfred Szklarski&rsquo;s legendary adventures.</p>
+            <span class="slate-card-cta">Project details <i>&rarr;</i></span>
           </div>
         </a>
-        <a href="/the-kings-of-life/" class="slate-card" data-link>
+        <a href="/the-kings-of-life/" class="slate-card" data-link data-reveal>
           <div class="slate-card-bg"><img src="/public/assets/optimized/kings-catalog.webp" alt="" /></div>
+          <div class="slate-card-overlay"></div>
           <div class="slate-card-content">
-            <span class="eyebrow">02 / FEATURE FILM</span>
-            <h3>THE KINGS OF LIFE</h3>
-            <p>A modern story about friendship, love, and the strength to start again.</p>
+            <span class="eyebrow">02 / Feature Film</span>
+            <h3>The Kings of Life</h3>
+            <p>A modern story about friendship, love and the strength to start again.</p>
+            <span class="slate-card-cta">Project details <i>&rarr;</i></span>
           </div>
         </a>
-        <a href="/where-the-butterflies-fly/" class="slate-card" data-link>
-          <div class="slate-card-bg"><video src="/public/assets/butterflies-drive-download.mp4" muted loop playsinline></video></div>
+        <a href="/where-the-butterflies-fly/" class="slate-card" data-link data-reveal>
+          <div class="slate-card-bg"><video src="/public/assets/butterflies-drive-download.mp4" muted loop playsinline autoplay></video></div>
+          <div class="slate-card-overlay"></div>
           <div class="slate-card-content">
-            <span class="eyebrow">03 / FILM</span>
-            <h3>WHERE THE BUTTERFLIES FLY</h3>
+            <span class="eyebrow">03 / Film</span>
+            <h3>Where the Butterflies Fly</h3>
             <p>An exploration of delicate motion and visual poetry.</p>
+            <span class="slate-card-cta">Project details <i>&rarr;</i></span>
           </div>
         </a>
       </div>
     </section>
 
-    ${cinemaTicker()}
-    <section class="section closing-action">
+    <section class="section closing-action" data-reveal>
       <div class="split closing-layout">
         <div class="closing-copy">
-          <span class="eyebrow">04. Collaboration</span>
-          <h2 class="title-cinematic">LET'S START THE NEXT PROJECT</h2>
+          <span class="eyebrow">05. Collaboration</span>
+          <h2 class="title-cinematic">Let&rsquo;s start<br/>the next project.</h2>
           <p>We are always looking for visionary partners and compelling stories. Our teams in Warsaw and London are ready to bring your vision to life.</p>
-          ${link("/contact/", "Get in Touch")}
+          <div class="hero-actions">
+            ${link("/contact/", "Get in Touch")}
+            ${link("/production-in-poland/", "Production in Poland", "text-link secondary")}
+          </div>
         </div>
-        <div class="artifact-globe"></div>
+        <div class="globe-map" aria-hidden="true">
+          <div class="globe-rings"><span></span><span></span><span></span></div>
+          <div class="globe-marker" style="--x:30%;--y:34%"><span class="pulse"></span><b>Warsaw</b></div>
+          <div class="globe-marker" style="--x:24%;--y:38%"><span class="pulse"></span><b>London</b></div>
+          <div class="globe-marker" style="--x:12%;--y:46%"><span class="pulse"></span><b>Los Angeles</b></div>
+          <div class="globe-marker" style="--x:80%;--y:72%"><span class="pulse"></span><b>Sydney</b></div>
+        </div>
       </div>
     </section>
   `;
@@ -887,9 +993,58 @@ async function route() {
   
   // End transition
   if (overlay) overlay.classList.remove("active");
-  
+
+  // Scroll reveal & counters
+  setupReveal();
+  setupCounters();
+
   // Re-trigger scroll progress
   updateProgress();
+}
+
+function setupReveal() {
+  const items = document.querySelectorAll("[data-reveal]");
+  if (!items.length) return;
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+  items.forEach((el) => io.observe(el));
+}
+
+function setupCounters() {
+  const nums = document.querySelectorAll(".stat-num[data-count]");
+  if (!nums.length) return;
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const dur = 1400;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased)
+            .toString()
+            .padStart(String(target).length, "0");
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    },
+    { threshold: 0.4 }
+  );
+  nums.forEach((el) => io.observe(el));
 }
 
 document.addEventListener("mousemove", (e) => {
