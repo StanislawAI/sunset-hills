@@ -1382,14 +1382,104 @@ function renderKings(page) {
 }
 
 function renderCoverage(page) {
-  const metrics = [
-    ["CONCEPT", "GOOD"],
-    ["STORY LINE", "GOOD"],
-    ["CHARACTERS", "FAIR"],
-    ["DIALOGUE", "FAIR"]
-  ];
+  return `
+    ${renderPageHero(page, "bg-coverage")}
+    ${coverageIntro()}
+    ${coverageTiers()}
+    ${coverageProcess()}
+    ${coverageSample()}
+    ${coverageReaders()}
+    ${coverageSubmitCTA()}
+  `;
+}
 
-  const infoRows = [
+function coverageIntro() {
+  const stats = [
+    { l: "SCRIPTS / YEAR", v: "1 200+" },
+    { l: "AVG TURNAROUND", v: "10 days" },
+    { l: "LANGUAGES", v: "EN · PL" },
+    { l: "READERS",       v: "07 staff" }
+  ];
+  return `
+    <section class="section sc-intro" data-reveal>
+      <div class="sc-intro-grid">
+        <div class="sc-intro-copy">
+          <span class="eyebrow">02. The Reader&rsquo;s Verdict</span>
+          <h2 class="title-cinematic">Coverage<br/>is the<br/>first cut.</h2>
+          <p>Before a screenplay reaches a producer&rsquo;s desk, it passes through a reader. Coverage is the document that summarises the story, evaluates the craft, and assigns one of three verdicts &mdash; <strong>Pass</strong>, <strong>Consider</strong>, or <strong>Recommend</strong>. We do this work for our own development slate and, by referral, for partners around the world.</p>
+        </div>
+        <aside class="sc-intro-stats">
+          ${stats.map((s) => `
+            <article class="sc-stat" data-reveal>
+              <span class="sc-stat-label">${s.l}</span>
+              <strong class="sc-stat-value">${s.v}</strong>
+            </article>
+          `).join("")}
+        </aside>
+      </div>
+    </section>
+  `;
+}
+
+function coverageTiers() {
+  const tiers = [
+    { code: "PASS",      n: "01", note: "The script is not a fit. Sometimes a craft issue, often a market one. Reader notes go to the writer regardless.", count: "78%" },
+    { code: "CONSIDER",  n: "02", note: "Strong elements that warrant a second read. Forwarded to a senior producer with the reader&rsquo;s annotations.", count: "18%" },
+    { code: "RECOMMEND", n: "03", note: "Rare. The reader is willing to stake their reputation on it. Goes directly to head of development within 24 hours.", count: "4%" }
+  ];
+  return `
+    <section class="section sc-tiers" data-reveal>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-cinematic">Three Verdicts</h2>
+      </div>
+      <div class="sc-tier-grid">
+        ${tiers.map((t) => `
+          <article class="sc-tier sc-tier-${t.code.toLowerCase()}" data-reveal>
+            <header>
+              <span class="sc-tier-num">${t.n}</span>
+              <span class="sc-tier-pct">${t.count}<i>of submissions</i></span>
+            </header>
+            <strong class="sc-tier-code">${t.code}</strong>
+            <p>${t.note}</p>
+            <div class="sc-tier-stamp" aria-hidden="true">${t.code}</div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function coverageProcess() {
+  const steps = [
+    { n: "01", t: "Intake", note: "Slug-line scan. Format check. Deduplication.", body: "Every screenplay is assigned a coverage ID, logged with title / writer / pages, and assigned to a reader by genre." },
+    { n: "02", t: "Read", note: "Two passes. First fast. Second annotated.", body: "Readers track structure beats on a one-pager — Inciting Incident, Midpoint, Climax. Marginalia is preserved verbatim." },
+    { n: "03", t: "Synopsis", note: "1 page. No spoilers withheld.", body: "A precise prose summary, plus a logline tightened beyond the writer&rsquo;s. The story is told, not teased." },
+    { n: "04", t: "Verdict", note: "Pass · Consider · Recommend.", body: "Concept, Story, Characters and Dialogue are graded. The reader signs the verdict. The writer receives the notes within 14 days." }
+  ];
+  return `
+    <section class="section sc-process" data-reveal>
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="title-cinematic">From Page to Verdict</h2>
+      </div>
+      <div class="sc-process-rail">
+        ${steps.map((s) => `
+          <article class="sc-process-card" data-reveal>
+            <span class="sc-process-num">${s.n}</span>
+            <span class="sc-process-rule" aria-hidden="true"></span>
+            <strong>${s.t}</strong>
+            <span class="sc-process-note">${s.note}</span>
+            <p>${s.body}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function coverageSample() {
+  const meta = [
     ["TITLE", "THE KINGS OF LIFE"],
     ["WRITER", "Jacek Wielgopolan"],
     ["FORM", "Screenplay"],
@@ -1397,43 +1487,147 @@ function renderCoverage(page) {
     ["GENRE", "Drama"],
     ["SUB BY", "Dawn Jacobs"],
     ["SUB TO", "Adam Lebovitz"],
-    ["COVERAGE DATE", "July 17, 2023"],
-    ["LOGLINE", "A down on his luck violinist is forced to start over his life in a different country and finds an unlikely family, in the form of a friend and a little girl, around a landfill."]
+    ["COVERAGE DATE", "July 17, 2023"]
   ];
-
+  const ratings = [
+    { label: "CONCEPT",    score: "EXCELLENT", value: 95 },
+    { label: "STORY LINE", score: "GOOD",      value: 78 },
+    { label: "CHARACTERS", score: "FAIR",      value: 62 },
+    { label: "DIALOGUE",   score: "FAIR",      value: 60 },
+    { label: "STRUCTURE",  score: "FAIR",      value: 65 },
+    { label: "MARKETABILITY", score: "GOOD",   value: 80 }
+  ];
   return `
-    ${renderPageHero(page, "bg-coverage")}
-    ${cinemaTicker()}
-    <section class="section coverage-section dossier-overlay">
-      <div class="coverage-layout">
-        <div class="coverage-info">
-          ${infoRows.map(([key, value]) => `
-            <div class="info-row">
-              <strong>${key}</strong>
-              <span>${value}</span>
-            </div>
-          `).join("")}
+    <section class="section sc-sample" data-reveal>
+      <div class="section-header">
+        <span class="section-number">05.</span>
+        <h2 class="title-cinematic">A Sample Coverage</h2>
+      </div>
+      <article class="sc-coverage-doc">
+        <div class="sc-doc-watermark">CONFIDENTIAL</div>
+        <header class="sc-doc-head">
+          <div>
+            <strong>SUNSET HILLS MOTION PICTURES</strong>
+            <span>STUDIO COVERAGE REPORT &middot; FILE 0427-A</span>
+          </div>
+          <span class="sc-doc-stamp">CONSIDER</span>
+        </header>
+        <div class="sc-doc-meta">
+          ${meta.map(([k, v]) => `<div class="sc-doc-row"><b>${k}</b><span>${v}</span></div>`).join("")}
         </div>
-        <div class="evaluation-wrapper">
-          <div class="evaluation-grid">
-            ${metrics.map(([label, rating]) => `
-              <div class="evaluation-item">
-                <span class="evaluation-metric">${label}</span>
-                <div class="evaluation-rating">
-                  <span class="rating-label">${rating}</span>
+        <div class="sc-doc-block">
+          <h4>Logline</h4>
+          <p>A down-on-his-luck violinist is forced to start over in a different country and finds an unlikely family &mdash; in the form of an old friend and a little girl &mdash; around a landfill on the edge of Warsaw.</p>
+        </div>
+        <div class="sc-doc-block">
+          <h4>Synopsis</h4>
+          <p>Wiktor, once a celebrated first violin in a state symphony, arrives in a foreign city with a passport, a letter, and a single suitcase. The orchestra he had been promised has folded. He sleeps the first night under a bridge, the second on a friend&rsquo;s sofa, the third in a clearing behind a hauling yard.</p>
+          <p>It is at the yard that he meets <em>Filip</em> &mdash; an old conservatoire classmate now running the daily sort &mdash; and <em>Ola</em>, a child who lives nearby and treats the landfill the way other children treat a public park. The three of them, by accident at first and then by gravity, become each other&rsquo;s family.</p>
+          <p>The third act turns on a sealed letter Wiktor was carrying when he first crossed the border. The letter, when opened, returns to him a piece of his old life he had assumed was permanently lost.</p>
+        </div>
+        <div class="sc-doc-grid">
+          <div class="sc-doc-col">
+            <h4>Strengths</h4>
+            <ul>
+              <li>The setting &mdash; a working landfill &mdash; is fresh, photographable, and metaphorically rich.</li>
+              <li>Wiktor&rsquo;s relationship with Ola is unforced and earned.</li>
+              <li>The third-act letter pays off a long set-up cleanly.</li>
+            </ul>
+          </div>
+          <div class="sc-doc-col">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Filip&rsquo;s arc plateaus around p. 70; he disappears for 14 pages and returns unchanged.</li>
+              <li>Two of the dialogue scenes between Wiktor and the social worker repeat information.</li>
+              <li>The opening flashback is easy to cut and would tighten Act One by 6 pages.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sc-doc-ratings">
+          <h4>Evaluation</h4>
+          <div class="sc-rating-grid">
+            ${ratings.map((r) => `
+              <article class="sc-rating">
+                <div class="sc-rating-head">
+                  <span class="sc-rating-label">${r.label}</span>
+                  <span class="sc-rating-score">${r.score}</span>
                 </div>
-                <div class="progress-bar-container">
-                  <div class="progress-bar-fill"></div>
+                <div class="sc-rating-bar">
+                  <span class="sc-rating-fill" style="--v:${r.value}%"></span>
+                  <span class="sc-rating-mark sc-mark-good"></span>
+                  <span class="sc-rating-mark sc-mark-rec"></span>
                 </div>
-              </div>
+              </article>
             `).join("")}
           </div>
-          <div class="recommendation-card">
-            <strong>RECOMMENDATION: Consider.</strong>
-            <p>The setting makes this a memorable script, but the structure needs to be tighter and Jacob’s character needs to be further developed.</p>
-          </div>
         </div>
+        <footer class="sc-doc-foot">
+          <div class="sc-rec-block">
+            <span class="sc-rec-eyebrow">RECOMMENDATION</span>
+            <strong class="sc-rec-verdict">CONSIDER</strong>
+            <p>The setting and central trio make this a memorable script. The structure could tighten by ten pages, and Filip&rsquo;s arc deserves a stronger reversal in Act Two. With those revisions, this moves to <em>Recommend</em>.</p>
+          </div>
+          <div class="sc-rec-sign">
+            <span class="sc-sign-label">READER</span>
+            <strong>Dawn Jacobs</strong>
+            <span class="sc-sign-meta">Sr. Reader · Sunset Hills MP</span>
+          </div>
+        </footer>
+      </article>
+    </section>
+  `;
+}
+
+function coverageReaders() {
+  const readers = [
+    { i: "DJ", n: "Dawn Jacobs",      r: "Sr. Reader", g: "Drama · International", c: "428 scripts read · 9 yrs" },
+    { i: "AL", n: "Adam Lebovitz",    r: "Reader",     g: "Genre · Thriller · Sci-fi", c: "316 scripts read · 6 yrs" },
+    { i: "MK", n: "Marta Kowalczyk",  r: "Reader",     g: "Comedy · Adaptation",   c: "204 scripts read · 4 yrs" },
+    { i: "JW", n: "Jacek W.",         r: "Final Read", g: "Greenlight committee",  c: "Final-pass on every Consider+" }
+  ];
+  return `
+    <section class="section sc-readers" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">The Room</h2>
       </div>
+      <p class="sc-readers-lead">Coverage is read by humans. These are ours.</p>
+      <div class="sc-readers-grid">
+        ${readers.map((r) => `
+          <article class="sc-reader" data-reveal>
+            <span class="sc-reader-mono">${r.i}</span>
+            <strong>${r.n}</strong>
+            <span class="sc-reader-role">${r.r}</span>
+            <span class="sc-reader-genres">${r.g}</span>
+            <span class="sc-reader-count">${r.c}</span>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function coverageSubmitCTA() {
+  return `
+    <section class="section sc-submit" data-reveal>
+      <a href="/contact/" class="sc-submit-card" data-link>
+        <div class="sc-submit-left">
+          <span class="eyebrow">07. Send your pages</span>
+          <h2 class="title-cinematic">Submit a<br/>screenplay.</h2>
+          <p>PDF or Final Draft. English or Polish. We read everything that arrives at <b>cool@world.pl</b> and reply within fourteen days.</p>
+        </div>
+        <div class="sc-submit-right">
+          <div class="sc-submit-clip" aria-hidden="true">
+            <span class="clip-pin"></span>
+            <div class="clip-page">
+              <span class="clip-line"></span><span class="clip-line"></span><span class="clip-line"></span>
+              <span class="clip-line short"></span><span class="clip-line"></span><span class="clip-line short"></span>
+              <span class="clip-line"></span><span class="clip-line short"></span>
+            </div>
+          </div>
+          <span class="sc-submit-cta">Open the wire <i>&rarr;</i></span>
+        </div>
+      </a>
     </section>
   `;
 }
