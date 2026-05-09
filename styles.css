@@ -94,14 +94,14 @@ body::after {
   background:
     radial-gradient(
       circle 200px at var(--mouse-x) var(--mouse-y),
-      rgba(255, 235, 200, 0.55) 0%,
-      rgba(255, 200, 140, 0.28) 40%,
+      rgba(255, 235, 200, 0.27) 0%,
+      rgba(255, 200, 140, 0.14) 40%,
       rgba(255, 200, 140, 0) 75%
     ),
     radial-gradient(
       circle 520px at var(--mouse-x) var(--mouse-y),
-      rgba(255, 150, 80, 0.28) 0%,
-      rgba(220, 60, 70, 0.18) 38%,
+      rgba(255, 150, 80, 0.14) 0%,
+      rgba(220, 60, 70, 0.09) 38%,
       rgba(220, 60, 70, 0) 78%
     );
   will-change: background;

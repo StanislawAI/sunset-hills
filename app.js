@@ -1,21 +1,33 @@
+import { translations } from "./i18n.js";
+
+function getLang() {
+  return window.location.pathname.startsWith("/pl/") ? "pl" : "en";
+}
+
+const lang = getLang();
+const t = translations[lang];
+
 const navItems = [
-  { label: "Home", path: "/" },
-  { label: "About Us", path: "/about-us/" },
-  { label: "Where the butterflies fly", path: "/where-the-butterflies-fly/" },
-  { label: "The Adventures of Tom", path: "/the-adventures-of-tom/" },
-  { label: "The Kings of life", path: "/the-kings-of-life/" },
-  { label: "Script Coverage", path: "/script-coverage/" },
-  { label: "Production in Poland", path: "/production-in-poland/" },
-  { label: "Contact", path: "/contact/" }
+  { label: t.nav.home, path: lang === "pl" ? "/pl/" : "/" },
+  { label: t.nav.about, path: lang === "pl" ? "/pl/about-us/" : "/about-us/" },
+  { label: t.nav.butterflies, path: lang === "pl" ? "/pl/where-the-butterflies-fly/" : "/where-the-butterflies-fly/" },
+  { label: t.nav.tom, path: lang === "pl" ? "/pl/the-adventures-of-tom/" : "/the-adventures-of-tom/" },
+  { label: t.nav.kings, path: lang === "pl" ? "/pl/the-kings-of-life/" : "/the-kings-of-life/" },
+  { label: t.nav.coverage, path: lang === "pl" ? "/pl/script-coverage/" : "/script-coverage/" },
+  { label: t.nav.production, path: lang === "pl" ? "/pl/production-in-poland/" : "/production-in-poland/" },
+  { label: t.nav.contact, path: lang === "pl" ? "/pl/contact/" : "/contact/" }
 ];
 
 const people = {
   jack: {
     title: "Jack Wielgopolan",
-    role: "Producer / Script writer / Director",
-    path: "/jack-wielgopolan/",
+    role: lang === "pl" ? "Producent / Scenarzysta / Reżyser" : "Producer / Script writer / Director",
+    path: lang === "pl" ? "/pl/jack-wielgopolan/" : "/jack-wielgopolan/",
     image: "/public/assets/optimized/portrait-jack.webp",
-    paragraphs: [
+    paragraphs: lang === "pl" ? [
+      "Jacek Wielgopolan jako producent, dystrybutor i scenarzysta jest związany z markami filmowymi w USA i Polsce od 1991 roku.",
+      "Obecnie, poza „Królami życia”, przygotowuje serię 9 filmów fabularnych opartych na powieści Alfreda Szklarskiego „Przygody Tomka”. Pierwsza część nosi tytuł „Przygody Tomka: w krainie kangurów”. Budżet tej produkcji wynosi 45 000 000 USD."
+    ] : [
       "Jack Wielgopolan as a producer, distributor and script writer as been associated with movie brands in the USA and Poland since 1991.",
       "Nowadays, apart from \"Kings of Life\" he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski \"Adventures of Tom\". The first part is called \"Adventures of Tom: in the Kangaroo Kingdom\". The budget for this production amounts of $45,000,000"
     ],
@@ -24,19 +36,28 @@ const people = {
       ["Neverending Story III 1994 Jack Black Jason James Richter", "/public/assets/optimized/poster-never.webp"],
       ["Dzieje mistrza Twardowskiego 1996", "/public/assets/optimized/poster-twardowski.webp"],
       ["The Doubles 2006", "/public/assets/optimized/poster-doubles.webp"],
-      ["The Kings of Life", "/public/assets/optimized/poster-tkol.webp"]
+      [t.nav.kings, "/public/assets/optimized/poster-tkol.webp"]
     ]
   },
   germano: {
     title: "GERMANO SARACCO",
-    role: "CINEMATOGRAPHER",
-    path: "/germano-saracco/",
+    role: lang === "pl" ? "OPERATOR OBRAZU" : "CINEMATOGRAPHER",
+    path: lang === "pl" ? "/pl/germano-saracco/" : "/germano-saracco/",
     image: "/public/assets/optimized/portrait-germano.webp",
-    paragraphs: [
+    paragraphs: lang === "pl" ? [
+      "Germano Saracco jest wielokrotnie nagradzanym operatorem obrazu i autorem zdjęć do wielu filmów fabularnych, dokumentalnych, teledysków i reklam.",
+      "Absolwent Istituto Scienze Cinematografiche we Florencji oraz University of Miami. Uczestnik Programu Techników Filmowych w międzynarodowej szkole filmowej w Londynie.",
+      "Mówi w trzech językach – angielskim, włoskim i hiszpańskim. Mieszka na stałe w Los Angeles w Kalifornii.",
+      "„Dzisiaj trudno zliczyć dni, które spędziłem w ciągu ostatnich 35 lat na planach zdjęciowych podczas mojej filmowej przygody i trudno zliczyć liczbę scenariuszy, które udało mi się przeczytać. Mogę z pełną odpowiedzialnością powiedzieć, że spośród dosłownie tysięcy lektur, które przeczytałem, i scenariuszy gotowych do realizacji, scenariusz napisany przez Jacka Wielgopolana „Królowie życia” jest jedynym, który szczerze mnie rozbawił. Zakończenie tej historii zaskoczyło mnie tak bardzo, że w jednej chwili wzruszyłem się do łez i bez chwili wahania zgodziłem się pracować nad tym wyjątkowym i ważnym dla mnie projektem filmowym.”",
+      "Nagrody:",
+      "International Social Commitment w Accademia Belle Arti A Venezia za funkcję operatora w filmie „Hopeful Notes”.",
+      "Nagroda Złotego Kondora.",
+      "Nagroda za najlepszy film krótkometrażowy „Eve’s Dropping In” na festiwalu filmowym w Atlantic City."
+    ] : [
       "Germano Saracco is an award-winning cinematographer and the author of the photos for many images of feature films, documentary, music video and advertising.",
       "A graduate of the Istituto Scienze Cinematografiche in Florence and the University of Miami. Participant of the Film Technician Program at the London-based international film school.",
       "He speaks three languages - English, Italian and Spanish. He lives permanently in Los Angeles, California.",
-      "\"Today, it's difficult to count the days I spent in the last 35 years on the photos sets during my film adventure and it is difficult to count the number of scenarios that I have been able to read. I can say with full responsibility that among the literally thousands of readings I've read and the screenplays ready for filmmaking, the scenario written by Jacek Wielgopolan, \"The Kings of Life\" is the only one that has sincerely amused me. The ending of this story surprised me so much that in just a moment I was moved to tears and without a moment's hesitation I agreed to work on this unique and important film project for me.\"",
+      "\"Today, it's difficult to count the days I spent in the last 35 years on the photos sets during my film adventure and it is difficult to count the number of scenarios that I have been able to read. I can say with full responsibility that among the literally thousands of readings I've read and the screenplays ready for filmmaking, the scenario written by Jacek Wielgopolan, \"The Kings of Life\" is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears and without a moment's hesitation I agreed to work on this unique and important film project for me.\"",
       "Rewards:",
       "International Social Commitment w Accademia Belle Arti A Venezia for the operator's function in film “Hopeful Notes”.",
       "Gold Condor Award.",
@@ -50,14 +71,25 @@ const people = {
   },
   dawn: {
     title: "Dawn Jacobs",
-    role: "CCO of Sunset Hills Motion Pictures",
-    path: "/dawn-jacobs/",
+    role: lang === "pl" ? "Dyrektor kreatywna (CCO) Sunset Hills Motion Pictures" : "CCO of Sunset Hills Motion Pictures",
+    path: lang === "pl" ? "/pl/dawn-jacobs/" : "/dawn-jacobs/",
     image: "/public/assets/optimized/about-dawn.webp",
-    paragraphs: [
+    paragraphs: lang === "pl" ? [
+      "Odnosząca sukcesy Dyrektor Marketingu z bogatym i różnorodnym doświadczeniem oraz strategicznym, kreatywnym i przedsiębiorczym nastawieniem.",
+      "Jej entuzjazm do planowania strategicznego i rozwoju kreatywnego pozwolił jej osiągnąć sukcesy w tworzeniu stron internetowych, rebrandingu i wprowadzaniu nowych produktów na rynek.",
+      "Doświadczenie zawodowe:",
+      "• New Dawn Effects, Sun Valley, CA (Business Manager, Marketing, Office Manager);",
+      "• Vegetable Juices, Bedford Park, IL (Dyrektor Marketingu);",
+      "• Ach Foods, Oakbrook Terrace, IL (Senior Associate Brand Manager);",
+      "• Sara Lee, Downers Grove, IL (Senior Marketing Manager C-Store);",
+      "• The Kellogg Company, Elmhurst, IL (Senior Customer Marketing Manager);",
+      "• Griffith Laboratories, Alsip, IL (Senior Marketing Solutions Manager)."
+    ] : [
       "Successful Marketing Director with extensive and varied background, and a strategic, creative and entrepreneurial mind-set.",
       "Her enthusiasm for strategically led planning and creative development has enabled her to deliver results in successful website development, rebranding, and new product launches.",
       "Professional Experience:",
       "• New Dawn Effects, Sun Valley, CA (Business Manager, Marketing, Office Manager);",
+      "• Vegetable Juices, Bedford Park, IL (Business Manager, Marketing, Office Manager);",
       "• Vegetable Juices, Bedford Park, IL (Director of Marketing);",
       "• Ach Foods, Oakbrook Terrace, IL (Senior Associate Brand Manager);",
       "• Sara Lee, Downers Grove, IL (Senior Marketing Manager C-Store);",
@@ -81,12 +113,15 @@ const tomBooks = [
 
 const routes = {
   "/": {
-    title: "Sunset hills Motion Pictures",
-    lead: "Our company is able to supervise other productions on commission preparing a photo set, selecting objects.",
+    title: translations.en.nav.home,
+    render: renderHome
+  },
+  "/pl/": {
+    title: translations.pl.nav.home,
     render: renderHome
   },
   "/about-us/": {
-    title: "About us",
+    title: translations.en.nav.about,
     eyebrow: "01. About Us",
     heroImage: "/public/assets/optimized/kings-wide.webp",
     paragraphs: [
@@ -98,15 +133,35 @@ const routes = {
     ],
     render: renderAbout
   },
+  "/pl/about-us/": {
+    title: translations.pl.nav.about,
+    eyebrow: "01. O nas",
+    heroImage: "/public/assets/optimized/kings-wide.webp",
+    paragraphs: [
+      "Nasza firma jest w stanie nadzorować inne produkcje na zlecenie, przygotowując plan zdjęciowy, dobierając obiekty.",
+      "Nasze dwa biura: w Polsce i Wielkiej Brytanii koncentrują się obecnie na produkcji dwóch filmów: „Królowie życia” i „Przygody Tomka”.",
+      "Nasz zespół produkcyjny, opierający się na ponad 30-letnim doświadczeniu w Hollywood i Polsce, zdecydował się nakręcić film łączący komedię i dramat, który jest najbardziej poszukiwanym i docenianym gatunkiem przez widzów i festiwale filmowe na całym świecie. Chcemy, aby ta produkcja odbiegała od przyjętych norm, czyniąc ten film prawdziwym, komercyjnym projektem, który pozwoli inwestorom podwoić zyski.",
+      "Dodatkowo nasza firma jest w stanie nadzorować inne produkcje na zlecenie, przygotowując plan zdjęciowy, dobierając obiekty. Projektujemy scenografię, posiadamy liczne kontakty z firmami zajmującymi się postprodukcją filmów. Mamy możliwość wynajęcia polskich ekip filmowych przy każdej produkcji filmowej, które słyną z bardzo dobrego wykonywania swojej pracy. Posiadamy również liczne kontakty z firmami dysponującymi profesjonalnym oświetleniem planów fotograficznych, podnośnikami/wysięgnikami/dźwigami o wysokości do 64 metrów. Współpracujemy ze wszystkimi grupami kaskaderskimi działającymi w Polsce (efekty kaskaderskie z ludźmi, zwierzętami – końmi, samochodami, motocyklami, samolotami).",
+      "Podsumowując, jesteśmy w stanie podjąć się realizacji filmu z niemal każdej epoki, aż po czasy współczesne."
+    ],
+    render: renderAbout
+  },
   "/where-the-butterflies-fly/": {
-    title: "Where the butterflies fly",
-    eyebrow: "Where the butterflies fly",
+    title: translations.en.nav.butterflies,
+    eyebrow: translations.en.nav.butterflies,
+    heroVideo: "/public/assets/butterflies-drive-download.mp4",
+    paragraphs: [],
+    render: renderProjectPlaceholder
+  },
+  "/pl/where-the-butterflies-fly/": {
+    title: translations.pl.nav.butterflies,
+    eyebrow: translations.pl.nav.butterflies,
     heroVideo: "/public/assets/butterflies-drive-download.mp4",
     paragraphs: [],
     render: renderProjectPlaceholder
   },
   "/the-adventures-of-tom/": {
-    title: "THE ADVENTURES OF TOM",
+    title: translations.en.nav.tom,
     eyebrow: "01. THE ADVENTURES OF TOM",
     heroImage: "/public/assets/optimized/tom-cinematic.webp",
     paragraphs: [
@@ -119,8 +174,22 @@ const routes = {
     ],
     render: renderProject
   },
+  "/pl/the-adventures-of-tom/": {
+    title: translations.pl.nav.tom,
+    eyebrow: "01. PRZYGODY TOMKA",
+    heroImage: "/public/assets/optimized/tom-cinematic.webp",
+    paragraphs: [
+      "Niezależnie od produkcji „Królów życia”, nasza firma posiada WYŁĄCZNE PRAWO do produkcji 9 filmów fabularnych opartych na IX-tomowej serii książek Alfreda Szklarskiego o przygodach Tomka Wilmowskiego.",
+      "Nawiązaliśmy już dialog z Film Institute Screen Australia, który jest odpowiednikiem Polskiego Instytutu Sztuki Filmowej. Instytut ten zadeklarował chęć pomocy przy produkcji, a także zaoferował znaczną pomoc finansową przy filmie, który zostanie w całości wyprodukowany w Australii.",
+      "Szacowany budżet tego projektu to 45 mln dolarów.",
+      "Podsumowując, nasz sukces będzie sukcesem wszystkich. Podążamy drogą naszych marzeń, aby dążyć do WIELKIEGO SUKCESU dla nas wszystkich.",
+      "Miejsce zdjęć: Queensland, Australia.",
+      "Prawa zastrzeżone przez Sunset Hills Motion Pictures"
+    ],
+    render: renderProject
+  },
   "/the-kings-of-life/": {
-    title: "The Kings of Life",
+    title: translations.en.nav.kings,
     eyebrow: "01. The Kings of Life",
     heroImage: "/public/assets/optimized/kings-wide.webp",
     paragraphs: [
@@ -134,14 +203,35 @@ const routes = {
     ],
     render: renderKings
   },
+  "/pl/the-kings-of-life/": {
+    title: translations.pl.nav.kings,
+    eyebrow: "01. Królowie życia",
+    heroImage: "/public/assets/optimized/kings-wide.webp",
+    paragraphs: [
+      "„Królowie życia” to produkcja bez precedensu w historii polskiej kinematografii.",
+      "Aby uczynić projekt filmowy prawdziwym arcydziełem, zamierzamy zaangażować do niego gwiazdy Hollywood, które posiadają profesjonalny warsztat aktorski i odnajdą się w gatunku komediodramatu.",
+      "Dystrybucją tego filmu na świecie zajmie się jedna z największych firm dystrybucyjnych na świecie z siedzibą w Los Angeles w Kalifornii.",
+      "„Królowie życia” to współczesna opowieść o przyjaźni, pełna wzruszających momentów, miłości i fascynacji muzyką, ale także o tym, jak przetrwać w tym notorycznie „ludzkim świecie”. Gdy główni bohaterowie odgrywają swoje role, historia karmiona jest humorem i „światową” mądrością. „Królowie życia” to przewrotny tytuł historii w naszym filmie, ale jakże bliski losom naszych bohaterów, którzy mimo wielu przeciwności losu wciąż mieli siłę, by zacząć od nowa.",
+      "Nasz zespół produkcyjny, opierający się na ponad 30-letnim doświadczeniu w Hollywood i Polsce, zdecydował się nakręcić film łączący komedię i dramat, który jest najbardziej poszukiwanym i docenianym gatunkiem przez widzów i festiwale filmowe na całym świecie. Chcemy, aby ta produkcja odbiegała od przyjętych norm, tworząc film, który zostanie doceniony na wielu festiwalach i jako projekt komercyjny przez wielu widzów na całym świecie.",
+      "Zdjęcia plenerowe: Londyn - Anglia / Warszawa - Polska / Nowy Jork - USA",
+      "Realizując misję firmy, oprócz produkcji filmów, będziemy aktywnie wspierać potrzebujące dzieci cierpiące na choroby nowotworowe i choroby serca."
+    ],
+    render: renderKings
+  },
   "/script-coverage/": {
-    title: "SCRIPT COVERAGE",
+    title: translations.en.nav.coverage,
     eyebrow: "01. SCRIPT COVERAGE",
     heroImage: "/public/assets/optimized/coverage-table.webp",
     render: renderCoverage
   },
+  "/pl/script-coverage/": {
+    title: translations.pl.nav.coverage,
+    eyebrow: "01. ANALIZA SCENARIUSZY",
+    heroImage: "/public/assets/optimized/coverage-table.webp",
+    render: renderCoverage
+  },
   "/production-in-poland/": {
-    title: "PRODUCTION IN POLAND",
+    title: translations.en.nav.production,
     eyebrow: "01. INFORMATION ABOUT THE CAPABILITIES OF PRODUCTION IN POLAND",
     heroImage: "/public/assets/optimized/production-map.webp",
     paragraphs: [
@@ -153,9 +243,28 @@ const routes = {
     ],
     render: renderProduction
   },
+  "/pl/production-in-poland/": {
+    title: translations.pl.nav.production,
+    eyebrow: "01. INFORMACJE O MOŻLIWOŚCIACH PRODUKCJI W POLSCE",
+    heroImage: "/public/assets/optimized/production-map.webp",
+    paragraphs: [
+      "Polska to potęga potencjału filmowego, strategicznie położona na skrzyżowaniu głównych europejskich szlaków produkcyjnych. Wykorzystujemy to centralne położenie, łącząc światowej klasy możliwości techniczne z niezrównaną różnorodnością lokalizacji i talentów.",
+      "Nasza infrastruktura wykracza poza proste lokacje filmowe. Oferujemy kompleksowy zestaw profesjonalnych usług zaprojektowanych z myślą o każdej skali produkcji, od niezależnych projektów po hity kinowe.",
+      "Dzięki historii sięgającej ponad tysiąclecia, polska architektura oferuje wszechstronne płótno. Od nieskazitelnych zabytków po nowoczesne krajobrazy miejskie, możemy odtworzyć niemal każde miasto na świecie.",
+      "Pory roku oferują tu unikalne narracje wizualne. Niezależnie od tego, czy jest to bujna, tętniąca życiem wiosna, złota jesienna paleta barw, czy dramatyczne zimowe krajobrazy, które mogą zastąpić Syberię lub Alaskę, Polska stanowi naturalne studio dla potrzeb każdego scenariusza.",
+      "W Sunset Hills wierzymy, że film to najwyższa forma sztuki. Łączymy tę artystyczną pasję z wiodącą w branży wydajnością, zapewniając wszystko, od lokalnego zarządzania ekipą po najnowocześniejsze obiekty postprodukcyjne."
+    ],
+    render: renderProduction
+  },
   "/contact/": {
-    title: "Contact",
+    title: translations.en.nav.contact,
     eyebrow: "01. Let's Talk",
+    heroImage: "/public/assets/optimized/production-map.webp",
+    render: renderContact
+  },
+  "/pl/contact/": {
+    title: translations.pl.nav.contact,
+    eyebrow: "01. Porozmawiajmy",
     heroImage: "/public/assets/optimized/production-map.webp",
     render: renderContact
   },
@@ -284,15 +393,7 @@ function slateOverview() {
 }
 
 function cinemaTicker() {
-  const items = [
-    "Sunset hills Motion Pictures",
-    "THE ADVENTURES OF TOM",
-    "THE KINGS OF LIFE",
-    "SCRIPT COVERAGE",
-    "PRODUCTION IN POLAND",
-    "WARSAW",
-    "LONDON"
-  ];
+  const items = t.ticker;
   const row = items.map((item) => `<span>${item}</span>`).join("");
   return `<div class="cinema-ticker" aria-hidden="true"><div>${row}${row}</div></div>`;
 }
@@ -302,22 +403,12 @@ function lightLeak() {
 }
 
 function manifestoSection() {
-  const lines = [
-    "We do not make content.",
-    "We make motion pictures.",
-    "Films built scene by scene, frame by frame —",
-    "with crews that have spent thirty years",
-    "learning when to push in, and when to hold.",
-    "We believe a story earns its ending.",
-    "We believe an investor deserves a return,",
-    "and an audience deserves to be moved.",
-    "That is the only contract we sign."
-  ];
+  const lines = t.manifesto.lines;
   return `
     <section class="section manifesto-section" data-reveal>
       <div class="manifesto-paper">
         <div class="manifesto-meta">
-          <span>MEMO</span><span>·</span><span>FROM THE DESK OF JACEK W.</span><span>·</span><span>WARSAW</span>
+          <span>${t.manifesto.memo}</span><span>·</span><span>${t.manifesto.from}</span><span>·</span><span>${t.manifesto.loc}</span>
         </div>
         <div class="manifesto-body">
           ${lines.map((l, i) => `<p class="manifesto-line" style="--i:${i}">${l}</p>`).join("")}
@@ -329,8 +420,8 @@ function manifestoSection() {
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
             </svg>
           </span>
-          <strong>Jacek Wielgopolan</strong>
-          <span>Founder &amp; Producer</span>
+          <strong>${t.manifesto.founder}</strong>
+          <span>${t.manifesto.role}</span>
         </div>
       </div>
     </section>
@@ -338,17 +429,12 @@ function manifestoSection() {
 }
 
 function processTimeline() {
-  const steps = [
-    { n: "01", t: "Develop", note: "Script coverage. Optioning. World-building.", body: "From a single page to a green-lit screenplay — every project starts in the writers' room with seasoned readers and a director's eye." },
-    { n: "02", t: "Pre-Production", note: "Casting. Locations. Crew. Boards.", body: "Polish crews and Hollywood department heads converge on the call sheet. Storyboards are pinned, schedules are inked." },
-    { n: "03", t: "Principal Photography", note: "Roll camera. 64m cranes ready.", body: "Cameras roll across Warsaw, the Tatras, London soundstages and Queensland coastline. Stunts, lighting, every frame fought for." },
-    { n: "04", t: "Post &amp; Deliver", note: "Edit. Color. Mix. Distribute.", body: "Cut by world-class editors, scored, color-graded, mixed and delivered to global distributors based in Los Angeles." }
-  ];
+  const steps = t.process.steps;
   return `
     <section class="section process-section" data-reveal>
       <div class="section-header">
         <span class="section-number">06.</span>
-        <h2 class="title-cinematic">From Script to Screen</h2>
+        <h2 class="title-cinematic">${t.process.title}</h2>
       </div>
       <div class="process-rail" data-process-rail>
         ${steps.map((s) => `
@@ -381,29 +467,32 @@ function processTimeline() {
 }
 
 function locationsAtlas() {
-  const tiles = [
-    { src: "/public/assets/optimized/kings-wide.webp", title: "Warsaw Streets", standsIn: ["Berlin", "Prague", "1980s Vienna"] },
-    { src: "/public/assets/optimized/production-map.webp", title: "Polish Plains", standsIn: ["Ukrainian Steppes", "Kazakh Frontier"] },
-    { src: "/public/assets/optimized/tom-cinematic.webp", title: "Coastal Queensland (intl.)", standsIn: ["Tropical North", "Southeast Asia"] },
-    { src: "/public/assets/optimized/kings-catalog.webp", title: "Old Town Squares", standsIn: ["Tuscany", "Salzburg", "1900s Paris"] },
-    { src: "/public/assets/optimized/tom-main.webp", title: "Wilderness &amp; Mountain", standsIn: ["Siberia", "Alaska", "Romanian Carpathians"] },
-    { src: "/public/assets/optimized/germano-mission.webp", title: "Industrial Backlots", standsIn: ["Detroit", "East Berlin", "Manchester"] }
-  ];
+  const tiles = t.atlas.tiles.map((t, i) => ({
+    ...t,
+    src: [
+      "/public/assets/optimized/kings-wide.webp",
+      "/public/assets/optimized/production-map.webp",
+      "/public/assets/optimized/tom-cinematic.webp",
+      "/public/assets/optimized/kings-catalog.webp",
+      "/public/assets/optimized/tom-main.webp",
+      "/public/assets/optimized/germano-mission.webp"
+    ][i]
+  }));
   return `
     <section class="section atlas-section" data-reveal>
       <div class="section-header">
         <span class="section-number">07.</span>
-        <h2 class="title-cinematic">Shoot Anywhere<br/>From Poland</h2>
+        <h2 class="title-cinematic">${t.atlas.title}</h2>
       </div>
-      <p class="atlas-lead">A millennium of architecture, four distinct seasons, and crews that can dress a square like Vienna by Tuesday and Vladivostok by Thursday.</p>
+      <p class="atlas-lead">${t.atlas.lead}</p>
       <div class="atlas-grid">
-        ${tiles.map((t) => `
+        ${tiles.map((tile) => `
           <article class="atlas-tile" data-reveal>
-            <div class="atlas-image"><img src="${t.src}" alt="${t.title}" loading="lazy"/></div>
+            <div class="atlas-image"><img src="${tile.src}" alt="${tile.title}" loading="lazy"/></div>
             <div class="atlas-meta">
-              <h3>${t.title}</h3>
-              <span class="atlas-tag">Stands in for</span>
-              <ul>${t.standsIn.map((s) => `<li>${s}</li>`).join("")}</ul>
+              <h3>${tile.title}</h3>
+              <span class="atlas-tag">${t.atlas.tag}</span>
+              <ul>${tile.standsIn.map((s) => `<li>${s}</li>`).join("")}</ul>
             </div>
           </article>
         `).join("")}
@@ -429,24 +518,19 @@ function laurelSVG(left = true) {
 
 function laurelsSection() {
   const fests = [
-    { name: "Cannes", detail: "Submitted · 2025", award: "OFFICIAL ENTRY" },
-    { name: "Atlantic City", detail: "Best Short", award: "WINNER" },
-    { name: "Venice — Accademia", detail: "Social Commitment", award: "AWARDED" },
-    { name: "Sundance", detail: "Submitted · 2026", award: "OFFICIAL ENTRY" },
-    { name: "Gold Condor", detail: "Cinematography", award: "WINNER" }
+    { name: "Cannes", detail: "Submitted · 2025", award: t.laurels.entry },
+    { name: "Atlantic City", detail: "Best Short", award: t.laurels.winner },
+    { name: "Venice — Accademia", detail: "Social Commitment", award: t.laurels.award },
+    { name: "Sundance", detail: "Submitted · 2026", award: t.laurels.entry },
+    { name: "Gold Condor", detail: "Cinematography", award: t.laurels.winner }
   ];
-  const press = [
-    "“A studio that treats cinema as fine art.”  — POLISH FILM REVIEW",
-    "“Among the most exciting Hollywood-Polish co-productions of the decade.”  — VARIETY EUROPE",
-    "“Wielgopolan&rsquo;s eye for talent is uncanny.”  — THE HOLLYWOOD POLISH NEWS",
-    "“A real, working studio with a real slate.”  — SCREEN INTERNATIONAL"
-  ];
+  const press = t.laurels.press;
   const pressRow = press.map((q) => `<span>${q}</span>`).join("");
   return `
     <section class="section laurels-section" data-reveal>
       <div class="section-header">
         <span class="section-number">08.</span>
-        <h2 class="title-cinematic">Selections &amp; Recognition</h2>
+        <h2 class="title-cinematic">${t.laurels.title}</h2>
       </div>
       <div class="laurels-row">
         ${fests.map((f) => `
@@ -469,24 +553,24 @@ function laurelsSection() {
 }
 
 function statusBoard() {
-  const stages = ["Develop", "Pre-Prod", "Shoot", "Post", "Deliver"];
+  const stages = t.status.stages;
   const projects = [
-    { title: "The Adventures of Tom", director: "Jack Wielgopolan", stage: 1, days: 142, location: "Queensland, AU" },
-    { title: "The Kings of Life", director: "Jack Wielgopolan", stage: 2, days: 38, location: "Warsaw / London / NYC" },
-    { title: "Where the Butterflies Fly", director: "Sunset Hills MP", stage: 3, days: 64, location: "Polish Highlands" }
+    { title: t.nav.tom, director: "Jack Wielgopolan", stage: 1, days: 142, location: "Queensland, AU" },
+    { title: t.nav.kings, director: "Jack Wielgopolan", stage: 2, days: 38, location: "Warsaw / London / NYC" },
+    { title: t.nav.butterflies, director: "Sunset Hills MP", stage: 3, days: 64, location: "Polish Highlands" }
   ];
   return `
     <section class="section status-board-section" data-reveal>
       <div class="section-header">
         <span class="section-number">09.</span>
-        <h2 class="title-cinematic">Production Status Board</h2>
+        <h2 class="title-cinematic">${t.status.title}</h2>
       </div>
       <div class="status-board">
         ${projects.map((p) => `
           <article class="status-slate" data-reveal>
             <div class="status-slate-head">
               <span class="rec-dot"></span>
-              <span class="status-label">ACTIVE</span>
+              <span class="status-label">${t.status.active}</span>
               <span class="status-loc">${p.location}</span>
             </div>
             <h3>${p.title}</h3>
@@ -500,7 +584,7 @@ function statusBoard() {
               `).join("")}
             </ol>
             <div class="status-foot">
-              <span><b>${p.days}</b> days in stage</span>
+              <span><b>${p.days}</b> ${t.status.days}</span>
               <span class="status-stage-name">${stages[p.stage].toUpperCase()}</span>
             </div>
           </article>
@@ -512,39 +596,39 @@ function statusBoard() {
 
 function paletteLookbook() {
   const projects = [
-    { title: "The Kings of Life", swatches: [
-      { hex: "#1B2A3D", name: "Warsaw Smoke" },
-      { hex: "#9A2A2A", name: "Brick Red" },
-      { hex: "#D7A05A", name: "Whisky Amber" },
-      { hex: "#E8DDC4", name: "Letter Cream" },
-      { hex: "#0A0A0A", name: "Theatre Black" }
+    { title: t.nav.kings, swatches: [
+      { hex: "#1B2A3D", name: lang === "pl" ? "Warszawski Dym" : "Warsaw Smoke" },
+      { hex: "#9A2A2A", name: lang === "pl" ? "Ceglana Czerwień" : "Brick Red" },
+      { hex: "#D7A05A", name: lang === "pl" ? "Bursztynowa Whisky" : "Whisky Amber" },
+      { hex: "#E8DDC4", name: lang === "pl" ? "Kremowy List" : "Letter Cream" },
+      { hex: "#0A0A0A", name: lang === "pl" ? "Teatralna Czerń" : "Theatre Black" }
     ]},
-    { title: "The Adventures of Tom", swatches: [
-      { hex: "#3D2618", name: "Outback Earth" },
-      { hex: "#C75A1F", name: "Desert Dusk" },
-      { hex: "#F2C16B", name: "Reef Sand" },
-      { hex: "#1A4A4A", name: "Coral Deep" },
-      { hex: "#0E1418", name: "Night Sky" }
+    { title: t.nav.tom, swatches: [
+      { hex: "#3D2618", name: lang === "pl" ? "Ziemia Outback" : "Outback Earth" },
+      { hex: "#C75A1F", name: lang === "pl" ? "Pustynny Zmierzch" : "Desert Dusk" },
+      { hex: "#F2C16B", name: lang === "pl" ? "Piasek Rafy" : "Reef Sand" },
+      { hex: "#1A4A4A", name: lang === "pl" ? "Głębia Koralowa" : "Coral Deep" },
+      { hex: "#0E1418", name: lang === "pl" ? "Nocne Niebo" : "Night Sky" }
     ]},
-    { title: "Where the Butterflies Fly", swatches: [
-      { hex: "#2B1F3A", name: "Iris Velvet" },
-      { hex: "#7A3E63", name: "Wing Mauve" },
-      { hex: "#C9A5C6", name: "Powder Pink" },
-      { hex: "#E5E2D9", name: "Linen" },
-      { hex: "#1F1A1F", name: "Soft Black" }
+    { title: t.nav.butterflies, swatches: [
+      { hex: "#2B1F3A", name: lang === "pl" ? "Irysowy Aksamit" : "Iris Velvet" },
+      { hex: "#7A3E63", name: lang === "pl" ? "Skrzydlaty Fiolet" : "Wing Mauve" },
+      { hex: "#C9A5C6", name: lang === "pl" ? "Pudrowy Róż" : "Powder Pink" },
+      { hex: "#E5E2D9", name: lang === "pl" ? "Len" : "Linen" },
+      { hex: "#1F1A1F", name: lang === "pl" ? "Miękka Czerń" : "Soft Black" }
     ]}
   ];
   return `
     <section class="section palette-section" data-reveal>
       <div class="section-header">
         <span class="section-number">10.</span>
-        <h2 class="title-cinematic">Color Palette Lookbook</h2>
+        <h2 class="title-cinematic">${t.lookbook.title}</h2>
       </div>
       <div class="palette-stack">
         ${projects.map((p) => `
           <article class="palette-row" data-reveal>
             <div class="palette-meta">
-              <span class="eyebrow">Lookbook</span>
+              <span class="eyebrow">${t.lookbook.eyebrow}</span>
               <h3>${p.title}</h3>
             </div>
             <div class="palette-swatches">
@@ -578,14 +662,14 @@ function trailerReel() {
     <section class="section reel-section" data-reveal>
       <div class="section-header">
         <span class="section-number">11.</span>
-        <h2 class="title-cinematic">Selected Frames</h2>
+        <h2 class="title-cinematic">${t.frames.title}</h2>
       </div>
-      <p class="reel-lead">Drag to scrub. Each frame, a moment from a working set.</p>
+      <p class="reel-lead">${t.frames.lead}</p>
       <div class="reel-wrap" data-reel>
         <div class="reel-stage">
           ${stills.map((s, i) => `<div class="reel-still${i === 0 ? " active" : ""}" data-i="${i}"><img src="${s}" alt="" loading="lazy"/></div>`).join("")}
           <div class="reel-overlay-meta">
-            <span class="reel-frame-no">FRAME <b data-reel-num>01</b> / ${String(stills.length).padStart(2, "0")}</span>
+            <span class="reel-frame-no">${t.frames.frame} <b data-reel-num>01</b> / ${String(stills.length).padStart(2, "0")}</span>
             <span class="reel-tc"><b data-reel-tc>00:00:01:12</b></span>
           </div>
         </div>
@@ -599,23 +683,14 @@ function trailerReel() {
 }
 
 function lexiconSection() {
-  const terms = [
-    { word: "MOS", pos: "adv.", def: "Mit Out Sound. A shot recorded silent — sound to be added in post." },
-    { word: "Magic Hour", pos: "n.", def: "The 25 minutes after sunset that buy us a year of believability." },
-    { word: "Slate", pos: "n.", def: "The clap that syncs heaven and earth. Also: a studio's roster of pictures." },
-    { word: "Coverage", pos: "n.", def: "The reader&rsquo;s verdict on a screenplay. Pass, consider, recommend." },
-    { word: "Honey-Wagon", pos: "n.", def: "The trailer where a crew quietly survives a fourteen-hour day." },
-    { word: "Day-for-Night", pos: "n.", def: "Shooting a moonless midnight at 2 PM. Polish forests do this best." },
-    { word: "Crash Zoom", pos: "n.", def: "An emotion delivered in 18 frames. Used sparingly, it never fails." },
-    { word: "Final Cut", pos: "n.", def: "The version the director defends. The version the audience meets." }
-  ];
+  const terms = t.lexicon.terms;
   return `
     <section class="section lexicon-section" data-reveal>
       <div class="section-header">
         <span class="section-number">12.</span>
-        <h2 class="title-cinematic">Studio Lexicon</h2>
+        <h2 class="title-cinematic">${t.lexicon.title}</h2>
       </div>
-      <p class="lexicon-lead">A short dictionary of words we use on set, in the cutting room, and at four AM in production meetings.</p>
+      <p class="lexicon-lead">${t.lexicon.lead}</p>
       <div class="lexicon-grid">
         ${terms.map((t, i) => `
           <article class="lexicon-card" data-reveal style="--i:${i}">
@@ -633,19 +708,19 @@ function lexiconSection() {
 
 function aspectRatioLab() {
   const ratios = [
-    { id: "1.33", w: 1.33, h: 1, label: "Academy", note: "Citizen Kane, 1941" },
-    { id: "1.85", w: 1.85, h: 1, label: "Theatrical Flat", note: "Most studio releases" },
-    { id: "2.39", w: 2.39, h: 1, label: "Anamorphic Scope", note: "The Searchers, 1956" },
+    { id: "1.33", w: 1.33, h: 1, label: lang === "pl" ? "Format Klasyczny" : "Academy", note: lang === "pl" ? "Obywatel Kane, 1941" : "Citizen Kane, 1941" },
+    { id: "1.85", w: 1.85, h: 1, label: lang === "pl" ? "Kinowy Panoramiczny" : "Theatrical Flat", note: lang === "pl" ? "Większość premier studyjnych" : "Most studio releases" },
+    { id: "2.39", w: 2.39, h: 1, label: lang === "pl" ? "Anamorfotyczny Panoramiczny" : "Anamorphic Scope", note: lang === "pl" ? "Poszukiwacze, 1956" : "The Searchers, 1956" },
     { id: "2.76", w: 2.76, h: 1, label: "Ultra Panavision 70", note: "Ben-Hur, 1959" },
-    { id: "1.43", w: 1.43, h: 1, label: "IMAX 70mm", note: "Dunkirk, 2017" }
+    { id: "1.43", w: 1.43, h: 1, label: "IMAX 70mm", note: "Dunkierka, 2017" }
   ];
   return `
     <section class="section ratio-lab-section" data-reveal>
       <div class="section-header">
         <span class="section-number">13.</span>
-        <h2 class="title-cinematic">Aspect Ratio Lab</h2>
+        <h2 class="title-cinematic">${t.ratio.title}</h2>
       </div>
-      <p class="ratio-lead">Every story chooses its window. Click a format to see how the world fits inside it.</p>
+      <p class="ratio-lead">${t.ratio.lead}</p>
       <div class="ratio-lab" data-ratio-lab>
         <div class="ratio-stage">
           <div class="ratio-frame" data-ratio-frame style="--w:1.85;--h:1">
@@ -653,7 +728,7 @@ function aspectRatioLab() {
             <span class="frame-corner tl"></span><span class="frame-corner tr"></span>
             <span class="frame-corner bl"></span><span class="frame-corner br"></span>
             <span class="frame-id" data-ratio-id>1.85 : 1</span>
-            <span class="frame-note" data-ratio-note>Most studio releases</span>
+            <span class="frame-note" data-ratio-note>${lang === "pl" ? "Większość premier studyjnych" : "Most studio releases"}</span>
           </div>
         </div>
         <div class="ratio-controls" role="tablist">
@@ -670,21 +745,12 @@ function aspectRatioLab() {
 }
 
 function dayOnSet() {
-  const items = [
-    { t: "05:00", l: "Crew Call", d: "Trucks roll in. First coffee. Camera tested under tungsten." },
-    { t: "06:30", l: "Hair · Makeup · Wardrobe", d: "Cast transforms. Continuity stills are taken for the script supervisor." },
-    { t: "07:15", l: "Blocking &amp; Rehearsal", d: "Director, DP and actors walk the scene. Marks are taped." },
-    { t: "08:00", l: "First Take", d: "Roll sound. Roll camera. Slate. Action." },
-    { t: "12:30", l: "Lunch", d: "Six minutes of laughter. Twelve minutes of silence. The set re-lights." },
-    { t: "16:00", l: "Magic Hour", d: "The unspoken contract. Whatever isn&rsquo;t shot now will not be shot today." },
-    { t: "18:30", l: "Wrap", d: "Cameras are wrapped. The 1st AD calls the next day." },
-    { t: "23:00", l: "Dailies", d: "The director, editor and producer watch what was actually captured." }
-  ];
+  const items = t.day.items;
   return `
     <section class="section dayonset-section" data-reveal>
       <div class="section-header">
         <span class="section-number">14.</span>
-        <h2 class="title-cinematic">A Day on Set</h2>
+        <h2 class="title-cinematic">${t.day.title}</h2>
       </div>
       <ol class="dayonset-list">
         ${items.map((it, i) => `
@@ -703,13 +769,14 @@ function dayOnSet() {
 }
 
 function anatomyOfShot() {
+  const labels = t.anatomy.labels;
   return `
     <section class="section anatomy-section" data-reveal>
       <div class="section-header">
         <span class="section-number">15.</span>
-        <h2 class="title-cinematic">Anatomy of a Shot</h2>
+        <h2 class="title-cinematic">${t.anatomy.title}</h2>
       </div>
-      <p class="anatomy-lead">A frame is a contract with the audience. Every line of it is intentional.</p>
+      <p class="anatomy-lead">${t.anatomy.lead}</p>
       <div class="anatomy-wrap">
         <svg class="anatomy-diagram" viewBox="0 0 1000 580" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
@@ -729,17 +796,17 @@ function anatomyOfShot() {
           <path d="M 800 470 Q 870 410 940 480" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
           <g font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(244,247,251,0.85)" letter-spacing="2">
             <line x1="633" y1="226" x2="633" y2="120" stroke="rgba(209,32,37,0.7)"/>
-            <text x="640" y="115">HEADROOM</text>
+            <text x="640" y="115">${labels.headroom}</text>
             <line x1="697" y1="290" x2="820" y2="290" stroke="rgba(209,32,37,0.7)"/>
-            <text x="828" y="294">LEAD ROOM</text>
+            <text x="828" y="294">${labels.leadroom}</text>
             <line x1="569" y1="290" x2="430" y2="290" stroke="rgba(209,32,37,0.7)"/>
-            <text x="426" y="294" text-anchor="end">SUBJECT (RULE OF THIRDS)</text>
+            <text x="426" y="294" text-anchor="end">${labels.subject}</text>
             <line x1="200" y1="476" x2="200" y2="540" stroke="rgba(209,32,37,0.7)"/>
-            <text x="200" y="555" text-anchor="middle">FOREGROUND ANCHOR</text>
+            <text x="200" y="555" text-anchor="middle">${labels.foreground}</text>
             <line x1="870" y1="450" x2="940" y2="540" stroke="rgba(209,32,37,0.7)"/>
-            <text x="940" y="555" text-anchor="end">BACKGROUND</text>
+            <text x="940" y="555" text-anchor="end">${labels.background}</text>
             <line x1="120" y1="60" x2="60" y2="40" stroke="rgba(209,32,37,0.7)"/>
-            <text x="60" y="34" text-anchor="start">FRAME EDGE · 16 : 9</text>
+            <text x="60" y="34" text-anchor="start">${labels.edge}</text>
           </g>
         </svg>
       </div>
@@ -749,19 +816,19 @@ function anatomyOfShot() {
 
 function budgetAnatomy() {
   const slices = [
-    { pct: 22, name: "Above-the-line", note: "Director · cast · writers", c: "rgba(209,32,37,0.85)" },
-    { pct: 38, name: "Production",     note: "Crew · lighting · stunts", c: "rgba(255,168,92,0.9)" },
-    { pct: 12, name: "Post",           note: "Edit · VFX · sound", c: "rgba(232,221,196,0.85)" },
-    { pct: 18, name: "Marketing",      note: "P&amp;A · festivals", c: "rgba(122,62,99,0.9)" },
-    { pct: 10, name: "Contingency",    note: "The unknowable", c: "rgba(255,255,255,0.18)" }
+    { pct: 22, name: t.budget.slices[0].name, note: t.budget.slices[0].note, c: "rgba(209,32,37,0.85)" },
+    { pct: 38, name: t.budget.slices[1].name, note: t.budget.slices[1].note, c: "rgba(255,168,92,0.9)" },
+    { pct: 12, name: t.budget.slices[2].name, note: t.budget.slices[2].note, c: "rgba(232,221,196,0.85)" },
+    { pct: 18, name: t.budget.slices[3].name, note: t.budget.slices[3].note, c: "rgba(122,62,99,0.9)" },
+    { pct: 10, name: t.budget.slices[4].name, note: t.budget.slices[4].note, c: "rgba(255,255,255,0.18)" }
   ];
   return `
     <section class="section budget-section" data-reveal>
       <div class="section-header">
         <span class="section-number">16.</span>
-        <h2 class="title-cinematic">Budget Anatomy</h2>
+        <h2 class="title-cinematic">${t.budget.title}</h2>
       </div>
-      <p class="budget-lead">Where a $45M feature actually goes — the numbers we share with every co-financier.</p>
+      <p class="budget-lead">${t.budget.lead}</p>
       <div class="budget-bar">
         ${slices.map((s) => `<span class="budget-slice" style="flex:${s.pct};background:${s.c}"></span>`).join("")}
       </div>
@@ -782,40 +849,41 @@ function budgetAnatomy() {
 }
 
 function callSheet() {
+  const c = t.callsheet;
   return `
     <section class="section callsheet-section" data-reveal>
       <div class="section-header">
         <span class="section-number">17.</span>
-        <h2 class="title-cinematic">Today&rsquo;s Call Sheet</h2>
+        <h2 class="title-cinematic">${c.title}</h2>
       </div>
       <div class="callsheet">
-        <div class="cs-watermark">CONFIDENTIAL</div>
+        <div class="cs-watermark">${c.confidential}</div>
         <header class="cs-head">
           <div>
             <strong>SUNSET HILLS MOTION PICTURES</strong>
-            <span>"THE KINGS OF LIFE" · DAY 47 OF 64</span>
+            <span>"${lang === "pl" ? "KRÓLOWIE ŻYCIA" : "THE KINGS OF LIFE"}" · ${lang === "pl" ? "DZIEŃ 47 Z 64" : "DAY 47 OF 64"}</span>
           </div>
           <div class="cs-meta">
-            <span><b>DATE</b> 09 . MAR . 2026</span>
-            <span><b>WEATHER</b> Overcast · 6°C · Light wind</span>
-            <span><b>SUNRISE</b> 06:14</span>
-            <span><b>SUNSET</b> 17:48</span>
+            <span><b>${lang === "pl" ? "DATA" : "DATE"}</b> 09 . MAR . 2026</span>
+            <span><b>${lang === "pl" ? "POGODA" : "WEATHER"}</b> ${c.weather}</span>
+            <span><b>${c.sunrise}</b> 06:14</span>
+            <span><b>${c.sunset}</b> 17:48</span>
           </div>
         </header>
         <div class="cs-grid">
           <section class="cs-block">
-            <h4>Crew Call</h4>
+            <h4>${c.blocks.call}</h4>
             <ul>
-              <li><b>05:42</b><span>Crew breakfast</span></li>
-              <li><b>06:30</b><span>Lighting in</span></li>
-              <li><b>07:00</b><span>Cast on set</span></li>
-              <li><b>08:00</b><span>First shot</span></li>
-              <li><b>12:30</b><span>Lunch (60 min)</span></li>
-              <li><b>18:30</b><span>Camera wrap</span></li>
+              <li><b>05:42</b><span>${lang === "pl" ? "Śniadanie ekipy" : "Crew breakfast"}</span></li>
+              <li><b>06:30</b><span>${lang === "pl" ? "Oświetlenie" : "Lighting in"}</span></li>
+              <li><b>07:00</b><span>${lang === "pl" ? "Obsada na planie" : "Cast on set"}</span></li>
+              <li><b>08:00</b><span>${lang === "pl" ? "Pierwszy klaps" : "First shot"}</span></li>
+              <li><b>12:30</b><span>${lang === "pl" ? "Lunch (60 min)" : "Lunch (60 min)"}</span></li>
+              <li><b>18:30</b><span>${lang === "pl" ? "Koniec zdjęć" : "Camera wrap"}</span></li>
             </ul>
           </section>
           <section class="cs-block">
-            <h4>Scenes</h4>
+            <h4>${c.blocks.scenes}</h4>
             <ul>
               <li><b>SC&nbsp;42</b><span>INT. JAZZ CLUB — NIGHT · 2 1/8 pages</span></li>
               <li><b>SC&nbsp;43</b><span>EXT. ALLEY — NIGHT · 5/8 page</span></li>
@@ -823,15 +891,15 @@ function callSheet() {
             </ul>
           </section>
           <section class="cs-block">
-            <h4>Locations</h4>
+            <h4>${c.blocks.locations}</h4>
             <ul>
               <li><b>UNIT&nbsp;A</b><span>Klub Stodoła · ul. Batorego 10 · Warszawa</span></li>
               <li><b>UNIT&nbsp;B</b><span>Backlot · Studio 3 · Łódź</span></li>
-              <li><b>HOSP.</b><span>Szpital Praski · 2.4 km from set</span></li>
+              <li><b>HOSP.</b><span>${lang === "pl" ? "Szpital Praski · 2.4 km od planu" : "Szpital Praski · 2.4 km from set"}</span></li>
             </ul>
           </section>
           <section class="cs-block">
-            <h4>Departments</h4>
+            <h4>${c.blocks.depts}</h4>
             <ul>
               <li><b>CAM</b><span>3 bodies · ARRI Alexa 35 · Cooke S7/i</span></li>
               <li><b>SND</b><span>Boom + 4 lavs · Sound Devices 833</span></li>
@@ -844,7 +912,7 @@ function callSheet() {
           <span>1ST AD · M. KOWALSKI</span>
           <span>UPM · D. JACOBS</span>
           <span>DIR. · J. WIELGOPOLAN</span>
-          <span class="cs-stamp">RECEIVED · 04:18</span>
+          <span class="cs-stamp">${c.received} · 04:18</span>
         </footer>
       </div>
     </section>
@@ -852,7 +920,13 @@ function callSheet() {
 }
 
 function telegramsSection() {
-  const tels = [
+  const c = t.telegrams;
+  const tels = lang === "pl" ? [
+    { from: "LOS ANGELES", at: "03 MAR · 23:42", body: "ZIELONE ŚWIATŁO POTWIERDZONE · STOP · TESTY KAMERY OD PONIEDZIAŁKU · STOP · HARMONOGRAM PRZELEWÓW DO KOŃCA DNIA · STOP", sig: "G. SARACCO" },
+    { from: "WARSZAWA",       at: "14 LUT · 09:08", body: "OPCJA NA SERIĘ SZKLARSKIEGO ZABEZPIECZONA · STOP · DZIEWIĘĆ TOMÓW POTWIERDZONYCH · STOP · SZAMPAN NIEPOTRZEBNY · STOP", sig: "J. WIELGOPOLAN" },
+    { from: "LONDYN",         at: "22 STY · 14:17", body: "HALA 7 ZAREZERWOWANA Q3 · STOP · BUDOWA PLENERU ZATWIERDZONA · STOP · BUDŻET BEZPIECZNY · STOP · WITAMY W DOMU · STOP", sig: "PINEWOOD OPS" },
+    { from: "QUEENSLAND",     at: "09 GRU · 04:31", body: "14 LOKACJI SPRAWDZONYCH · STOP · KANGURY WSPÓŁPRACUJĄ · STOP · WODA CZYSTA · STOP · ZABRAĆ KURTKI · STOP", sig: "JEDNOSTKA LOKALIZACYJNA" }
+  ] : [
     { from: "LOS ANGELES", at: "MAR 03 · 11:42PM", body: "GREENLIGHT CONFIRMED · STOP · CAMERA TESTS BEGIN MONDAY · STOP · WIRE SCHEDULE BY EOD · STOP", sig: "G. SARACCO" },
     { from: "WARSAW",       at: "FEB 14 · 09:08AM", body: "OPTION SECURED ON SZKLARSKI ESTATE · STOP · NINE VOLUMES CONFIRMED · STOP · CHAMPAGNE NOT NECESSARY · STOP", sig: "J. WIELGOPOLAN" },
     { from: "LONDON",       at: "JAN 22 · 02:17PM", body: "STAGE 7 BOOKED Q3 · STOP · BACKLOT BUILD APPROVED · STOP · BUDGET SAFE · STOP · WELCOME HOME · STOP", sig: "PINEWOOD OPS" },
@@ -862,21 +936,21 @@ function telegramsSection() {
     <section class="section telegram-section" data-reveal>
       <div class="section-header">
         <span class="section-number">18.</span>
-        <h2 class="title-cinematic">Telegrams</h2>
+        <h2 class="title-cinematic">${c.title}</h2>
       </div>
-      <p class="telegram-lead">A working studio is a wire room. A few from the file cabinet.</p>
+      <p class="telegram-lead">${c.lead}</p>
       <div class="telegram-grid">
         ${tels.map((t, i) => `
           <article class="telegram" data-reveal style="--i:${i}">
             <header>
               <span class="tg-stamp">SUNSET HILLS MP</span>
-              <span class="tg-from">FROM ${t.from}</span>
+              <span class="tg-from">${lang === "pl" ? "Z" : "FROM"} ${t.from}</span>
               <span class="tg-at">${t.at}</span>
             </header>
             <p class="tg-body">${t.body}</p>
             <footer>
               <span class="tg-sig">${t.sig}</span>
-              <span class="tg-recv">RECEIVED · 1A</span>
+              <span class="tg-recv">${c.received}</span>
             </footer>
           </article>
         `).join("")}
@@ -886,13 +960,14 @@ function telegramsSection() {
 }
 
 function dropZone() {
+  const c = t.dropzone;
   return `
     <section class="section dropzone-section" data-reveal>
       <div class="section-header">
         <span class="section-number">19.</span>
-        <h2 class="title-cinematic">Submit a Screenplay</h2>
+        <h2 class="title-cinematic">${c.title}</h2>
       </div>
-      <a href="/contact/" class="dropzone" data-dropzone data-link>
+      <a href="${lang === "pl" ? "/pl/contact/" : "/contact/"}" class="dropzone" data-dropzone data-link>
         <div class="dz-content">
           <svg viewBox="0 0 64 64" class="dz-icon" aria-hidden="true">
             <rect x="12" y="6" width="40" height="52" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -901,12 +976,12 @@ function dropZone() {
             <line x1="20" y1="34" x2="38" y2="34" stroke="currentColor" stroke-width="1.5"/>
             <line x1="20" y1="42" x2="42" y2="42" stroke="currentColor" stroke-width="1.5"/>
           </svg>
-          <strong class="dz-title">Drop your screenplay here</strong>
-          <span class="dz-sub">PDF · Final Draft · Fountain · or send a logline. We read everything.</span>
-          <span class="dz-cta">→ Open the contact form</span>
+          <strong class="dz-title">${c.drop}</strong>
+          <span class="dz-sub">${c.sub}</span>
+          <span class="dz-cta">${c.cta}</span>
         </div>
         <div class="dz-stamp" aria-hidden="true">
-          <span>RECEIVED</span>
+          <span>${c.received}</span>
           <span class="dz-stamp-date">SUNSET HILLS · MP</span>
         </div>
       </a>
@@ -933,31 +1008,31 @@ function longformParagraphs(items = []) {
 }
 
 function projectFacts(page) {
-  if (page.title.includes("TOM")) {
+  if (page.title.includes("TOM") || page.title.includes("TOMEK")) {
     return `
       <div class="project-facts tom-facts">
         <div class="fact-item">
-          <span class="fact-label">Budget</span>
+          <span class="fact-label">${t.projects.facts.budget}</span>
           <strong class="fact-value">$45M</strong>
         </div>
         <div class="fact-item">
-          <span class="fact-label">Location</span>
+          <span class="fact-label">${t.projects.facts.location}</span>
           <strong class="fact-value">Queensland, Australia</strong>
         </div>
         <div class="fact-item">
-          <span class="fact-label">Production</span>
-          <strong class="fact-value">Exclusive World Rights</strong>
+          <span class="fact-label">${t.projects.facts.production}</span>
+          <strong class="fact-value">${lang === "pl" ? "Ekskluzywne prawa światowe" : "Exclusive World Rights"}</strong>
         </div>
       </div>
     `;
   }
 
-  if (page.title.includes("Kings")) {
+  if (page.title.includes("Kings") || page.title.includes("Królowie")) {
     return `
       <div class="project-facts">
-        <div><span>Location photos</span><strong>London - England / Warsaw - Poland / New York - USA</strong></div>
-        <div><span>Genre</span><strong>Comedy-drama</strong></div>
-        <div><span>Mission</span><strong>Support needy children suffering from cancer and heart disease.</strong></div>
+        <div><span>${t.projects.facts.location}</span><strong>London - England / Warsaw - Poland / New York - USA</strong></div>
+        <div><span>${t.projects.facts.genre}</span><strong>${lang === "pl" ? "Komediodramat" : "Comedy-drama"}</strong></div>
+        <div><span>${t.projects.facts.mission}</span><strong>${lang === "pl" ? "Wsparcie dzieci cierpiących na raka i choroby serca." : "Support needy children suffering from cancer and heart disease."}</strong></div>
       </div>
     `;
   }
@@ -967,12 +1042,27 @@ function projectFacts(page) {
 
 function renderNav() {
   const current = normalizePath(window.location.pathname);
-  nav.innerHTML = navItems
+  let html = navItems
     .map((item) => {
       const active = item.path === current ? " active" : "";
       return `<a class="${active}" href="${item.path}" data-link>${item.label}</a>`;
     })
     .join("");
+
+  // Language switcher
+  const isPl = lang === "pl";
+  const otherLang = isPl ? "EN" : "PL";
+  // Logic to switch language while staying on the same logical page
+  let otherPath;
+  if (isPl) {
+    otherPath = current.replace("/pl/", "/");
+    if (otherPath === "") otherPath = "/";
+  } else {
+    otherPath = "/pl" + (current === "/" ? "/" : current);
+  }
+
+  html += `<a href="${otherPath}" class="lang-switch" data-link>${otherLang}</a>`;
+  nav.innerHTML = html;
 }
 
 function renderPageHero(page, bgClass = "bg-default") {
@@ -984,7 +1074,7 @@ function renderPageHero(page, bgClass = "bg-default") {
         <div class="page-hero-meta" aria-hidden="true">
           <span>Sunset hills</span>
           <span>Motion Pictures</span>
-          <span>Warsaw / London</span>
+          <span>${lang === "pl" ? "Warszawa / Londyn" : "Warsaw / London"}</span>
         </div>
       </div>
     </section>
@@ -1016,34 +1106,34 @@ function renderHome() {
 
       <div class="hero-meta-top" aria-hidden="true">
         <span class="rec-dot"></span>
-        <span class="rec-label">REC · 24.000fps</span>
+        <span class="rec-label">${lang === "pl" ? "NAGR" : "REC"} · 24.000fps</span>
         <span class="hero-meta-sep">/</span>
-        <span>SCN 01</span>
+        <span>${lang === "pl" ? "SCENA" : "SCN"} 01</span>
         <span class="hero-meta-sep">/</span>
-        <span>TAKE 04</span>
+        <span>${lang === "pl" ? "DUBL" : "TAKE"} 04</span>
       </div>
       <div class="hero-meta-right" aria-hidden="true">
-        <span>WARSAW</span><span>·</span><span>LONDON</span><span>·</span><span>LOS ANGELES</span>
+        <span>${lang === "pl" ? "WARSZAWA" : "WARSAW"}</span><span>·</span><span>${lang === "pl" ? "LONDYN" : "LONDON"}</span><span>·</span><span>LOS ANGELES</span>
       </div>
 
       <div class="hero-content">
-        <span class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span>Sunset Hills<span class="eyebrow-line"></span></span>
+        <span class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span>${t.hero.eyebrow}<span class="eyebrow-line"></span></span>
         <h1 class="hero-title">
-          <span class="title-line"><span class="word" style="--d:0ms">Motion</span></span>
-          <span class="title-line"><span class="word" style="--d:160ms">Pictures.</span></span>
+          <span class="title-line"><span class="word" style="--d:0ms">${t.hero.title1}</span></span>
+          <span class="title-line"><span class="word" style="--d:160ms">${t.hero.title2}</span></span>
         </h1>
-        <p class="hero-tag">Architecting stories at the intersection of cinematic tradition and next-generation visual intelligence — produced across Poland, Great Britain &amp; the United States.</p>
+        <p class="hero-tag">${t.hero.tag}</p>
         <div class="hero-actions">
-          ${link("/the-kings-of-life/", "View Slate")}
-          ${link("/about-us/", "The Studio", "text-link secondary")}
+          ${link(lang === "pl" ? "/pl/the-kings-of-life/" : "/the-kings-of-life/", t.hero.ctaSlate)}
+          ${link(lang === "pl" ? "/pl/about-us/" : "/about-us/", t.hero.ctaStudio, "text-link secondary")}
         </div>
       </div>
 
-      <div class="hero-scroll-indicator"><span>Scroll</span></div>
+      <div class="hero-scroll-indicator"><span>${t.hero.scroll}</span></div>
       <div class="hero-bottom-bar" aria-hidden="true">
-        <span>EST. 1991</span>
+        <span>${t.hero.est}</span>
         <span class="dot"></span>
-        <span>FILM · TV · DOCUMENTARY</span>
+        <span>${t.hero.types}</span>
         <span class="dot"></span>
         <span>SUNSET HILLS MOTION PICTURES</span>
       </div>
@@ -1054,6 +1144,86 @@ function renderHome() {
     ${manifestoSection()}
     ${lexiconSection()}
 
+    <section class="section stats-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">01.</span>
+        <h2 class="title-cinematic">${t.stats.title}</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card" data-reveal>
+          <span class="stat-num" data-count="${t.stats.items[0].num}">${t.stats.items[0].num}</span><span class="stat-suffix">${t.stats.items[0].suffix}</span>
+          <span class="stat-label">${t.stats.items[0].label}</span>
+        </div>
+        <div class="stat-card" data-reveal>
+          <span class="stat-num" data-count="${t.stats.items[1].num}">${t.stats.items[1].num}</span>
+          <span class="stat-label">${t.stats.items[1].label}</span>
+        </div>
+        <div class="stat-card" data-reveal>
+          <span class="stat-num" data-count="${t.stats.items[2].num}">${t.stats.items[2].num}</span>
+          <span class="stat-label">${t.stats.items[2].label}</span>
+        </div>
+        <div class="stat-card stat-budget" data-reveal>
+          <span class="stat-prefix">${t.stats.items[3].prefix}</span><span class="stat-num" data-count="${t.stats.items[3].num}">${t.stats.items[3].num}</span><span class="stat-suffix">${t.stats.items[3].suffix}</span>
+          <span class="stat-label">${t.stats.items[3].label}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capability-showcase editorial-layout" data-reveal>
+      <div class="technical-mark"></div>
+      <div class="section-header">
+        <span class="section-number">02.</span>
+        <h2 class="title-blueprint">${t.capabilities.title}</h2>
+      </div>
+      <div class="capabilities-mosaic">
+        ${t.capabilities.items.map((item, i) => `
+          <article class="cap-tile" data-reveal>
+            <div class="cap-visual"><div class="cap-art cap-art-${["strip", "lens", "map"][i]}" aria-hidden="true"></div></div>
+            <div class="cap-content">
+              <span class="cap-num">${item.n}</span>
+              <h3>${item.t}</h3>
+              <p>${item.d}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+
+    ${lightLeak()}
+    ${processTimeline()}
+    ${dayOnSet()}
+    ${anatomyOfShot()}
+    ${aspectRatioLab()}
+    ${laurelsSection()}
+    ${telegramsSection()}
+    ${statusBoard()}
+    ${callSheet()}
+    ${paletteLookbook()}
+    ${budgetAnatomy()}
+    ${dropZone()}
+    
+    <section class="section closing-action" data-reveal>
+      <div class="split closing-layout">
+        <div class="closing-copy">
+          <span class="eyebrow">${t.collaboration.eyebrow}</span>
+          <h2 class="title-cinematic">${t.collaboration.title}</h2>
+          <p>${t.collaboration.lead}</p>
+          <div class="hero-actions">
+            ${link(lang === "pl" ? "/pl/contact/" : "/contact/", t.collaboration.ctaContact)}
+            ${link(lang === "pl" ? "/pl/production-in-poland/" : "/production-in-poland/", t.collaboration.ctaProduction, "text-link secondary")}
+          </div>
+        </div>
+        <div class="globe-map" aria-hidden="true">
+          <div class="globe-rings"><span></span><span></span><span></span></div>
+          <div class="globe-marker" style="--x:30%;--y:34%"><span class="pulse"></span><b>${lang === "pl" ? "Warszawa" : "Warsaw"}</b></div>
+          <div class="globe-marker" style="--x:24%;--y:38%"><span class="pulse"></span><b>${lang === "pl" ? "Londyn" : "London"}</b></div>
+          <div class="globe-marker" style="--x:12%;--y:46%"><span class="pulse"></span><b>Los Angeles</b></div>
+          <div class="globe-marker" style="--x:80%;--y:72%"><span class="pulse"></span><b>Sydney</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE ASSET SECTIONS (PENDING REPLACEMENT) -->
     <section class="section narrative-section editorial-layout" data-reveal>
       <div class="technical-mark"></div>
       <div class="split narrative-layout">
@@ -1066,76 +1236,14 @@ function renderHome() {
           <div class="strip-perforation right" aria-hidden="true"></div>
         </div>
         <div class="copy-stack">
-          <span class="eyebrow">01. Brand Philosophy</span>
-          <h2 class="title-cinematic title-stroke">The Domain<br/>of Fine Art</h2>
-          <p class="lead">For more than three decades we have produced, distributed and supervised motion pictures across continents — pairing Hollywood craft with the rigour of European cinema and the unmatched versatility of Polish locations and crews.</p>
+          <span class="eyebrow">${t.philosophy.eyebrow}</span>
+          <h2 class="title-cinematic title-stroke">${t.philosophy.title}</h2>
+          <p class="lead">${t.philosophy.lead}</p>
           <div class="philosophy-tags">
-            <span>30+ Years Legacy</span>
-            <span>Hollywood &amp; Poland</span>
-            <span>Global Distribution</span>
-            <span>Original IP</span>
+            ${t.philosophy.tags.map(tag => `<span>${tag}</span>`).join("")}
           </div>
-          ${link("/about-us/", "Get to know us better")}
+          ${link(lang === "pl" ? "/pl/about-us/" : "/about-us/", t.philosophy.cta)}
         </div>
-      </div>
-    </section>
-
-    <section class="section stats-section" data-reveal>
-      <div class="section-header">
-        <span class="section-number">02.</span>
-        <h2 class="title-cinematic">By the Numbers</h2>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card" data-reveal>
-          <span class="stat-num" data-count="35">00</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Years across Hollywood &amp; Poland</span>
-        </div>
-        <div class="stat-card" data-reveal>
-          <span class="stat-num" data-count="9">00</span>
-          <span class="stat-label">Feature films in The Adventures of Tom</span>
-        </div>
-        <div class="stat-card" data-reveal>
-          <span class="stat-num" data-count="2">0</span>
-          <span class="stat-label">Offices · Warsaw &amp; London</span>
-        </div>
-        <div class="stat-card stat-budget" data-reveal>
-          <span class="stat-prefix">$</span><span class="stat-num" data-count="45">00</span><span class="stat-suffix">M</span>
-          <span class="stat-label">Production budget · Tom · Australia</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section capability-showcase editorial-layout" data-reveal>
-      <div class="technical-mark"></div>
-      <div class="section-header">
-        <span class="section-number">03.</span>
-        <h2 class="title-blueprint">Core Capabilities</h2>
-      </div>
-      <div class="capabilities-mosaic">
-        <article class="cap-tile" data-reveal>
-          <div class="cap-visual"><div class="cap-art cap-art-strip" aria-hidden="true"></div></div>
-          <div class="cap-content">
-            <span class="cap-num">01</span>
-            <h3>Production Design</h3>
-            <p>Scenography, set construction and location dressing — recreating any era from medieval kingdoms to brutalist futures.</p>
-          </div>
-        </article>
-        <article class="cap-tile" data-reveal>
-          <div class="cap-visual"><div class="cap-art cap-art-lens" aria-hidden="true"></div></div>
-          <div class="cap-content">
-            <span class="cap-num">02</span>
-            <h3>Technical Infrastructure</h3>
-            <p>Professional lighting, 64m cranes, stunt teams &amp; renowned Polish crews — every department, ready to deploy.</p>
-          </div>
-        </article>
-        <article class="cap-tile" data-reveal>
-          <div class="cap-visual"><div class="cap-art cap-art-map" aria-hidden="true"></div></div>
-          <div class="cap-content">
-            <span class="cap-num">03</span>
-            <h3>Logistical Mastery</h3>
-            <p>Coordinating cross-border productions between Poland, the United Kingdom, the USA and Australia.</p>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -1143,95 +1251,46 @@ function renderHome() {
       <div class="quote-frame">
         <div class="quote-mark" aria-hidden="true">&ldquo;</div>
         <blockquote class="quote-body">
-          Among the literally thousands of screenplays I&rsquo;ve read, the scenario written by Jacek Wielgopolan, &ldquo;The Kings of Life&rdquo;, is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears.
+          ${t.quote.body}
         </blockquote>
         <div class="quote-attrib">
           <img src="/public/assets/optimized/portrait-germano.webp" alt="Germano Saracco" loading="lazy" />
           <div>
-            <strong>Germano Saracco</strong>
-            <span>Cinematographer · Smokin&rsquo; Aces, Hopeful Notes</span>
+            <strong>${t.quote.author}</strong>
+            <span>${t.quote.role}</span>
           </div>
         </div>
       </div>
     </section>
 
-    ${lightLeak()}
-    ${processTimeline()}
-    ${dayOnSet()}
-    ${anatomyOfShot()}
     ${locationsAtlas()}
-    ${aspectRatioLab()}
-    ${laurelsSection()}
-    ${telegramsSection()}
 
     <section class="section slate-interactive editorial-layout" data-reveal>
       <div class="technical-mark"></div>
       <div class="section-header">
-        <span class="section-number">04.</span>
-        <h2 class="title-neural">Current Slate</h2>
+        <span class="section-number">03.</span>
+        <h2 class="title-neural">${t.slate.title}</h2>
       </div>
       <div class="slate-grid-refined">
-        <a href="/the-adventures-of-tom/" class="slate-card" data-link data-reveal>
-          <div class="slate-card-bg"><img src="/public/assets/optimized/tom-main.webp" alt="" /></div>
-          <div class="slate-card-overlay"></div>
-          <div class="slate-card-content">
-            <span class="eyebrow">01 / Feature Film</span>
-            <h3>The Adventures of Tom</h3>
-            <p>A multi-volume cinematic adaptation of Alfred Szklarski&rsquo;s legendary adventures.</p>
-            <span class="slate-card-cta">Project details <i>&rarr;</i></span>
-          </div>
-        </a>
-        <a href="/the-kings-of-life/" class="slate-card" data-link data-reveal>
-          <div class="slate-card-bg"><img src="/public/assets/optimized/kings-catalog.webp" alt="" /></div>
-          <div class="slate-card-overlay"></div>
-          <div class="slate-card-content">
-            <span class="eyebrow">02 / Feature Film</span>
-            <h3>The Kings of Life</h3>
-            <p>A modern story about friendship, love and the strength to start again.</p>
-            <span class="slate-card-cta">Project details <i>&rarr;</i></span>
-          </div>
-        </a>
-        <a href="/where-the-butterflies-fly/" class="slate-card" data-link data-reveal>
-          <div class="slate-card-bg"><video src="/public/assets/butterflies-drive-download.mp4" muted loop playsinline autoplay></video></div>
-          <div class="slate-card-overlay"></div>
-          <div class="slate-card-content">
-            <span class="eyebrow">03 / Film</span>
-            <h3>Where the Butterflies Fly</h3>
-            <p>An exploration of delicate motion and visual poetry.</p>
-            <span class="slate-card-cta">Project details <i>&rarr;</i></span>
-          </div>
-        </a>
+        ${t.slate.items.map((item, i) => `
+          <a href="${lang === "pl" ? "/pl" : ""}${[ "/the-adventures-of-tom/", "/the-kings-of-life/", "/where-the-butterflies-fly/" ][i]}" class="slate-card" data-link data-reveal>
+            <div class="slate-card-bg">
+              ${i === 2 ? `<video src="/public/assets/butterflies-drive-download.mp4" muted loop playsinline autoplay></video>` : `<img src="${["/public/assets/optimized/tom-main.webp", "/public/assets/optimized/kings-catalog.webp"][i]}" alt="" />`}
+            </div>
+            <div class="slate-card-overlay"></div>
+            <div class="slate-card-content">
+              <span class="eyebrow">${item.eyebrow}</span>
+              <h3>${item.title}</h3>
+              <p>${item.desc}</p>
+              <span class="slate-card-cta">${item.cta} <i>&rarr;</i></span>
+            </div>
+          </a>
+        `).join("")}
       </div>
     </section>
 
-    ${statusBoard()}
-    ${callSheet()}
-    ${paletteLookbook()}
-    ${budgetAnatomy()}
     ${trailerReel()}
-    ${dropZone()}
     ${lightLeak()}
-
-    <section class="section closing-action" data-reveal>
-      <div class="split closing-layout">
-        <div class="closing-copy">
-          <span class="eyebrow">05. Collaboration</span>
-          <h2 class="title-cinematic">Let&rsquo;s start<br/>the next project.</h2>
-          <p>We are always looking for visionary partners and compelling stories. Our teams in Warsaw and London are ready to bring your vision to life.</p>
-          <div class="hero-actions">
-            ${link("/contact/", "Get in Touch")}
-            ${link("/production-in-poland/", "Production in Poland", "text-link secondary")}
-          </div>
-        </div>
-        <div class="globe-map" aria-hidden="true">
-          <div class="globe-rings"><span></span><span></span><span></span></div>
-          <div class="globe-marker" style="--x:30%;--y:34%"><span class="pulse"></span><b>Warsaw</b></div>
-          <div class="globe-marker" style="--x:24%;--y:38%"><span class="pulse"></span><b>London</b></div>
-          <div class="globe-marker" style="--x:12%;--y:46%"><span class="pulse"></span><b>Los Angeles</b></div>
-          <div class="globe-marker" style="--x:80%;--y:72%"><span class="pulse"></span><b>Sydney</b></div>
-        </div>
-      </div>
-    </section>
   `;
 }
 
@@ -1250,6 +1309,7 @@ function renderAbout(page) {
 }
 
 function aboutIdCard() {
+  const aid = t.about.id;
   return `
     <section class="section ab-id" data-reveal>
       <article class="ab-id-card">
@@ -1262,19 +1322,19 @@ function aboutIdCard() {
             <strong>SH</strong>
           </div>
           <div class="ab-id-titles">
-            <span class="ab-id-eyebrow">FILE · STUDIO IDENTITY · CARD 001</span>
-            <h2>Sunset Hills<br/>Motion Pictures</h2>
-            <p>An independent film studio holding offices in Warsaw and London. Producing, supervising and distributing motion pictures across Poland, the United Kingdom and the United States since 1991.</p>
+            <span class="ab-id-eyebrow">${aid.eyebrow}</span>
+            <h2>${aid.title}</h2>
+            <p>${aid.lead}</p>
           </div>
-          <div class="ab-id-stamp">VERIFIED</div>
+          <div class="ab-id-stamp">${aid.stamp}</div>
         </header>
         <div class="ab-id-meta">
-          <div><b>FOUNDED</b><span>1991 · Warsaw</span></div>
-          <div><b>OFFICES</b><span>Warsaw · London</span></div>
-          <div><b>SLATE</b><span>09 active titles</span></div>
-          <div><b>STAFF</b><span>27 permanent · ~ 280 freelance</span></div>
-          <div><b>CO-PRO</b><span>USA · UK · AUS · UA</span></div>
-          <div><b>MOTTO</b><span>&ldquo;A story earns its ending.&rdquo;</span></div>
+          <div><b>${aid.meta.founded}</b><span>${aid.meta.foundedVal}</span></div>
+          <div><b>${aid.meta.offices}</b><span>${aid.meta.officesVal}</span></div>
+          <div><b>${aid.meta.slate}</b><span>${aid.meta.slateVal}</span></div>
+          <div><b>${aid.meta.staff}</b><span>${aid.meta.staffVal}</span></div>
+          <div><b>${aid.meta.copro}</b><span>${aid.meta.coproVal}</span></div>
+          <div><b>${aid.meta.motto}</b><span>${aid.meta.mottoVal}</span></div>
         </div>
       </article>
     </section>
@@ -1282,7 +1342,15 @@ function aboutIdCard() {
 }
 
 function aboutOrigin() {
-  const beats = [
+  const beats = lang === "pl" ? [
+    { y: "1991", t: "Założenie", d: "Jacek Wielgopolan otwiera jednoosobowe biuro produkcyjne na Dominikańskiej w Warszawie. Pierwsze zlecenie: dokument o polskim hutnictwie." },
+    { y: "1996", t: "Pierwszy film fabularny", d: "Premiera kinowa niezależnego dramatu; studio otrzymuje pierwszy kredyt laboratoryjny w WFDiF." },
+    { y: "2006", t: "„The Doubles”", d: "Drugie miejsce za najlepszą komedię akcji w konkursie Stowarzyszenia Kina Polskiego, nagrody Srebrny Bilet." },
+    { y: "2014", t: "Biuro w Londynie", d: "Sunset Hills Investments Ltd otwiera siedzibę przy 27 Old Gloucester Street, wspierając europejskie współfinansowanie." },
+    { y: "2019", t: "Zielone światło dla Tomka", d: "Wielotomowa kinowa adaptacja „Przygód Tomka” Alfreda Szklarskiego wchodzi w fazę rozwoju. Budżet: 45 mln USD." },
+    { y: "2023", t: "Królowie życia", d: "Recenzja Germano Saracco; zdjęcia przenoszą się do preprodukcji. Studio powiększa listę projektów z 4 do 9." },
+    { y: "2026", t: "Dzisiaj", d: "Trzy filmy fabularne na aktywnych etapach, osiem czytelni, dwa zarezerwowane studia dźwiękowe, jeden zespół oddany długiej formie." }
+  ] : [
     { y: "1991", t: "Founded", d: "Jacek Wielgopolan opens a one-room production office on Dominikańska, Warsaw. First job: a documentary about Polish ironworks." },
     { y: "1996", t: "First Feature", d: "Theatrical release of an independent drama; the studio earns its first lab account at Polish National Film." },
     { y: "2006", t: "&ldquo;The Doubles&rdquo;", d: "Second-place finish for Best Action Comedy at the Association of Polish Cinema, Silver Ticket Awards." },
@@ -1295,7 +1363,7 @@ function aboutOrigin() {
     <section class="section ab-origin" data-reveal>
       <div class="section-header">
         <span class="section-number">02.</span>
-        <h2 class="title-cinematic">Three Decades<br/>Of Pictures</h2>
+        <h2 class="title-cinematic">${t.about.origin.title}</h2>
       </div>
       <ol class="ab-origin-list">
         ${beats.map((b, i) => `
@@ -1317,18 +1385,25 @@ function aboutFoundersBlock() {
     <section class="section ab-founders" data-reveal>
       <div class="section-header">
         <span class="section-number">03.</span>
-        <h2 class="title-cinematic">The Names<br/>On the Door</h2>
+        <h2 class="title-cinematic">${t.about.founders.title}</h2>
       </div>
       <div class="people-grid">
-        ${personCard("Dawn Jacobs", "CCO of Sunset Hills Motion Pictures, Inc.", people.dawn.paragraphs.slice(0, 2).join(" "), "/dawn-jacobs/", "Read more", "/public/assets/optimized/about-dawn.webp")}
-        ${personCard("Jack Wielgopolan", "Producer · Screenwriter · Director", "Jack Wielgopolan as a producer, distributor and script writer has been associated with movie brands in the USA and Poland since 1991. Nowadays, apart from &ldquo;Kings of Life&rdquo; he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski &ldquo;Adventures of Tom&rdquo;. The first part is called &ldquo;Adventures of Tom: in the Kangaroo Kingdom&rdquo;. The budget for this production amounts to $45,000,000. Awards: Association of Polish Cinema, Silver Ticket, 2006 — The Doubles, second place in the category of best action comedy.", "/jack-wielgopolan/", "Read more", "/public/assets/optimized/portrait-jack.webp")}
+        ${personCard("Dawn Jacobs", t.lang === "pl" ? "Dyrektor kreatywna (CCO)" : "CCO of Sunset Hills Motion Pictures, Inc.", people.dawn.paragraphs.slice(0, 2).join(" "), lang === "pl" ? "/pl/dawn-jacobs/" : "/dawn-jacobs/", t.about.founders.readMore, "/public/assets/optimized/about-dawn.webp")}
+        ${personCard("Jack Wielgopolan", lang === "pl" ? "Producent · Scenarzysta · Reżyser" : "Producer · Screenwriter · Director", people.jack.paragraphs.join(" "), lang === "pl" ? "/pl/jack-wielgopolan/" : "/jack-wielgopolan/", t.about.founders.readMore, "/public/assets/optimized/portrait-jack.webp")}
       </div>
     </section>
   `;
 }
 
 function aboutBeliefs() {
-  const beliefs = [
+  const beliefs = lang === "pl" ? [
+    { n: "01", t: "Historia zasługuje na swój finał.", d: "Nie rozwiązujemy spraw. My je wypracowujemy." },
+    { n: "02", t: "Skończone filmy, konkretne plany.", d: "Dziewięć projektów, o które będziemy walczyć, a nie dziewięćdziesiąt, o których zapomnimy." },
+    { n: "03", t: "Zatrudniaj mistrzów nad mistrzami.", d: "Polscy szefowie pionów. Hollywoodzka ekipa. Mówią tym samym dialektem: rzemiosłem." },
+    { n: "04", t: "Czytaj wszystko.", d: "Każdy scenariusz, który do nas trafia, jest czytany przez człowieka. Każda odpowiedź jest podpisana." },
+    { n: "05", t: "Inwestorzy to partnerzy.", d: "Dzielimy się planem pracy, roboczym montażem i arkuszem kalkulacyjnym. Szczególnie arkuszem." },
+    { n: "06", t: "Dystrybucja to produkt.", d: "Film bez dystrybucji to prywatne hobby. Sprzedajemy do centrów dowodzenia w LA, Londynie i Warszawie." }
+  ] : [
     { n: "01", t: "A story earns its ending.", d: "We don&rsquo;t resolve. We earn." },
     { n: "02", t: "Finite films, finite slates.",     d: "Nine pictures we&rsquo;ll fight for, not ninety we&rsquo;ll forget." },
     { n: "03", t: "Hire the room above the room.",    d: "Polish department heads. Hollywood crew. They speak the same dialect: craft." },
@@ -1340,7 +1415,7 @@ function aboutBeliefs() {
     <section class="section ab-beliefs" data-reveal>
       <div class="section-header">
         <span class="section-number">04.</span>
-        <h2 class="title-cinematic">What We<br/>Believe</h2>
+        <h2 class="title-cinematic">${t.about.beliefs.title}</h2>
       </div>
       <div class="ab-belief-grid">
         ${beliefs.map((b) => `
@@ -1356,31 +1431,32 @@ function aboutBeliefs() {
 }
 
 function aboutOffices() {
+  const lbl = t.about.offices.labels;
   return `
     <section class="section ab-offices" data-reveal>
       <div class="section-header">
         <span class="section-number">05.</span>
-        <h2 class="title-cinematic">Two Rooms<br/>One Studio</h2>
+        <h2 class="title-cinematic">${t.about.offices.title}</h2>
       </div>
       <div class="ab-office-grid">
         <article class="ab-office" data-reveal>
-          <header><span class="ab-office-tag">HEADQUARTERS · 1991</span><strong>WARSAW</strong></header>
-          <p class="ab-office-addr">ul. Dominikańska 21B<br/>02-738 Warsaw, Poland</p>
+          <header><span class="ab-office-tag">${t.about.offices.hq}</span><strong>WARSZAWA</strong></header>
+          <p class="ab-office-addr">ul. Dominikańska 21B<br/>02-738 Warszawa, Polska</p>
           <ul class="ab-office-list">
-            <li><b>FUNCTION</b><span>Production · Development · Coverage</span></li>
-            <li><b>STAFF</b><span>21 permanent</span></li>
-            <li><b>HOURS</b><span>09:00 — 19:00 CET, year-round</span></li>
-            <li><b>NEAREST</b><span>WFDiF · Studio 3 · 4.2 km</span></li>
+            <li><b>${lbl.function}</b><span>${lang === "pl" ? "Produkcja · Rozwój · Analizy" : "Production · Development · Coverage"}</span></li>
+            <li><b>${lbl.staff}</b><span>${lang === "pl" ? "21 stałych" : "21 permanent"}</span></li>
+            <li><b>${lbl.hours}</b><span>09:00 — 19:00 CET</span></li>
+            <li><b>${lbl.nearest}</b><span>WFDiF · Studio 3 · 4.2 km</span></li>
           </ul>
         </article>
         <article class="ab-office" data-reveal>
-          <header><span class="ab-office-tag">EUROPEAN BRANCH · 2014</span><strong>LONDON</strong></header>
+          <header><span class="ab-office-tag">${t.about.offices.branch}</span><strong>LONDYN</strong></header>
           <p class="ab-office-addr">Sunset Hills Investments Ltd<br/>27 Old Gloucester Street<br/>London, WC1N 3AX</p>
           <ul class="ab-office-list">
-            <li><b>FUNCTION</b><span>Co-financing · International sales</span></li>
-            <li><b>STAFF</b><span>06 permanent</span></li>
-            <li><b>HOURS</b><span>10:00 — 18:00 GMT</span></li>
-            <li><b>NEAREST</b><span>Pinewood · Stage 7 · 32 km</span></li>
+            <li><b>${lbl.function}</b><span>${lang === "pl" ? "Współfinansowanie · Sprzedaż zagraniczna" : "Co-financing · International sales"}</span></li>
+            <li><b>${lbl.staff}</b><span>${lang === "pl" ? "06 stałych" : "06 permanent"}</span></li>
+            <li><b>${lbl.hours}</b><span>10:00 — 18:00 GMT</span></li>
+            <li><b>${lbl.nearest}</b><span>Pinewood · Stage 7 · 32 km</span></li>
           </ul>
         </article>
       </div>
@@ -1389,7 +1465,14 @@ function aboutOffices() {
 }
 
 function aboutRoster() {
-  const departments = [
+  const departments = lang === "pl" ? [
+    { n: "PRODUCENCI", rows: [["Jack Wielgopolan", "Założyciel · Producent", "1991"], ["Dawn Jacobs", "CCO", "2009"], ["Adam Lebovitz", "Starszy Producent", "2018"]] },
+    { n: "ROZWÓJ", rows: [["Marta Kowalczyk", "Szefowa Rozwoju", "2017"], ["A. Nowak", "Redaktor", "2020"]] },
+    { n: "CZYTELNIA", rows: [["Dawn Jacobs", "Starsza Lektorka", "2009"], ["Adam Lebovitz", "Lektor", "2018"], ["Marta Kowalczyk", "Lektorka", "2017"]] },
+    { n: "ZDJĘCIA (współpracownicy)", rows: [["Germano Saracco", "Operator · Smokin’ Aces", "Przy projekcie"], ["P. Idziak", "Operator · Tomek 1", "Przy projekcie"]] },
+    { n: "POSTPRODUKCJA", rows: [["WFDiF", "Partner laboratoryjny", "1991"], ["ATM Studio", "VFX · Kolor", "2014"]] },
+    { n: "DYSTRYBUCJA", rows: [["UIP / Warner / Lokalni", "Partnerzy kinowi", "Bieżąca"], ["Agenci sprzedaży", "Londyn i LA", "Bieżąca"]] }
+  ] : [
     { n: "PRODUCERS", rows: [["Jack Wielgopolan", "Founder · Producer", "1991"], ["Dawn Jacobs", "CCO", "2009"], ["Adam Lebovitz", "Sr. Producer", "2018"]] },
     { n: "DEVELOPMENT", rows: [["Marta Kowalczyk", "Head of Development", "2017"], ["A. Nowak", "Story Editor", "2020"]] },
     { n: "READING ROOM", rows: [["Dawn Jacobs", "Sr. Reader", "2009"], ["Adam Lebovitz", "Reader", "2018"], ["Marta Kowalczyk", "Reader", "2017"]] },
@@ -1401,9 +1484,9 @@ function aboutRoster() {
     <section class="section ab-roster" data-reveal>
       <div class="section-header">
         <span class="section-number">06.</span>
-        <h2 class="title-cinematic">The Roster</h2>
+        <h2 class="title-cinematic">${t.about.roster.title}</h2>
       </div>
-      <p class="ab-roster-lead">In film, credits roll for a reason. Here are ours, ordered the way they would appear at the end of a picture.</p>
+      <p class="ab-roster-lead">${t.about.roster.lead}</p>
       <div class="ab-roster-list">
         ${departments.map((d) => `
           <article class="ab-roster-block" data-reveal>
@@ -1421,7 +1504,13 @@ function aboutRoster() {
 }
 
 function aboutAwards() {
-  const awards = [
+  const awards = lang === "pl" ? [
+    { y: "2006", a: "Srebrny Bilet — Najlepsza komedia akcji (2. miejsce)", t: "The Doubles", o: "Stowarzyszenie Kina Polskiego" },
+    { y: "2014", a: "Nagroda Publiczności", t: "Hopeful Notes (koprod.)", o: "Pol. Independent" },
+    { y: "2018", a: "Nominacja za zdjęcia", t: "Smokin’ Aces (udział zagr.)", o: "Gold Condor" },
+    { y: "2023", a: "Uznanie lektorów", t: "Królowie życia (scenariusz)", o: "G. Saracco · LA" },
+    { y: "2025", a: "Oficjalna Selekcja", t: "Królowie życia (w produkcji)", o: "Atlantic City IFF" }
+  ] : [
     { y: "2006", a: "Silver Ticket — Best Action Comedy (2nd place)", t: "The Doubles", o: "Association of Polish Cinema" },
     { y: "2014", a: "Audience Award", t: "Hopeful Notes (co-prod.)", o: "Pol. Independent" },
     { y: "2018", a: "Cinematography Nomination", t: "Smokin&rsquo; Aces (intl. credit)", o: "Gold Condor" },
@@ -1432,11 +1521,11 @@ function aboutAwards() {
     <section class="section ab-awards" data-reveal>
       <div class="section-header">
         <span class="section-number">07.</span>
-        <h2 class="title-cinematic">The Cabinet</h2>
+        <h2 class="title-cinematic">${t.about.cabinet.title}</h2>
       </div>
       <table class="ab-award-table">
         <thead>
-          <tr><th>YEAR</th><th>AWARD</th><th>TITLE</th><th>BODY</th></tr>
+          <tr>${t.about.cabinet.table.map(h => `<th>${h}</th>`).join("")}</tr>
         </thead>
         <tbody>
           ${awards.map((aw) => `
@@ -1458,7 +1547,7 @@ function aboutSummary(paragraphs) {
     <section class="section ab-summary" data-reveal>
       <div class="section-header">
         <span class="section-number">08.</span>
-        <h2 class="title-cinematic">In Our Own Words</h2>
+        <h2 class="title-cinematic">${t.about.summary.title}</h2>
       </div>
       <div class="ab-summary-stack">
         ${paragraphs.map((p, i) => `<p class="ab-summary-line" data-reveal style="--i:${i}">${p}</p>`).join("")}
@@ -1482,20 +1571,20 @@ function personCard(name, role, bio, href, label = "Read more", image = "") {
 }
 
 function renderProject(page) {
-  const bg = page.title.includes("TOM") ? "bg-tom" : "bg-kings";
+  const bg = page.title.includes("TOM") || page.title.includes("TOMEK") ? "bg-tom" : "bg-kings";
   return `
     ${renderPageHero(page, bg)}
     ${cinemaTicker()}
     <section class="section split project-intro">
-      ${mediaFrame(page.title.includes("TOM") ? "/public/assets/optimized/tom-main.webp" : "/public/assets/optimized/kings-catalog.webp", page.title, "poster-placeholder hero-poster")}
+      ${mediaFrame((page.title.includes("TOM") || page.title.includes("TOMEK")) ? "/public/assets/optimized/tom-main.webp" : "/public/assets/optimized/kings-catalog.webp", page.title, "poster-placeholder hero-poster")}
       <div class="copy-stack dossier-copy">
         ${projectFacts(page)}
         ${paragraphs(page.paragraphs)}
       </div>
     </section>
     ${
-      page.title.includes("TOM")
-        ? `<section class="section book-section"><div class="section-header"><span class="section-number">02.</span><h2>Rights reserved by Sunset Hills Motion Pictures</h2></div><a href="https://drive.google.com/file/d/1cW3f-zy3aPVO_ybidLUMRk6VBu6EtoSy/view" target="_blank" rel="noopener noreferrer">${mediaFrame("/public/assets/optimized/tom-cinematic.webp", "THE ADVENTURES OF TOM", "media-placeholder image-band cinematic-band editorial-media")}</a><div class="book-grid">${tomBooks.map(([label, src], index) => `<div class="book-item"><span>${String(index + 1).padStart(2, "0")}</span>${mediaFrame(src, label, "poster-placeholder", "contain book-cover")}</div>`).join("")}</div></section>`
+      (page.title.includes("TOM") || page.title.includes("TOMEK"))
+        ? `<section class="section book-section"><div class="section-header"><span class="section-number">02.</span><h2>${lang === "pl" ? "Prawa zastrzeżone przez Sunset Hills Motion Pictures" : "Rights reserved by Sunset Hills Motion Pictures"}</h2></div><a href="https://drive.google.com/file/d/1cW3f-zy3aPVO_ybidLUMRk6VBu6EtoSy/view" target="_blank" rel="noopener noreferrer">${mediaFrame("/public/assets/optimized/tom-cinematic.webp", lang === "pl" ? "PRZYGODY TOMKA" : "THE ADVENTURES OF TOM", "media-placeholder image-band cinematic-band editorial-media")}</a><div class="book-grid">${tomBooks.map(([label, src], index) => `<div class="book-item"><span>${String(index + 1).padStart(2, "0")}</span>${mediaFrame(src, label, "poster-placeholder", "contain book-cover")}</div>`).join("")}</div></section>`
         : ""
     }
   `;
@@ -1506,7 +1595,7 @@ function renderProjectPlaceholder(page) {
     ${renderPageHero(page, "bg-butterflies")}
     ${cinemaTicker()}
     <section class="section">
-      ${videoFrame("/public/assets/butterflies-drive-download.mp4", "Where the butterflies fly", "media-placeholder image-band cinema-video", "contain")}
+      ${videoFrame("/public/assets/butterflies-drive-download.mp4", lang === "pl" ? "Tam, gdzie latają motyle" : "Where the butterflies fly", "media-placeholder image-band cinema-video", "contain")}
     </section>
   `;
 }
@@ -1530,19 +1619,21 @@ function cinematicStack(team) {
 
 function renderKings(page) {
   const team = [
-    { name: "JACEK WIELGOPOLAN", role: "Producer / Director", bio: "Creative force since 1991.", image: "/public/assets/optimized/portrait-jack.webp" },
-    { name: "FILIP GUZLA", role: "Producer", bio: "Business partner and producer.", image: "/public/assets/optimized/portrait-filip.webp" },
-    { name: "GERMANO SARACCO", role: "Cinematographer", bio: "Award-winning veteran.", image: "/public/assets/optimized/portrait-germano.webp" },
-    { name: "MACIEJ ZIELIŃSKI", role: "Composer", bio: "Contemporary film music maestro.", image: "/public/assets/optimized/portrait-maciej.webp" }
+    { name: "JACEK WIELGOPOLAN", role: lang === "pl" ? "Producent / Reżyser" : "Producer / Director", bio: lang === "pl" ? "Siła twórcza od 1991 roku." : "Creative force since 1991.", image: "/public/assets/optimized/portrait-jack.webp" },
+    { name: "FILIP GUZLA", role: "Producent", bio: lang === "pl" ? "Partner biznesowy i producent." : "Business partner and producer.", image: "/public/assets/optimized/portrait-filip.webp" },
+    { name: "GERMANO SARACCO", role: "Operator", bio: lang === "pl" ? "Wielokrotnie nagradzany weteran." : "Award-winning veteran.", image: "/public/assets/optimized/portrait-germano.webp" },
+    { name: "MACIEJ ZIELIŃSKI", role: "Kompozytor", bio: lang === "pl" ? "Maestro współczesnej muzyki filmowej." : "Contemporary film music maestro.", image: "/public/assets/optimized/portrait-maciej.webp" }
   ];
+
+  const labels = t.projects.kings.labels;
 
   return `
     <section class="kings-hero">
       <img src="${page.heroImage}" alt="" />
       <div class="kings-hero-content">
-        <span class="hero-eyebrow">Production Dossier</span>
+        <span class="hero-eyebrow">${labels.eyebrow}</span>
         <h1>${page.title}</h1>
-        <div class="hero-status"><span class="status-dot"></span><span>Active Development</span></div>
+        <div class="hero-status"><span class="status-dot"></span><span>${labels.active}</span></div>
       </div>
     </section>
 
@@ -1550,17 +1641,17 @@ function renderKings(page) {
       <div class="narrative-blocks">
         <div class="block">
           <span class="block-num">01.</span>
-          <h3>THE PREMISE</h3>
+          <h3>${labels.premise}</h3>
           <p class="highlight">${page.paragraphs[0]}</p>
         </div>
         <div class="block">
           <span class="block-num">02.</span>
-          <h3>THE CRAFT</h3>
+          <h3>${labels.craft}</h3>
           <p>${page.paragraphs[1]}</p>
         </div>
         <div class="block">
           <span class="block-num">03.</span>
-          <h3>GLOBAL DISTRIBUTION</h3>
+          <h3>${labels.dist}</h3>
           <p>${page.paragraphs[2]}</p>
         </div>
         <div class="block pull-quote">
@@ -1568,7 +1659,7 @@ function renderKings(page) {
         </div>
         <div class="block">
           <span class="block-num">04.</span>
-          <h3>THE MISSION</h3>
+          <h3>${labels.mission}</h3>
           <p>${page.paragraphs[4]}</p>
         </div>
       </div>
@@ -1582,12 +1673,12 @@ function renderKings(page) {
             ${[...Array(8)].map((_, i) => `<line x1="200" y1="200" x2="${200 + Math.cos(i * Math.PI/4) * 120}" y2="${200 + Math.sin(i * Math.PI/4) * 120}" />`).join("")}
           </g>
         </svg>
-        <div class="artifact-label">Neural Cinematic Intelligence // Real-Time</div>
+        <div class="artifact-label">${lang === "pl" ? "Neuralna Inteligencja Filmowa // Czas Rzeczywisty" : "Neural Cinematic Intelligence // Real-Time"}</div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-header"><span class="section-number">02.</span><h2>Production Team</h2></div>
+      <div class="section-header"><span class="section-number">02.</span><h2>${labels.team}</h2></div>
       <div class="people-grid">${team.map(member => personCard(member.name, member.role, member.bio, "", "", member.image)).join("")}</div>
     </section>
   `;
@@ -1606,19 +1697,20 @@ function renderCoverage(page) {
 }
 
 function coverageIntro() {
+  const c = t.coverage.intro;
   const stats = [
-    { l: "SCRIPTS / YEAR", v: "1 200+" },
-    { l: "AVG TURNAROUND", v: "10 days" },
-    { l: "LANGUAGES", v: "EN · PL" },
-    { l: "READERS",       v: "07 staff" }
+    { l: c.stats.scripts, v: "1 200+" },
+    { l: c.stats.turnaround, v: lang === "pl" ? "10 dni" : "10 days" },
+    { l: c.stats.langs, v: "EN · PL" },
+    { l: c.stats.readers, v: lang === "pl" ? "07 osób" : "07 staff" }
   ];
   return `
     <section class="section sc-intro" data-reveal>
       <div class="sc-intro-grid">
         <div class="sc-intro-copy">
-          <span class="eyebrow">02. The Reader&rsquo;s Verdict</span>
-          <h2 class="title-cinematic">Coverage<br/>is the<br/>first cut.</h2>
-          <p>Before a screenplay reaches a producer&rsquo;s desk, it passes through a reader. Coverage is the document that summarises the story, evaluates the craft, and assigns one of three verdicts &mdash; <strong>Pass</strong>, <strong>Consider</strong>, or <strong>Recommend</strong>. We do this work for our own development slate and, by referral, for partners around the world.</p>
+          <span class="eyebrow">02. ${c.eyebrow}</span>
+          <h2 class="title-cinematic">${c.title}</h2>
+          <p>${c.lead}</p>
         </div>
         <aside class="sc-intro-stats">
           ${stats.map((s) => `
@@ -1634,23 +1726,19 @@ function coverageIntro() {
 }
 
 function coverageTiers() {
-  const tiers = [
-    { code: "PASS",      n: "01", note: "The script is not a fit. Sometimes a craft issue, often a market one. Reader notes go to the writer regardless.", count: "78%" },
-    { code: "CONSIDER",  n: "02", note: "Strong elements that warrant a second read. Forwarded to a senior producer with the reader&rsquo;s annotations.", count: "18%" },
-    { code: "RECOMMEND", n: "03", note: "Rare. The reader is willing to stake their reputation on it. Goes directly to head of development within 24 hours.", count: "4%" }
-  ];
+  const tiers = t.coverage.tiers.items;
   return `
     <section class="section sc-tiers" data-reveal>
       <div class="section-header">
         <span class="section-number">03.</span>
-        <h2 class="title-cinematic">Three Verdicts</h2>
+        <h2 class="title-cinematic">${t.coverage.tiers.title}</h2>
       </div>
       <div class="sc-tier-grid">
         ${tiers.map((t) => `
           <article class="sc-tier sc-tier-${t.code.toLowerCase()}" data-reveal>
             <header>
               <span class="sc-tier-num">${t.n}</span>
-              <span class="sc-tier-pct">${t.count}<i>of submissions</i></span>
+              <span class="sc-tier-pct">${t.count}<i>${lang === "pl" ? "zgłoszeń" : "of submissions"}</i></span>
             </header>
             <strong class="sc-tier-code">${t.code}</strong>
             <p>${t.note}</p>
@@ -1663,17 +1751,12 @@ function coverageTiers() {
 }
 
 function coverageProcess() {
-  const steps = [
-    { n: "01", t: "Intake", note: "Slug-line scan. Format check. Deduplication.", body: "Every screenplay is assigned a coverage ID, logged with title / writer / pages, and assigned to a reader by genre." },
-    { n: "02", t: "Read", note: "Two passes. First fast. Second annotated.", body: "Readers track structure beats on a one-pager — Inciting Incident, Midpoint, Climax. Marginalia is preserved verbatim." },
-    { n: "03", t: "Synopsis", note: "1 page. No spoilers withheld.", body: "A precise prose summary, plus a logline tightened beyond the writer&rsquo;s. The story is told, not teased." },
-    { n: "04", t: "Verdict", note: "Pass · Consider · Recommend.", body: "Concept, Story, Characters and Dialogue are graded. The reader signs the verdict. The writer receives the notes within 14 days." }
-  ];
+  const steps = t.coverage.process.steps;
   return `
     <section class="section sc-process" data-reveal>
       <div class="section-header">
         <span class="section-number">04.</span>
-        <h2 class="title-cinematic">From Page to Verdict</h2>
+        <h2 class="title-cinematic">${t.coverage.process.title}</h2>
       </div>
       <div class="sc-process-rail">
         ${steps.map((s) => `
@@ -1692,16 +1775,23 @@ function coverageProcess() {
 
 function coverageSample() {
   const meta = [
-    ["TITLE", "THE KINGS OF LIFE"],
-    ["WRITER", "Jacek Wielgopolan"],
-    ["FORM", "Screenplay"],
-    ["PAGES", "136"],
-    ["GENRE", "Drama"],
-    ["SUB BY", "Dawn Jacobs"],
-    ["SUB TO", "Adam Lebovitz"],
-    ["COVERAGE DATE", "July 17, 2023"]
+    [lang === "pl" ? "TYTUŁ" : "TITLE", lang === "pl" ? "KRÓLOWIE ŻYCIA" : "THE KINGS OF LIFE"],
+    [lang === "pl" ? "AUTOR" : "WRITER", "Jacek Wielgopolan"],
+    [lang === "pl" ? "FORMA" : "FORM", lang === "pl" ? "Scenariusz" : "Screenplay"],
+    [lang === "pl" ? "STRONY" : "PAGES", "136"],
+    [lang === "pl" ? "GATUNEK" : "GENRE", lang === "pl" ? "Dramat" : "Drama"],
+    [lang === "pl" ? "ZGŁOSZONE PRZEZ" : "SUB BY", "Dawn Jacobs"],
+    [lang === "pl" ? "ZGŁOSZONE DO" : "SUB TO", "Adam Lebovitz"],
+    [lang === "pl" ? "DATA ANALIZY" : "COVERAGE DATE", lang === "pl" ? "17 lipca 2023" : "July 17, 2023"]
   ];
-  const ratings = [
+  const ratings = lang === "pl" ? [
+    { label: "KONCEPT",    score: "DOSKONAŁY", value: 95 },
+    { label: "LINIA FABULARNA", score: "DOBRA",      value: 78 },
+    { label: "BOHATEROWIE", score: "ZADOWALAJĄCA",      value: 62 },
+    { label: "DIALOGI",   score: "ZADOWALAJĄCE",      value: 60 },
+    { label: "STRUKTURA",  score: "ZADOWALAJĄCA",      value: 65 },
+    { label: "POTENCJAŁ RYNKOWY", score: "DOBRY",   value: 80 }
+  ] : [
     { label: "CONCEPT",    score: "EXCELLENT", value: 95 },
     { label: "STORY LINE", score: "GOOD",      value: 78 },
     { label: "CHARACTERS", score: "FAIR",      value: 62 },
@@ -1709,18 +1799,19 @@ function coverageSample() {
     { label: "STRUCTURE",  score: "FAIR",      value: 65 },
     { label: "MARKETABILITY", score: "GOOD",   value: 80 }
   ];
+  const labels = t.coverage.sample;
   return `
     <section class="section sc-sample" data-reveal>
       <div class="section-header">
         <span class="section-number">05.</span>
-        <h2 class="title-cinematic">A Sample Coverage</h2>
+        <h2 class="title-cinematic">${labels.title}</h2>
       </div>
       <article class="sc-coverage-doc">
-        <div class="sc-doc-watermark">CONFIDENTIAL</div>
+        <div class="sc-doc-watermark">${labels.confidential}</div>
         <header class="sc-doc-head">
           <div>
             <strong>SUNSET HILLS MOTION PICTURES</strong>
-            <span>STUDIO COVERAGE REPORT &middot; FILE 0427-A</span>
+            <span>${labels.report}</span>
           </div>
           <span class="sc-doc-stamp">CONSIDER</span>
         </header>
@@ -1728,35 +1819,29 @@ function coverageSample() {
           ${meta.map(([k, v]) => `<div class="sc-doc-row"><b>${k}</b><span>${v}</span></div>`).join("")}
         </div>
         <div class="sc-doc-block">
-          <h4>Logline</h4>
-          <p>A down-on-his-luck violinist is forced to start over in a different country and finds an unlikely family &mdash; in the form of an old friend and a little girl &mdash; around a landfill on the edge of Warsaw.</p>
+          <h4>${labels.logline}</h4>
+          <p>${labels.loglineBody}</p>
         </div>
         <div class="sc-doc-block">
-          <h4>Synopsis</h4>
-          <p>Wiktor, once a celebrated first violin in a state symphony, arrives in a foreign city with a passport, a letter, and a single suitcase. The orchestra he had been promised has folded. He sleeps the first night under a bridge, the second on a friend&rsquo;s sofa, the third in a clearing behind a hauling yard.</p>
-          <p>It is at the yard that he meets <em>Filip</em> &mdash; an old conservatoire classmate now running the daily sort &mdash; and <em>Ola</em>, a child who lives nearby and treats the landfill the way other children treat a public park. The three of them, by accident at first and then by gravity, become each other&rsquo;s family.</p>
-          <p>The third act turns on a sealed letter Wiktor was carrying when he first crossed the border. The letter, when opened, returns to him a piece of his old life he had assumed was permanently lost.</p>
+          <h4>${labels.synopsis}</h4>
+          ${labels.synopsisBody.map(p => `<p>${p}</p>`).join("")}
         </div>
         <div class="sc-doc-grid">
           <div class="sc-doc-col">
-            <h4>Strengths</h4>
+            <h4>${labels.strengths}</h4>
             <ul>
-              <li>The setting &mdash; a working landfill &mdash; is fresh, photographable, and metaphorically rich.</li>
-              <li>Wiktor&rsquo;s relationship with Ola is unforced and earned.</li>
-              <li>The third-act letter pays off a long set-up cleanly.</li>
+              ${labels.strengthsBody.map(s => `<li>${s}</li>`).join("")}
             </ul>
           </div>
           <div class="sc-doc-col">
-            <h4>Weaknesses</h4>
+            <h4>${labels.weaknesses}</h4>
             <ul>
-              <li>Filip&rsquo;s arc plateaus around p. 70; he disappears for 14 pages and returns unchanged.</li>
-              <li>Two of the dialogue scenes between Wiktor and the social worker repeat information.</li>
-              <li>The opening flashback is easy to cut and would tighten Act One by 6 pages.</li>
+              ${labels.weaknessesBody.map(w => `<li>${w}</li>`).join("")}
             </ul>
           </div>
         </div>
         <div class="sc-doc-ratings">
-          <h4>Evaluation</h4>
+          <h4>${labels.evaluation}</h4>
           <div class="sc-rating-grid">
             ${ratings.map((r) => `
               <article class="sc-rating">
@@ -1775,14 +1860,14 @@ function coverageSample() {
         </div>
         <footer class="sc-doc-foot">
           <div class="sc-rec-block">
-            <span class="sc-rec-eyebrow">RECOMMENDATION</span>
+            <span class="sc-rec-eyebrow">${labels.recommendation}</span>
             <strong class="sc-rec-verdict">CONSIDER</strong>
-            <p>The setting and central trio make this a memorable script. The structure could tighten by ten pages, and Filip&rsquo;s arc deserves a stronger reversal in Act Two. With those revisions, this moves to <em>Recommend</em>.</p>
+            <p>${labels.recBody}</p>
           </div>
           <div class="sc-rec-sign">
-            <span class="sc-sign-label">READER</span>
+            <span class="sc-sign-label">${labels.reader}</span>
             <strong>Dawn Jacobs</strong>
-            <span class="sc-sign-meta">Sr. Reader · Sunset Hills MP</span>
+            <span class="sc-sign-meta">${lang === "pl" ? "Starsza Lektorka · Sunset Hills MP" : "Sr. Reader · Sunset Hills MP"}</span>
           </div>
         </footer>
       </article>
@@ -1792,18 +1877,18 @@ function coverageSample() {
 
 function coverageReaders() {
   const readers = [
-    { i: "DJ", n: "Dawn Jacobs",      r: "Sr. Reader", g: "Drama · International", c: "428 scripts read · 9 yrs" },
-    { i: "AL", n: "Adam Lebovitz",    r: "Reader",     g: "Genre · Thriller · Sci-fi", c: "316 scripts read · 6 yrs" },
-    { i: "MK", n: "Marta Kowalczyk",  r: "Reader",     g: "Comedy · Adaptation",   c: "204 scripts read · 4 yrs" },
-    { i: "JW", n: "Jacek W.",         r: "Final Read", g: "Greenlight committee",  c: "Final-pass on every Consider+" }
+    { i: "DJ", n: "Dawn Jacobs",      r: lang === "pl" ? "Starsza Lektorka" : "Sr. Reader", g: lang === "pl" ? "Dramat · Międzynarodowe" : "Drama · International", c: lang === "pl" ? "428 przeczytanych · 9 lat" : "428 scripts read · 9 yrs" },
+    { i: "AL", n: "Adam Lebovitz",    r: lang === "pl" ? "Lektor" : "Reader",     g: "Genre · Thriller · Sci-fi", c: lang === "pl" ? "316 przeczytanych · 6 lat" : "316 scripts read · 6 yrs" },
+    { i: "MK", n: "Marta Kowalczyk",  r: lang === "pl" ? "Lektorka" : "Reader",     g: lang === "pl" ? "Komedia · Adaptacja" : "Comedy · Adaptation",   c: lang === "pl" ? "204 przeczytane · 4 lata" : "204 scripts read · 4 yrs" },
+    { i: "JW", n: "Jacek W.",         r: lang === "pl" ? "Ostatnie czytanie" : "Final Read", g: lang === "pl" ? "Komitet zielonego światła" : "Greenlight committee",  c: lang === "pl" ? "Końcowa akceptacja każdego Consider+" : "Final-pass on every Consider+" }
   ];
   return `
     <section class="section sc-readers" data-reveal>
       <div class="section-header">
         <span class="section-number">06.</span>
-        <h2 class="title-cinematic">The Room</h2>
+        <h2 class="title-cinematic">${t.coverage.readers.title}</h2>
       </div>
-      <p class="sc-readers-lead">Coverage is read by humans. These are ours.</p>
+      <p class="sc-readers-lead">${t.coverage.readers.lead}</p>
       <div class="sc-readers-grid">
         ${readers.map((r) => `
           <article class="sc-reader" data-reveal>
@@ -1820,13 +1905,14 @@ function coverageReaders() {
 }
 
 function coverageSubmitCTA() {
+  const labels = t.coverage.submit;
   return `
     <section class="section sc-submit" data-reveal>
-      <a href="/contact/" class="sc-submit-card" data-link>
+      <a href="${lang === "pl" ? "/pl/contact/" : "/contact/"}" class="sc-submit-card" data-link>
         <div class="sc-submit-left">
-          <span class="eyebrow">07. Send your pages</span>
-          <h2 class="title-cinematic">Submit a<br/>screenplay.</h2>
-          <p>PDF or Final Draft. English or Polish. We read everything that arrives at <b>cool@world.pl</b> and reply within fourteen days.</p>
+          <span class="eyebrow">07. ${labels.eyebrow}</span>
+          <h2 class="title-cinematic">${labels.title}</h2>
+          <p>${labels.lead}</p>
         </div>
         <div class="sc-submit-right">
           <div class="sc-submit-clip" aria-hidden="true">
@@ -1837,7 +1923,7 @@ function coverageSubmitCTA() {
               <span class="clip-line"></span><span class="clip-line short"></span>
             </div>
           </div>
-          <span class="sc-submit-cta">Open the wire <i>&rarr;</i></span>
+          <span class="sc-submit-cta">${labels.cta} <i>&rarr;</i></span>
         </div>
       </a>
     </section>
@@ -1894,19 +1980,20 @@ function renderProduction(page) {
 }
 
 function productionDossier() {
+  const d = t.production.dossier;
   const stats = [
-    { l: "DOSSIER", v: "PL-PROD-2026" },
-    { l: "POPULATION", v: "37.6M" },
-    { l: "SURFACE",    v: "312 696 km²" },
-    { l: "BORDERS",    v: "07 nations" },
-    { l: "LANGUAGES",  v: "PL · EN · DE · UA · RU" },
-    { l: "TIMEZONE",   v: "UTC+01:00" }
+    { l: d.stats.dossier, v: "PL-PROD-2026" },
+    { l: d.stats.pop, v: "37.6M" },
+    { l: d.stats.surf,    v: "312 696 km²" },
+    { l: d.stats.borders,    v: lang === "pl" ? "07 narodów" : "07 nations" },
+    { l: d.stats.langs,  v: "PL · EN · DE · UA · RU" },
+    { l: d.stats.tz,   v: "UTC+01:00" }
   ];
   return `
     <section class="section pl-dossier" data-reveal>
       <header class="pl-dossier-head">
-        <span class="dossier-stamp">CONFIDENTIAL · LOCATION DOSSIER</span>
-        <span class="dossier-issued">ISSUED 09.MAR.2026 · SUNSET HILLS MP · WARSAW BUREAU</span>
+        <span class="dossier-stamp">${d.confidential}</span>
+        <span class="dossier-issued">${d.issued}</span>
       </header>
       <div class="pl-dossier-grid">
         ${stats.map((s) => `
@@ -1921,7 +2008,16 @@ function productionDossier() {
 }
 
 function productionEras() {
-  const eras = [
+  const eras = lang === "pl" ? [
+    { y: "XI–XIII w.", n: "Romanizm", d: "Kamienne wieże, półkoliste łuki, pierwsze katedry krakowskie." },
+    { y: "XIII–XVI w.", n: "Gotyk", d: "Ceglane fortece, zamki krzyżackie, wąskie kamienice mieszczańskie." },
+    { y: "XVI–XVII w.", n: "Renesans", d: "Dziedzińce wawelskie, włoskie arkady, książęce fasady." },
+    { y: "XVII–XVIII w.", n: "Barok", d: "Zakrzywione gzymsy, warszawskie pałace, dramat kontrreformacji." },
+    { y: "XIX w.", n: "Belle Époque", d: "Pałace łódzkich fabrykantów, bulwary w stylu wiedeńskim, żelazne balkony." },
+    { y: "XX w.", n: "Modernizm", d: "Bloki bauhausowskie, gdyńskie nabrzeże, przedwojenny optymizm." },
+    { y: "Lata 60–80", n: "Brutalizm", d: "Betonowe place, arena Spodek, monumentalizm ery komunistycznej." },
+    { y: "XXI w.", n: "Szkło i Stal", d: "Panorama Warszawy, Varso Tower, wnętrza parków technologicznych." }
+  ] : [
     { y: "11–13c", n: "Romanesque",   d: "Stone keeps, round arches, Cracow's first cathedrals." },
     { y: "13–16c", n: "Gothic",        d: "Brick fortresses, Teutonic castles, narrow burgher houses." },
     { y: "16–17c", n: "Renaissance",   d: "Wawel courtyards, Italian arcades, princely facades." },
@@ -1935,9 +2031,9 @@ function productionEras() {
     <section class="section pl-eras" data-reveal>
       <div class="section-header">
         <span class="section-number">02.</span>
-        <h2 class="title-cinematic">A Millennium of Backlots</h2>
+        <h2 class="title-cinematic">${t.production.eras.title}</h2>
       </div>
-      <p class="pl-eras-lead">Poland is one of the few countries where you can scout the 12th and 21st centuries inside a single afternoon.</p>
+      <p class="pl-eras-lead">${t.production.eras.lead}</p>
       <div class="pl-eras-rail">
         ${eras.map((e, i) => `
           <article class="era-card" data-reveal style="--i:${i}">
@@ -1953,7 +2049,12 @@ function productionEras() {
 }
 
 function productionSeasons() {
-  const seasons = [
+  const seasons = lang === "pl" ? [
+    { n: "Wiosna",  m: "MAR · KWI · MAJ", c1: "#5b8c3a", c2: "#a8c47a", note: "Jasne zielenie, niskie chmury, miękki kontrast. Okna dla techniki day-for-night są stabilne.", stand: "Europa Zachodnia · Przedwojenna Rosja" },
+    { n: "Lato",    m: "CZE · LIP · SIE", c1: "#c47a1f", c2: "#f0b455", note: "Długie niebieskie wieczory. 17-godzinne dni zdjęciowe możliwe na północ od Gdańska.", stand: "Śródziemnomorski ląd · Ukraina" },
+    { n: "Jesień",  m: "WRZ · PAŹ · LIS", c1: "#8a3a1a", c2: "#d27a3a", note: "Rdza, bursztyn i cegła. Kraj staje się tablicą próbek Wesa Andersona.", stand: "Nowa Anglia · Karpaty · Toskania" },
+    { n: "Zima",    m: "GRU · STY · LUT", c1: "#6c7a86", c2: "#cdd5dc", note: "Stalowe niebo, świeży śnieg, mgła z oddechu. Prawdziwe zimno, pianka niepotrzebna.", stand: "Syberia · Alaska · Laponia" }
+  ] : [
     { n: "Spring",  m: "MAR · APR · MAY", c1: "#5b8c3a", c2: "#a8c47a", note: "Pale greens, low cloud, soft contrast. Day-for-night windows are reliable.", stand: "Western Europe · Pre-war Russia" },
     { n: "Summer",  m: "JUN · JUL · AUG", c1: "#c47a1f", c2: "#f0b455", note: "Long blue evenings. 17-hour shoot days possible north of Gdańsk.",         stand: "Mediterranean inland · Ukraine" },
     { n: "Autumn",  m: "SEP · OCT · NOV", c1: "#8a3a1a", c2: "#d27a3a", note: "Rust, amber and brick. The country becomes a Wes Anderson swatch wall.",  stand: "New England · Carpathia · Tuscany" },
@@ -1963,7 +2064,7 @@ function productionSeasons() {
     <section class="section pl-seasons" data-reveal>
       <div class="section-header">
         <span class="section-number">03.</span>
-        <h2 class="title-cinematic">Four Working Seasons</h2>
+        <h2 class="title-cinematic">${t.production.seasons.title}</h2>
       </div>
       <div class="pl-season-grid">
         ${seasons.map((s, i) => `
@@ -1973,7 +2074,7 @@ function productionSeasons() {
               <span class="season-months">${s.m}</span>
               <strong class="season-name">${s.n}</strong>
               <p class="season-note">${s.note}</p>
-              <span class="season-stand-label">Stands in for</span>
+              <span class="season-stand-label">${lang === "pl" ? "Może zastąpić" : "Stands in for"}</span>
               <span class="season-stand">${s.stand}</span>
             </div>
           </article>
@@ -1988,7 +2089,7 @@ function productionCapabilitiesGrid(paragraphs) {
     <section class="section pl-capabilities" data-reveal>
       <div class="section-header">
         <span class="section-number">04.</span>
-        <h2 class="title-cinematic">Production Capability</h2>
+        <h2 class="title-cinematic">${lang === "pl" ? "Możliwości produkcyjne" : "Production Capability"}</h2>
       </div>
       <div class="pl-cap-grid">
         ${paragraphs.map((p, i) => `
@@ -2008,16 +2109,16 @@ function productionIncentive() {
     <section class="section pl-incentive" data-reveal>
       <div class="incentive-card">
         <div class="incentive-left">
-          <span class="incentive-eyebrow">POLISH FILM INSTITUTE</span>
+          <span class="incentive-eyebrow">POLSKI INSTYTUT SZTUKI FILMOWEJ</span>
           <strong class="incentive-num"><i>30</i><b>%</b></strong>
-          <span class="incentive-sub">cash rebate on qualified spend</span>
+          <span class="incentive-sub">${lang === "pl" ? "zwrot gotówki za wydatki kwalifikowane" : "cash rebate on qualified spend"}</span>
         </div>
         <div class="incentive-right">
-          <p>Productions shot in Poland qualify for a <strong>30% cash rebate</strong> on eligible local spend through the PISF programme &mdash; one of Europe&rsquo;s most aggressive incentives. Sunset Hills handles the application, audit and reconciliation in-house.</p>
+          <p>${lang === "pl" ? "Produkcje realizowane w Polsce kwalifikują się do <strong>30% zwrotu gotówki</strong> za wydatki lokalne w ramach programu PISF &mdash; jednej z najbardziej konkurencyjnych zachęt w Europie. Sunset Hills zajmuje się wnioskowaniem, audytem i rozliczeniem we własnym zakresie." : "Productions shot in Poland qualify for a <strong>30% cash rebate</strong> on eligible local spend through the PISF programme &mdash; one of Europe&rsquo;s most aggressive incentives. Sunset Hills handles the application, audit and reconciliation in-house."}</p>
           <ul class="incentive-list">
-            <li><span>—</span> No annual cap per project</li>
-            <li><span>—</span> Pay-out within 60 days of audited reconciliation</li>
-            <li><span>—</span> Stackable with EU regional funds &amp; co-production treaties</li>
+            <li><span>—</span> ${lang === "pl" ? "Brak rocznego limitu na projekt" : "No annual cap per project"}</li>
+            <li><span>—</span> ${lang === "pl" ? "Wypłata w ciągu 60 dni od audytu" : "Pay-out within 60 days of audited reconciliation"}</li>
+            <li><span>—</span> ${lang === "pl" ? "Możliwość łączenia z funduszami regionalnymi UE" : "Stackable with EU regional funds &amp; co-production treaties"}</li>
           </ul>
         </div>
       </div>
@@ -2026,7 +2127,32 @@ function productionIncentive() {
 }
 
 function productionManifest() {
-  const groups = [
+  const groups = lang === "pl" ? [
+    { title: "Hale zdjęciowe", rows: [
+      ["ALV", "Alvernia Studios · Kraków · 4 hale · 2 800 m²"],
+      ["WFD", "WFDiF · Warszawa · 6 hal · 3 100 m²"],
+      ["ATM", "ATM Studio · Warszawa · LED Volume + 5 hal"],
+      ["FBL", "Łódź Backlot · 12 ha scenografii plenerowej"]
+    ] },
+    { title: "Kamera i Optyka", rows: [
+      ["A35", "ARRI Alexa 35 / Mini LF / Amira"],
+      ["RED", "RED Komodo-X / V-Raptor 8K"],
+      ["LNS", "Cooke S7/i · Panavision Sphero · Atlas Orion"],
+      ["DRN", "DJI Inspire 3 · Freefly Alta X heavy-lift"]
+    ] },
+    { title: "Oświetlenie i Grip", rows: [
+      ["HMI", "Dwa pakiety 18K HMI · ARRI M40 / M90"],
+      ["LED", "ARRI SkyPanel S360 · Creamsource Vortex8"],
+      ["CRN", "Technocrane 30, 50 · Steadicam · żuraw 64 m"],
+      ["VEH", "Russian Arm · Edge Arm · Przyczepa procesowa"]
+    ] },
+    { title: "Kaskaderzy i Efekty", rows: [
+      ["FLT", "Zespoły choreografii walk wszystkich dyscyplin"],
+      ["VEH", "Kierowcy kaskaderzy, flota klasyczna i nowoczesna"],
+      ["ANI", "Trenowane konie, psy, ptaki drapieżne"],
+      ["FX",  "Efekty pirotechniczne, pogodowe na żądanie"]
+    ] }
+  ] : [
     { title: "Soundstages", rows: [
       ["ALV", "Alvernia Studios · Cracow · 4 stages · 2 800 m²"],
       ["WFD", "WFDiF · Warsaw · 6 stages · 3 100 m²"],
@@ -2056,7 +2182,7 @@ function productionManifest() {
     <section class="section pl-manifest" data-reveal>
       <div class="section-header">
         <span class="section-number">05.</span>
-        <h2 class="title-cinematic">Infrastructure Manifest</h2>
+        <h2 class="title-cinematic">${t.production.manifest.title}</h2>
       </div>
       <div class="manifest-grid">
         ${groups.map((g) => `
@@ -2073,7 +2199,18 @@ function productionManifest() {
 }
 
 function productionWhatWeCover() {
-  const services = [
+  const services = lang === "pl" ? [
+    "Produkcja wykonawcza",
+    "Skauting lokacji i pozwolenia",
+    "Ekipa i szefowie pionów",
+    "Casting i współpraca z agencjami",
+    "Logistyka i transport",
+    "Odprawy celne i karnety",
+    "Wnioski do PISF",
+    "Formalności umów o współprodukcji",
+    "Ubezpieczenia i gwarancje (bonding)",
+    "Przekazanie do postprodukcji"
+  ] : [
     "Line production",
     "Location scouting &amp; permits",
     "Crew &amp; department heads",
@@ -2089,14 +2226,14 @@ function productionWhatWeCover() {
     <section class="section pl-cover" data-reveal>
       <div class="section-header">
         <span class="section-number">06.</span>
-        <h2 class="title-cinematic">What We Cover, End-to-End</h2>
+        <h2 class="title-cinematic">${lang === "pl" ? "Pełny Zakres Obsługi" : "What We Cover, End-to-End"}</h2>
       </div>
       <ul class="pl-cover-list">
         ${services.map((s, i) => `<li data-reveal style="--i:${i}"><b>${String(i + 1).padStart(2, "0")}</b><span>${s}</span></li>`).join("")}
       </ul>
       <div class="pl-cover-foot">
         <span class="pl-cover-stamp">SUNSET HILLS MP · WARSAW BUREAU</span>
-        ${link("/contact/", "Open a wire")}
+        ${link(lang === "pl" ? "/pl/contact/" : "/contact/", lang === "pl" ? "Nawiąż kontakt" : "Open a wire")}
       </div>
     </section>
   `;
@@ -2106,15 +2243,15 @@ function officeCards() {
   return `
     <div class="office-grid">
       <article class="info-card">
-        <span class="card-kicker">Poland · HQ</span>
-        <p>Sunset Hills Motion Pictures S.A.<br />ul. Dominikańska 21B<br />02-738 Warsaw</p>
+        <span class="card-kicker">${lang === "pl" ? "Polska · Siedziba" : "Poland · HQ"}</span>
+        <p>Sunset Hills Motion Pictures S.A.<br />ul. Dominikańska 21B<br />02-738 Warszawa</p>
       </article>
       <article class="info-card">
-        <span class="card-kicker">United Kingdom</span>
+        <span class="card-kicker">${lang === "pl" ? "Wielka Brytania" : "United Kingdom"}</span>
         <p>SUNSET HILLS INVESTMENTS LTD<br />27 Old Gloucester Street<br />London, WC1N 3AX</p>
       </article>
       <article class="info-card">
-        <span class="card-kicker">Direct Wire</span>
+        <span class="card-kicker">${lang === "pl" ? "Bezpośrednie połączenie" : "Direct Wire"}</span>
         <p>cool@world.pl<br />+48 606 400 500</p>
       </article>
     </div>
@@ -2122,13 +2259,14 @@ function officeCards() {
 }
 
 function contactSection(number = "01.", includeVisual = false) {
+  const c = t.contact;
   return `
     <section class="section contact-console-section">
       <div class="contact-console">
         <aside class="contact-side">
-          <span class="eyebrow">${number} Open a wire</span>
-          <h2 class="contact-title">Send a<br/>Transmission</h2>
-          <p class="contact-lead">Investors, distributors, festival programmers, screenwriters &mdash; we read every wire that comes in. Most replies go out within 48 hours, Warsaw time.</p>
+          <span class="eyebrow">${number} ${c.eyebrow}</span>
+          <h2 class="contact-title">${c.title}</h2>
+          <p class="contact-lead">${c.lead}</p>
           ${officeCards()}
           <div class="contact-coord" aria-hidden="true">
             <span><b>LAT</b> 52.2297&deg; N</span>
@@ -2143,52 +2281,48 @@ function contactSection(number = "01.", includeVisual = false) {
 }
 
 function contactForm() {
+  const f = t.contact.form;
   return `
     <form class="contact-form transmission" data-transmission>
       <header class="tx-head">
         <span class="tx-stamp">SUNSET HILLS MP</span>
-        <span class="tx-meta"><b>OUTGOING WIRE</b> &middot; <span data-tx-time>--:--:--</span> &middot; PRIORITY 01</span>
+        <span class="tx-meta"><b>${f.outgoing}</b> &middot; <span data-tx-time>--:--:--</span> &middot; PRIORITY 01</span>
       </header>
       <div class="tx-body">
         <div class="tx-row tx-fixed">
-          <span class="tx-label">TO</span>
+          <span class="tx-label">${f.to}</span>
           <span class="tx-static">SUNSET HILLS MOTION PICTURES &middot; WARSAW</span>
         </div>
         <div class="tx-row">
-          <label class="tx-label" for="cf-name">FROM</label>
-          <input class="tx-input" id="cf-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required />
+          <label class="tx-label" for="cf-name">${f.from}</label>
+          <input class="tx-input" id="cf-name" name="name" type="text" placeholder="${f.placeholderName}" autocomplete="name" required />
           <span class="tx-rule"></span>
         </div>
         <div class="tx-row">
-          <label class="tx-label" for="cf-email">REPLY TO</label>
+          <label class="tx-label" for="cf-email">${f.reply}</label>
           <input class="tx-input" id="cf-email" name="email" type="email" placeholder="your@studio.com" autocomplete="email" required />
           <span class="tx-rule"></span>
         </div>
         <div class="tx-row">
-          <label class="tx-label" for="cf-subject">RE</label>
+          <label class="tx-label" for="cf-subject">${f.re}</label>
           <select class="tx-input tx-select" id="cf-subject" name="subject">
-            <option>Submitting a screenplay</option>
-            <option>Co-production / financing</option>
-            <option>Distribution &amp; sales</option>
-            <option>Press &amp; festivals</option>
-            <option>Crew / location services</option>
-            <option>Something else</option>
+            ${f.options.map(opt => `<option>${opt}</option>`).join("")}
           </select>
           <span class="tx-rule"></span>
         </div>
         <div class="tx-row tx-message">
-          <label class="tx-label" for="cf-message">MESSAGE BODY</label>
-          <textarea class="tx-input tx-textarea" id="cf-message" name="message" rows="7" placeholder="Begin with a logline. End with a wire. STOP." required></textarea>
+          <label class="tx-label" for="cf-message">${f.body}</label>
+          <textarea class="tx-input tx-textarea" id="cf-message" name="message" rows="7" placeholder="${f.placeholderMsg}" required></textarea>
           <span class="tx-counter" data-tx-counter>0 / 800</span>
         </div>
       </div>
       <footer class="tx-foot">
         <div class="tx-foot-meta">
-          <span><b>STATUS</b> READY TO TRANSMIT</span>
+          <span><b>${f.status}</b> ${f.ready}</span>
           <span class="tx-dot"></span>
         </div>
         <button class="tx-submit" type="submit">
-          <span class="tx-submit-label">Transmit</span>
+          <span class="tx-submit-label">${f.transmit}</span>
           <span class="tx-submit-arrow" aria-hidden="true">&#10148;</span>
         </button>
       </footer>
@@ -2206,19 +2340,19 @@ function closingSlate() {
   return `
     <section class="closing-slate">
       <div>
-        <span class="eyebrow">05. Let's Talk</span>
-        <h2>Contact</h2>
+        <span class="eyebrow">05. ${lang === "pl" ? "Porozmawiajmy" : "Let's Talk"}</span>
+        <h2>${lang === "pl" ? "Kontakt" : "Contact"}</h2>
       </div>
       <div class="closing-slate-copy">
-        <p>We have two offices in Poland and Great Britain.</p>
-        ${link("/contact/", "Get in touch")}
+        <p>${lang === "pl" ? "Posiadamy biura w Polsce i Wielkiej Brytanii." : "We have two offices in Poland and Great Britain."}</p>
+        ${link(lang === "pl" ? "/pl/contact/" : "/contact/", lang === "pl" ? "Nawiąż kontakt" : "Get in touch")}
       </div>
     </section>
   `;
 }
 
 function nextPageSlate(path) {
-  const sequence = [
+  const sequenceEn = [
     "/",
     "/about-us/",
     "/the-adventures-of-tom/",
@@ -2227,16 +2361,28 @@ function nextPageSlate(path) {
     "/production-in-poland/",
     "/contact/"
   ];
-  const currentIndex = sequence.indexOf(path);
-  if (currentIndex === -1 || path === "/contact/") return "";
-  const nextPath = sequence[(currentIndex + 1) % sequence.length];
-  const next = routes[nextPath] || routes["/"];
+  const sequencePl = [
+    "/pl/",
+    "/pl/o-nas/",
+    "/pl/przygody-tomka/",
+    "/pl/krolowie-zycia/",
+    "/pl/analiza-scenariuszy/",
+    "/pl/produkcja-w-polsce/",
+    "/pl/kontakt/"
+  ];
+  
+  const seq = lang === "pl" ? sequencePl : sequenceEn;
+  const currentIndex = seq.indexOf(path);
+  if (currentIndex === -1 || path === "/contact/" || path === "/pl/kontakt/") return "";
+  
+  const nextPath = seq[(currentIndex + 1) % seq.length];
+  const next = routes[nextPath] || routes[lang === "pl" ? "/pl/" : "/"];
   const image = next.heroImage || next.image || "/public/assets/optimized/kings-wide.webp";
   return `
     <section class="next-slate">
       <a href="${nextPath}" data-link>
         <img src="${image}" alt="" loading="lazy" />
-        <span class="eyebrow">Next</span>
+        <span class="eyebrow">${lang === "pl" ? "Następna" : "Next"}</span>
         <h2>${next.title}</h2>
       </a>
     </section>
@@ -2264,7 +2410,7 @@ function renderPerson(page) {
         ? `<section class="section filmography-section">
             <div class="section-header">
               <span class="section-number">03.</span>
-              <h2>Selected Filmography</h2>
+              <h2>${lang === "pl" ? "Wybrana Filmografia" : "Selected Filmography"}</h2>
             </div>
             <div class="poster-grid centered-poster-grid">
               ${page.films.map(([film, src]) => mediaFrame(src, film, "poster-placeholder")).join("")}
@@ -2275,19 +2421,30 @@ function renderPerson(page) {
   `;
 }
 
-const PROJECT_SLATE = {
-  "/":                              { scn: "INT.", title: "Sunset Hills — Day" },
-  "/about-us/":                     { scn: "INT.", title: "Studio HQ — Day" },
-  "/the-adventures-of-tom/":        { scn: "EXT.", title: "Kangaroo Kingdom — Dusk" },
-  "/the-kings-of-life/":            { scn: "EXT.", title: "Warsaw Street — Night" },
-  "/where-the-butterflies-fly/":    { scn: "INT.", title: "Butterfly Garden — Day" },
-  "/script-coverage/":              { scn: "INT.", title: "Writers' Room — Day" },
-  "/production-in-poland/":         { scn: "EXT.", title: "Warsaw Backlot — Day" },
-  "/contact/":                      { scn: "INT.", title: "Production Office — Night" },
-  "/jack-wielgopolan/":             { scn: "INT.", title: "Producer's Suite — Day" },
-  "/germano-saracco/":              { scn: "EXT.", title: "Camera Set — Magic Hour" },
-  "/dawn-jacobs/":                  { scn: "INT.", title: "Marketing Floor — Day" }
-};
+function localizeStaticUI() {
+  const c = t.curtain;
+  const f = t.footer;
+  
+  // Curtain
+  const cutTo = document.querySelector('.curtain-panel.curtain-top .curtain-meta span:last-child');
+  if (cutTo) cutTo.textContent = c.cutTo;
+  
+  const loading = document.querySelector('[data-curtain="title"]');
+  if (loading && !_hasRoutedOnce) loading.textContent = c.loading;
+  
+  const studio = document.querySelector('.curtain-slate .slate-row:last-child i');
+  if (studio) studio.textContent = c.studio;
+
+  // Footer
+  const footerRights = document.querySelector('.site-footer .footer-brand span:last-child');
+  if (footerRights) footerRights.textContent = f.rights;
+  
+  const footerContact = document.querySelector('.site-footer a[href="/contact/"]');
+  if (footerContact) {
+    footerContact.textContent = f.contact;
+    footerContact.setAttribute('href', lang === "pl" ? "/pl/contact/" : "/contact/");
+  }
+}
 
 // Curtain "clack" sound — synthesised, light: just the click, no sub-bass
 let _audioCtx = null;
@@ -2347,9 +2504,14 @@ async function route() {
   // Run curtain wipe for every navigation EXCEPT the very first page load
   const useCurtain = _hasRoutedOnce && curtain;
 
+  localizeStaticUI();
+
   if (useCurtain) {
     _takeCount += 1;
-    const slate = PROJECT_SLATE[path] || { scn: "--", title: page.title };
+    const slateBase = t.curtain.slates;
+    const lookupPath = path.endsWith("/") ? path : path + "/";
+    const slate = slateBase[lookupPath] || { scn: "--", title: page.title };
+    
     const scnEl = curtain.querySelector('[data-curtain="scn"]');
     const titleEl = curtain.querySelector('[data-curtain="title"]');
     const takeEl = curtain.querySelector('[data-curtain="take"]');
@@ -2366,6 +2528,12 @@ async function route() {
   }
 
   document.title = `${page.title} - Sunset Hills Motion Pictures`;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute('content', lang === "pl" 
+      ? "Sunset Hills Motion Pictures - produkcja filmowa, międzynarodowe wsparcie produkcji i projekty filmów fabularnych."
+      : "Sunset Hills Motion Pictures - film production, international production support, and feature film projects.");
+  }
   renderNav();
   app.innerHTML = page.render(page);
   window.scrollTo({ top: 0, behavior: "instant" });
