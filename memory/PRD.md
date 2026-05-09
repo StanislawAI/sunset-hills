@@ -73,6 +73,19 @@
 - **Mission card**: ECG-pulse heart SVG (red heart-line draws on load), title `Behind every picture — the children the cameras don't show.`, plus 3 hospital chips (WAW Children's Memorial, LDN Great Ormond Street, LAX Children's Hospital LA).
 - **Closing CTA**: "Step into The Kings of Life." with primary `mailto:` button and ghost link to `/script-coverage/`.
 
+## Where the Butterflies Fly — page redesign (May 2026)
+- Replaced one-screen video placeholder (`renderProjectPlaceholder`) with a full **pre-production teaser dossier** (`renderButterflies`) of 9 sections:
+  - **Cinematic teaser hero**: looped muted background video of the existing teaser, REC · DEV marker, `EXT. POLISH HIGHLANDS — DAWN` slug, white→pink italic gradient title `WHERE / the butterflies / FLY.`, 5 monospace stat chips (Status: Development/Stage 03 · Polish Highlands · 64 shoot days · Palette dawn·moss·sand · Release 2027), plus 4 SVG butterflies that flap (animated wings) and drift across the hero on three different paths.
+  - **Classified Treatment Card** — bordered `FILE · WTBF · CARD-001 · CLEARANCE · RED` bar, rotated `INVITE ONLY` stamp, italic Anna logline interrupted by inline `[REDACTED — 2 LINES]` and `[REDACTED — NDA CLAUSE]` boxes, fingerprint `FP · 7C-A19-44`.
+  - **Scale in outline** stat band (animated counters: 64 days · stage 3 · 1,850 m · 7 locations · 12 species).
+  - **Three Acts** (Return / The Hunt / Migration) — italic Roman numerals, location subtitles, with Act III fully redacted via a diagonal-stripe NDA panel.
+  - **Mood — Six Frames (CONFIDENTIAL)** — six 2.39:1 frames in rose/sage/rust/sand/moss colour washes with grain, blur, scene IDs (SC.003/014/027/041/063/072), notes (first light, old barn, letter in case, shepherd path, the hunt, the swarm) and timecodes.
+  - **Location card** — `Bieszczady. The meadow where the wings remember the way.` with custom mountain SVG, GPS, elevation, shoot window, temperature, golden-hour minutes, basecamp.
+  - **Four Wings** symbolism cards — Migration / Metamorphosis / Memory / Mortality, each with an animated butterfly icon and italic copy.
+  - **Crew in Outline** — 6 dept cards; sealed entries (`[NAME WITHHELD]`, `[CANDIDATE 01/02]`, `[RESERVED]`) get a diagonal-stripe redaction across the name plus a `SEALED` stamp; confirmed entries (Sunset Hills MP, Dr. M. Pawlak) carry a green `CONFIRMED` stamp.
+  - **NDA-only CTA** — `Treatment v3 & lookbook — by invitation.` with `Request the NDA` primary button (mailto with subject prefilled) and ghost link to `/contact/`, plus phase/window/reply metadata.
+- Lint clean, no console errors, all 9 sections verified via screenshot.
+
 ## Notes
 - No backend/MongoDB/auth involved.
 - No third-party integrations were added.

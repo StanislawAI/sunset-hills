@@ -151,14 +151,14 @@ const routes = {
     eyebrow: translations.en.nav.butterflies,
     heroVideo: "/public/assets/butterflies-drive-download.mp4",
     paragraphs: [],
-    render: renderProjectPlaceholder
+    render: renderButterflies
   },
   "/pl/where-the-butterflies-fly/": {
     title: translations.pl.nav.butterflies,
     eyebrow: translations.pl.nav.butterflies,
     heroVideo: "/public/assets/butterflies-drive-download.mp4",
     paragraphs: [],
-    render: renderProjectPlaceholder
+    render: renderButterflies
   },
   "/the-adventures-of-tom/": {
     title: translations.en.nav.tom,
@@ -2148,6 +2148,375 @@ function renderProjectPlaceholder(page) {
     ${cinemaTicker()}
     <section class="section">
       ${videoFrame("/public/assets/butterflies-drive-download.mp4", lang === "pl" ? "Tam, gdzie latają motyle" : "Where the butterflies fly", "media-placeholder image-band cinema-video", "contain")}
+    </section>
+  `;
+}
+
+function renderButterflies(page) {
+  return `
+    ${butterfliesHero(page)}
+    ${butterfliesClassified()}
+    ${butterfliesStats()}
+    ${lightLeak()}
+    ${butterfliesTreatment()}
+    ${butterfliesMood()}
+    ${lightLeak()}
+    ${butterfliesSetting()}
+    ${butterfliesSymbolism()}
+    ${butterfliesCrew()}
+    ${butterfliesCTA()}
+  `;
+}
+
+function butterfliesHero() {
+  const dateStr = new Date().toUTCString().slice(5, 16);
+  return `
+    <section class="bf-hero" data-reveal>
+      <div class="bf-hero-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata" poster="/public/assets/optimized/poster.jpg">
+          <source src="/public/assets/butterflies-drive-download.mp4" type="video/mp4">
+        </video>
+        <div class="bf-hero-tint"></div>
+      </div>
+
+      <div class="bf-flutter" aria-hidden="true">
+        ${butterflySVG("bf-fly-1")}
+        ${butterflySVG("bf-fly-2")}
+        ${butterflySVG("bf-fly-3")}
+        ${butterflySVG("bf-fly-4")}
+      </div>
+
+      <div class="tom-hero-frame" aria-hidden="true">
+        <span class="ab-hero-fc tl"></span><span class="ab-hero-fc tr"></span>
+        <span class="ab-hero-fc bl"></span><span class="ab-hero-fc br"></span>
+      </div>
+
+      <header class="ab-hero-bar bf-hero-bar">
+        <span class="ab-hero-rec"><i></i>REC · DEV</span>
+        <span class="ab-hero-slug">${lang === "pl" ? "PLEN. POLSKIE WYSOKOGÓRZE — ŚWIT" : "EXT. POLISH HIGHLANDS — DAWN"}</span>
+        <span class="ab-hero-tc">PROJECT · BUTTERFLY · 04</span>
+      </header>
+
+      <div class="bf-hero-content">
+        <span class="bf-hero-eyebrow">${lang === "pl" ? "04 · TEASER PREPRODUKCJA · POUFNE" : "04 · PRE-PRODUCTION TEASER · CONFIDENTIAL"}</span>
+        <h1 class="bf-hero-title">
+          <span>${lang === "pl" ? "Tam," : "Where"}</span>
+          <span class="bf-italic">${lang === "pl" ? "gdzie latają" : "the butterflies"}</span>
+          <span>${lang === "pl" ? "motyle." : "fly."}</span>
+        </h1>
+        <p class="bf-hero-lede">${lang === "pl"
+          ? "Projekt rozwijany w ciszy. Kameralna opowieść o powrocie, przemianie i miejscu, do którego skrzydła pamiętają drogę. Bieszczady · Tatry · 64 dni planu · 2027."
+          : "Developed quietly. An intimate story about return, metamorphosis, and the place that wings remember. Bieszczady · Tatra · 64 shoot days · 2027."}</p>
+
+        <div class="bf-hero-chips">
+          <span><b>${lang === "pl" ? "STATUS" : "STATUS"}</b> ${lang === "pl" ? "Rozwój / Stadium 03" : "Development / Stage 03"}</span>
+          <span><b>${lang === "pl" ? "PLENER" : "LOCATION"}</b> Polish Highlands</span>
+          <span><b>${lang === "pl" ? "DNI ZDJĘĆ" : "SHOOT DAYS"}</b> 64</span>
+          <span><b>${lang === "pl" ? "POŚWIATA" : "PALETTE"}</b> ${lang === "pl" ? "świt · mech · piasek" : "dawn · moss · sand"}</span>
+          <span><b>${lang === "pl" ? "PREMIERA" : "RELEASE"}</b> 2027 ${lang === "pl" ? "(plan)" : "(target)"}</span>
+        </div>
+
+        <div class="bf-hero-foot">
+          <a class="ab-hero-cue" href="#bf-classified">${lang === "pl" ? "Otwórz dossier (NDA)" : "Open the dossier (NDA)"} <i>↓</i></a>
+          <span class="ab-hero-stamp">${dateStr} · ${lang === "pl" ? "MEMO POUFNE" : "CONFIDENTIAL MEMO"}</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function butterflySVG(cls) {
+  return `
+    <svg class="bf-fly ${cls}" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="rgba(245,180,180,0.85)" stroke="rgba(180,90,90,0.7)" stroke-width="0.6">
+        <path class="bf-wing-l" d="M30 30 C 12 8, 4 18, 8 32 C 12 44, 24 38, 30 30 Z"/>
+        <path class="bf-wing-r" d="M30 30 C 48 8, 56 18, 52 32 C 48 44, 36 38, 30 30 Z"/>
+        <path class="bf-wing-l-b" d="M30 30 C 18 38, 12 50, 22 52 C 28 52, 30 42, 30 30 Z"/>
+        <path class="bf-wing-r-b" d="M30 30 C 42 38, 48 50, 38 52 C 32 52, 30 42, 30 30 Z"/>
+      </g>
+      <g fill="rgba(40,30,40,0.95)">
+        <ellipse cx="30" cy="30" rx="1.6" ry="14"/>
+      </g>
+    </svg>
+  `;
+}
+
+function butterfliesClassified() {
+  return `
+    <section class="section bf-classified" data-reveal id="bf-classified">
+      <article class="bf-classified-card">
+        <header class="bf-classified-bar">
+          <span><b>FILE</b> · WTBF · CARD-001</span>
+          <span class="bf-classified-eq">${lang === "pl" ? "POZIOM POUFNOŚCI · CZERWONY" : "CLEARANCE · RED"}</span>
+          <span class="bf-classified-stamp">${lang === "pl" ? "TYLKO NA ZAPROSZENIE" : "INVITE ONLY"}</span>
+        </header>
+        <div class="bf-classified-body">
+          <span class="bf-classified-eye">${lang === "pl" ? "TREATMENT · WYCIĄG (CZĘŚĆ I)" : "TREATMENT · EXCERPT (PART I)"}</span>
+          <p class="bf-classified-text">${lang === "pl"
+            ? "<b>Anna</b>, niespełna trzydziestoletnia entomolożka, wraca do wsi w Bieszczadach po piętnastu latach. <span class=\"bf-redact\">[USUNIĘTO — 2 LINIE]</span> Drugiego dnia, na hali, znajduje pierwszego motyla — gatunek, którego, według podręczników, nie ma już od dekady. Z każdym następnym, wraca do niej coś, co próbowała zostawić. <span class=\"bf-redact\">[USUNIĘTO — KLAUZULA NDA]</span> Film zaczyna się tam, gdzie pamięć przestaje być bezpieczna."
+            : "<b>Anna</b>, an entomologist in her late twenties, returns to a village in the Bieszczady mountains after fifteen years away. <span class=\"bf-redact\">[REDACTED — 2 LINES]</span> On the second day, on a high meadow, she finds the first butterfly — a species the field guides have written off as extinct for over a decade. With each new one, something she tried to leave behind comes back to her. <span class=\"bf-redact\">[REDACTED — NDA CLAUSE]</span> The picture begins where memory stops being safe."}</p>
+        </div>
+        <footer class="bf-classified-foot">
+          <span>${lang === "pl" ? "Dalszy ciąg dostępny po podpisaniu NDA." : "Continuation available after a signed NDA."}</span>
+          <span class="bf-classified-fingerprint" aria-hidden="true">FP · 7C-A19-44</span>
+        </footer>
+      </article>
+    </section>
+  `;
+}
+
+function butterfliesStats() {
+  const items = lang === "pl" ? [
+    { num: 64,  suf: "",  lbl: "Dni zdjęciowe", sub: "wiosna · jesień 2026" },
+    { num: 3,   suf: "",  lbl: "Stadium rozwoju", sub: "treatment → blueprint" },
+    { num: 1850, suf: " m", lbl: "Wysokość planu", sub: "hala Małej Rawki · BIE" },
+    { num: 7,   suf: "",  lbl: "Główne plenery", sub: "BIE · TAT · MAZ" },
+    { num: 12,  suf: "",  lbl: "Gatunków motyli", sub: "konsultacja entomologiczna" }
+  ] : [
+    { num: 64,  suf: "",  lbl: "Shoot days", sub: "spring · autumn 2026" },
+    { num: 3,   suf: "",  lbl: "Development stage", sub: "treatment → blueprint" },
+    { num: 1850, suf: " m", lbl: "Top set elevation", sub: "Mała Rawka meadow · BIE" },
+    { num: 7,   suf: "",  lbl: "Principal locations", sub: "BIE · TAT · MAZ" },
+    { num: 12,  suf: "",  lbl: "Butterfly species", sub: "entomology consult" }
+  ];
+  return `
+    <section class="section ab-stats bf-stats" data-reveal>
+      <header class="ab-stats-head">
+        <span class="eyebrow">${lang === "pl" ? "Skala — w zarysie" : "Scale — in outline"}</span>
+        <span class="ab-stats-rule"></span>
+        <span class="ab-stats-tag">${lang === "pl" ? "stan na · " + new Date().getFullYear() : "as of · " + new Date().getFullYear()}</span>
+      </header>
+      <div class="ab-stats-row bf-stats-row">
+        ${items.map((it, i) => `
+          <article class="ab-stat" data-reveal style="--i:${i}">
+            <span class="ab-stat-num"><b data-count="${it.num}">0</b><i>${it.suf}</i></span>
+            <span class="ab-stat-lbl">${it.lbl}</span>
+            <span class="ab-stat-sub">${it.sub}</span>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function butterfliesTreatment() {
+  return `
+    <section class="section bf-treatment" data-reveal>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Trzy<br/>Akty" : "Three<br/>Acts"}</h2>
+      </div>
+      <div class="bf-acts">
+        ${[
+          {
+            n: "I",
+            ttl: lang === "pl" ? "Powrót" : "Return",
+            sub: lang === "pl" ? "Łódź → Lutowiska · 09.04" : "Łódź → Lutowiska · 09.04",
+            txt: lang === "pl"
+              ? "Anna zostawia laboratorium i lecze. Dom dziadków pachnie żywicą i kurzem. W jednej szufladzie — gablota motyli z dzieciństwa, w drugiej — list, którego nigdy nie otworzyła."
+              : "Anna leaves the lab and the city behind. Her grandparents' house smells of resin and dust. In one drawer — a childhood butterfly case; in another — a letter she never opened."
+          },
+          {
+            n: "II",
+            ttl: lang === "pl" ? "Polowanie" : "The Hunt",
+            sub: lang === "pl" ? "Hala · 1850 m" : "High meadow · 1850 m",
+            txt: lang === "pl"
+              ? "Każdy nowy gatunek zmusza Annę do czegoś, czego unikała przez piętnaście lat: rozmowy. Wieś i góra zaczynają mówić jednym głosem, którego nie da się sklasyfikować w żadnym kluczu."
+              : "Each new species forces Anna into the thing she's avoided for fifteen years: conversation. The village and the mountain begin speaking in a single voice that no taxonomy can pin down."
+          },
+          {
+            n: "III",
+            ttl: lang === "pl" ? "Migracja" : "Migration",
+            sub: lang === "pl" ? "Świt · ostatnia hala" : "Dawn · the last meadow",
+            txt: lang === "pl"
+              ? "<span class=\"bf-redact bf-redact-lg\">[USUNIĘTO — KLAUZULA NDA · ZAKOŃCZENIE]</span>"
+              : "<span class=\"bf-redact bf-redact-lg\">[REDACTED — NDA CLAUSE · ENDING]</span>"
+          }
+        ].map((a, i) => `
+          <article class="bf-act" data-reveal style="--i:${i}">
+            <header>
+              <span class="bf-act-num">${a.n}</span>
+              <div>
+                <h3>${a.ttl}</h3>
+                <span class="bf-act-sub">${a.sub}</span>
+              </div>
+            </header>
+            <p>${a.txt}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function butterfliesMood() {
+  // Stylised "scene strips" rather than real images — just label/timecode chips
+  const frames = [
+    { id: "SC.003", note: lang === "pl" ? "świt · brzask" : "first light",  time: "05:42:11", hue: "rose"  },
+    { id: "SC.014", note: lang === "pl" ? "stara stodoła" : "old barn",      time: "06:18:24", hue: "sage"  },
+    { id: "SC.027", note: lang === "pl" ? "list w gablocie" : "letter in case", time: "08:02:09", hue: "rust"  },
+    { id: "SC.041", note: lang === "pl" ? "ścieżka pasterska" : "shepherd path", time: "11:47:02", hue: "sand"  },
+    { id: "SC.063", note: lang === "pl" ? "polowanie" : "the hunt",          time: "14:20:18", hue: "moss"  },
+    { id: "SC.072", note: lang === "pl" ? "rój" : "the swarm",                time: "17:05:33", hue: "rose"  }
+  ];
+  return `
+    <section class="section bf-mood" data-reveal>
+      <header class="bf-mood-head">
+        <span class="eyebrow">${lang === "pl" ? "Mood — sześć kadrów (poufne)" : "Mood — six frames (confidential)"}</span>
+        <span class="bf-mood-rule"></span>
+        <span class="bf-mood-tag">${lang === "pl" ? "fragment · NDA" : "excerpt · under NDA"}</span>
+      </header>
+      <div class="bf-mood-grid">
+        ${frames.map((f, i) => `
+          <article class="bf-frame bf-frame-${f.hue}" data-reveal style="--i:${i}">
+            <div class="bf-frame-art" aria-hidden="true">
+              <div class="bf-frame-grain"></div>
+              <div class="bf-frame-blur"></div>
+              <span class="bf-frame-ratio">2.39:1</span>
+            </div>
+            <footer>
+              <span class="bf-frame-id">${f.id}</span>
+              <span class="bf-frame-note">${f.note}</span>
+              <span class="bf-frame-time">${f.time}</span>
+            </footer>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function butterfliesSetting() {
+  return `
+    <section class="section bf-setting" data-reveal>
+      <article class="bf-setting-card">
+        <div class="bf-setting-art" aria-hidden="true">
+          <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bf-sky" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="rgba(245,180,180,0.4)"/>
+                <stop offset="1" stop-color="rgba(40,40,50,0)"/>
+              </linearGradient>
+            </defs>
+            <rect width="240" height="200" fill="url(#bf-sky)"/>
+            <g fill="none" stroke="rgba(245,235,215,0.85)" stroke-width="1.4" stroke-linejoin="round">
+              <path d="M0 150 L 30 130 L 50 142 L 78 110 L 96 124 L 120 90 L 144 116 L 168 94 L 196 112 L 220 100 L 240 118 L 240 200 L 0 200 Z" fill="rgba(20,18,14,0.6)"/>
+              <path d="M0 168 L 28 156 L 60 162 L 90 144 L 120 152 L 150 138 L 178 150 L 210 142 L 240 152 L 240 200 L 0 200 Z" fill="rgba(20,18,14,0.85)"/>
+            </g>
+            <g fill="rgba(245,235,215,0.5)">
+              <circle cx="200" cy="40" r="14"/>
+            </g>
+          </svg>
+        </div>
+        <div class="bf-setting-text">
+          <span class="bf-setting-eye">${lang === "pl" ? "PLENER · KARTA 005" : "LOCATION · CARD 005"}</span>
+          <h2>${lang === "pl" ? "Bieszczady. Hala, na której skrzydła pamiętają drogę." : "Bieszczady. The meadow where the wings remember the way."}</h2>
+          <p>${lang === "pl"
+            ? "Pas pogranicza Polski, Słowacji i Ukrainy. Stoki Małej Rawki, połonina Caryńska, dolina Sanu. Las bukowy 200-letni, ciemne niebo (Park Gwiezdny), pasterskie szałasy zamiast hoteli. To jest ekran filmu, nie tło."
+            : "The border ridge of Poland, Slovakia and Ukraine. Slopes of Mała Rawka, the Caryńska meadow, the San valley. Two-hundred-year beech forest, an International Dark-Sky Park, shepherds' huts instead of hotels. This is the screen of the film, not the backdrop."}</p>
+          <ul class="bf-setting-meta">
+            <li><b>GPS</b><span>49°08′N · 22°33′E</span></li>
+            <li><b>${lang === "pl" ? "WYSOKOŚĆ" : "ELEVATION"}</b><span>1,180 – 1,850 m</span></li>
+            <li><b>${lang === "pl" ? "OKNO ZDJĘĆ" : "SHOOT WINDOW"}</b><span>${lang === "pl" ? "kwiecień–czerwiec · wrzesień" : "April–June · September"}</span></li>
+            <li><b>${lang === "pl" ? "TEMPERATURA" : "TEMP."}</b><span>4 °C – 19 °C</span></li>
+            <li><b>${lang === "pl" ? "GODZINA ZŁOTA" : "GOLDEN HOUR"}</b><span>${lang === "pl" ? "44 min · świt + zmierzch" : "44 min · dawn + dusk"}</span></li>
+            <li><b>${lang === "pl" ? "BAZA" : "BASECAMP"}</b><span>Lutowiska · Cisna</span></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function butterfliesSymbolism() {
+  const items = lang === "pl" ? [
+    { ttl: "MIGRACJA",     txt: "Wracać tam, gdzie skrzydła już raz dotarły. Decyzja, której nie pamięta się rozumem." },
+    { ttl: "METAMORFOZA", txt: "Cztery stadia. Tylko ostatnie ma skrzydła — i pamięć o pozostałych trzech." },
+    { ttl: "PAMIĘĆ",       txt: "Owad żyje tygodnie. Krajobraz, w którym żyje — wieki. Film stoi pomiędzy." },
+    { ttl: "MORTALNOŚĆ",   txt: "Każdy lot jest pożegnaniem. Każde znalezisko — dowodem, że było warto wzlecieć." }
+  ] : [
+    { ttl: "MIGRATION",    txt: "Returning to where the wings once arrived. A decision the mind does not remember making." },
+    { ttl: "METAMORPHOSIS",txt: "Four stages. Only the last has wings — and the memory of the other three." },
+    { ttl: "MEMORY",       txt: "An insect lives for weeks. The landscape it lives in, for centuries. The film stands between." },
+    { ttl: "MORTALITY",    txt: "Every flight is a goodbye. Every find — proof it was worth taking off." }
+  ];
+  return `
+    <section class="section bf-symbol" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Cztery<br/>Skrzydła" : "Four<br/>Wings"}</h2>
+      </div>
+      <div class="bf-symbol-grid">
+        ${items.map((it, i) => `
+          <article class="bf-wing-card" data-reveal style="--i:${i}">
+            <span class="bf-wing-num">0${i + 1}</span>
+            <div class="bf-wing-art" aria-hidden="true">${butterflySVG("bf-fly-static")}</div>
+            <h3>${it.ttl}</h3>
+            <p>${it.txt}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function butterfliesCrew() {
+  const crew = lang === "pl" ? [
+    { dept: "REŻYSERIA",        name: "Sunset Hills MP",    note: "rozwój wewnętrzny",    sealed: false },
+    { dept: "SCENARIUSZ",       name: "[NAZWISKO POUFNE]",  note: "po podpisaniu NDA",     sealed: true  },
+    { dept: "OBRAZ · DP",       name: "[KANDYDAT 01]",      note: "rozmowy w toku",        sealed: true  },
+    { dept: "MUZYKA",           name: "[KANDYDAT 02]",      note: "demo · czwarty kwartał", sealed: true  },
+    { dept: "MONTAŻ",           name: "[ZASTRZEŻONO]",      note: "po treatment v3",       sealed: true  },
+    { dept: "KONSULTACJA · ENT.", name: "Dr. M. Pawlak",     note: "Instytut Bot.-Zoo. PAN", sealed: false }
+  ] : [
+    { dept: "DIRECTION",        name: "Sunset Hills MP",    note: "in-house development",  sealed: false },
+    { dept: "SCREENPLAY",       name: "[NAME WITHHELD]",    note: "post-NDA disclosure",   sealed: true  },
+    { dept: "CINEMATOGRAPHY",   name: "[CANDIDATE 01]",     note: "conversations in progress", sealed: true },
+    { dept: "MUSIC",            name: "[CANDIDATE 02]",     note: "demo · Q4",             sealed: true  },
+    { dept: "EDITING",          name: "[RESERVED]",         note: "after treatment v3",    sealed: true  },
+    { dept: "ENTOMOLOGY · CONS.", name: "Dr. M. Pawlak",   note: "PAS Bot.-Zoo. Institute", sealed: false }
+  ];
+  return `
+    <section class="section bf-crew" data-reveal>
+      <div class="section-header">
+        <span class="section-number">07.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Ekipa<br/>w&nbsp;Zarysie" : "Crew<br/>in Outline"}</h2>
+      </div>
+      <div class="bf-crew-grid">
+        ${crew.map((c, i) => `
+          <article class="bf-crew-card ${c.sealed ? "bf-crew-sealed" : ""}" data-reveal style="--i:${i}">
+            <span class="bf-crew-dept">${c.dept}</span>
+            <strong class="bf-crew-name">${c.name}</strong>
+            <span class="bf-crew-note">${c.note}</span>
+            ${c.sealed ? `<span class="bf-crew-seal" aria-hidden="true">${lang === "pl" ? "ZAPIECZĘTOWANE" : "SEALED"}</span>` : `<span class="bf-crew-seal bf-crew-seal-open" aria-hidden="true">${lang === "pl" ? "POTWIERDZONE" : "CONFIRMED"}</span>`}
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function butterfliesCTA() {
+  return `
+    <section class="section bf-cta" data-reveal>
+      <div class="bf-cta-card">
+        <div class="bf-cta-text">
+          <span class="bf-cta-eye">${lang === "pl" ? "DOSTĘP TYLKO PRZEZ NDA" : "NDA-ONLY ACCESS"}</span>
+          <h2>${lang === "pl" ? "Treatment v3 i lookbook — na zaproszenie." : "Treatment v3 & lookbook — by invitation."}</h2>
+          <p>${lang === "pl"
+            ? "Pełna trzecia wersja treatmentu, lookbook Bieszczad, mapa lokalizacji i model finansowy są dostępne dla zaproszonych partnerów po podpisaniu krótkiej umowy o poufności."
+            : "The full third draft of the treatment, the Bieszczady lookbook, the location map and the financial model are available to invited partners after a brief confidentiality agreement."}</p>
+        </div>
+        <div class="bf-cta-actions">
+          <a class="tom-cta-btn primary" href="mailto:cool@world.pl?subject=Where%20The%20Butterflies%20Fly%20%E2%80%94%20NDA%20Request">${lang === "pl" ? "Poproś o NDA" : "Request the NDA"} <i>→</i></a>
+          <a class="tom-cta-btn ghost" href="${lang === "pl" ? "/pl/contact/" : "/contact/"}" data-link>${lang === "pl" ? "Skontaktuj się" : "Open contact"}</a>
+        </div>
+        <ul class="tom-cta-meta">
+          <li><b>${lang === "pl" ? "FAZA" : "PHASE"}</b><span>${lang === "pl" ? "Rozwój · Stadium 03" : "Development · Stage 03"}</span></li>
+          <li><b>${lang === "pl" ? "OKNO" : "WINDOW"}</b><span>${lang === "pl" ? "1H 2026 · pre-prod" : "1H 2026 · pre-prod"}</span></li>
+          <li><b>${lang === "pl" ? "ODPOWIEDŹ" : "REPLY"}</b><span>${lang === "pl" ? "≤ 7 dni roboczych" : "≤ 7 business days"}</span></li>
+        </ul>
+      </div>
     </section>
   `;
 }
