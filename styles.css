@@ -4651,3 +4651,380 @@ p {
   transform: rotate(-12deg) scale(1);
 }
 
+
+/* ============================================================
+   CONTACT — Transmission Console
+   ============================================================ */
+
+.contact-console-section { padding-top: clamp(40px, 6vw, 80px); }
+
+.contact-console {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+}
+
+/* ---- Side / context column ---- */
+.contact-side {
+  display: grid;
+  gap: 28px;
+  align-content: start;
+  padding-top: 8px;
+}
+.contact-side .eyebrow {
+  display: inline-flex; gap: 10px; align-items: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.contact-title {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6.4vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 55%, rgba(255,255,255,0.45) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.contact-lead {
+  max-width: 46ch;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(244, 247, 251, 0.78);
+  margin: 0;
+}
+
+.contact-side .office-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 28px;
+  margin-top: 8px;
+}
+.contact-side .info-card {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid var(--red);
+  padding: 4px 0 4px 18px;
+  min-height: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+.contact-side .info-card .card-kicker {
+  font: 800 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+.contact-side .info-card p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.contact-coord {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin-top: 4px;
+  padding: 12px 0 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  font: 700 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(244, 247, 251, 0.55);
+}
+.contact-coord b { color: var(--red); margin-right: 6px; font-weight: 800; }
+
+/* ---- Transmission form ---- */
+.contact-form.transmission {
+  position: relative;
+  display: block;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245, 235, 215, 0.04), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 26px, transparent 26px 27px),
+    rgba(20, 18, 14, 0.85);
+  border: 1px solid rgba(245, 235, 215, 0.1);
+  font-family: 'IBM Plex Mono', monospace;
+  color: rgba(245, 235, 215, 0.9);
+  overflow: hidden;
+  transition: border-color 320ms ease, box-shadow 320ms ease;
+}
+.contact-form.transmission:focus-within {
+  border-color: rgba(209, 32, 37, 0.55);
+  box-shadow: 0 0 0 1px rgba(209, 32, 37, 0.25), 0 30px 100px rgba(0, 0, 0, 0.55);
+}
+
+.tx-perf {
+  position: absolute; left: 0; right: 0; height: 4px;
+  background: repeating-linear-gradient(90deg, var(--red) 0 12px, transparent 12px 18px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.tx-perf.top { top: 0; }
+.tx-perf.bottom { bottom: 0; opacity: 0.4; }
+
+.tx-head {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 22px clamp(20px, 2.4vw, 36px);
+  border-bottom: 2px solid rgba(245, 235, 215, 0.18);
+  background: rgba(0, 0, 0, 0.25);
+}
+.tx-stamp {
+  border: 1px solid var(--red);
+  color: var(--red);
+  padding: 5px 12px;
+  font: 800 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+.tx-meta {
+  font: 700 10.5px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 235, 215, 0.7);
+}
+.tx-meta b { color: var(--ink); margin-right: 4px; }
+
+.tx-body {
+  padding: clamp(16px, 2.2vw, 28px) clamp(20px, 2.4vw, 36px);
+  display: grid;
+  gap: 4px;
+}
+
+.tx-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(245, 235, 215, 0.12);
+  position: relative;
+}
+.tx-row:last-of-type { border-bottom: 0; }
+
+.tx-label {
+  font: 800 10.5px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+  align-self: center;
+}
+
+.tx-static {
+  font: 700 14px/1.4 'IBM Plex Mono', monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.tx-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding: 8px 0;
+  outline: none;
+  caret-color: var(--red);
+  appearance: none;
+  -webkit-appearance: none;
+}
+.tx-input::placeholder {
+  color: rgba(245, 235, 215, 0.35);
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+.tx-input:focus { color: #fff; }
+
+.tx-rule {
+  position: absolute;
+  left: 148px; right: 0; bottom: 14px;
+  height: 1px;
+  background: rgba(245, 235, 215, 0.18);
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 380ms cubic-bezier(.2,.8,.2,1), background 380ms ease;
+}
+.tx-row:focus-within .tx-rule {
+  transform: scaleX(1);
+  background: var(--red);
+  box-shadow: 0 0 16px rgba(209, 32, 37, 0.55);
+}
+
+.tx-select {
+  background-image: linear-gradient(45deg, transparent 50%, rgba(245, 235, 215, 0.5) 50%),
+                    linear-gradient(-45deg, transparent 50%, rgba(245, 235, 215, 0.5) 50%);
+  background-position: calc(100% - 14px) center, calc(100% - 8px) center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+  cursor: pointer;
+}
+.tx-select option {
+  background: #14120e;
+  color: var(--ink);
+}
+
+.tx-message { grid-template-columns: 130px 1fr; align-items: start; padding-top: 18px; }
+.tx-message .tx-label { padding-top: 8px; }
+
+.tx-textarea {
+  font-size: 1rem;
+  line-height: 1.55;
+  min-height: 180px;
+  resize: vertical;
+  padding: 8px 0 28px;
+}
+.tx-counter {
+  position: absolute;
+  right: 0; bottom: 6px;
+  font: 700 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 235, 215, 0.45);
+  pointer-events: none;
+}
+.tx-counter.over { color: var(--red); }
+
+.tx-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+  padding: 18px clamp(20px, 2.4vw, 36px);
+  border-top: 2px solid rgba(245, 235, 215, 0.18);
+  background: rgba(0, 0, 0, 0.25);
+}
+.tx-foot-meta {
+  display: inline-flex; align-items: center; gap: 12px;
+  font: 700 10.5px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 235, 215, 0.7);
+}
+.tx-foot-meta b { color: var(--ink); margin-right: 6px; }
+.tx-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 0 rgba(209, 32, 37, 0.6);
+  transition: background 220ms ease;
+}
+.tx-dot.on, .transmission.transmitting .tx-dot, .transmission.transmitted .tx-dot {
+  background: var(--red);
+  animation: pulseDot 1.4s ease-out infinite;
+}
+
+.tx-submit {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 14px 22px;
+  background: var(--red);
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 220ms ease, background 220ms ease;
+}
+.tx-submit::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(255,168,92,0.45), rgba(220,60,70,0));
+  transform: translateX(-105%);
+  transition: transform 320ms ease;
+}
+.tx-submit:hover { transform: translateY(-2px); background: #b81b22; }
+.tx-submit:hover::before { transform: translateX(0); }
+.tx-submit-arrow {
+  display: inline-block;
+  transition: transform 220ms ease;
+  font-size: 14px;
+}
+.tx-submit:hover .tx-submit-arrow { transform: translateX(4px); }
+
+/* Transmitting / Sent state */
+.transmission.transmitting .tx-submit {
+  background: rgba(209, 32, 37, 0.4);
+  pointer-events: none;
+}
+.transmission.transmitting .tx-submit-label::after {
+  content: "TING…";
+  margin-left: 0;
+  letter-spacing: 0.32em;
+}
+.transmission.transmitted .tx-submit {
+  background: #2d6a3e;
+  pointer-events: none;
+}
+.transmission.transmitted .tx-submit-label { display: none; }
+.transmission.transmitted .tx-submit::after {
+  content: "TRANSMITTED · STOP";
+  font-weight: 800;
+  letter-spacing: 0.32em;
+}
+.transmission.transmitted .tx-submit-arrow { transform: rotate(45deg); }
+.transmission.transmitted::before {
+  content: "RECEIVED · SUNSET HILLS · MP";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  padding: 12px 24px;
+  border: 4px solid var(--red);
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  pointer-events: none;
+  z-index: 5;
+  animation: stampDown 360ms cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes stampDown {
+  from { transform: translate(-50%, -50%) rotate(-12deg) scale(2); opacity: 0; }
+  to   { transform: translate(-50%, -50%) rotate(-12deg) scale(1); opacity: 0.92; }
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .contact-console { grid-template-columns: 1fr; }
+  .tx-row { grid-template-columns: 100px 1fr; }
+  .tx-rule { left: 118px; }
+}
+@media (max-width: 720px) {
+  .tx-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+  .tx-rule { left: 0; }
+  .tx-message { grid-template-columns: 1fr; }
+  .contact-title { font-size: clamp(2.4rem, 9vw, 3.6rem); }
+}
+
+/* Override the old default contact-form styles so they don't fight */
+.contact-section { display: none; } /* legacy section never rendered now */
+

@@ -1494,7 +1494,7 @@ function officeCards() {
   return `
     <div class="office-grid">
       <article class="info-card">
-        <span class="card-kicker">Poland</span>
+        <span class="card-kicker">Poland · HQ</span>
         <p>Sunset Hills Motion Pictures S.A.<br />ul. Dominikańska 21B<br />02-738 Warsaw</p>
       </article>
       <article class="info-card">
@@ -1502,7 +1502,7 @@ function officeCards() {
         <p>SUNSET HILLS INVESTMENTS LTD<br />27 Old Gloucester Street<br />London, WC1N 3AX</p>
       </article>
       <article class="info-card">
-        <span class="card-kicker">Direct</span>
+        <span class="card-kicker">Direct Wire</span>
         <p>cool@world.pl<br />+48 606 400 500</p>
       </article>
     </div>
@@ -1511,12 +1511,19 @@ function officeCards() {
 
 function contactSection(number = "01.", includeVisual = false) {
   return `
-    <section class="section contact-section">
-      <div class="split contact-layout">
-        <div class="copy-stack">
-          <h2>Let's Talk.</h2>
+    <section class="section contact-console-section">
+      <div class="contact-console">
+        <aside class="contact-side">
+          <span class="eyebrow">${number} Open a wire</span>
+          <h2 class="contact-title">Send a<br/>Transmission</h2>
+          <p class="contact-lead">Investors, distributors, festival programmers, screenwriters &mdash; we read every wire that comes in. Most replies go out within 48 hours, Warsaw time.</p>
           ${officeCards()}
-        </div>
+          <div class="contact-coord" aria-hidden="true">
+            <span><b>LAT</b> 52.2297&deg; N</span>
+            <span><b>LON</b> 21.0122&deg; E</span>
+            <span><b>TZ</b>  UTC+01:00</span>
+          </div>
+        </aside>
         ${contactForm()}
       </div>
     </section>
@@ -1525,11 +1532,56 @@ function contactSection(number = "01.", includeVisual = false) {
 
 function contactForm() {
   return `
-    <form class="contact-form">
-      <div class="field"><label for="name">Name</label><input id="name" name="name" placeholder="Name" /></div>
-      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="Email" /></div>
-      <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Start typing..."></textarea></div>
-      <button class="submit-button" type="submit">Send Message</button>
+    <form class="contact-form transmission" data-transmission>
+      <header class="tx-head">
+        <span class="tx-stamp">SUNSET HILLS MP</span>
+        <span class="tx-meta"><b>OUTGOING WIRE</b> &middot; <span data-tx-time>--:--:--</span> &middot; PRIORITY 01</span>
+      </header>
+      <div class="tx-body">
+        <div class="tx-row tx-fixed">
+          <span class="tx-label">TO</span>
+          <span class="tx-static">SUNSET HILLS MOTION PICTURES &middot; WARSAW</span>
+        </div>
+        <div class="tx-row">
+          <label class="tx-label" for="cf-name">FROM</label>
+          <input class="tx-input" id="cf-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required />
+          <span class="tx-rule"></span>
+        </div>
+        <div class="tx-row">
+          <label class="tx-label" for="cf-email">REPLY TO</label>
+          <input class="tx-input" id="cf-email" name="email" type="email" placeholder="your@studio.com" autocomplete="email" required />
+          <span class="tx-rule"></span>
+        </div>
+        <div class="tx-row">
+          <label class="tx-label" for="cf-subject">RE</label>
+          <select class="tx-input tx-select" id="cf-subject" name="subject">
+            <option>Submitting a screenplay</option>
+            <option>Co-production / financing</option>
+            <option>Distribution &amp; sales</option>
+            <option>Press &amp; festivals</option>
+            <option>Crew / location services</option>
+            <option>Something else</option>
+          </select>
+          <span class="tx-rule"></span>
+        </div>
+        <div class="tx-row tx-message">
+          <label class="tx-label" for="cf-message">MESSAGE BODY</label>
+          <textarea class="tx-input tx-textarea" id="cf-message" name="message" rows="7" placeholder="Begin with a logline. End with a wire. STOP." required></textarea>
+          <span class="tx-counter" data-tx-counter>0 / 800</span>
+        </div>
+      </div>
+      <footer class="tx-foot">
+        <div class="tx-foot-meta">
+          <span><b>STATUS</b> READY TO TRANSMIT</span>
+          <span class="tx-dot"></span>
+        </div>
+        <button class="tx-submit" type="submit">
+          <span class="tx-submit-label">Transmit</span>
+          <span class="tx-submit-arrow" aria-hidden="true">&#10148;</span>
+        </button>
+      </footer>
+      <div class="tx-perf top" aria-hidden="true"></div>
+      <div class="tx-perf bottom" aria-hidden="true"></div>
     </form>
   `;
 }
@@ -1723,6 +1775,7 @@ async function route() {
   setupReel();
   setupSwatchInteractions();
   setupRatioLab();
+  setupTransmission();
 
   // Re-trigger scroll progress
   updateProgress();
@@ -1812,6 +1865,50 @@ function setupRatioLab() {
       if (idEl) idEl.textContent = `${btn.dataset.id} : 1`;
       if (noteEl) noteEl.textContent = btn.dataset.note;
     });
+  });
+}
+
+function setupTransmission() {
+  const form = document.querySelector("[data-transmission]");
+  if (!form) return;
+  const timeEl = form.querySelector("[data-tx-time]");
+  const counterEl = form.querySelector("[data-tx-counter]");
+  const message = form.querySelector("#cf-message");
+  const dot = form.querySelector(".tx-dot");
+
+  // Live UTC+1 clock
+  const tickClock = () => {
+    if (!timeEl) return;
+    const d = new Date();
+    const pad = (n) => String(n).padStart(2, "0");
+    timeEl.textContent = `${pad(d.getUTCHours() + 1)}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())} CET`;
+  };
+  tickClock();
+  if (form._clockId) clearInterval(form._clockId);
+  form._clockId = setInterval(tickClock, 1000);
+
+  // Character counter
+  if (message && counterEl) {
+    const max = 800;
+    const updateCounter = () => {
+      const n = message.value.length;
+      counterEl.textContent = `${n} / ${max}`;
+      counterEl.classList.toggle("over", n > max);
+    };
+    message.addEventListener("input", updateCounter);
+    updateCounter();
+  }
+
+  // Submit handler — visual confirmation only (no backend)
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    form.classList.add("transmitting");
+    if (dot) dot.classList.add("on");
+    setTimeout(() => {
+      form.classList.remove("transmitting");
+      form.classList.add("transmitted");
+    }, 900);
   });
 }
 
