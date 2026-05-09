@@ -10,15 +10,14 @@
 
 ## What's been implemented (Jan 2026)
 - Cinematic dark theme already established (Archivo + IBM Plex Mono, red `#d12025` accent, grain overlay, page transition).
-- **Landing page redesign (this session)**:
-  - Hero: cinematic frame corners, REC indicator (24 fps · SCN 01 · TAKE 04), city marquee, brand-mark eyebrow, animated word-rise title with white→red gradient on "Pictures.", vignette + grid overlay, glass info bar (EST. 1991).
-  - Brand Philosophy: filmstrip marquee with multiple stills (was repeating 1 image), perforated film-edges, white-to-grey title gradient, refined copy, +1 tag chip ("Original IP").
-  - **NEW** "By the Numbers" stats section with animated counters (35+, 9, 2, $45M).
-  - Core Capabilities: hand-built CSS art for each tile (filmstrip pattern, lens iris, world-map dots with pings) — previously empty placeholders.
-  - **NEW** Pull-quote testimonial section featuring Germano Saracco (with portrait + glassy frame).
-  - Slate cards: 4:5 aspect, white text fixed (was inheriting blue), reveal "Project details →" CTA on hover, deeper gradient overlays, cleaner typography.
-  - Closing CTA: replaced blank "globe" with a stylised world map showing Warsaw / London / Los Angeles / Sydney with pulsing markers and expanding rings.
-  - Scroll-reveal IntersectionObserver + counter animator added to `app.js`.
+- **Landing page redesign**: cinematic hero (REC frame, animated word-rise title, city marquee, glass info bar), filmstrip-marquee Brand Philosophy, "By the Numbers" animated counter section, hand-built CSS art for Core Capabilities tiles (filmstrip, lens iris, world-map pings), Germano Saracco pull-quote testimonial, refined slate cards (4:5, hover CTA reveal), stylised closing world-map CTA with city pulse markers (Warsaw / London / LA / Sydney). Scroll-reveal IntersectionObserver + counter animator added.
+- **Hero parallax**: `--mouse-x / --mouse-y` wired into 3 layered transforms (video moves most ~±35px, vignette subtle, grid counter-direction, content drifts subtly), `prefers-reduced-motion` respected.
+- **Curtain wipe transition (universal)**:
+  - Triggers on every page navigation (skipped only on first page load).
+  - Two letterbox panels close (cubic-bezier .86,0,.07,1 · 720ms) with a red center scanline flash.
+  - Slate clapper-board displays screenwriting-style scene heading per route — e.g. `INT. / SUNSET HILLS — DAY`, `EXT. / WARSAW STREET — NIGHT`, `EXT. / KANGAROO KINGDOM — DUSK`, `INT. / WRITERS' ROOM — DAY`, `INT. / PRODUCTION OFFICE — NIGHT`. Title field uses white→red gradient highlighting the time-of-day.
+  - Web-Audio synthesised "clack" (light: bright HP-filtered noise burst + brief 900→420 Hz triangle tick, no sub-bass) plays when panels seal (~360 ms in). Wrapped in try/catch with `failsilent`.
+  - Panels open (880ms) revealing the new page; `prefers-reduced-motion` disables all curtain animation.
 
 ## Core requirements (static)
 - Aesthetic: cinematic, dark, premium, film-industry vibe.

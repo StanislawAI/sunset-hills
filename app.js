@@ -973,26 +973,107 @@ function renderPerson(page) {
   `;
 }
 
+const PROJECT_SLATE = {
+  "/":                              { scn: "INT.", title: "Sunset Hills — Day" },
+  "/about-us/":                     { scn: "INT.", title: "Studio HQ — Day" },
+  "/the-adventures-of-tom/":        { scn: "EXT.", title: "Kangaroo Kingdom — Dusk" },
+  "/the-kings-of-life/":            { scn: "EXT.", title: "Warsaw Street — Night" },
+  "/where-the-butterflies-fly/":    { scn: "INT.", title: "Butterfly Garden — Day" },
+  "/script-coverage/":              { scn: "INT.", title: "Writers' Room — Day" },
+  "/production-in-poland/":         { scn: "EXT.", title: "Warsaw Backlot — Day" },
+  "/contact/":                      { scn: "INT.", title: "Production Office — Night" },
+  "/jack-wielgopolan/":             { scn: "INT.", title: "Producer's Suite — Day" },
+  "/germano-saracco/":              { scn: "EXT.", title: "Camera Set — Magic Hour" },
+  "/dawn-jacobs/":                  { scn: "INT.", title: "Marketing Floor — Day" }
+};
+
+// Curtain "clack" sound — synthesised, light: just the click, no sub-bass
+let _audioCtx = null;
+function playCurtainThunk() {
+  try {
+    if (!_audioCtx) {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return;
+      _audioCtx = new Ctx();
+    }
+    const ctx = _audioCtx;
+    if (ctx.state === "suspended") ctx.resume();
+    const t = ctx.currentTime;
+
+    // Bright noise click — wood-on-wood clapper feel
+    const noiseLen = Math.floor(ctx.sampleRate * 0.07);
+    const buf = ctx.createBuffer(1, noiseLen, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < noiseLen; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / noiseLen, 2);
+    }
+    const noise = ctx.createBufferSource();
+    noise.buffer = buf;
+    const noiseGain = ctx.createGain();
+    noiseGain.gain.setValueAtTime(0.22, t);
+    noiseGain.gain.exponentialRampToValueAtTime(0.0008, t + 0.08);
+    const hp = ctx.createBiquadFilter();
+    hp.type = "highpass";
+    hp.frequency.value = 1600;
+    noise.connect(hp).connect(noiseGain).connect(ctx.destination);
+    noise.start(t);
+    noise.stop(t + 0.09);
+
+    // Tiny pitched tick (~900 Hz) gives it character without weight
+    const tick = ctx.createOscillator();
+    const tickGain = ctx.createGain();
+    tick.type = "triangle";
+    tick.frequency.setValueAtTime(900, t);
+    tick.frequency.exponentialRampToValueAtTime(420, t + 0.04);
+    tickGain.gain.setValueAtTime(0.0001, t);
+    tickGain.gain.exponentialRampToValueAtTime(0.18, t + 0.005);
+    tickGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+    tick.connect(tickGain).connect(ctx.destination);
+    tick.start(t);
+    tick.stop(t + 0.07);
+  } catch (_e) { /* fail silent */ }
+}
+
+let _hasRoutedOnce = false;
+
 async function route() {
-  const overlay = document.querySelector(".page-transition-overlay");
+  const curtain = document.querySelector(".page-curtain");
   const path = normalizePath(window.location.pathname);
   const page = routes[path] || routes["/"];
-  
-  // Start transition
-  if (overlay) overlay.classList.add("active");
-  
-  // Small delay for cinematic feel
-  await new Promise(r => setTimeout(r, 400));
-  
+
+  // Run curtain wipe for every navigation EXCEPT the very first page load
+  const useCurtain = _hasRoutedOnce && curtain;
+
+  if (useCurtain) {
+    const slate = PROJECT_SLATE[path] || { scn: "--", title: page.title };
+    const scnEl = curtain.querySelector('[data-curtain="scn"]');
+    const titleEl = curtain.querySelector('[data-curtain="title"]');
+    if (scnEl) scnEl.textContent = slate.scn;
+    if (titleEl) titleEl.textContent = slate.title;
+    curtain.classList.remove("opening");
+    // Trigger reflow so re-adding "closing" restarts transitions
+    void curtain.offsetWidth;
+    curtain.classList.add("closing");
+    // Play the projector thunk roughly when panels seal at center
+    setTimeout(playCurtainThunk, 360);
+    await new Promise(r => setTimeout(r, 720));
+  }
+
   document.title = `${page.title} - Sunset Hills Motion Pictures`;
   renderNav();
   app.innerHTML = page.render(page);
   window.scrollTo({ top: 0, behavior: "instant" });
   nav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
-  
-  // End transition
-  if (overlay) overlay.classList.remove("active");
+
+  if (useCurtain) {
+    await new Promise(r => setTimeout(r, 220));
+    curtain.classList.remove("closing");
+    curtain.classList.add("opening");
+    setTimeout(() => curtain.classList.remove("opening"), 900);
+  }
+
+  _hasRoutedOnce = true;
 
   // Scroll reveal & counters
   setupReveal();

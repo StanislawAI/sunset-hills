@@ -3300,3 +3300,151 @@ p {
   .hero-frame-corners { inset: 18px; }
   .film-strip-marquee { height: 460px; }
 }
+
+/* ============================================================
+   PROJECT PAGE — Cinematic Curtain Wipe
+   ============================================================ */
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  display: block;
+}
+
+.page-curtain .curtain-panel {
+  position: absolute;
+  left: 0; right: 0;
+  height: 52%;
+  background:
+    linear-gradient(180deg, #050505 0%, #0a0a0a 50%, #050505 100%);
+  border-color: rgba(209, 32, 37, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-110%);
+  transition: transform 720ms cubic-bezier(.86, 0, .07, 1);
+  overflow: hidden;
+}
+.page-curtain .curtain-top { top: 0; border-bottom: 1px solid rgba(209, 32, 37, 0.4); }
+.page-curtain .curtain-bottom {
+  bottom: 0;
+  transform: translateY(110%);
+  border-top: 1px solid rgba(209, 32, 37, 0.4);
+}
+
+/* film-grain inside curtains */
+.page-curtain .curtain-panel::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.page-curtain .curtain-panel::after {
+  content: "";
+  position: absolute;
+  inset: 22px clamp(40px, 6vw, 96px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+/* meta line on top panel */
+.page-curtain .curtain-meta {
+  position: absolute;
+  top: 32px; left: clamp(40px, 5vw, 80px);
+  display: inline-flex; align-items: center; gap: 12px;
+  font: 800 11px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(244, 247, 251, 0.85);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 320ms ease 220ms, transform 320ms ease 220ms;
+}
+.page-curtain.closing .curtain-meta { opacity: 1; transform: translateY(0); }
+
+/* clapper-board slate on bottom panel */
+.page-curtain .curtain-slate {
+  position: absolute;
+  left: clamp(40px, 5vw, 80px);
+  bottom: 32px;
+  display: grid;
+  gap: 8px;
+  border-left: 2px solid var(--red);
+  padding: 6px 0 6px 16px;
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 360ms ease 260ms, transform 360ms ease 260ms;
+}
+.page-curtain.closing .curtain-slate { opacity: 1; transform: translateX(0); }
+
+.curtain-slate .slate-row {
+  display: inline-flex; align-items: baseline; gap: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.curtain-slate .slate-row b {
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(244, 247, 251, 0.55);
+  width: 64px;
+}
+.curtain-slate .slate-row i {
+  font-style: normal;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.curtain-slate .slate-row:nth-child(2) i {
+  background: linear-gradient(90deg, #fff 0%, #ffd9da 60%, var(--red) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* central scanline that flashes red at the seam */
+.page-curtain .curtain-scan {
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 2px;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: center;
+  background: linear-gradient(90deg, transparent, var(--red) 30%, var(--red) 70%, transparent);
+  opacity: 0;
+  box-shadow: 0 0 18px rgba(209, 32, 37, 0.7);
+}
+
+/* CLOSING — panels slide IN to cover */
+.page-curtain.closing .curtain-top    { transform: translateY(0); }
+.page-curtain.closing .curtain-bottom { transform: translateY(0); }
+.page-curtain.closing .curtain-scan {
+  animation: curtainScan 720ms cubic-bezier(.4, 0, .2, 1) forwards;
+}
+@keyframes curtainScan {
+  0%   { opacity: 0; transform: translateY(-50%) scaleX(0); }
+  55%  { opacity: 1; transform: translateY(-50%) scaleX(1); }
+  100% { opacity: 0; transform: translateY(-50%) scaleX(1); }
+}
+
+/* OPENING — panels slide OUT revealing fresh page */
+.page-curtain.opening .curtain-top    { transform: translateY(-110%); transition-duration: 880ms; }
+.page-curtain.opening .curtain-bottom { transform: translateY(110%);  transition-duration: 880ms; }
+.page-curtain.opening .curtain-meta,
+.page-curtain.opening .curtain-slate { opacity: 0; transition-duration: 240ms; transition-delay: 0ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain .curtain-panel,
+  .page-curtain .curtain-meta,
+  .page-curtain .curtain-slate,
+  .page-curtain .curtain-scan {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
