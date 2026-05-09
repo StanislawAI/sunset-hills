@@ -61,6 +61,7 @@
 - **Partners Engaged** strip: 5 cards (Screen Australia, PISF, UIP, Szklarski Estate, WFDiF/ATM) with rotated `CONFIRMED` stamps.
 - **Closing CTA**: "Request the Volume I treatment" with primary `mailto:cool@world.pl` button, ghost "Open contact" button, and contact metadata (office, phone, reply window).
 - Existing generic `renderProject` retained for the Kings page; `/the-adventures-of-tom/` is now routed to the new `renderTom`.
+- **Atlas → Slate cross-linking** (May 2026): each atlas pin and its legend row are now native SVG/HTML anchors (`href="#tom-vol-I"`). Clicking either smooth-scrolls the corresponding volume card into view and fires a 1.6s red flash + left-bar reveal animation (`tom-vol-flash`). Pin hover scales 1.4× and warm-tints the dot; legend rows hover in red with a left red bar slide. Wired via `setupTomPins()` invoked at the end of `route()`.
 
 ## Notes
 - No backend/MongoDB/auth involved.

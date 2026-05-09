@@ -1881,7 +1881,7 @@ function tomSlate() {
         : "One volume — one feature. Each picture has its own continent and its own department. After Volume I, the order follows what production allows, not the publishing calendar."}</p>
       <div class="tom-slate-grid">
         ${tomVolumes.map((v, i) => `
-          <article class="tom-vol tom-tone-${v.tone}" data-reveal style="--i:${i}">
+          <article class="tom-vol tom-tone-${v.tone}" data-reveal style="--i:${i}" id="tom-vol-${v.vol}">
             <header class="tom-vol-head">
               <span class="tom-vol-num">VOL. ${v.vol}</span>
               <span class="tom-vol-status status-${v.status.en.toLowerCase().replace(/\s+/g, '-')}">${v.status[lang]}</span>
@@ -1947,20 +1947,23 @@ function tomAtlas() {
           ${tomVolumes.map((v) => {
             const { x, y } = proj(v.lat, v.lng);
             return `
-              <g class="tom-pin" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">
+              <a class="tom-pin" href="#tom-vol-${v.vol}" data-tom-pin="${v.vol}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" aria-label="VOL. ${v.vol} — ${v.place[lang]}">
                 <circle class="tom-pin-pulse" r="14"/>
+                <circle class="tom-pin-hit" r="20" fill="transparent"/>
                 <circle class="tom-pin-dot" r="5"/>
                 <text x="10" y="-8" class="tom-pin-label">VOL. ${v.vol}</text>
-              </g>
+              </a>
             `;
           }).join("")}
         </svg>
         <ul class="tom-atlas-legend">
           ${tomVolumes.map((v) => `
             <li>
-              <b>VOL. ${v.vol}</b>
-              <span>${v.place[lang]}</span>
-              <i>${v.status[lang]}</i>
+              <a href="#tom-vol-${v.vol}" data-tom-pin="${v.vol}">
+                <b>VOL. ${v.vol}</b>
+                <span>${v.place[lang]}</span>
+                <i>${v.status[lang]}</i>
+              </a>
             </li>
           `).join("")}
         </ul>
@@ -3104,6 +3107,7 @@ async function route() {
   setupReel();
   setupSwatchInteractions();
   setupRatioLab();
+  setupTomPins();
   setupTransmission();
 
   // Re-trigger scroll progress
@@ -3284,6 +3288,25 @@ function setupCounters() {
     { threshold: 0.4 }
   );
   nums.forEach((el) => io.observe(el));
+}
+
+function setupTomPins() {
+  const pins = document.querySelectorAll("[data-tom-pin]");
+  if (!pins.length) return;
+  pins.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      const vol = el.getAttribute("data-tom-pin");
+      const target = document.getElementById(`tom-vol-${vol}`);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      // Flash highlight on the target card
+      target.classList.remove("tom-vol-flash");
+      // Force reflow so the animation restarts on subsequent clicks
+      void target.offsetWidth;
+      target.classList.add("tom-vol-flash");
+    });
+  });
 }
 
 document.addEventListener("mousemove", (e) => {
