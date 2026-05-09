@@ -51,6 +51,17 @@
 - Light-leak dividers added between major About sections.
 - `setupCounters` selector loosened to `[data-count]` so non-`.stat-num` counters animate too.
 
+## The Adventures of Tom — page redesign (May 2026)
+- **Expedition Hero** (`tomHero`): REC + 24fps marker, scene slug `EXT. AUSTRALIAN OUTBACK — DAWN`, GPS coordinates `N 22°00' · E 144°00'`, animated rotating compass, meridian curves, white→gold→red gradient title (THE / *Adventures* / OF TOM.), monospace stat chips (BUDGET $45M, VOLUMES IX, SOURCE A. SZKLARSKI, PARTNER SCREEN AUSTRALIA, RIGHTS EXCLUSIVE/WORLDWIDE), corner-bracket frame.
+- **Source Material card** (Alfred Szklarski IX volumes, 30M+ readers, EXCL. WORLDWIDE stamp, 6-cell metadata grid).
+- **Scale of the Expedition** stat band (animated counters: 9 pictures, $45M Vol I budget, 7 shoot countries, 18 months, 30M+ readers).
+- **The Nine-Picture Slate**: 9 volume cards mapped to actual Szklarski covers (book-tomek/glowy/wojnie/yeti/wyprawa/amazonka/chaco/faraon + tom-main for Vol I); each card shows VOL. roman numeral, coloured-pill status (GREENLIT / OPTIONED / DEVELOPMENT / CONCEPT), setting + year, hover-lift with red bar reveal, and `request treatment →` CTA.
+- **Expedition Atlas**: hand-drawn equirectangular SVG world-map with stylised continents, equator+tropics dashed lines, 9 pulsing red volume pins at real-ish lat/lng, plus a 3-column legend.
+- **Volume I — First Picture**: dedicated dossier card with poster, gradient title, italic logline, 6-cell facts grid (setting, budget, runtime, language, partner, festival path), and ON-SCREEN HAZARDS chip row (red kangaroos, saltwater crocodile, bush fires, frontier law, tiger snake).
+- **Partners Engaged** strip: 5 cards (Screen Australia, PISF, UIP, Szklarski Estate, WFDiF/ATM) with rotated `CONFIRMED` stamps.
+- **Closing CTA**: "Request the Volume I treatment" with primary `mailto:cool@world.pl` button, ghost "Open contact" button, and contact metadata (office, phone, reply window).
+- Existing generic `renderProject` retained for the Kings page; `/the-adventures-of-tom/` is now routed to the new `renderTom`.
+
 ## Notes
 - No backend/MongoDB/auth involved.
 - No third-party integrations were added.

@@ -172,7 +172,7 @@ const routes = {
       "Location of pictures: Queensland, Australia.",
       "Rights reserved by Sunset Hills Motion Pictures"
     ],
-    render: renderProject
+    render: renderTom
   },
   "/pl/the-adventures-of-tom/": {
     title: translations.pl.nav.tom,
@@ -186,7 +186,7 @@ const routes = {
       "Miejsce zdjęć: Queensland, Australia.",
       "Prawa zastrzeżone przez Sunset Hills Motion Pictures"
     ],
-    render: renderProject
+    render: renderTom
   },
   "/the-kings-of-life/": {
     title: translations.en.nav.kings,
@@ -1720,6 +1720,402 @@ function personCard(name, role, bio, href, label = "Read more", image = "") {
       <p>${bio}</p>
       ${label ? link(href, label) : ""}
     </article>
+  `;
+}
+
+function renderTom(page) {
+  return `
+    ${tomHero(page)}
+    ${tomSourceMaterial()}
+    ${tomStats()}
+    ${lightLeak()}
+    ${tomSlate()}
+    ${tomAtlas()}
+    ${lightLeak()}
+    ${tomVolumeOne()}
+    ${tomPartners()}
+    ${tomCTA()}
+  `;
+}
+
+const tomVolumes = [
+  { vol: "I",   name: { en: "The Kangaroo Kingdom", pl: "W krainie kangurów" }, place: { en: "Queensland · Australia", pl: "Queensland · Australia" }, year: "1910", status: { en: "GREENLIT", pl: "ZIELONE ŚWIATŁO" }, tone: "warm", file: "/public/assets/optimized/tom-main.webp", lat: -22, lng: 144 },
+  { vol: "II",  name: { en: "Black Continent",     pl: "Na Czarnym Lądzie" },  place: { en: "Kenya · Tanzania",      pl: "Kenia · Tanzania" },     year: "1911", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "earth", file: "/public/assets/optimized/book-tomek.webp", lat: -1, lng: 36 },
+  { vol: "III", name: { en: "The War Path",        pl: "Na wojennej ścieżce" }, place: { en: "Arizona · USA",         pl: "Arizona · USA" },         year: "1912", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "rust", file: "/public/assets/optimized/book-wojnie.webp", lat: 34, lng: -111 },
+  { vol: "IV",  name: { en: "Trail of the Yeti",   pl: "Na tropach Yeti" },    place: { en: "Tibet · Nepal",         pl: "Tybet · Nepal" },         year: "1914", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "ice",  file: "/public/assets/optimized/book-yeti.webp", lat: 28, lng: 86 },
+  { vol: "V",   name: { en: "The Mysterious Expedition", pl: "Tajemnicza wyprawa" }, place: { en: "Siberia · Russia",  pl: "Syberia · Rosja" },     year: "1916", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "ice",  file: "/public/assets/optimized/book-wyprawa.webp", lat: 62, lng: 105 },
+  { vol: "VI",  name: { en: "Among the Headhunters", pl: "Wśród łowców głów" }, place: { en: "Papua · New Guinea",   pl: "Papua-Nowa Gwinea" },    year: "1917", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "warm", file: "/public/assets/optimized/book-glowy.webp", lat: -6, lng: 143 },
+  { vol: "VII", name: { en: "Sources of the Amazon", pl: "U źródeł Amazonki" }, place: { en: "Peru · Brazil",        pl: "Peru · Brazylia" },      year: "1919", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "earth", file: "/public/assets/optimized/book-amazonka.webp", lat: -8, lng: -75 },
+  { vol: "VIII", name: { en: "In Gran Chaco",       pl: "W Gran Chaco" },       place: { en: "Bolivia · Paraguay",    pl: "Boliwia · Paragwaj" },   year: "1921", status: { en: "CONCEPT", pl: "KONCEPCJA" }, tone: "earth", file: "/public/assets/optimized/book-chaco.webp", lat: -22, lng: -60 },
+  { vol: "IX",  name: { en: "Tombs of the Pharaohs", pl: "W grobowcach faraonów" }, place: { en: "Cairo · Egypt",     pl: "Kair · Egipt" },         year: "1923", status: { en: "CONCEPT", pl: "KONCEPCJA" }, tone: "rust",  file: "/public/assets/optimized/book-faraon.webp", lat: 30, lng: 31 }
+];
+
+function tomHero(page) {
+  const eyebrow = lang === "pl" ? "01 · WYPRAWA · 9 TOMÓW" : "01 · EXPEDITION · 9 VOLUMES";
+  const slug = lang === "pl"
+    ? "PLEN. AUSTRALIJSKI BUSZ — ŚWIT"
+    : "EXT. AUSTRALIAN OUTBACK — DAWN";
+  return `
+    <section class="tom-hero" data-reveal>
+      <div class="tom-hero-bg" aria-hidden="true">
+        <img src="/public/assets/optimized/tom-cinematic.webp" alt=""/>
+        <div class="tom-hero-tint"></div>
+        <div class="tom-hero-grid"></div>
+        ${tomCompassSVG()}
+        ${tomMeridiansSVG()}
+      </div>
+      <div class="tom-hero-frame" aria-hidden="true">
+        <span class="ab-hero-fc tl"></span><span class="ab-hero-fc tr"></span>
+        <span class="ab-hero-fc bl"></span><span class="ab-hero-fc br"></span>
+      </div>
+
+      <header class="ab-hero-bar tom-hero-bar">
+        <span class="ab-hero-rec"><i></i>REC · 24fps</span>
+        <span class="ab-hero-slug">${slug}</span>
+        <span class="ab-hero-tc">N 22°00' · E 144°00'</span>
+      </header>
+
+      <div class="tom-hero-content">
+        <span class="tom-hero-eyebrow">${eyebrow}</span>
+        <h1 class="tom-hero-title">
+          <span>${lang === "pl" ? "Przygody" : "The"}</span>
+          <span class="tom-of-tom">${lang === "pl" ? "Tomka." : "Adventures"}</span>
+          <span class="tom-of-tom-2">${lang === "pl" ? "" : "of Tom."}</span>
+        </h1>
+        <p class="tom-hero-lede">${lang === "pl"
+          ? "Dziewięć kontynentów. Dziewięć filmów. Jedna seria, którą Polska czytała przez sześćdziesiąt lat — teraz prosto z buszu Queensland do kin świata."
+          : "Nine continents. Nine pictures. One book series that Poland has been reading for sixty years — now from the Queensland bush to cinemas worldwide."}</p>
+
+        <div class="tom-hero-chips">
+          <span><b>${lang === "pl" ? "BUDŻET" : "BUDGET"}</b> $45M · ${lang === "pl" ? "VOL. I" : "VOL. I"}</span>
+          <span><b>${lang === "pl" ? "TOMY" : "VOLUMES"}</b> IX</span>
+          <span><b>${lang === "pl" ? "ŹRÓDŁO" : "SOURCE"}</b> ${lang === "pl" ? "A. SZKLARSKI" : "A. SZKLARSKI"}</span>
+          <span><b>${lang === "pl" ? "PARTNER" : "PARTNER"}</b> SCREEN AUSTRALIA</span>
+          <span><b>${lang === "pl" ? "PRAWA" : "RIGHTS"}</b> ${lang === "pl" ? "WYŁĄCZNE / ŚWIATOWE" : "EXCLUSIVE / WORLDWIDE"}</span>
+        </div>
+
+        <div class="tom-hero-foot">
+          <a class="ab-hero-cue" href="#tom-source">${lang === "pl" ? "Otwórz dokumentację" : "Open the dossier"} <i>↓</i></a>
+          <span class="ab-hero-stamp">${lang === "pl" ? "DOKUMENTACJA PRODUKCJI · 09" : "PRODUCTION DOSSIER · 09"}</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function tomSourceMaterial() {
+  return `
+    <section class="section tom-source" data-reveal id="tom-source">
+      <article class="tom-source-card">
+        <header class="tom-source-head">
+          <div class="tom-source-mark" aria-hidden="true">
+            <span class="ab-id-bracket tl"></span><span class="ab-id-bracket tr"></span>
+            <span class="ab-id-bracket bl"></span><span class="ab-id-bracket br"></span>
+            <strong>IX</strong>
+          </div>
+          <div class="tom-source-titles">
+            <span class="tom-source-eye">${lang === "pl" ? "FILE · MATERIAŁ ŹRÓDŁOWY · KARTA 002" : "FILE · SOURCE MATERIAL · CARD 002"}</span>
+            <h2>${lang === "pl" ? "Alfred Szklarski<br/>i 30 milionów czytelników." : "Alfred Szklarski<br/>and 30 million readers."}</h2>
+            <p>${lang === "pl"
+              ? "Tomek Wilmowski to polski Indiana Jones — chłopak z Warszawy, który przemierza Australię, Afrykę, Tybet i Amazonkę między 1907 a 1925 rokiem. Dziewięć powieści Szklarskiego (1957–1994) sprzedało się w ponad 30 milionach egzemplarzy i wciąż jest częścią kanonu lektur polskich szkół."
+              : "Tom Wilmowski is the Polish Indiana Jones — a Warsaw boy who crosses Australia, Africa, Tibet and the Amazon between 1907 and 1925. Szklarski's nine novels (1957–1994) have sold over 30 million copies and remain on Polish school reading lists."}</p>
+          </div>
+          <div class="tom-source-stamp">EXCL.<br/>WORLDWIDE</div>
+        </header>
+        <div class="tom-source-meta">
+          <div><b>${lang === "pl" ? "AUTOR" : "AUTHOR"}</b><span>Alfred Szklarski</span></div>
+          <div><b>${lang === "pl" ? "PIERWSZE WYDANIE" : "FIRST PRINT"}</b><span>1957 · Warszawa</span></div>
+          <div><b>${lang === "pl" ? "TOMY" : "VOLUMES"}</b><span>IX · 1957–1994</span></div>
+          <div><b>${lang === "pl" ? "JĘZYKI" : "LANGUAGES"}</b><span>PL · DE · CS · SK · BG</span></div>
+          <div><b>${lang === "pl" ? "DRUKI" : "PRINTS"}</b><span>30M+ ${lang === "pl" ? "egzemplarzy" : "copies"}</span></div>
+          <div><b>${lang === "pl" ? "PRAWA" : "RIGHTS"}</b><span>${lang === "pl" ? "Sunset Hills · 2019" : "Sunset Hills · 2019"}</span></div>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function tomStats() {
+  const items = lang === "pl" ? [
+    { num: 9,   suf: "",  lbl: "Tomy do produkcji",   sub: "wyłączna licencja kinowa" },
+    { num: 45,  suf: "M", lbl: "Budżet Volume I",     sub: "USD · głównie Australia" },
+    { num: 7,   suf: "",  lbl: "Krajów planu",        sub: "AU · KE · PE · NP · EG · BR · PL" },
+    { num: 18,  suf: "",  lbl: "Miesiące zdjęć",     sub: "Vol. I — czyli QLD" },
+    { num: 30,  suf: "M+", lbl: "Czytelników serii",  sub: "źródło: wydawca" }
+  ] : [
+    { num: 9,   suf: "",  lbl: "Pictures in slate",   sub: "exclusive theatrical option" },
+    { num: 45,  suf: "M", lbl: "Volume I budget",     sub: "USD · primarily Australia" },
+    { num: 7,   suf: "",  lbl: "Shoot countries",     sub: "AU · KE · PE · NP · EG · BR · PL" },
+    { num: 18,  suf: "",  lbl: "Months on Vol. I",    sub: "Queensland principal" },
+    { num: 30,  suf: "M+", lbl: "Readers · source IP", sub: "publisher figures" }
+  ];
+  return `
+    <section class="section ab-stats tom-stats" data-reveal>
+      <header class="ab-stats-head">
+        <span class="eyebrow">${lang === "pl" ? "Skala wyprawy" : "Scale of the expedition"}</span>
+        <span class="ab-stats-rule"></span>
+        <span class="ab-stats-tag">${lang === "pl" ? "stan na · " + new Date().getFullYear() : "as of · " + new Date().getFullYear()}</span>
+      </header>
+      <div class="ab-stats-row">
+        ${items.map((it, i) => `
+          <article class="ab-stat" data-reveal style="--i:${i}">
+            <span class="ab-stat-num"><b data-count="${it.num}">0</b><i>${it.suf}</i></span>
+            <span class="ab-stat-lbl">${it.lbl}</span>
+            <span class="ab-stat-sub">${it.sub}</span>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function tomSlate() {
+  return `
+    <section class="section tom-slate" data-reveal>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Dziewięć obrazów" : "The Nine-Picture Slate"}</h2>
+      </div>
+      <p class="tom-slate-lead">${lang === "pl"
+        ? "Każdy tom — jedna pełnometrażowa adaptacja. Każda adaptacja — własna scenografia, własny kontynent. Po Volume I, kolejność wynika z możliwości produkcyjnych, a nie kalendarza wydawniczego."
+        : "One volume — one feature. Each picture has its own continent and its own department. After Volume I, the order follows what production allows, not the publishing calendar."}</p>
+      <div class="tom-slate-grid">
+        ${tomVolumes.map((v, i) => `
+          <article class="tom-vol tom-tone-${v.tone}" data-reveal style="--i:${i}">
+            <header class="tom-vol-head">
+              <span class="tom-vol-num">VOL. ${v.vol}</span>
+              <span class="tom-vol-status status-${v.status.en.toLowerCase().replace(/\s+/g, '-')}">${v.status[lang]}</span>
+            </header>
+            <div class="tom-vol-art">
+              <img src="${v.file}" alt="" loading="lazy"/>
+              <div class="tom-vol-shade"></div>
+            </div>
+            <div class="tom-vol-body">
+              <h3>${v.name[lang]}</h3>
+              <ul class="tom-vol-meta">
+                <li><b>${lang === "pl" ? "Plener" : "Setting"}</b><span>${v.place[lang]}</span></li>
+                <li><b>${lang === "pl" ? "Rok akcji" : "Year"}</b><span>${v.year}</span></li>
+              </ul>
+            </div>
+            <span class="tom-vol-cta">${lang === "pl" ? "treatment" : "request treatment"} <i>→</i></span>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function tomAtlas() {
+  // Project lat/lng to a simple equirectangular SVG (viewBox 0 0 1000 500)
+  const proj = (lat, lng) => ({
+    x: ((lng + 180) / 360) * 1000,
+    y: ((90 - lat) / 180) * 500
+  });
+  return `
+    <section class="section tom-atlas" data-reveal>
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Atlas wypraw" : "The Expedition Atlas"}</h2>
+      </div>
+      <div class="tom-atlas-frame">
+        <header class="tom-atlas-bar">
+          <span><b>SHEET</b> · 09 / IX</span>
+          <span class="tom-atlas-eq">EQUIRECTANGULAR · WGS-84</span>
+          <span class="tom-atlas-scale">SCALE · 1 : 80,000,000</span>
+        </header>
+        <svg class="tom-atlas-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <pattern id="tom-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(245,235,215,0.08)" stroke-width="0.6"/>
+            </pattern>
+          </defs>
+          <rect width="1000" height="500" fill="url(#tom-grid)"/>
+          <!-- Equator + Tropics -->
+          <line x1="0" y1="250" x2="1000" y2="250" stroke="rgba(209,32,37,0.32)" stroke-width="0.8" stroke-dasharray="4 6"/>
+          <line x1="0" y1="186" x2="1000" y2="186" stroke="rgba(245,235,215,0.18)" stroke-width="0.5" stroke-dasharray="2 6"/>
+          <line x1="0" y1="314" x2="1000" y2="314" stroke="rgba(245,235,215,0.18)" stroke-width="0.5" stroke-dasharray="2 6"/>
+          <!-- Stylised continent silhouettes -->
+          <g fill="rgba(245,235,215,0.1)" stroke="rgba(245,235,215,0.32)" stroke-width="0.8">
+            <path d="M 110 90 Q 150 70 230 90 Q 320 100 360 160 Q 380 210 320 240 Q 240 250 200 220 Q 160 200 130 170 Q 95 130 110 90 Z"/>
+            <path d="M 460 110 Q 540 90 600 130 Q 640 170 620 220 Q 580 260 520 250 Q 470 230 460 180 Z"/>
+            <path d="M 470 240 Q 520 230 560 270 Q 590 320 560 380 Q 520 420 480 410 Q 450 380 460 320 Z"/>
+            <path d="M 700 60 Q 800 40 880 80 Q 920 130 880 200 Q 820 240 760 220 Q 700 180 700 60 Z"/>
+            <path d="M 240 320 Q 290 300 340 330 Q 360 380 320 420 Q 270 440 230 410 Z"/>
+            <path d="M 820 290 Q 880 280 920 320 Q 940 380 880 410 Q 830 410 800 360 Z"/>
+            <path d="M 660 310 Q 690 300 720 320 Q 720 360 690 360 Q 660 350 660 310 Z"/>
+          </g>
+          ${tomVolumes.map((v) => {
+            const { x, y } = proj(v.lat, v.lng);
+            return `
+              <g class="tom-pin" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">
+                <circle class="tom-pin-pulse" r="14"/>
+                <circle class="tom-pin-dot" r="5"/>
+                <text x="10" y="-8" class="tom-pin-label">VOL. ${v.vol}</text>
+              </g>
+            `;
+          }).join("")}
+        </svg>
+        <ul class="tom-atlas-legend">
+          ${tomVolumes.map((v) => `
+            <li>
+              <b>VOL. ${v.vol}</b>
+              <span>${v.place[lang]}</span>
+              <i>${v.status[lang]}</i>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+    </section>
+  `;
+}
+
+function tomVolumeOne() {
+  return `
+    <section class="section tom-volone" data-reveal>
+      <div class="section-header">
+        <span class="section-number">05.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Volume I — pierwszy obraz" : "Volume I — First Picture"}</h2>
+      </div>
+      <article class="tom-volone-card">
+        <div class="tom-volone-poster">
+          <img src="/public/assets/optimized/tom-main.webp" alt="${lang === "pl" ? "Przygody Tomka" : "The Adventures of Tom"}" loading="lazy"/>
+          <div class="tom-volone-poster-bar">
+            <span>VOL. I</span>
+            <span class="tom-volone-rating">PG · ${lang === "pl" ? "FAMILY · ADVENTURE" : "FAMILY · ADVENTURE"}</span>
+          </div>
+        </div>
+        <div class="tom-volone-body">
+          <span class="tom-volone-eye">${lang === "pl" ? "PIERWSZA ADAPTACJA · ZIELONE ŚWIATŁO" : "FIRST ADAPTATION · GREENLIT"}</span>
+          <h3>${lang === "pl" ? "Tomek w Krainie Kangurów" : "Tom in the Kangaroo Kingdom"}</h3>
+          <p class="tom-volone-logline">${lang === "pl"
+            ? "Warszawa, 1907. Czternastoletni Tomek opuszcza zaborowy dom, by w australijskim buszu odnaleźć ojca-wygnańca i odkryć, że wolność pachnie kurzem, akacją i ogniem obozowym."
+            : "Warsaw, 1907. A fourteen-year-old leaves a partitioned home to find his exiled father in the Australian bush — and learns that freedom smells of dust, acacia and campfire smoke."}</p>
+          <ul class="tom-volone-facts">
+            <li><b>${lang === "pl" ? "Plener" : "Setting"}</b><span>Queensland · ${lang === "pl" ? "Australia · 1907" : "Australia · 1907"}</span></li>
+            <li><b>${lang === "pl" ? "Budżet" : "Budget"}</b><span>$45,000,000</span></li>
+            <li><b>${lang === "pl" ? "Czas trwania" : "Runtime"}</b><span>${lang === "pl" ? "ok. 122 min" : "ca. 122 min"}</span></li>
+            <li><b>${lang === "pl" ? "Język" : "Language"}</b><span>${lang === "pl" ? "EN · PL (dub)" : "EN · PL (dub)"}</span></li>
+            <li><b>${lang === "pl" ? "Partner" : "Partner"}</b><span>Screen Australia</span></li>
+            <li><b>${lang === "pl" ? "Kierunek" : "Path"}</b><span>${lang === "pl" ? "Cannes · TIFF · Sundance" : "Cannes · TIFF · Sundance"}</span></li>
+          </ul>
+          <div class="tom-volone-threats">
+            <span class="tom-volone-threat-head">${lang === "pl" ? "ZAGROŻENIA NA EKRANIE" : "ON-SCREEN HAZARDS"}</span>
+            <ul>
+              <li>${lang === "pl" ? "kangury skoczne" : "red kangaroos"}</li>
+              <li>${lang === "pl" ? "krokodyl morski" : "saltwater crocodile"}</li>
+              <li>${lang === "pl" ? "pożary buszu" : "bush fires"}</li>
+              <li>${lang === "pl" ? "kara łowców" : "frontier law"}</li>
+              <li>${lang === "pl" ? "wąż tygrysi" : "tiger snake"}</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function tomPartners() {
+  const partners = lang === "pl" ? [
+    { tag: "WSPÓŁPRODUKCJA · AU", name: "Screen Australia", note: "Film Institute · Sydney" },
+    { tag: "WSPÓŁPRODUKCJA · PL", name: "Polski Instytut Sztuki Filmowej", note: "Warszawa" },
+    { tag: "DYSTRYBUCJA · WORLD", name: "UIP · Lokalni partnerzy", note: "Los Angeles · Londyn" },
+    { tag: "PRAWA AUTORSKIE", name: "Estate · A. Szklarski", note: "Warszawa" },
+    { tag: "POSTPRODUKCJA", name: "WFDiF · ATM Studio", note: "Warszawa · 4K HDR" }
+  ] : [
+    { tag: "CO-PRODUCTION · AU", name: "Screen Australia", note: "Film Institute · Sydney" },
+    { tag: "CO-PRODUCTION · PL", name: "Polish Film Institute", note: "Warsaw · PISF" },
+    { tag: "DISTRIBUTION · WORLD", name: "UIP · Local partners", note: "Los Angeles · London" },
+    { tag: "LITERARY ESTATE", name: "Estate of A. Szklarski", note: "Warsaw" },
+    { tag: "POST &amp; FINISHING", name: "WFDiF · ATM Studio", note: "Warsaw · 4K HDR" }
+  ];
+  return `
+    <section class="section tom-partners" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Partnerzy zaangażowani" : "Partners Engaged"}</h2>
+      </div>
+      <div class="tom-partners-grid">
+        ${partners.map((p, i) => `
+          <article class="tom-partner" data-reveal style="--i:${i}">
+            <span class="tom-partner-tag">${p.tag}</span>
+            <strong>${p.name}</strong>
+            <span class="tom-partner-note">${p.note}</span>
+            <span class="tom-partner-stamp" aria-hidden="true">CONFIRMED</span>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function tomCTA() {
+  return `
+    <section class="section tom-cta" data-reveal>
+      <div class="tom-cta-card">
+        <div class="tom-cta-corner" aria-hidden="true"></div>
+        <div class="tom-cta-text">
+          <span class="tom-cta-eye">${lang === "pl" ? "DLA INWESTORÓW · DYSTRYBUTORÓW · KORESPONDENCJI" : "FOR INVESTORS · DISTRIBUTORS · PRESS"}</span>
+          <h2>${lang === "pl" ? "Poproś o treatment Volume I." : "Request the Volume I treatment."}</h2>
+          <p>${lang === "pl"
+            ? "Otrzymaj 20-stronicowy treatment, lookbook plenerów Queensland i arkusz harmonogramu produkcji. Wysyłamy bezpośrednio z biura w Warszawie po podpisaniu zwykłego NDA."
+            : "Receive a 20-page treatment, the Queensland location lookbook, and the principal-photography schedule sheet. Sent directly from our Warsaw office after a standard NDA."}</p>
+        </div>
+        <div class="tom-cta-actions">
+          <a class="tom-cta-btn primary" href="mailto:cool@world.pl?subject=Tom%20Vol%20I%20%E2%80%94%20Treatment%20Request">${lang === "pl" ? "Wyślij zapytanie" : "Send the request"} <i>→</i></a>
+          <a class="tom-cta-btn ghost" href="${lang === "pl" ? "/pl/contact/" : "/contact/"}" data-link>${lang === "pl" ? "Skontaktuj się" : "Open contact"}</a>
+        </div>
+        <ul class="tom-cta-meta">
+          <li><b>${lang === "pl" ? "BIURO" : "OFFICE"}</b><span>Warszawa · ul. Dominikańska 21B</span></li>
+          <li><b>${lang === "pl" ? "TELEFON" : "PHONE"}</b><span>+48 606 400 500</span></li>
+          <li><b>${lang === "pl" ? "ODPOWIEDŹ" : "REPLY"}</b><span>${lang === "pl" ? "≤ 5 dni roboczych" : "≤ 5 business days"}</span></li>
+        </ul>
+      </div>
+    </section>
+  `;
+}
+
+function tomCompassSVG() {
+  return `
+    <svg class="tom-compass" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="0.7">
+        <circle cx="100" cy="100" r="95"/>
+        <circle cx="100" cy="100" r="78"/>
+        <circle cx="100" cy="100" r="60"/>
+        <circle cx="100" cy="100" r="6" fill="currentColor"/>
+      </g>
+      <g stroke="currentColor" stroke-width="0.5" opacity="0.6">
+        ${Array.from({ length: 36 }, (_, i) => {
+          const a = (i * 10) * Math.PI / 180;
+          const x1 = 100 + Math.cos(a) * 78;
+          const y1 = 100 + Math.sin(a) * 78;
+          const x2 = 100 + Math.cos(a) * (i % 9 === 0 ? 95 : 86);
+          const y2 = 100 + Math.sin(a) * (i % 9 === 0 ? 95 : 86);
+          return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+        }).join("")}
+      </g>
+      <g class="tom-compass-needle">
+        <polygon points="100,30 95,100 105,100" fill="currentColor"/>
+        <polygon points="100,170 95,100 105,100" fill="rgba(245,235,215,0.5)"/>
+      </g>
+      <text x="100" y="20" text-anchor="middle" fill="currentColor" font-family="IBM Plex Mono" font-size="10" letter-spacing="2">N</text>
+      <text x="100" y="190" text-anchor="middle" fill="currentColor" font-family="IBM Plex Mono" font-size="10" letter-spacing="2">S</text>
+      <text x="14"  y="104" fill="currentColor" font-family="IBM Plex Mono" font-size="10" letter-spacing="2">W</text>
+      <text x="180" y="104" fill="currentColor" font-family="IBM Plex Mono" font-size="10" letter-spacing="2">E</text>
+    </svg>
+  `;
+}
+
+function tomMeridiansSVG() {
+  return `
+    <svg class="tom-meridians" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="rgba(245,235,215,0.12)" stroke-width="0.8">
+        <path d="M 0 300 Q 200 150 400 300 Q 600 450 800 300"/>
+        <path d="M 0 200 Q 200 50 400 200 Q 600 350 800 200"/>
+        <path d="M 0 400 Q 200 250 400 400 Q 600 550 800 400"/>
+        <ellipse cx="400" cy="300" rx="380" ry="100"/>
+        <ellipse cx="400" cy="300" rx="320" ry="60"/>
+      </g>
+    </svg>
   `;
 }
 
