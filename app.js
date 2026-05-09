@@ -1477,14 +1477,220 @@ function neuralMap() {
 function renderProduction(page) {
   return `
     ${renderPageHero(page, "production-hero")}
-    <section class="section">
-      <div class="production-capabilities-grid">
-        ${page.paragraphs.map((para, i) => `
-          <article class="capability-card">
-            <span class="card-number">0${i + 1}</span>
-            <p>${para}</p>
+    ${productionDossier()}
+    ${productionEras()}
+    ${productionSeasons()}
+    ${productionCapabilitiesGrid(page.paragraphs)}
+    ${productionIncentive()}
+    ${productionManifest()}
+    ${productionWhatWeCover()}
+  `;
+}
+
+function productionDossier() {
+  const stats = [
+    { l: "DOSSIER", v: "PL-PROD-2026" },
+    { l: "POPULATION", v: "37.6M" },
+    { l: "SURFACE",    v: "312 696 km²" },
+    { l: "BORDERS",    v: "07 nations" },
+    { l: "LANGUAGES",  v: "PL · EN · DE · UA · RU" },
+    { l: "TIMEZONE",   v: "UTC+01:00" }
+  ];
+  return `
+    <section class="section pl-dossier" data-reveal>
+      <header class="pl-dossier-head">
+        <span class="dossier-stamp">CONFIDENTIAL · LOCATION DOSSIER</span>
+        <span class="dossier-issued">ISSUED 09.MAR.2026 · SUNSET HILLS MP · WARSAW BUREAU</span>
+      </header>
+      <div class="pl-dossier-grid">
+        ${stats.map((s) => `
+          <article class="dossier-cell" data-reveal>
+            <span class="dossier-label">${s.l}</span>
+            <strong class="dossier-value">${s.v}</strong>
           </article>
         `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function productionEras() {
+  const eras = [
+    { y: "11–13c", n: "Romanesque",   d: "Stone keeps, round arches, Cracow's first cathedrals." },
+    { y: "13–16c", n: "Gothic",        d: "Brick fortresses, Teutonic castles, narrow burgher houses." },
+    { y: "16–17c", n: "Renaissance",   d: "Wawel courtyards, Italian arcades, princely facades." },
+    { y: "17–18c", n: "Baroque",       d: "Curved cornices, Warsaw palaces, Counter-Reformation drama." },
+    { y: "19c",    n: "Belle Époque",  d: "Łódź textile palaces, Vienna-style boulevards, iron balconies." },
+    { y: "20c",    n: "Modernist",     d: "Bauhaus blocks, Gdynia waterfront, pre-war optimism." },
+    { y: "60–80c", n: "Brutalist",     d: "Concrete plazas, Spodek arena, communist-era monumentalism." },
+    { y: "21c",    n: "Glass &amp; Steel", d: "Warsaw skyline, Varso Tower, tech-park interiors." }
+  ];
+  return `
+    <section class="section pl-eras" data-reveal>
+      <div class="section-header">
+        <span class="section-number">02.</span>
+        <h2 class="title-cinematic">A Millennium of Backlots</h2>
+      </div>
+      <p class="pl-eras-lead">Poland is one of the few countries where you can scout the 12th and 21st centuries inside a single afternoon.</p>
+      <div class="pl-eras-rail">
+        ${eras.map((e, i) => `
+          <article class="era-card" data-reveal style="--i:${i}">
+            <span class="era-year">${e.y}</span>
+            <strong class="era-name">${e.n}</strong>
+            <p class="era-desc">${e.d}</p>
+          </article>
+        `).join("")}
+        <div class="era-rule" aria-hidden="true"></div>
+      </div>
+    </section>
+  `;
+}
+
+function productionSeasons() {
+  const seasons = [
+    { n: "Spring",  m: "MAR · APR · MAY", c1: "#5b8c3a", c2: "#a8c47a", note: "Pale greens, low cloud, soft contrast. Day-for-night windows are reliable.", stand: "Western Europe · Pre-war Russia" },
+    { n: "Summer",  m: "JUN · JUL · AUG", c1: "#c47a1f", c2: "#f0b455", note: "Long blue evenings. 17-hour shoot days possible north of Gdańsk.",         stand: "Mediterranean inland · Ukraine" },
+    { n: "Autumn",  m: "SEP · OCT · NOV", c1: "#8a3a1a", c2: "#d27a3a", note: "Rust, amber and brick. The country becomes a Wes Anderson swatch wall.",  stand: "New England · Carpathia · Tuscany" },
+    { n: "Winter",  m: "DEC · JAN · FEB", c1: "#6c7a86", c2: "#cdd5dc", note: "Steel skies, fresh snow, breath fog. Real cold, no foam needed.",          stand: "Siberia · Alaska · Lapland" }
+  ];
+  return `
+    <section class="section pl-seasons" data-reveal>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-cinematic">Four Working Seasons</h2>
+      </div>
+      <div class="pl-season-grid">
+        ${seasons.map((s, i) => `
+          <article class="season-card" data-reveal style="--i:${i};--c1:${s.c1};--c2:${s.c2}">
+            <div class="season-swatch"></div>
+            <div class="season-meta">
+              <span class="season-months">${s.m}</span>
+              <strong class="season-name">${s.n}</strong>
+              <p class="season-note">${s.note}</p>
+              <span class="season-stand-label">Stands in for</span>
+              <span class="season-stand">${s.stand}</span>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function productionCapabilitiesGrid(paragraphs) {
+  return `
+    <section class="section pl-capabilities" data-reveal>
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="title-cinematic">Production Capability</h2>
+      </div>
+      <div class="pl-cap-grid">
+        ${paragraphs.map((p, i) => `
+          <article class="pl-cap-card" data-reveal style="--i:${i}">
+            <span class="pl-cap-num">0${i + 1}</span>
+            <span class="pl-cap-rule" aria-hidden="true"></span>
+            <p>${p}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function productionIncentive() {
+  return `
+    <section class="section pl-incentive" data-reveal>
+      <div class="incentive-card">
+        <div class="incentive-left">
+          <span class="incentive-eyebrow">POLISH FILM INSTITUTE</span>
+          <strong class="incentive-num"><i>30</i><b>%</b></strong>
+          <span class="incentive-sub">cash rebate on qualified spend</span>
+        </div>
+        <div class="incentive-right">
+          <p>Productions shot in Poland qualify for a <strong>30% cash rebate</strong> on eligible local spend through the PISF programme &mdash; one of Europe&rsquo;s most aggressive incentives. Sunset Hills handles the application, audit and reconciliation in-house.</p>
+          <ul class="incentive-list">
+            <li><span>—</span> No annual cap per project</li>
+            <li><span>—</span> Pay-out within 60 days of audited reconciliation</li>
+            <li><span>—</span> Stackable with EU regional funds &amp; co-production treaties</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function productionManifest() {
+  const groups = [
+    { title: "Soundstages", rows: [
+      ["ALV", "Alvernia Studios · Cracow · 4 stages · 2 800 m²"],
+      ["WFD", "WFDiF · Warsaw · 6 stages · 3 100 m²"],
+      ["ATM", "ATM Studio · Warsaw · LED Volume + 5 stages"],
+      ["FBL", "Łódź Backlot · 12 ha standing sets"]
+    ] },
+    { title: "Camera & Optics", rows: [
+      ["A35", "ARRI Alexa 35 / Mini LF / Amira"],
+      ["RED", "RED Komodo-X / V-Raptor 8K"],
+      ["LNS", "Cooke S7/i · Panavision Sphero · Atlas Orion"],
+      ["DRN", "DJI Inspire 3 · Freefly Alta X heavy-lift"]
+    ] },
+    { title: "Lighting & Grip", rows: [
+      ["HMI", "Two 18K HMI · ARRI M40 / M90 packages"],
+      ["LED", "ARRI SkyPanel S360 · Creamsource Vortex8"],
+      ["CRN", "Technocrane 30, 50 · Steadicam · 64 m crane"],
+      ["VEH", "Russian Arm · Edge Arm · Process Trailer"]
+    ] },
+    { title: "Stunts & Effects", rows: [
+      ["FLT", "All-discipline fight choreography teams"],
+      ["VEH", "Stunt drivers, classic & modern fleet, motorcycles"],
+      ["ANI", "Trained horses, dogs, raptors (with handlers)"],
+      ["FX",  "Practical fire, weather, atmospherics on call"]
+    ] }
+  ];
+  return `
+    <section class="section pl-manifest" data-reveal>
+      <div class="section-header">
+        <span class="section-number">05.</span>
+        <h2 class="title-cinematic">Infrastructure Manifest</h2>
+      </div>
+      <div class="manifest-grid">
+        ${groups.map((g) => `
+          <article class="manifest-block" data-reveal>
+            <h3>${g.title}</h3>
+            <ul>
+              ${g.rows.map(([k, v]) => `<li><b>${k}</b><span>${v}</span></li>`).join("")}
+            </ul>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function productionWhatWeCover() {
+  const services = [
+    "Line production",
+    "Location scouting &amp; permits",
+    "Crew &amp; department heads",
+    "Casting &amp; agency liaison",
+    "Logistics &amp; transport",
+    "Customs &amp; carnets",
+    "Polish Film Institute filings",
+    "Co-production treaty paperwork",
+    "Insurance &amp; bonding",
+    "Post &amp; delivery handoff"
+  ];
+  return `
+    <section class="section pl-cover" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">What We Cover, End-to-End</h2>
+      </div>
+      <ul class="pl-cover-list">
+        ${services.map((s, i) => `<li data-reveal style="--i:${i}"><b>${String(i + 1).padStart(2, "0")}</b><span>${s}</span></li>`).join("")}
+      </ul>
+      <div class="pl-cover-foot">
+        <span class="pl-cover-stamp">SUNSET HILLS MP · WARSAW BUREAU</span>
+        ${link("/contact/", "Open a wire")}
       </div>
     </section>
   `;

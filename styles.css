@@ -5028,3 +5028,441 @@ p {
 /* Override the old default contact-form styles so they don't fight */
 .contact-section { display: none; } /* legacy section never rendered now */
 
+
+/* ============================================================
+   PRODUCTION IN POLAND — Country Dossier Redesign
+   ============================================================ */
+
+/* Override broken horizontal scroll */
+.production-capabilities-grid { display: none !important; }
+
+/* ---------- Dossier header ---------- */
+.pl-dossier { padding-top: clamp(40px, 6vw, 80px); }
+.pl-dossier-head {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px;
+  padding: 14px 18px;
+  border: 1px solid rgba(245, 235, 215, 0.14);
+  background: rgba(20, 18, 14, 0.65);
+  font: 800 10.5px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.dossier-stamp {
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 6px 12px;
+}
+.dossier-issued { color: rgba(245, 235, 215, 0.6); align-self: center; }
+
+.pl-dossier-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 0;
+}
+.dossier-cell {
+  background: rgba(20, 18, 14, 0.85);
+  padding: 24px 20px;
+  display: grid;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.dossier-cell::before {
+  content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 0;
+  background: var(--red);
+  transition: width 600ms ease 200ms;
+}
+.dossier-cell.is-visible::before, [data-reveal].is-visible .dossier-cell::before { width: 60%; }
+.dossier-label {
+  font: 800 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.dossier-value {
+  font-family: 'Archivo', sans-serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  font-weight: 800;
+}
+@media (max-width: 1080px) { .pl-dossier-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px)  { .pl-dossier-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- Architectural Eras Timeline ---------- */
+.pl-eras .section-header h2 { font-size: clamp(2.4rem, 4.8vw, 4.4rem); }
+.pl-eras-lead {
+  max-width: 760px;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: rgba(244, 247, 251, 0.78);
+  margin: -20px 0 32px;
+  line-height: 1.55;
+}
+.pl-eras-rail {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 36px 4px 24px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(209,32,37,0.4) transparent;
+}
+.pl-eras-rail::-webkit-scrollbar { height: 4px; }
+.pl-eras-rail::-webkit-scrollbar-thumb { background: rgba(209,32,37,0.4); }
+.era-rule {
+  position: absolute;
+  left: 0; right: 0; top: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18) 6%, rgba(255,255,255,0.18) 94%, transparent);
+  pointer-events: none;
+}
+.era-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  position: relative;
+  padding: 32px 24px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 8, 8, 0.85);
+  display: grid;
+  gap: 10px;
+  transition: background 320ms ease, border-color 320ms ease, transform 320ms ease;
+}
+.era-card:hover {
+  background: rgba(20, 8, 10, 0.9);
+  border-color: rgba(209, 32, 37, 0.5);
+  transform: translateY(-3px);
+}
+.era-card::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: -7px;
+  width: 13px; height: 13px;
+  background: var(--red);
+  border: 3px solid #050505;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 1px var(--red);
+}
+.era-year {
+  font: 800 11px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.28em;
+  color: var(--red);
+}
+.era-name {
+  font-family: 'Archivo', sans-serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+}
+.era-desc {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(244, 247, 251, 0.7);
+  margin: 0;
+}
+
+/* ---------- Four Seasons Strip ---------- */
+.pl-seasons .section-header h2 { font-size: clamp(2.4rem, 4.8vw, 4.4rem); }
+.pl-season-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
+.season-card {
+  background: rgba(8, 8, 8, 0.92);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: grid;
+  grid-template-rows: 160px 1fr;
+  overflow: hidden;
+}
+.season-card:last-child { border-right: 0; }
+.season-swatch {
+  background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.season-swatch::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(45deg, rgba(0,0,0,0.06) 0 8px, transparent 8px 16px);
+  mix-blend-mode: multiply;
+}
+.season-meta {
+  padding: 24px 22px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.season-months {
+  font: 800 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.28em;
+  color: var(--red);
+}
+.season-name {
+  font-family: 'Archivo', sans-serif;
+  font-size: clamp(1.4rem, 1.9vw, 1.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+}
+.season-note {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(244, 247, 251, 0.7);
+  margin: 6px 0 12px;
+}
+.season-stand-label {
+  font: 800 10px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(244, 247, 251, 0.5);
+}
+.season-stand {
+  font-family: 'Archivo', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+@media (max-width: 1080px) { .pl-season-grid { grid-template-columns: repeat(2, 1fr); } .season-card { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.06); } .season-card:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); } }
+@media (max-width: 720px) { .pl-season-grid { grid-template-columns: 1fr; } .season-card { border-right: 0 !important; } }
+
+/* ---------- Production Capabilities (replacement, NOT scrolling) ---------- */
+.pl-capabilities .section-header h2 { font-size: clamp(2.4rem, 4.8vw, 4.4rem); }
+.pl-cap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.pl-cap-card {
+  position: relative;
+  padding: 32px clamp(22px, 2.4vw, 36px);
+  background:
+    linear-gradient(180deg, rgba(15, 15, 15, 0.95), rgba(5, 5, 5, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  grid-template-columns: 80px 1px 1fr;
+  gap: 24px;
+  align-items: start;
+  transition: border-color 320ms ease, background 320ms ease;
+}
+.pl-cap-card:hover {
+  border-color: rgba(209, 32, 37, 0.5);
+  background: linear-gradient(180deg, rgba(25, 10, 12, 0.95), rgba(5, 5, 5, 0.95));
+}
+.pl-cap-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  letter-spacing: -0.02em;
+  color: var(--red);
+  line-height: 1;
+}
+.pl-cap-rule {
+  width: 1px;
+  background: linear-gradient(180deg, var(--red), transparent);
+  align-self: stretch;
+}
+.pl-cap-card p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(244, 247, 251, 0.82);
+  margin: 0;
+}
+.pl-cap-card:nth-child(5) { grid-column: span 2; }
+@media (max-width: 1080px) {
+  .pl-cap-grid { grid-template-columns: 1fr; }
+  .pl-cap-card:nth-child(5) { grid-column: auto; }
+}
+
+/* ---------- Tax Incentive callout ---------- */
+.pl-incentive { padding-top: clamp(40px, 5vw, 80px); padding-bottom: clamp(40px, 5vw, 80px); }
+.incentive-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  padding: clamp(32px, 4vw, 64px);
+  background:
+    radial-gradient(ellipse 80% 60% at 0% 50%, rgba(209, 32, 37, 0.18), transparent 60%),
+    rgba(8, 8, 8, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.incentive-card::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--red);
+}
+.incentive-eyebrow {
+  font: 800 11px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: block;
+  margin-bottom: 12px;
+}
+.incentive-num {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  line-height: 0.85;
+}
+.incentive-num i {
+  font-style: normal;
+  font-size: clamp(6rem, 14vw, 12rem);
+  letter-spacing: -0.05em;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 40%, var(--red) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.incentive-num b {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--red);
+}
+.incentive-sub {
+  display: block;
+  margin-top: 16px;
+  font: 700 12px/1.4 'IBM Plex Mono', monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 247, 251, 0.7);
+}
+.incentive-right p {
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(244, 247, 251, 0.85);
+  margin: 0 0 20px;
+}
+.incentive-right p strong { color: var(--ink); }
+.incentive-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid; gap: 8px;
+}
+.incentive-list li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  font: 700 12px/1.4 'IBM Plex Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 247, 251, 0.78);
+}
+.incentive-list li span { color: var(--red); }
+@media (max-width: 1080px) { .incentive-card { grid-template-columns: 1fr; } }
+
+/* ---------- Infrastructure Manifest ---------- */
+.pl-manifest .section-header h2 { font-size: clamp(2.4rem, 4.8vw, 4.4rem); }
+.manifest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.manifest-block {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 8, 8, 0.78);
+  padding: 28px clamp(22px, 2.4vw, 32px);
+  display: grid;
+  gap: 16px;
+}
+.manifest-block h3 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+  color: var(--red);
+}
+.manifest-block ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.manifest-block li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+.manifest-block li b {
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.manifest-block li span {
+  color: rgba(244, 247, 251, 0.78);
+}
+@media (max-width: 1080px) { .manifest-grid { grid-template-columns: 1fr; } }
+
+/* ---------- What we cover ---------- */
+.pl-cover .section-header h2 { font-size: clamp(2.4rem, 4.8vw, 4.4rem); line-height: 0.95; }
+.pl-cover-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+.pl-cover-list li {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 8, 0.5);
+  transition: background 280ms ease;
+}
+.pl-cover-list li:hover { background: rgba(20, 8, 10, 0.7); }
+.pl-cover-list li b {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--red);
+}
+.pl-cover-list li span {
+  font-family: 'Archivo', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+}
+.pl-cover-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+}
+.pl-cover-stamp {
+  font: 800 11px/1 'IBM Plex Mono', monospace;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(244, 247, 251, 0.55);
+}
+@media (max-width: 720px) { .pl-cover-list { grid-template-columns: 1fr; } }
+
