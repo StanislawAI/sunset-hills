@@ -2162,6 +2162,7 @@ function renderButterflies(page) {
     ${butterfliesMood()}
     ${lightLeak()}
     ${butterfliesSetting()}
+    ${butterfliesSoundtrack()}
     ${butterfliesSymbolism()}
     ${butterfliesCrew()}
     ${butterfliesCTA()}
@@ -2193,27 +2194,27 @@ function butterfliesHero() {
 
       <header class="ab-hero-bar bf-hero-bar">
         <span class="ab-hero-rec"><i></i>REC · DEV</span>
-        <span class="ab-hero-slug">${lang === "pl" ? "PLEN. POLSKIE WYSOKOGÓRZE — ŚWIT" : "EXT. POLISH HIGHLANDS — DAWN"}</span>
+        <span class="ab-hero-slug">${lang === "pl" ? "WN. MOTEL POD HOLLYWOOD — DESZCZ" : "INT. SUBURBAN MOTEL — RAIN"}</span>
         <span class="ab-hero-tc">PROJECT · BUTTERFLY · 04</span>
       </header>
 
       <div class="bf-hero-content">
-        <span class="bf-hero-eyebrow">${lang === "pl" ? "04 · TEASER PREPRODUKCJA · POUFNE" : "04 · PRE-PRODUCTION TEASER · CONFIDENTIAL"}</span>
+        <span class="bf-hero-eyebrow">${lang === "pl" ? "04 · MELODRAMAT · POUFNE" : "04 · MELODRAMA · CONFIDENTIAL"}</span>
         <h1 class="bf-hero-title">
           <span>${lang === "pl" ? "Tam," : "Where"}</span>
           <span class="bf-italic">${lang === "pl" ? "gdzie latają" : "the butterflies"}</span>
           <span>${lang === "pl" ? "motyle." : "fly."}</span>
         </h1>
         <p class="bf-hero-lede">${lang === "pl"
-          ? "Projekt rozwijany w ciszy. Kameralna opowieść o powrocie, przemianie i miejscu, do którego skrzydła pamiętają drogę. Bieszczady · Tatry · 64 dni planu · 2027."
-          : "Developed quietly. An intimate story about return, metamorphosis, and the place that wings remember. Bieszczady · Tatra · 64 shoot days · 2027."}</p>
+          ? "Hollywood. Mały motel na przedmieściach. Młody scenarzysta, gwiazda na okładkach i sześć utworów Queen na ścieżce dźwiękowej. Melodramat o miłości, której się nie przeżyło — opowiedziany przez autora ukrytego między kadrami."
+          : "Hollywood. A small suburban motel. A young screenwriter, a face from every magazine cover, and six Queen tracks on the score. A melodrama about a love never lived — narrated by an author hiding between the frames."}</p>
 
         <div class="bf-hero-chips">
+          <span><b>${lang === "pl" ? "GATUNEK" : "GENRE"}</b> ${lang === "pl" ? "Melodramat / Romans" : "Melodrama / Romance"}</span>
+          <span><b>${lang === "pl" ? "PLENER" : "SETTING"}</b> Hollywood + Motel</span>
+          <span><b>${lang === "pl" ? "MUZYKA" : "SCORE"}</b> ${lang === "pl" ? "Queen — 6 utworów" : "Queen — 6 tracks"}</span>
+          <span><b>${lang === "pl" ? "AUTOR" : "STORY BY"}</b> Jacek Wielgopolan</span>
           <span><b>${lang === "pl" ? "STATUS" : "STATUS"}</b> ${lang === "pl" ? "Rozwój / Stadium 03" : "Development / Stage 03"}</span>
-          <span><b>${lang === "pl" ? "PLENER" : "LOCATION"}</b> Polish Highlands</span>
-          <span><b>${lang === "pl" ? "DNI ZDJĘĆ" : "SHOOT DAYS"}</b> 64</span>
-          <span><b>${lang === "pl" ? "POŚWIATA" : "PALETTE"}</b> ${lang === "pl" ? "świt · mech · piasek" : "dawn · moss · sand"}</span>
-          <span><b>${lang === "pl" ? "PREMIERA" : "RELEASE"}</b> 2027 ${lang === "pl" ? "(plan)" : "(target)"}</span>
         </div>
 
         <div class="bf-hero-foot">
@@ -2253,11 +2254,11 @@ function butterfliesClassified() {
         <div class="bf-classified-body">
           <span class="bf-classified-eye">${lang === "pl" ? "TREATMENT · WYCIĄG (CZĘŚĆ I)" : "TREATMENT · EXCERPT (PART I)"}</span>
           <p class="bf-classified-text">${lang === "pl"
-            ? "<b>Anna</b>, niespełna trzydziestoletnia entomolożka, wraca do wsi w Bieszczadach po piętnastu latach. <span class=\"bf-redact\">[USUNIĘTO — 2 LINIE]</span> Drugiego dnia, na hali, znajduje pierwszego motyla — gatunek, którego, według podręczników, nie ma już od dekady. Z każdym następnym, wraca do niej coś, co próbowała zostawić. <span class=\"bf-redact\">[USUNIĘTO — KLAUZULA NDA]</span> Film zaczyna się tam, gdzie pamięć przestaje być bezpieczna."
-            : "<b>Anna</b>, an entomologist in her late twenties, returns to a village in the Bieszczady mountains after fifteen years away. <span class=\"bf-redact\">[REDACTED — 2 LINES]</span> On the second day, on a high meadow, she finds the first butterfly — a species the field guides have written off as extinct for over a decade. With each new one, something she tried to leave behind comes back to her. <span class=\"bf-redact\">[REDACTED — NDA CLAUSE]</span> The picture begins where memory stops being safe."}</p>
+            ? "Współczesne <b>Hollywood</b>. <b>Jack</b>, 29-letni scenarzysta, zostaje zauważony przez producentów po debiucie. Dostają mu szansę na film reżyserowany przez legendarnego <b>Stanleya Silverberga</b>, 65, z możliwością wyboru aktorki głównej. Jack obsadza w niej <b>Helen Thorne</b>, 35 — najjaśniejszą gwiazdę pierwszej strony — i stawia warunek, którego od gwiazdy nikt nie żąda: <span class=\"bf-redact\">[USUNIĘTO — KLAUZULA NDA]</span> ma zamieszkać z nim w skromnym motelu na przedmieściach na cały czas pisania scenariusza. <span class=\"bf-redact\">[USUNIĘTO — 2 LINIE]</span> To, co zaczyna się jako antagonizm dwóch obcych ludzi, staje się powolnym ogniem, którego żadne z nich nie planowało. A nad wszystkim — palce nieznanego autora, stukające w klawiaturę gdzieś w głębi opowieści."
+            : "Contemporary <b>Hollywood</b>. <b>Jack</b>, a 29-year-old screenwriter, is spotted by producers after his debut. They offer him a picture to be directed by legendary <b>Stanley Silverberg</b>, 65 — and let him choose the lead. Jack casts <b>Helen Thorne</b>, 35 — the front-cover face of the year — and attaches a condition no one ever attaches to a star: <span class=\"bf-redact\">[REDACTED — NDA CLAUSE]</span> she must move into a modest suburban motel and live there with him for as long as it takes to write the script. <span class=\"bf-redact\">[REDACTED — 2 LINES]</span> What begins as the antagonism of two complete strangers becomes a slow burn neither of them planned for — and above it all, the fingers of an unseen author, tapping at a keyboard somewhere deep inside the story."}</p>
         </div>
         <footer class="bf-classified-foot">
-          <span>${lang === "pl" ? "Dalszy ciąg dostępny po podpisaniu NDA." : "Continuation available after a signed NDA."}</span>
+          <span>${lang === "pl" ? "Dalszy ciąg, w tym zakończenie-labirynt, dostępny po podpisaniu NDA." : "The continuation — including the labyrinth ending — available after a signed NDA."}</span>
           <span class="bf-classified-fingerprint" aria-hidden="true">FP · 7C-A19-44</span>
         </footer>
       </article>
@@ -2267,17 +2268,17 @@ function butterfliesClassified() {
 
 function butterfliesStats() {
   const items = lang === "pl" ? [
-    { num: 64,  suf: "",  lbl: "Dni zdjęciowe", sub: "wiosna · jesień 2026" },
-    { num: 3,   suf: "",  lbl: "Stadium rozwoju", sub: "treatment → blueprint" },
-    { num: 1850, suf: " m", lbl: "Wysokość planu", sub: "hala Małej Rawki · BIE" },
-    { num: 7,   suf: "",  lbl: "Główne plenery", sub: "BIE · TAT · MAZ" },
-    { num: 12,  suf: "",  lbl: "Gatunków motyli", sub: "konsultacja entomologiczna" }
+    { num: 3,   suf: "",  lbl: "Główne postacie",    sub: "Jack · Helen · Matthew" },
+    { num: 6,   suf: "",  lbl: "Utworów Queen",      sub: "Mercury & Caballé" },
+    { num: 1,   suf: "",  lbl: "Reżyser w roli",     sub: "Stanley Silverberg, 65" },
+    { num: 35,  suf: "",  lbl: "Wiek Helen Thorne",  sub: "gwiazda pierwszej strony" },
+    { num: 1,   suf: "",  lbl: "Skromny motel",      sub: "serce filmu" }
   ] : [
-    { num: 64,  suf: "",  lbl: "Shoot days", sub: "spring · autumn 2026" },
-    { num: 3,   suf: "",  lbl: "Development stage", sub: "treatment → blueprint" },
-    { num: 1850, suf: " m", lbl: "Top set elevation", sub: "Mała Rawka meadow · BIE" },
-    { num: 7,   suf: "",  lbl: "Principal locations", sub: "BIE · TAT · MAZ" },
-    { num: 12,  suf: "",  lbl: "Butterfly species", sub: "entomology consult" }
+    { num: 3,   suf: "",  lbl: "Lead characters",    sub: "Jack · Helen · Matthew" },
+    { num: 6,   suf: "",  lbl: "Queen tracks",       sub: "Mercury & Caballé" },
+    { num: 1,   suf: "",  lbl: "Director on screen", sub: "Stanley Silverberg, 65" },
+    { num: 35,  suf: "",  lbl: "Helen Thorne, age",  sub: "the front-cover face" },
+    { num: 1,   suf: "",  lbl: "Modest motel",       sub: "the heart of the picture" }
   ];
   return `
     <section class="section ab-stats bf-stats" data-reveal>
@@ -2310,27 +2311,27 @@ function butterfliesTreatment() {
         ${[
           {
             n: "I",
-            ttl: lang === "pl" ? "Powrót" : "Return",
-            sub: lang === "pl" ? "Łódź → Lutowiska · 09.04" : "Łódź → Lutowiska · 09.04",
+            ttl: lang === "pl" ? "Zielone Światło" : "The Greenlight",
+            sub: lang === "pl" ? "Hollywood · biuro producenta · poniedziałek" : "Hollywood · producer's office · Monday",
             txt: lang === "pl"
-              ? "Anna zostawia laboratorium i lecze. Dom dziadków pachnie żywicą i kurzem. W jednej szufladzie — gablota motyli z dzieciństwa, w drugiej — list, którego nigdy nie otworzyła."
-              : "Anna leaves the lab and the city behind. Her grandparents' house smells of resin and dust. In one drawer — a childhood butterfly case; in another — a letter she never opened."
+              ? "Jack, 29 lat, dostaje zlecenie życia: napisać scenariusz dla samego Stanleya Silverberga. Producenci zostawiają mu jedną decyzję — wybór aktorki. On wybiera Helen Thorne i stawia warunek, którego nikt nigdy nie postawił gwieździe."
+              : "Jack, 29, lands the assignment of a lifetime — write a script for Stanley Silverberg himself. The producers leave him one decision: cast the lead. He picks Helen Thorne, and attaches a condition no one has ever attached to a star."
           },
           {
             n: "II",
-            ttl: lang === "pl" ? "Polowanie" : "The Hunt",
-            sub: lang === "pl" ? "Hala · 1850 m" : "High meadow · 1850 m",
+            ttl: lang === "pl" ? "Motel" : "The Motel",
+            sub: lang === "pl" ? "Przedmieścia · pokój 7 · długie noce" : "Suburbs · Room 7 · long nights",
             txt: lang === "pl"
-              ? "Każdy nowy gatunek zmusza Annę do czegoś, czego unikała przez piętnaście lat: rozmowy. Wieś i góra zaczynają mówić jednym głosem, którego nie da się sklasyfikować w żadnym kluczu."
-              : "Each new species forces Anna into the thing she's avoided for fifteen years: conversation. The village and the mountain begin speaking in a single voice that no taxonomy can pin down."
+              ? "Dwoje obcych w jednym małym mieszkaniu. Antagonizm. Cisza. Maszyna do pisania. Powoli — najpierw ostrożność, potem zaufanie, potem coś, czego żadne z nich nie planowało. Helen czasem przypomina Jackowi, że jest dla niej nikim. Jack pisze dalej."
+              : "Two strangers, one small apartment. Antagonism. Silence. A typewriter. Slowly — first wariness, then trust, then a thing neither of them planned for. Helen reminds Jack at intervals that he is no one to her. Jack keeps writing."
           },
           {
             n: "III",
-            ttl: lang === "pl" ? "Migracja" : "Migration",
-            sub: lang === "pl" ? "Świt · ostatnia hala" : "Dawn · the last meadow",
+            ttl: lang === "pl" ? "Cień Autora" : "The Shadow Author",
+            sub: lang === "pl" ? "Świt · ostatni kadr · zakończenie-labirynt" : "Dawn · final frame · the labyrinth",
             txt: lang === "pl"
-              ? "<span class=\"bf-redact bf-redact-lg\">[USUNIĘTO — KLAUZULA NDA · ZAKOŃCZENIE]</span>"
-              : "<span class=\"bf-redact bf-redact-lg\">[REDACTED — NDA CLAUSE · ENDING]</span>"
+              ? "<span class=\"bf-redact bf-redact-lg\">[USUNIĘTO — ZAKOŃCZENIE · NDA] Czy Jack to Matthew? Czy nam się to wszystko śniło?</span>"
+              : "<span class=\"bf-redact bf-redact-lg\">[REDACTED — ENDING · NDA] Was Jack actually Matthew? Did we just dream all of it?</span>"
           }
         ].map((a, i) => `
           <article class="bf-act" data-reveal style="--i:${i}">
@@ -2350,14 +2351,13 @@ function butterfliesTreatment() {
 }
 
 function butterfliesMood() {
-  // Stylised "scene strips" rather than real images — just label/timecode chips
   const frames = [
-    { id: "SC.003", note: lang === "pl" ? "świt · brzask" : "first light",  time: "05:42:11", hue: "rose"  },
-    { id: "SC.014", note: lang === "pl" ? "stara stodoła" : "old barn",      time: "06:18:24", hue: "sage"  },
-    { id: "SC.027", note: lang === "pl" ? "list w gablocie" : "letter in case", time: "08:02:09", hue: "rust"  },
-    { id: "SC.041", note: lang === "pl" ? "ścieżka pasterska" : "shepherd path", time: "11:47:02", hue: "sand"  },
-    { id: "SC.063", note: lang === "pl" ? "polowanie" : "the hunt",          time: "14:20:18", hue: "moss"  },
-    { id: "SC.072", note: lang === "pl" ? "rój" : "the swarm",                time: "17:05:33", hue: "rose"  }
+    { id: "SC.003", note: lang === "pl" ? "biuro producenta" : "producer's office",  time: "10:18:04", hue: "rose"  },
+    { id: "SC.012", note: lang === "pl" ? "okładka magazynu" : "magazine cover",      time: "12:42:11", hue: "rust"  },
+    { id: "SC.024", note: lang === "pl" ? "motel · pokój 7" : "motel · room 7",       time: "21:09:33", hue: "sand"  },
+    { id: "SC.038", note: lang === "pl" ? "deszcz w oknie" : "rain on the window",     time: "23:47:02", hue: "moss"  },
+    { id: "SC.051", note: lang === "pl" ? "pierwszy uśmiech" : "the first smile",     time: "14:02:18", hue: "rose"  },
+    { id: "SC.072", note: lang === "pl" ? "świt · finał" : "dawn · the finale",        time: "05:11:00", hue: "sage"  }
   ];
   return `
     <section class="section bf-mood" data-reveal>
@@ -2393,34 +2393,54 @@ function butterfliesSetting() {
         <div class="bf-setting-art" aria-hidden="true">
           <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="bf-sky" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stop-color="rgba(245,180,180,0.4)"/>
-                <stop offset="1" stop-color="rgba(40,40,50,0)"/>
+              <linearGradient id="bf-glow" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="rgba(245,180,180,0.45)"/>
+                <stop offset="1" stop-color="rgba(40,30,40,0.05)"/>
               </linearGradient>
             </defs>
-            <rect width="240" height="200" fill="url(#bf-sky)"/>
-            <g fill="none" stroke="rgba(245,235,215,0.85)" stroke-width="1.4" stroke-linejoin="round">
-              <path d="M0 150 L 30 130 L 50 142 L 78 110 L 96 124 L 120 90 L 144 116 L 168 94 L 196 112 L 220 100 L 240 118 L 240 200 L 0 200 Z" fill="rgba(20,18,14,0.6)"/>
-              <path d="M0 168 L 28 156 L 60 162 L 90 144 L 120 152 L 150 138 L 178 150 L 210 142 L 240 152 L 240 200 L 0 200 Z" fill="rgba(20,18,14,0.85)"/>
+            <rect width="240" height="200" fill="url(#bf-glow)"/>
+            <!-- Window frame -->
+            <g stroke="rgba(245,235,215,0.85)" stroke-width="1.6" fill="none">
+              <rect x="36" y="30" width="168" height="140" rx="2"/>
+              <line x1="120" y1="30" x2="120" y2="170"/>
+              <line x1="36"  y1="100" x2="204" y2="100"/>
             </g>
-            <g fill="rgba(245,235,215,0.5)">
-              <circle cx="200" cy="40" r="14"/>
+            <!-- Rain streaks -->
+            <g stroke="rgba(245,180,180,0.6)" stroke-width="1" stroke-linecap="round">
+              <line x1="60"  y1="38"  x2="56"  y2="60"/>
+              <line x1="80"  y1="44"  x2="76"  y2="68"/>
+              <line x1="96"  y1="50"  x2="92"  y2="74"/>
+              <line x1="148" y1="40"  x2="144" y2="64"/>
+              <line x1="170" y1="46"  x2="166" y2="70"/>
+              <line x1="190" y1="52"  x2="186" y2="76"/>
+              <line x1="64"  y1="110" x2="60"  y2="134"/>
+              <line x1="86"  y1="116" x2="82"  y2="140"/>
+              <line x1="156" y1="114" x2="152" y2="138"/>
+              <line x1="180" y1="120" x2="176" y2="144"/>
+            </g>
+            <!-- Lamp glow / motel sign reflection -->
+            <circle cx="180" cy="140" r="14" fill="rgba(245,180,180,0.8)" opacity="0.45"/>
+            <circle cx="180" cy="140" r="6"  fill="rgba(245,235,215,0.9)"/>
+            <!-- Typewriter silhouette -->
+            <g fill="rgba(20,18,14,0.85)" stroke="rgba(245,235,215,0.5)" stroke-width="0.8">
+              <rect x="80" y="150" width="80" height="22" rx="2"/>
+              <rect x="92" y="142" width="56" height="10" rx="1"/>
             </g>
           </svg>
         </div>
         <div class="bf-setting-text">
           <span class="bf-setting-eye">${lang === "pl" ? "PLENER · KARTA 005" : "LOCATION · CARD 005"}</span>
-          <h2>${lang === "pl" ? "Bieszczady. Hala, na której skrzydła pamiętają drogę." : "Bieszczady. The meadow where the wings remember the way."}</h2>
+          <h2>${lang === "pl" ? "Hollywood. Mały motel. Maszyna do pisania." : "Hollywood. A small motel. A typewriter."}</h2>
           <p>${lang === "pl"
-            ? "Pas pogranicza Polski, Słowacji i Ukrainy. Stoki Małej Rawki, połonina Caryńska, dolina Sanu. Las bukowy 200-letni, ciemne niebo (Park Gwiezdny), pasterskie szałasy zamiast hoteli. To jest ekran filmu, nie tło."
-            : "The border ridge of Poland, Slovakia and Ukraine. Slopes of Mała Rawka, the Caryńska meadow, the San valley. Two-hundred-year beech forest, an International Dark-Sky Park, shepherds' huts instead of hotels. This is the screen of the film, not the backdrop."}</p>
+            ? "Świat amerykańskiego kina i jego antyteza — pokój 7 w motelu na przedmieściach Los Angeles. Tam toczy się prawdziwa akcja: dwoje obcych, jedna ciasna kuchnia, jedno okno z deszczem, jeden scenariusz, który ma ich połączyć. Plener gra rolę razem z aktorami."
+            : "The world of American cinema and its antithesis — Room 7 in a motel on the edge of Los Angeles. That's where the real picture happens: two strangers, one cramped kitchenette, one window with rain on it, one screenplay meant to bind them. The location plays opposite the cast."}</p>
           <ul class="bf-setting-meta">
-            <li><b>GPS</b><span>49°08′N · 22°33′E</span></li>
-            <li><b>${lang === "pl" ? "WYSOKOŚĆ" : "ELEVATION"}</b><span>1,180 – 1,850 m</span></li>
-            <li><b>${lang === "pl" ? "OKNO ZDJĘĆ" : "SHOOT WINDOW"}</b><span>${lang === "pl" ? "kwiecień–czerwiec · wrzesień" : "April–June · September"}</span></li>
-            <li><b>${lang === "pl" ? "TEMPERATURA" : "TEMP."}</b><span>4 °C – 19 °C</span></li>
-            <li><b>${lang === "pl" ? "GODZINA ZŁOTA" : "GOLDEN HOUR"}</b><span>${lang === "pl" ? "44 min · świt + zmierzch" : "44 min · dawn + dusk"}</span></li>
-            <li><b>${lang === "pl" ? "BAZA" : "BASECAMP"}</b><span>Lutowiska · Cisna</span></li>
+            <li><b>${lang === "pl" ? "MIASTO" : "CITY"}</b><span>Los Angeles · CA</span></li>
+            <li><b>${lang === "pl" ? "GŁÓWNY PLAN" : "PRINCIPAL"}</b><span>${lang === "pl" ? "Motel · pokój 7" : "Motel · Room 7"}</span></li>
+            <li><b>${lang === "pl" ? "KONTRAST" : "CONTRAST"}</b><span>${lang === "pl" ? "Studio · plan · gala" : "Studio · set · red carpet"}</span></li>
+            <li><b>${lang === "pl" ? "OKNO ZDJĘĆ" : "SHOOT WINDOW"}</b><span>${lang === "pl" ? "Q3 2026 — Q1 2027" : "Q3 2026 — Q1 2027"}</span></li>
+            <li><b>${lang === "pl" ? "PALETA" : "PALETTE"}</b><span>${lang === "pl" ? "różowy świt · neon · deszcz" : "pink dawn · neon · rain"}</span></li>
+            <li><b>${lang === "pl" ? "KAMERA" : "CAMERA"}</b><span>2.39 : 1 · 35 mm</span></li>
           </ul>
         </div>
       </article>
@@ -2428,22 +2448,66 @@ function butterfliesSetting() {
   `;
 }
 
+function butterfliesSoundtrack() {
+  const tracks = [
+    { n: "01", title: "A Winter's Tale",        artist: "Queen",                     scene: lang === "pl" ? "świt · pokój 7" : "dawn · Room 7",        time: "3:49" },
+    { n: "02", title: "Who Wants to Live Forever", artist: "Queen",                  scene: lang === "pl" ? "kulminacja II aktu" : "act II climax",   time: "5:15" },
+    { n: "03", title: "The Great Pretender",   artist: "Freddie Mercury",            scene: lang === "pl" ? "casting · debiut" : "the casting · debut", time: "3:25" },
+    { n: "04", title: "Barcelona",             artist: "Mercury & Caballé",         scene: lang === "pl" ? "premiera · sala" : "the premiere · house", time: "5:39" },
+    { n: "05", title: "Somebody to Love",       artist: "Queen",                     scene: lang === "pl" ? "spowiedź Helen" : "Helen's confession",   time: "4:56" },
+    { n: "06", title: "These Are the Days of Our Lives", artist: "Queen",            scene: lang === "pl" ? "napisy końcowe" : "end credits",          time: "4:14" }
+  ];
+  return `
+    <section class="section bf-soundtrack" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Sześć Utworów<br/>Jeden Zespół" : "Six Tracks<br/>One Band"}</h2>
+      </div>
+      <p class="bf-soundtrack-lead">${lang === "pl"
+        ? "Pełna ścieżka dźwiękowa filmu zbudowana wokół katalogu Queen — utwory licencjonowane lub negocjowane, spinające trzy akty jednym głosem. To nie ozdoba — to drugi narrator filmu."
+        : "The film's full score is built around the Queen catalog — licensed or in negotiation — binding the three acts with a single voice. Not decoration. The picture's second narrator."}</p>
+      <div class="bf-soundtrack-list">
+        <header class="bf-soundtrack-head">
+          <span>${lang === "pl" ? "TR." : "TR."}</span>
+          <span>${lang === "pl" ? "TYTUŁ" : "TITLE"}</span>
+          <span>${lang === "pl" ? "WYKONAWCA" : "ARTIST"}</span>
+          <span>${lang === "pl" ? "SCENA" : "SCENE"}</span>
+          <span>${lang === "pl" ? "CZAS" : "TIME"}</span>
+        </header>
+        ${tracks.map((t, i) => `
+          <article class="bf-track" data-reveal style="--i:${i}">
+            <span class="bf-track-num">${t.n}</span>
+            <span class="bf-track-title">${t.title}</span>
+            <span class="bf-track-artist">${t.artist}</span>
+            <span class="bf-track-scene">${t.scene}</span>
+            <span class="bf-track-time">${t.time}</span>
+          </article>
+        `).join("")}
+      </div>
+      <footer class="bf-soundtrack-foot">
+        <span class="bf-soundtrack-foot-eye">${lang === "pl" ? "LICENCJA" : "LICENSING"}</span>
+        <span>${lang === "pl" ? "Negocjacje z Queen Productions Ltd. · status: w toku" : "In conversation with Queen Productions Ltd. · status: in progress"}</span>
+      </footer>
+    </section>
+  `;
+}
+
 function butterfliesSymbolism() {
   const items = lang === "pl" ? [
-    { ttl: "MIGRACJA",     txt: "Wracać tam, gdzie skrzydła już raz dotarły. Decyzja, której nie pamięta się rozumem." },
-    { ttl: "METAMORFOZA", txt: "Cztery stadia. Tylko ostatnie ma skrzydła — i pamięć o pozostałych trzech." },
-    { ttl: "PAMIĘĆ",       txt: "Owad żyje tygodnie. Krajobraz, w którym żyje — wieki. Film stoi pomiędzy." },
-    { ttl: "MORTALNOŚĆ",   txt: "Każdy lot jest pożegnaniem. Każde znalezisko — dowodem, że było warto wzlecieć." }
+    { ttl: "MARZENIE",  txt: "Co warte są marzenia, jeśli się nie spełniają? Film stawia to pytanie i nie udziela jednej odpowiedzi." },
+    { ttl: "MIŁOŚĆ",    txt: "Tu przyjmuje formę, której bohater nigdy nie przeżył. Plan miłości rozpisany słowo po słowie, by trafić do serca, do którego się nie dotarło." },
+    { ttl: "AUTOR",      txt: "Cień piszący film w filmie. Palce stukające o klawisze gdzieś poza kadrem. Kto kogo opowiada — bohater czytelnika, czy odwrotnie?" },
+    { ttl: "ZWROT",      txt: "Zakończenie-labirynt. Kiedy myślimy, że rozumiemy — ktoś przekręca obraz o jeden klik za daleko. Czy Jack to Matthew? Czy to wszystko sen?" }
   ] : [
-    { ttl: "MIGRATION",    txt: "Returning to where the wings once arrived. A decision the mind does not remember making." },
-    { ttl: "METAMORPHOSIS",txt: "Four stages. Only the last has wings — and the memory of the other three." },
-    { ttl: "MEMORY",       txt: "An insect lives for weeks. The landscape it lives in, for centuries. The film stands between." },
-    { ttl: "MORTALITY",    txt: "Every flight is a goodbye. Every find — proof it was worth taking off." }
+    { ttl: "DREAM",     txt: "What are dreams worth if they aren't fulfilled? The film asks the question and does not hand out a single answer." },
+    { ttl: "LOVE",      txt: "It takes the form the hero never lived. A blueprint of love written word by word — to reach a heart that real life never lets him reach." },
+    { ttl: "AUTHOR",    txt: "The shadow writing the film inside the film. Fingers tapping at a keyboard somewhere off-frame. Who is telling whom — the hero, or the reader?" },
+    { ttl: "REVEAL",    txt: "The labyrinth ending. The moment we think we understand — someone turns the picture one click too far. Was Jack actually Matthew? Did we just dream this?" }
   ];
   return `
     <section class="section bf-symbol" data-reveal>
       <div class="section-header">
-        <span class="section-number">06.</span>
+        <span class="section-number">07.</span>
         <h2 class="title-cinematic">${lang === "pl" ? "Cztery<br/>Skrzydła" : "Four<br/>Wings"}</h2>
       </div>
       <div class="bf-symbol-grid">
@@ -2462,25 +2526,29 @@ function butterfliesSymbolism() {
 
 function butterfliesCrew() {
   const crew = lang === "pl" ? [
-    { dept: "REŻYSERIA",        name: "Sunset Hills MP",    note: "rozwój wewnętrzny",    sealed: false },
-    { dept: "SCENARIUSZ",       name: "[NAZWISKO POUFNE]",  note: "po podpisaniu NDA",     sealed: true  },
-    { dept: "OBRAZ · DP",       name: "[KANDYDAT 01]",      note: "rozmowy w toku",        sealed: true  },
-    { dept: "MUZYKA",           name: "[KANDYDAT 02]",      note: "demo · czwarty kwartał", sealed: true  },
-    { dept: "MONTAŻ",           name: "[ZASTRZEŻONO]",      note: "po treatment v3",       sealed: true  },
-    { dept: "KONSULTACJA · ENT.", name: "Dr. M. Pawlak",     note: "Instytut Bot.-Zoo. PAN", sealed: false }
+    { dept: "POSTAĆ · GŁÓWNA",       name: "Jack, 29",                note: "młody scenarzysta · narrator", sealed: false },
+    { dept: "POSTAĆ · GŁÓWNA ŻEŃSKA", name: "Helen Thorne, 35",       note: "gwiazda pierwszej strony",      sealed: false },
+    { dept: "POSTAĆ · DRUGOPLANOWA", name: "Stanley Silverberg, 65",  note: "legendarny reżyser",            sealed: false },
+    { dept: "POSTAĆ · TWIST",        name: "Matthew, 30",             note: "[USUNIĘTO — KLAUZULA NDA]",     sealed: true  },
+    { dept: "SCENARIUSZ",            name: "Jacek Wielgopolan",       note: "Sunset Hills · 2024",           sealed: false },
+    { dept: "REŻYSERIA · OBSADA",    name: "[KANDYDAT 01]",           note: "rozmowy w toku · LA",           sealed: true  },
+    { dept: "OBRAZ · DP",            name: "Germano Saracco",         note: "wstępne potwierdzenie",         sealed: false },
+    { dept: "MUZYKA · SCORE",        name: "Queen catalogue",         note: "negocjacje · QPL",              sealed: false }
   ] : [
-    { dept: "DIRECTION",        name: "Sunset Hills MP",    note: "in-house development",  sealed: false },
-    { dept: "SCREENPLAY",       name: "[NAME WITHHELD]",    note: "post-NDA disclosure",   sealed: true  },
-    { dept: "CINEMATOGRAPHY",   name: "[CANDIDATE 01]",     note: "conversations in progress", sealed: true },
-    { dept: "MUSIC",            name: "[CANDIDATE 02]",     note: "demo · Q4",             sealed: true  },
-    { dept: "EDITING",          name: "[RESERVED]",         note: "after treatment v3",    sealed: true  },
-    { dept: "ENTOMOLOGY · CONS.", name: "Dr. M. Pawlak",   note: "PAS Bot.-Zoo. Institute", sealed: false }
+    { dept: "CHARACTER · LEAD",      name: "Jack, 29",               note: "young screenwriter · narrator", sealed: false },
+    { dept: "CHARACTER · LEAD F.",   name: "Helen Thorne, 35",       note: "front-cover star",              sealed: false },
+    { dept: "CHARACTER · SUPPORTING", name: "Stanley Silverberg, 65", note: "legendary director",            sealed: false },
+    { dept: "CHARACTER · TWIST",     name: "Matthew, 30",            note: "[REDACTED — NDA CLAUSE]",       sealed: true  },
+    { dept: "SCREENPLAY",            name: "Jacek Wielgopolan",      note: "Sunset Hills · 2024",           sealed: false },
+    { dept: "DIRECTION · CASTING",   name: "[CANDIDATE 01]",         note: "in conversation · LA",          sealed: true  },
+    { dept: "CINEMATOGRAPHY",        name: "Germano Saracco",        note: "soft attached",                 sealed: false },
+    { dept: "MUSIC · SCORE",         name: "Queen catalogue",        note: "in negotiation · QPL",          sealed: false }
   ];
   return `
     <section class="section bf-crew" data-reveal>
       <div class="section-header">
-        <span class="section-number">07.</span>
-        <h2 class="title-cinematic">${lang === "pl" ? "Ekipa<br/>w&nbsp;Zarysie" : "Crew<br/>in Outline"}</h2>
+        <span class="section-number">08.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Postacie<br/>i&nbsp;Ekipa" : "Cast<br/>&amp; Crew"}</h2>
       </div>
       <div class="bf-crew-grid">
         ${crew.map((c, i) => `
