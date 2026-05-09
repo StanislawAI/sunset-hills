@@ -84,6 +84,27 @@ body::after {
   opacity: 1;
 }
 
+/* Site-wide mouse-tracked lens flare (uses existing --mouse-x / --mouse-y) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 380px at var(--mouse-x) var(--mouse-y),
+    rgba(255, 224, 188, 0.18) 0%,
+    rgba(209, 32, 37, 0.10) 30%,
+    transparent 65%
+  );
+  mix-blend-mode: screen;
+  will-change: background;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { opacity: 0.35; }
+}
+
 .grain {
   position: fixed;
   inset: 0;
@@ -2700,27 +2721,6 @@ p {
   height: 100vh;
   min-height: 720px;
   padding: 40px clamp(20px, 4vw, 64px);
-}
-
-/* Mouse-tracked lens flare — uses existing --mouse-x / --mouse-y */
-.hero-cinematic::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    circle 360px at var(--mouse-x) var(--mouse-y),
-    rgba(255, 224, 188, 0.28) 0%,
-    rgba(209, 32, 37, 0.14) 32%,
-    transparent 68%
-  );
-  mix-blend-mode: screen;
-  transition: opacity 400ms ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-cinematic::after { opacity: 0.35; }
 }
 
 .hero-cinematic video {
