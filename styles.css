@@ -584,6 +584,10 @@ p {
   animation: tickerMove 36s linear infinite;
 }
 
+.cinema-ticker:hover div {
+  animation-play-state: paused;
+}
+
 .cinema-ticker span {
   min-height: 54px;
   display: inline-flex;
@@ -597,6 +601,11 @@ p {
 
 .section + .section {
   border-top: 1px solid rgba(226, 230, 236, 0.08);
+}
+
+@keyframes tickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .section-header {
@@ -6635,6 +6644,7 @@ p {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), 0 2px 0 rgba(255, 255, 255, 0.06) inset;
   filter: saturate(0.9) contrast(1.05);
   transition: transform 600ms cubic-bezier(.22,.8,.27,1);
+  animation: polaroidFloat 8s ease-in-out infinite;
 }
 .ab-hero-collage .polaroid img {
   display: block;
@@ -6652,11 +6662,16 @@ p {
   color: rgba(20, 18, 14, 0.6);
   text-transform: uppercase;
 }
-.ab-hero-collage .p1 { width: 200px; height: 240px; top: 11%; right: 6%;  transform: rotate(6deg); }
-.ab-hero-collage .p2 { width: 180px; height: 220px; top: 32%; right: 22%; transform: rotate(-4deg); }
-.ab-hero-collage .p3 { width: 170px; height: 210px; top: 58%; right: 4%;  transform: rotate(8deg); }
-.ab-hero-collage .p4 { width: 240px; height: 160px; top: 8%;  left:  4%;  transform: rotate(-7deg); }
-.ab-hero-collage .p5 { width: 220px; height: 150px; top: 62%; left: 8%;   transform: rotate(5deg); }
+.ab-hero-collage .p1 { width: 200px; height: 240px; top: 11%; right: 6%;  --r: 6deg;  animation-delay: 0s; transform: rotate(var(--r)); }
+.ab-hero-collage .p2 { width: 180px; height: 220px; top: 32%; right: 22%; --r: -4deg; animation-delay: -1.5s; transform: rotate(var(--r)); }
+.ab-hero-collage .p3 { width: 170px; height: 210px; top: 58%; right: 4%;  --r: 8deg;  animation-delay: -3s; transform: rotate(var(--r)); }
+.ab-hero-collage .p4 { width: 240px; height: 160px; top: 8%;  left:  4%;  --r: -7deg; animation-delay: -4.5s; transform: rotate(var(--r)); }
+.ab-hero-collage .p5 { width: 220px; height: 150px; top: 62%; left: 8%;   --r: 5deg;  animation-delay: -6s; transform: rotate(var(--r)); }
+
+@keyframes polaroidFloat {
+  0%, 100% { transform: rotate(var(--r)) translateY(0) translateX(0); }
+  50% { transform: rotate(calc(var(--r) + 4deg)) translateY(-28px) translateX(12px); }
+}
 .ab-hero-collage .polaroid::before {
   content: ""; position: absolute; left: 50%; top: -10px; transform: translateX(-50%) rotate(-6deg);
   width: 60px; height: 18px;
@@ -6759,10 +6774,18 @@ p {
 .ab-hero-lede {
   max-width: 56ch;
   font-family: 'Archivo', sans-serif;
-  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
-  line-height: 1.55;
-  color: rgba(245, 235, 215, 0.85);
-  margin: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.6;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  margin-top: 2rem;
+  opacity: 1;
+}
+
+.ab-hero-lede strong {
+  color: var(--red);
+  font-weight: 800;
+  letter-spacing: 0.05em;
 }
 
 .ab-hero-chips {

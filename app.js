@@ -4,310 +4,320 @@ function getLang() {
   return window.location.pathname.startsWith("/pl/") ? "pl" : "en";
 }
 
-const lang = getLang();
-const t = translations[lang];
+let lang = getLang();
+let t = translations[lang];
 
-const navItems = [
-  { label: t.nav.home, path: lang === "pl" ? "/pl/" : "/" },
-  { label: t.nav.about, path: lang === "pl" ? "/pl/about-us/" : "/about-us/" },
-  { label: t.nav.butterflies, path: lang === "pl" ? "/pl/where-the-butterflies-fly/" : "/where-the-butterflies-fly/" },
-  { label: t.nav.tom, path: lang === "pl" ? "/pl/the-adventures-of-tom/" : "/the-adventures-of-tom/" },
-  { label: t.nav.kings, path: lang === "pl" ? "/pl/the-kings-of-life/" : "/the-kings-of-life/" },
-  { label: t.nav.coverage, path: lang === "pl" ? "/pl/script-coverage/" : "/script-coverage/" },
-  { label: t.nav.production, path: lang === "pl" ? "/pl/production-in-poland/" : "/production-in-poland/" },
-  { label: t.nav.contact, path: lang === "pl" ? "/pl/contact/" : "/contact/" }
-];
+let navItems, people, tomBooks, routes;
 
-const people = {
-  jack: {
-    title: "Jack Wielgopolan",
-    role: lang === "pl" ? "Producent / Scenarzysta / Reżyser" : "Producer / Script writer / Director",
-    path: lang === "pl" ? "/pl/jack-wielgopolan/" : "/jack-wielgopolan/",
-    image: "/public/assets/optimized/portrait-jack.webp",
-    paragraphs: lang === "pl" ? [
-      "Jacek Wielgopolan jako producent, dystrybutor i scenarzysta jest związany z markami filmowymi w USA i Polsce od 1991 roku.",
-      "Obecnie, poza „Królami życia”, przygotowuje serię 9 filmów fabularnych opartych na powieści Alfreda Szklarskiego „Przygody Tomka”. Pierwsza część nosi tytuł „Przygody Tomka: w krainie kangurów”. Budżet tej produkcji wynosi 45 000 000 USD."
-    ] : [
-      "Jack Wielgopolan as a producer, distributor and script writer as been associated with movie brands in the USA and Poland since 1991.",
-      "Nowadays, apart from \"Kings of Life\" he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski \"Adventures of Tom\". The first part is called \"Adventures of Tom: in the Kangaroo Kingdom\". The budget for this production amounts of $45,000,000"
-    ],
-    meta: {
-      profileNum: "01",
-      since: "1991",
-      base: "Warsaw · Los Angeles",
-      languages: "PL · EN",
-      credits: "9+ pictures",
-      slug: lang === "pl" ? "WN. STUDIO · DOMINIKAŃSKA — ŚWIT" : "INT. STUDIO · DOMINIKAŃSKA — DAWN",
-      labels: lang === "pl"
-        ? ["Założyciel", "Producent", "Scenarzysta", "Reżyser"]
-        : ["Founder", "Producer", "Screenwriter", "Director"],
-      quote: lang === "pl"
-        ? null
-        : null
+function updateGlobals() {
+  lang = getLang();
+  t = translations[lang];
+
+  navItems = [
+    { label: t.nav.home, path: lang === "pl" ? "/pl/" : "/" },
+    { label: t.nav.about, path: lang === "pl" ? "/pl/about-us/" : "/about-us/" },
+    { label: t.nav.butterflies, path: lang === "pl" ? "/pl/where-the-butterflies-fly/" : "/where-the-butterflies-fly/" },
+    { label: t.nav.tom, path: lang === "pl" ? "/pl/the-adventures-of-tom/" : "/the-adventures-of-tom/" },
+    { label: t.nav.kings, path: lang === "pl" ? "/pl/the-kings-of-life/" : "/the-kings-of-life/" },
+    { label: t.nav.coverage, path: lang === "pl" ? "/pl/script-coverage/" : "/script-coverage/" },
+    { label: t.nav.production, path: lang === "pl" ? "/pl/production-in-poland/" : "/production-in-poland/" },
+    { label: t.nav.contact, path: lang === "pl" ? "/pl/contact/" : "/contact/" }
+  ];
+
+  people = {
+    jack: {
+      title: "Jack Wielgopolan",
+      role: lang === "pl" ? "Producent / Scenarzysta / Reżyser" : "Producer / Script writer / Director",
+      path: lang === "pl" ? "/pl/jack-wielgopolan/" : "/jack-wielgopolan/",
+      image: "/public/assets/optimized/portrait-jack.webp",
+      paragraphs: lang === "pl" ? [
+        "Jacek Wielgopolan jako producent, dystrybutor i scenarzysta jest związany z markami filmowymi w USA i Polsce od 1991 roku.",
+        "Obecnie, poza „Królami życia”, przygotowuje serię 9 filmów fabularnych opartych na powieści Alfreda Szklarskiego „Przygody Tomka”. Pierwsza część nosi tytuł „Przygody Tomka: w krainie kangurów”. Budżet tej produkcji wynosi 45 000 000 USD."
+      ] : [
+        "Jack Wielgopolan as a producer, distributor and script writer as been associated with movie brands in the USA and Poland since 1991.",
+        "Nowadays, apart from \"Kings of Life\" he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski \"Adventures of Tom\". The first part is called \"Adventures of Tom: in the Kangaroo Kingdom\". The budget for this production amounts of $45,000,000"
+      ],
+      meta: {
+        profileNum: "01",
+        since: "1991",
+        base: "Warsaw · Los Angeles",
+        languages: "PL · EN",
+        credits: "9+ pictures",
+        slug: lang === "pl" ? "WN. STUDIO · DOMINIKAŃSKA — ŚWIT" : "INT. STUDIO · DOMINIKAŃSKA — DAWN",
+        labels: lang === "pl"
+          ? ["Założyciel", "Producent", "Scenarzysta", "Reżyser"]
+          : ["Founder", "Producer", "Screenwriter", "Director"],
+        quote: lang === "pl"
+          ? null
+          : null
+      },
+      films: [
+        ["Benefit of the Doubt", "1993", "Dir. Jonathan Heap · Donald Sutherland · Amy Irving",       "/public/assets/optimized/poster-benefit.webp"],
+        ["Neverending Story III", "1994", "Dir. Peter MacDonald · Jack Black · Jason James Richter",   "/public/assets/optimized/poster-never.webp"],
+        ["Dzieje Mistrza Twardowskiego", "1996", lang === "pl" ? "Polski klasyk fantasy" : "Polish fantasy classic", "/public/assets/optimized/poster-twardowski.webp"],
+        ["The Doubles", "2006", lang === "pl" ? "Współczesny dramat" : "Contemporary drama",            "/public/assets/optimized/poster-doubles.webp"],
+        [t.nav.kings, "2026", lang === "pl" ? "W produkcji · scenariusz/reżyseria" : "In production · screenplay/direction", "/public/assets/optimized/poster-tkol.webp"]
+      ]
     },
-    films: [
-      ["Benefit of the Doubt", "1993", "Dir. Jonathan Heap · Donald Sutherland · Amy Irving",       "/public/assets/optimized/poster-benefit.webp"],
-      ["Neverending Story III", "1994", "Dir. Peter MacDonald · Jack Black · Jason James Richter",   "/public/assets/optimized/poster-never.webp"],
-      ["Dzieje Mistrza Twardowskiego", "1996", lang === "pl" ? "Polski klasyk fantasy" : "Polish fantasy classic", "/public/assets/optimized/poster-twardowski.webp"],
-      ["The Doubles", "2006", lang === "pl" ? "Współczesny dramat" : "Contemporary drama",            "/public/assets/optimized/poster-doubles.webp"],
-      [t.nav.kings, "2026", lang === "pl" ? "W produkcji · scenariusz/reżyseria" : "In production · screenplay/direction", "/public/assets/optimized/poster-tkol.webp"]
-    ]
-  },
-  germano: {
-    title: "GERMANO SARACCO",
-    role: lang === "pl" ? "OPERATOR OBRAZU" : "CINEMATOGRAPHER",
-    path: lang === "pl" ? "/pl/germano-saracco/" : "/germano-saracco/",
-    image: "/public/assets/optimized/portrait-germano.webp",
-    paragraphs: lang === "pl" ? [
-      "Germano Saracco jest wielokrotnie nagradzanym operatorem obrazu i autorem zdjęć do wielu filmów fabularnych, dokumentalnych, teledysków i reklam.",
-      "Absolwent Istituto Scienze Cinematografiche we Florencji oraz University of Miami. Uczestnik Programu Techników Filmowych w międzynarodowej szkole filmowej w Londynie.",
-      "Mówi w trzech językach – angielskim, włoskim i hiszpańskim. Mieszka na stałe w Los Angeles w Kalifornii.",
-      "„Dzisiaj trudno zliczyć dni, które spędziłem w ciągu ostatnich 35 lat na planach zdjęciowych podczas mojej filmowej przygody i trudno zliczyć liczbę scenariuszy, które udało mi się przeczytać. Mogę z pełną odpowiedzialnością powiedzieć, że spośród dosłownie tysięcy lektur, które przeczytałem, i scenariuszy gotowych do realizacji, scenariusz napisany przez Jacka Wielgopolana „Królowie życia” jest jedynym, który szczerze mnie rozbawił. Zakończenie tej historii zaskoczyło mnie tak bardzo, że w jednej chwili wzruszyłem się do łez i bez chwili wahania zgodziłem się pracować nad tym wyjątkowym i ważnym dla mnie projektem filmowym.”",
-      "Nagrody:",
-      "International Social Commitment w Accademia Belle Arti A Venezia za funkcję operatora w filmie „Hopeful Notes”.",
-      "Nagroda Złotego Kondora.",
-      "Nagroda za najlepszy film krótkometrażowy „Eve’s Dropping In” na festiwalu filmowym w Atlantic City."
-    ] : [
-      "Germano Saracco is an award-winning cinematographer and the author of the photos for many images of feature films, documentary, music video and advertising.",
-      "A graduate of the Istituto Scienze Cinematografiche in Florence and the University of Miami. Participant of the Film Technician Program at the London-based international film school.",
-      "He speaks three languages - English, Italian and Spanish. He lives permanently in Los Angeles, California.",
-      "\"Today, it's difficult to count the days I spent in the last 35 years on the photos sets during my film adventure and it is difficult to count the number of scenarios that I have been able to read. I can say with full responsibility that among the literally thousands of readings I've read and the screenplays ready for filmmaking, the scenario written by Jacek Wielgopolan, \"The Kings of Life\" is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears and without a moment's hesitation I agreed to work on this unique and important film project for me.\"",
-      "Rewards:",
-      "International Social Commitment w Accademia Belle Arti A Venezia for the operator's function in film “Hopeful Notes”.",
-      "Gold Condor Award.",
-      "Award for best short film “Eve’s Dropping In” in Atlantic City Film Festival."
-    ],
-    films: [
-      ["Americas Most Wanted — America Fights Back", "TV",   lang === "pl" ? "Operator obrazu" : "Cinematographer", "/public/assets/optimized/germano-mission.webp"],
-      ["Smokin' Aces",                                "2006", lang === "pl" ? "Drugi operator" : "Additional photography", "/public/assets/optimized/germano-smokin.webp"],
-      ["Hopeful Notes",                               "2018", lang === "pl" ? "Operator · Złoty Kondor" : "DP · Gold Condor", "/public/assets/optimized/germano-hopeful.webp"]
-    ],
-    meta: {
-      profileNum: "02",
-      since: "2023",
-      base: "Los Angeles · CA",
-      languages: "EN · IT · ES",
-      credits: "30+ years on set",
-      slug: lang === "pl" ? "PLEN. WZGÓRZA HOLLYWOOD — ZMIERZCH" : "EXT. HOLLYWOOD HILLS — DUSK",
-      labels: lang === "pl"
-        ? ["Operator obrazu", "Złoty Kondor", "ISC · Floryencja", "U. Miami"]
-        : ["Cinematographer", "Gold Condor", "ISC · Florence", "U. Miami"]
+    germano: {
+      title: "GERMANO SARACCO",
+      role: lang === "pl" ? "OPERATOR OBRAZU" : "CINEMATOGRAPHER",
+      path: lang === "pl" ? "/pl/germano-saracco/" : "/germano-saracco/",
+      image: "/public/assets/optimized/portrait-germano.webp",
+      paragraphs: lang === "pl" ? [
+        "Germano Saracco jest wielokrotnie nagradzanym operatorem obrazu i autorem zdjęć do wielu filmów fabularnych, dokumentalnych, teledysków i reklam.",
+        "Absolwent Istituto Scienze Cinematografiche we Florencji oraz University of Miami. Uczestnik Programu Techników Filmowych w międzynarodowej szkole filmowej w Londynie.",
+        "Mówi w trzech językach – angielskim, włoskim i hiszpańskim. Mieszka na stałe w Los Angeles w Kalifornii.",
+        "„Dzisiaj trudno zliczyć dni, które spędziłem w ciągu ostatnich 35 lat na planach zdjęciowych podczas mojej filmowej przygody i trudno zliczyć liczbę scenariuszy, które udało mi się przeczytać. Mogę z pełną odpowiedzialnością powiedzieć, że spośród dosłownie tysięcy lektur, które przeczytałem, i scenariuszy gotowych do realizacji, scenariusz napisany przez Jacka Wielgopolana „Królowie życia” jest jedynym, który szczerze mnie rozbawił. Zakończenie tej historii zaskoczyło mnie tak bardzo, że w jednej chwili wzruszyłem się do łez i bez chwili wahania zgodziłem się pracować nad tym wyjątkowym i ważnym dla mnie projektem filmowym.”",
+        "Nagrody:",
+        "International Social Commitment w Accademia Belle Arti A Venezia za funkcję operatora w filmie „Hopeful Notes”.",
+        "Nagroda Złotego Kondora.",
+        "Nagroda za najlepszy film krótkometrażowy „Eve’s Dropping In” na festiwalu filmowym w Atlantic City."
+      ] : [
+        "Germano Saracco is an award-winning cinematographer and the author of the photos for many images of feature films, documentary, music video and advertising.",
+        "A graduate of the Istituto Scienze Cinematografiche in Florence and the University of Miami. Participant of the Film Technician Program at the London-based international film school.",
+        "He speaks three languages - English, Italian and Spanish. He lives permanently in Los Angeles, California.",
+        "\"Today, it's difficult to count the days I spent in the last 35 years on the photos sets during my film adventure and it is difficult to count the number of scenarios that I have been able to read. I can say with full responsibility that among the literally thousands of readings I've read and the screenplays ready for filmmaking, the scenario written by Jacek Wielgopolan, \"The Kings of Life\" is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears and without a moment's hesitation I agreed to work on this unique and important film project for me.\"",
+        "Rewards:",
+        "International Social Commitment w Accademia Belle Arti A Venezia for the operator's function in film “Hopeful Notes”.",
+        "Gold Condor Award.",
+        "Award for best short film “Eve’s Dropping In” in Atlantic City Film Festival."
+      ],
+      films: [
+        ["Americas Most Wanted — America Fights Back", "TV",   lang === "pl" ? "Operator obrazu" : "Cinematographer", "/public/assets/optimized/germano-mission.webp"],
+        ["Smokin' Aces",                                "2006", lang === "pl" ? "Drugi operator" : "Additional photography", "/public/assets/optimized/germano-smokin.webp"],
+        ["Hopeful Notes",                               "2018", lang === "pl" ? "Operator · Złoty Kondor" : "DP · Gold Condor", "/public/assets/optimized/germano-hopeful.webp"]
+      ],
+      meta: {
+        profileNum: "02",
+        since: "2023",
+        base: "Los Angeles · CA",
+        languages: "EN · IT · ES",
+        credits: "30+ years on set",
+        slug: lang === "pl" ? "PLEN. WZGÓRZA HOLLYWOOD — ZMIERZCH" : "EXT. HOLLYWOOD HILLS — DUSK",
+        labels: lang === "pl"
+          ? ["Operator obrazu", "Złoty Kondor", "ISC · Floryencja", "U. Miami"]
+          : ["Cinematographer", "Gold Condor", "ISC · Florence", "U. Miami"]
+      }
+    },
+    dawn: {
+      title: "Dawn Jacobs",
+      role: lang === "pl" ? "Dyrektor kreatywna (CCO) Sunset Hills Motion Pictures" : "CCO of Sunset Hills Motion Pictures",
+      path: lang === "pl" ? "/pl/dawn-jacobs/" : "/dawn-jacobs/",
+      image: "/public/assets/optimized/about-dawn.webp",
+      paragraphs: lang === "pl" ? [
+        "Odnosząca sukcesy Dyrektor Marketingu z bogatym i różnorodnym doświadczeniem oraz strategicznym, kreatywnym i przedsiębiorczym nastawieniem.",
+        "Jej entuzjazm do planowania strategicznego i rozwoju kreatywnego pozwolił jej osiągnąć sukcesy w tworzeniu stron internetowych, rebrandingu i wprowadzaniu nowych produktów na rynek.",
+        "Doświadczenie zawodowe:",
+        "• New Dawn Effects, Sun Valley, CA (Business Manager, Marketing, Office Manager);",
+        "• Vegetable Juices, Bedford Park, IL (Dyrektor Marketingu);",
+        "• Ach Foods, Oakbrook Terrace, IL (Senior Associate Brand Manager);",
+        "• Sara Lee, Downers Grove, IL (Senior Marketing Manager C-Store);",
+        "• The Kellogg Company, Elmhurst, IL (Senior Customer Marketing Manager);",
+        "• Griffith Laboratories, Alsip, IL (Senior Marketing Solutions Manager)."
+      ] : [
+        "Successful Marketing Director with extensive and varied background, and a strategic, creative and entrepreneurial mind-set.",
+        "Her enthusiasm for strategically led planning and creative development has enabled her to deliver results in successful website development, rebranding, and new product launches.",
+        "Professional Experience:",
+        "• New Dawn Effects, Sun Valley, CA (Business Manager, Marketing, Office Manager);",
+        "• Vegetable Juices, Bedford Park, IL (Business Manager, Marketing, Office Manager);",
+        "• Vegetable Juices, Bedford Park, IL (Director of Marketing);",
+        "• Ach Foods, Oakbrook Terrace, IL (Senior Associate Brand Manager);",
+        "• Sara Lee, Downers Grove, IL (Senior Marketing Manager C-Store);",
+        "• The Kellogg Company, Elmhurst, IL (Senior Customer Marketing Manager);",
+        "• Griffith Laboratories, Alsip, IL (Senior Marketing Solutions Manager)."
+      ],
+      meta: {
+        profileNum: "03",
+        since: "2009",
+        base: "Sun Valley · CA",
+        languages: "EN",
+        credits: "Strategy · brand · launch",
+        slug: lang === "pl" ? "WN. STUDIO MARKI · DOLINA SŁOŃCA — POŁUDNIE" : "INT. BRAND ROOM · SUN VALLEY — NOON",
+        labels: lang === "pl"
+          ? ["Dyrektor Kreatywna (CCO)", "Marketing", "Brand", "Strategia"]
+          : ["CCO", "Marketing", "Brand", "Strategy"]
+      },
+      films: []
     }
-  },
-  dawn: {
-    title: "Dawn Jacobs",
-    role: lang === "pl" ? "Dyrektor kreatywna (CCO) Sunset Hills Motion Pictures" : "CCO of Sunset Hills Motion Pictures",
-    path: lang === "pl" ? "/pl/dawn-jacobs/" : "/dawn-jacobs/",
-    image: "/public/assets/optimized/about-dawn.webp",
-    paragraphs: lang === "pl" ? [
-      "Odnosząca sukcesy Dyrektor Marketingu z bogatym i różnorodnym doświadczeniem oraz strategicznym, kreatywnym i przedsiębiorczym nastawieniem.",
-      "Jej entuzjazm do planowania strategicznego i rozwoju kreatywnego pozwolił jej osiągnąć sukcesy w tworzeniu stron internetowych, rebrandingu i wprowadzaniu nowych produktów na rynek.",
-      "Doświadczenie zawodowe:",
-      "• New Dawn Effects, Sun Valley, CA (Business Manager, Marketing, Office Manager);",
-      "• Vegetable Juices, Bedford Park, IL (Dyrektor Marketingu);",
-      "• Ach Foods, Oakbrook Terrace, IL (Senior Associate Brand Manager);",
-      "• Sara Lee, Downers Grove, IL (Senior Marketing Manager C-Store);",
-      "• The Kellogg Company, Elmhurst, IL (Senior Customer Marketing Manager);",
-      "• Griffith Laboratories, Alsip, IL (Senior Marketing Solutions Manager)."
-    ] : [
-      "Successful Marketing Director with extensive and varied background, and a strategic, creative and entrepreneurial mind-set.",
-      "Her enthusiasm for strategically led planning and creative development has enabled her to deliver results in successful website development, rebranding, and new product launches.",
-      "Professional Experience:",
-      "• New Dawn Effects, Sun Valley, CA (Business Manager, Marketing, Office Manager);",
-      "• Vegetable Juices, Bedford Park, IL (Business Manager, Marketing, Office Manager);",
-      "• Vegetable Juices, Bedford Park, IL (Director of Marketing);",
-      "• Ach Foods, Oakbrook Terrace, IL (Senior Associate Brand Manager);",
-      "• Sara Lee, Downers Grove, IL (Senior Marketing Manager C-Store);",
-      "• The Kellogg Company, Elmhurst, IL (Senior Customer Marketing Manager);",
-      "• Griffith Laboratories, Alsip, IL (Senior Marketing Solutions Manager)."
-    ],
-    meta: {
-      profileNum: "03",
-      since: "2009",
-      base: "Sun Valley · CA",
-      languages: "EN",
-      credits: "Strategy · brand · launch",
-      slug: lang === "pl" ? "WN. STUDIO MARKI · DOLINA SŁOŃCA — POŁUDNIE" : "INT. BRAND ROOM · SUN VALLEY — NOON",
-      labels: lang === "pl"
-        ? ["Dyrektor Kreatywna (CCO)", "Marketing", "Brand", "Strategia"]
-        : ["CCO", "Marketing", "Brand", "Strategy"]
+  };
+
+  tomBooks = [
+    ["Tomek", "/public/assets/optimized/book-tomek.webp"],
+    ["Yeti", "/public/assets/optimized/book-yeti.webp"],
+    ["Wyprawa", "/public/assets/optimized/book-wyprawa.webp"],
+    ["Wojnie", "/public/assets/optimized/book-wojnie.webp"],
+    ["Glowy", "/public/assets/optimized/book-glowy.webp"],
+    ["Faraon", "/public/assets/optimized/book-faraon.webp"],
+    ["Chaco", "/public/assets/optimized/book-chaco.webp"],
+    ["Amazonka", "/public/assets/optimized/book-amazonka.webp"]
+  ];
+
+  routes = {
+    "/": {
+      title: translations.en.nav.home,
+      render: renderHome
     },
-    films: []
-  }
-};
+    "/pl/": {
+      title: translations.pl.nav.home,
+      render: renderHome
+    },
+    "/about-us/": {
+      title: translations.en.nav.about,
+      eyebrow: "01. About Us",
+      heroImage: "/public/assets/optimized/kings-wide.webp",
+      paragraphs: [
+        "Our company is able to supervise other productions on commission preparing a photo set, selecting objects.",
+        "Our two offices: in Poland and United Kingdom are currently focusing on the production of two films: The Kings of Life and The Adventures of Tom.",
+        "Our production team, which is based on over 30 years of experience in Hollywood and Poland, has decided to make a film that contains comedy and drama which is the most in demand and appreciated genre by viewers and Film Festivals throughout the world. Thereupon we want this production to swerve from accepted norms not only in our country making this film a true, commercial project which will enable investors to double their profits.",
+        "In addition, our company is able to supervise other productions on commission, preparing a photo set, selecting objects. We design scenography, we have numerous contacts with companies involved in post-production of films. We have the opportunity to hire Polish film crews at every film production, which are famous for doing their job very well. We also have numerous contacts with companies that have professional lighting for photographic plans, lifts/booms/cranes up to 64 meters high. We work with all stunt groups operating in Poland (stunt effects with people, animals – horses, cars, motorcycles, planes).",
+        "In summary, we are able to take on a film from almost every era to modern times."
+      ],
+      render: renderAbout
+    },
+    "/pl/about-us/": {
+      title: translations.pl.nav.about,
+      eyebrow: "01. O nas",
+      heroImage: "/public/assets/optimized/kings-wide.webp",
+      paragraphs: [
+        "Nasza firma jest w stanie nadzorować inne produkcje na zlecenie, przygotowując plan zdjęciowy, dobierając obiekty.",
+        "Nasze dwa biura: w Polsce i Wielkiej Brytanii koncentrują się obecnie na produkcji dwóch filmów: „Królowie życia” i „Przygody Tomka”.",
+        "Nasz zespół produkcyjny, opierający się na ponad 30-letnim doświadczeniu w Hollywood i Polsce, zdecydował się nakręcić film łączący komedię i dramat, który jest najbardziej poszukiwanym i docenianym gatunkiem przez widzów i festiwale filmowe na całym świecie. Chcemy, aby ta produkcja odbiegała od przyjętych norm, czyniąc ten film prawdziwym, komercyjnym projektem, który pozwoli inwestorom podwoić zyski.",
+        "Dodatkowo nasza firma jest w stanie nadzorować inne produkcje na zlecenie, przygotowując plan zdjęciowy, dobierając obiekty. Projektujemy scenografię, posiadamy liczne kontakty z firmami zajmującymi się postprodukcją filmów. Mamy możliwość wynajęcia polskich ekip filmowych przy każdej produkcji filmowej, które słyną z bardzo dobrego wykonywania swojej pracy. Posiadamy również liczne kontakty z firmami dysponującymi profesjonalnym oświetleniem planów fotograficznych, podnośnikami/wysięgnikami/dźwigami o wysokości do 64 metrów. Współpracujemy ze wszystkimi grupami kaskaderskimi działającymi w Polsce (efekty kaskaderskie z ludźmi, zwierzętami – końmi, samochodami, motocyklami, samolotami).",
+        "Podsumowując, jesteśmy w stanie podjąć się realizacji filmu z niemal każdej epoki, aż po czasy współczesne."
+      ],
+      render: renderAbout
+    },
+    "/where-the-butterflies-fly/": {
+      title: translations.en.nav.butterflies,
+      eyebrow: translations.en.nav.butterflies,
+      heroVideo: "/public/assets/butterflies-drive-download.mp4",
+      paragraphs: [],
+      render: renderButterflies
+    },
+    "/pl/where-the-butterflies-fly/": {
+      title: translations.pl.nav.butterflies,
+      eyebrow: translations.pl.nav.butterflies,
+      heroVideo: "/public/assets/butterflies-drive-download.mp4",
+      paragraphs: [],
+      render: renderButterflies
+    },
+    "/the-adventures-of-tom/": {
+      title: translations.en.nav.tom,
+      eyebrow: "01. THE ADVENTURES OF TOM",
+      heroImage: "/public/assets/optimized/tom-cinematic.webp",
+      paragraphs: [
+        "Regardless of the production of ‘The Kings of Life’ our company is in possession of an EXCLUSIVE RIGHT to production of 9 feature flms based upon the IX Volume book of Alfred Szklarski about Tom Wilmowski’s adventures.",
+        "We already have concluded dialogue with Film Institute Screen Australia which is an equivalent of Polish Film Institute. This Institute has declared it’s committment to help during production, in addition to offering considerable financial assistance with the flm which will be wholly produced in Australia.",
+        "The estiminated bugdet for this project is 45 mln dolars.",
+        "To sum up, our success will be everyones success. We lead the path of our dreams in order to aim at GREAT SUCCESS for all of us.",
+        "Location of pictures: Queensland, Australia.",
+        "Rights reserved by Sunset Hills Motion Pictures"
+      ],
+      render: renderTom
+    },
+    "/pl/the-adventures-of-tom/": {
+      title: translations.pl.nav.tom,
+      eyebrow: "01. PRZYGODY TOMKA",
+      heroImage: "/public/assets/optimized/tom-cinematic.webp",
+      paragraphs: [
+        "Niezależnie od produkcji „Królów życia”, nasza firma posiada WYŁĄCZNE PRAWO do produkcji 9 filmów fabularnych opartych na IX-tomowej serii książek Alfreda Szklarskiego o przygodach Tomka Wilmowskiego.",
+        "Nawiązaliśmy już dialog z Film Institute Screen Australia, który jest odpowiednikiem Polskiego Instytutu Sztuki Filmowej. Instytut ten zadeklarował chęć pomocy przy produkcji, a także zaoferował znaczną pomoc finansową przy filmie, który zostanie w całości wyprodukowany w Australii.",
+        "Szacowany budżet tego projektu to 45 mln dolarów.",
+        "Podsumowując, nasz sukces będzie sukcesem wszystkich. Podążamy drogą naszych marzeń, aby dążyć do WIELKIEGO SUKCESU dla nas wszystkich.",
+        "Miejsce zdjęć: Queensland, Australia.",
+        "Prawa zastrzeżone przez Sunset Hills Motion Pictures"
+      ],
+      render: renderTom
+    },
+    "/the-kings-of-life/": {
+      title: translations.en.nav.kings,
+      eyebrow: "01. The Kings of Life",
+      heroImage: "/public/assets/optimized/kings-wide.webp",
+      paragraphs: [
+        "The Kings of life is a production without precedence in the history of Polish cinematography.",
+        "To turn a film project into a real masterpiece, we are going to get Hollywood stars for it, which have a professional acting workshop and will be able to find themselves in a movie genre like the comedy-drama The Kings of Life.",
+        "The distribution of this film in the world will be dealt with by one of the largest distribution companies in the world based in Los Angeles, California.",
+        "\"The Kings of Life\" is a modern story about friendship which is full of touching moments, love and fascination with music, but it is also about how to survive in this notoriously “human world”. As main characters play out their roles, the story is nourished with humor and “worldly” wisdom. The Kings of Life is a perverse title to the story in our film, but how close to the fates of our heroes who, despite many opposites of fate, still had the strength to start again.",
+        "Our production team, which is based on over 30 years of experience in Hollywood and Poland, has decided to make a film that contains comedy and drama which is the most in demand and appreciated genre by viewers and Film Festivals throughout the world. Thereupon we want this production to swerve from accepted norms not only in our country making this film a true, thanks to which we will create a film that will be appreciated at many festivals and as a commercial project by many viewers around the world.",
+        "Location photos: London - England / Warsaw - Poland / New York - USA",
+        "Realizing the company's mission, in addition to producing films, we will actively support needy children suffering from cancer and heart disease."
+      ],
+      render: renderKings
+    },
+    "/pl/the-kings-of-life/": {
+      title: translations.pl.nav.kings,
+      eyebrow: "01. Królowie życia",
+      heroImage: "/public/assets/optimized/kings-wide.webp",
+      paragraphs: [
+        "„Królowie życia” to produkcja bez precedensu w historii polskiej kinematografii.",
+        "Aby uczynić projekt filmowy prawdziwym arcydziełem, zamierzamy zaangażować do niego gwiazdy Hollywood, które posiadają profesjonalny warsztat aktorski i odnajdą się w gatunku komediodramatu.",
+        "Dystrybucją tego filmu na świecie zajmie się jedna z największych firm dystrybucyjnych na świecie z siedzibą w Los Angeles w Kalifornii.",
+        "„Królowie życia” to współczesna opowieść o przyjaźni, pełna wzruszających momentów, miłości i fascynacji muzyką, ale także o tym, jak przetrwać w tym notorycznie „ludzkim świecie”. Gdy główni bohaterowie odgrywają swoje role, historia karmiona jest humorem i „światową” mądrością. „Królowie życia” to przewrotny tytuł historii w naszym filmie, ale jakże bliski losom naszych bohaterów, którzy mimo wielu przeciwności losu wciąż mieli siłę, by zacząć od nowa.",
+        "Nasz zespół produkcyjny, opierający się na ponad 30-letnim doświadczeniu w Hollywood i Polsce, zdecydował się nakręcić film łączący komedię i dramat, który jest najbardziej poszukiwanym i docenianym gatunkiem przez widzów i festiwale filmowe na całym świecie. Chcemy, aby ta produkcja odbiegała od przyjętych norm, tworząc film, który zostanie doceniony na wielu festiwalach i jako projekt komercyjny przez wielu widzów na całym świecie.",
+        "Zdjęcia plenerowe: Londyn - Anglia / Warszawa - Polska / New York - USA",
+        "Realizując misję firmy, oprócz produkcji filmów, będziemy aktywnie wspierać potrzebujące dzieci cierpiące na choroby nowotworowe i choroby serca."
+      ],
+      render: renderKings
+    },
+    "/script-coverage/": {
+      title: translations.en.nav.coverage,
+      eyebrow: "01. SCRIPT COVERAGE",
+      heroImage: "/public/assets/optimized/coverage-table.webp",
+      render: renderCoverage
+    },
+    "/pl/script-coverage/": {
+      title: translations.pl.nav.coverage,
+      eyebrow: "01. ANALIZA SCENARIUSZY",
+      heroImage: "/public/assets/optimized/coverage-table.webp",
+      render: renderCoverage
+    },
+    "/production-in-poland/": {
+      title: translations.en.nav.production,
+      eyebrow: "01. INFORMATION ABOUT THE CAPABILITIES OF PRODUCTION IN POLAND",
+      heroImage: "/public/assets/optimized/production-map.webp",
+      paragraphs: [
+        "Poland is a powerhouse of cinematic potential, strategically located at the crossroads of Europe's major production hubs. We leverage this central position, blending world-class technical capabilities with an unmatched diversity of locations and talent.",
+        "Our infrastructure goes beyond simple filming locations. We offer a comprehensive suite of professional services designed to handle any production scale, from independent projects to blockbuster features.",
+        "With a history spanning over a millennium, Polish architecture offers a versatile canvas. From pristine historical sites to modern urban landscapes, we can recreate almost any city in the world.",
+        "The seasons here offer unique visual narratives. Whether it's the lush, vibrant springs, golden autumnal color palettes, or dramatic winter landscapes that can stand in for Siberia or Alaska, Poland provides a natural studio for every script's needs.",
+        "At Sunset Hills, we believe film is the ultimate fine art. We combine this artistic passion with industry-leading efficiency, providing you with everything from local crew management to state-of-the-art post-production facilities."
+      ],
+      render: renderProduction
+    },
+    "/pl/production-in-poland/": {
+      title: translations.pl.nav.production,
+      eyebrow: "01. INFORMACJE O MOŻLIWOŚCIACH PRODUKCJI W POLSCE",
+      heroImage: "/public/assets/optimized/production-map.webp",
+      paragraphs: [
+        "Polska to potęga potencjału filmowego, strategicznie położona na skrzyżowaniu głównych europejskich szlaków produkcyjnych. Wykorzystujemy to centralne położenie, łącząc światowej klasy możliwości techniczne z niezrównaną różnorodnością lokalizacji i talentów.",
+        "Nasza infrastruktura wykracza poza proste lokacje filmowe. Oferujemy kompleksowy zestaw profesjonalnych usług zaprojektowanych z myślą o każdej skali produkcji, od niezależnych projektów po hity kinowe.",
+        "Dzięki historii sięgającej ponad tysiąclecia, polska architektura oferuje wszechstronne płótno. Od nieskazitelnych zabytków po nowoczesne krajobrazy miejskie, możemy odtworzyć niemal każde miasto na świecie.",
+        "Pory roku oferują tu unikalne narracje wizualne. Niezależnie od tego, czy jest to bujna, tętniąca życiem wiosna, złota jesienna paleta barw, czy dramatyczne zimowe krajobrazy, które mogą zastąpić Syberię lub Alaskę, Polska stanowi naturalne studio dla potrzeb każdego scenariusza.",
+        "W Sunset Hills wierzymy, że film to najwyższa forma sztuki. Łączymy tę artystyczną pasję z wiodącą w branży wydajnością, zapewniając wszystko, od lokalnego zarządzania ekipą po najnowocześniejsze obiekty postprodukcyjne."
+      ],
+      render: renderProduction
+    },
+    "/contact/": {
+      title: translations.en.nav.contact,
+      eyebrow: "01. Let's Talk",
+      heroImage: "/public/assets/optimized/production-map.webp",
+      render: renderContact
+    },
+    "/pl/contact/": {
+      title: translations.pl.nav.contact,
+      eyebrow: "01. Porozmawiajmy",
+      heroImage: "/public/assets/optimized/production-map.webp",
+      render: renderContact
+    },
+    [people.jack.path]: { ...people.jack, render: renderPerson },
+    [people.germano.path]: { ...people.germano, render: renderPerson },
+    [people.dawn.path]: { ...people.dawn, render: renderPerson }
+  };
+}
 
-const tomBooks = [
-  ["Tomek", "/public/assets/optimized/book-tomek.webp"],
-  ["Yeti", "/public/assets/optimized/book-yeti.webp"],
-  ["Wyprawa", "/public/assets/optimized/book-wyprawa.webp"],
-  ["Wojnie", "/public/assets/optimized/book-wojnie.webp"],
-  ["Glowy", "/public/assets/optimized/book-glowy.webp"],
-  ["Faraon", "/public/assets/optimized/book-faraon.webp"],
-  ["Chaco", "/public/assets/optimized/book-chaco.webp"],
-  ["Amazonka", "/public/assets/optimized/book-amazonka.webp"]
-];
+updateGlobals();
 
-const routes = {
-  "/": {
-    title: translations.en.nav.home,
-    render: renderHome
-  },
-  "/pl/": {
-    title: translations.pl.nav.home,
-    render: renderHome
-  },
-  "/about-us/": {
-    title: translations.en.nav.about,
-    eyebrow: "01. About Us",
-    heroImage: "/public/assets/optimized/kings-wide.webp",
-    paragraphs: [
-      "Our company is able to supervise other productions on commission preparing a photo set, selecting objects.",
-      "Our two offices: in Poland and United Kingdom are currently focusing on the production of two films: The Kings of Life and The Adventures of Tom.",
-      "Our production team, which is based on over 30 years of experience in Hollywood and Poland, has decided to make a film that contains comedy and drama which is the most in demand and appreciated genre by viewers and Film Festivals throughout the world. Thereupon we want this production to swerve from accepted norms not only in our country making this film a true, commercial project which will enable investors to double their profits.",
-      "In addition, our company is able to supervise other productions on commission, preparing a photo set, selecting objects. We design scenography, we have numerous contacts with companies involved in post-production of films. We have the opportunity to hire Polish film crews at every film production, which are famous for doing their job very well. We also have numerous contacts with companies that have professional lighting for photographic plans, lifts/booms/cranes up to 64 meters high. We work with all stunt groups operating in Poland (stunt effects with people, animals – horses, cars, motorcycles, planes).",
-      "In summary, we are able to take on a film from almost every era to modern times."
-    ],
-    render: renderAbout
-  },
-  "/pl/about-us/": {
-    title: translations.pl.nav.about,
-    eyebrow: "01. O nas",
-    heroImage: "/public/assets/optimized/kings-wide.webp",
-    paragraphs: [
-      "Nasza firma jest w stanie nadzorować inne produkcje na zlecenie, przygotowując plan zdjęciowy, dobierając obiekty.",
-      "Nasze dwa biura: w Polsce i Wielkiej Brytanii koncentrują się obecnie na produkcji dwóch filmów: „Królowie życia” i „Przygody Tomka”.",
-      "Nasz zespół produkcyjny, opierający się na ponad 30-letnim doświadczeniu w Hollywood i Polsce, zdecydował się nakręcić film łączący komedię i dramat, który jest najbardziej poszukiwanym i docenianym gatunkiem przez widzów i festiwale filmowe na całym świecie. Chcemy, aby ta produkcja odbiegała od przyjętych norm, czyniąc ten film prawdziwym, komercyjnym projektem, który pozwoli inwestorom podwoić zyski.",
-      "Dodatkowo nasza firma jest w stanie nadzorować inne produkcje na zlecenie, przygotowując plan zdjęciowy, dobierając obiekty. Projektujemy scenografię, posiadamy liczne kontakty z firmami zajmującymi się postprodukcją filmów. Mamy możliwość wynajęcia polskich ekip filmowych przy każdej produkcji filmowej, które słyną z bardzo dobrego wykonywania swojej pracy. Posiadamy również liczne kontakty z firmami dysponującymi profesjonalnym oświetleniem planów fotograficznych, podnośnikami/wysięgnikami/dźwigami o wysokości do 64 metrów. Współpracujemy ze wszystkimi grupami kaskaderskimi działającymi w Polsce (efekty kaskaderskie z ludźmi, zwierzętami – końmi, samochodami, motocyklami, samolotami).",
-      "Podsumowując, jesteśmy w stanie podjąć się realizacji filmu z niemal każdej epoki, aż po czasy współczesne."
-    ],
-    render: renderAbout
-  },
-  "/where-the-butterflies-fly/": {
-    title: translations.en.nav.butterflies,
-    eyebrow: translations.en.nav.butterflies,
-    heroVideo: "/public/assets/butterflies-drive-download.mp4",
-    paragraphs: [],
-    render: renderButterflies
-  },
-  "/pl/where-the-butterflies-fly/": {
-    title: translations.pl.nav.butterflies,
-    eyebrow: translations.pl.nav.butterflies,
-    heroVideo: "/public/assets/butterflies-drive-download.mp4",
-    paragraphs: [],
-    render: renderButterflies
-  },
-  "/the-adventures-of-tom/": {
-    title: translations.en.nav.tom,
-    eyebrow: "01. THE ADVENTURES OF TOM",
-    heroImage: "/public/assets/optimized/tom-cinematic.webp",
-    paragraphs: [
-      "Regardless of the production of ‘The Kings of Life’ our company is in possession of an EXCLUSIVE RIGHT to production of 9 feature flms based upon the IX Volume book of Alfred Szklarski about Tom Wilmowski’s adventures.",
-      "We already have concluded dialogue with Film Institute Screen Australia which is an equivalent of Polish Film Institute. This Institute has declared it’s committment to help during production, in addition to offering considerable financial assistance with the flm which will be wholly produced in Australia.",
-      "The estiminated bugdet for this project is 45 mln dolars.",
-      "To sum up, our success will be everyones success. We lead the path of our dreams in order to aim at GREAT SUCCESS for all of us.",
-      "Location of pictures: Queensland, Australia.",
-      "Rights reserved by Sunset Hills Motion Pictures"
-    ],
-    render: renderTom
-  },
-  "/pl/the-adventures-of-tom/": {
-    title: translations.pl.nav.tom,
-    eyebrow: "01. PRZYGODY TOMKA",
-    heroImage: "/public/assets/optimized/tom-cinematic.webp",
-    paragraphs: [
-      "Niezależnie od produkcji „Królów życia”, nasza firma posiada WYŁĄCZNE PRAWO do produkcji 9 filmów fabularnych opartych na IX-tomowej serii książek Alfreda Szklarskiego o przygodach Tomka Wilmowskiego.",
-      "Nawiązaliśmy już dialog z Film Institute Screen Australia, który jest odpowiednikiem Polskiego Instytutu Sztuki Filmowej. Instytut ten zadeklarował chęć pomocy przy produkcji, a także zaoferował znaczną pomoc finansową przy filmie, który zostanie w całości wyprodukowany w Australii.",
-      "Szacowany budżet tego projektu to 45 mln dolarów.",
-      "Podsumowując, nasz sukces będzie sukcesem wszystkich. Podążamy drogą naszych marzeń, aby dążyć do WIELKIEGO SUKCESU dla nas wszystkich.",
-      "Miejsce zdjęć: Queensland, Australia.",
-      "Prawa zastrzeżone przez Sunset Hills Motion Pictures"
-    ],
-    render: renderTom
-  },
-  "/the-kings-of-life/": {
-    title: translations.en.nav.kings,
-    eyebrow: "01. The Kings of Life",
-    heroImage: "/public/assets/optimized/kings-wide.webp",
-    paragraphs: [
-      "The Kings of life is a production without precedence in the history of Polish cinematography.",
-      "To turn a film project into a real masterpiece, we are going to get Hollywood stars for it, which have a professional acting workshop and will be able to find themselves in a movie genre like the comedy-drama The Kings of Life.",
-      "The distribution of this film in the world will be dealt with by one of the largest distribution companies in the world based in Los Angeles, California.",
-      "\"The Kings of Life\" is a modern story about friendship which is full of touching moments, love and fascination with music, but it is also about how to survive in this notoriously “human world”. As main characters play out their roles, the story is nourished with humor and “worldly” wisdom. The Kings of Life is a perverse title to the story in our film, but how close to the fates of our heroes who, despite many opposites of fate, still had the strength to start again.",
-      "Our production team, which is based on over 30 years of experience in Hollywood and Poland, has decided to make a film that contains comedy and drama which is the most in demand and appreciated genre by viewers and Film Festivals throughout the world. Thereupon we want this production to swerve from accepted norms not only in our country making this film a true, thanks to which we will create a film that will be appreciated at many festivals and as a commercial project by many viewers around the world.",
-      "Location photos: London - England / Warsaw - Poland / New York - USA",
-      "Realizing the company's mission, in addition to producing films, we will actively support needy children suffering from cancer and heart disease."
-    ],
-    render: renderKings
-  },
-  "/pl/the-kings-of-life/": {
-    title: translations.pl.nav.kings,
-    eyebrow: "01. Królowie życia",
-    heroImage: "/public/assets/optimized/kings-wide.webp",
-    paragraphs: [
-      "„Królowie życia” to produkcja bez precedensu w historii polskiej kinematografii.",
-      "Aby uczynić projekt filmowy prawdziwym arcydziełem, zamierzamy zaangażować do niego gwiazdy Hollywood, które posiadają profesjonalny warsztat aktorski i odnajdą się w gatunku komediodramatu.",
-      "Dystrybucją tego filmu na świecie zajmie się jedna z największych firm dystrybucyjnych na świecie z siedzibą w Los Angeles w Kalifornii.",
-      "„Królowie życia” to współczesna opowieść o przyjaźni, pełna wzruszających momentów, miłości i fascynacji muzyką, ale także o tym, jak przetrwać w tym notorycznie „ludzkim świecie”. Gdy główni bohaterowie odgrywają swoje role, historia karmiona jest humorem i „światową” mądrością. „Królowie życia” to przewrotny tytuł historii w naszym filmie, ale jakże bliski losom naszych bohaterów, którzy mimo wielu przeciwności losu wciąż mieli siłę, by zacząć od nowa.",
-      "Nasz zespół produkcyjny, opierający się na ponad 30-letnim doświadczeniu w Hollywood i Polsce, zdecydował się nakręcić film łączący komedię i dramat, który jest najbardziej poszukiwanym i docenianym gatunkiem przez widzów i festiwale filmowe na całym świecie. Chcemy, aby ta produkcja odbiegała od przyjętych norm, tworząc film, który zostanie doceniony na wielu festiwalach i jako projekt komercyjny przez wielu widzów na całym świecie.",
-      "Zdjęcia plenerowe: Londyn - Anglia / Warszawa - Polska / Nowy Jork - USA",
-      "Realizując misję firmy, oprócz produkcji filmów, będziemy aktywnie wspierać potrzebujące dzieci cierpiące na choroby nowotworowe i choroby serca."
-    ],
-    render: renderKings
-  },
-  "/script-coverage/": {
-    title: translations.en.nav.coverage,
-    eyebrow: "01. SCRIPT COVERAGE",
-    heroImage: "/public/assets/optimized/coverage-table.webp",
-    render: renderCoverage
-  },
-  "/pl/script-coverage/": {
-    title: translations.pl.nav.coverage,
-    eyebrow: "01. ANALIZA SCENARIUSZY",
-    heroImage: "/public/assets/optimized/coverage-table.webp",
-    render: renderCoverage
-  },
-  "/production-in-poland/": {
-    title: translations.en.nav.production,
-    eyebrow: "01. INFORMATION ABOUT THE CAPABILITIES OF PRODUCTION IN POLAND",
-    heroImage: "/public/assets/optimized/production-map.webp",
-    paragraphs: [
-      "Poland is a powerhouse of cinematic potential, strategically located at the crossroads of Europe's major production hubs. We leverage this central position, blending world-class technical capabilities with an unmatched diversity of locations and talent.",
-      "Our infrastructure goes beyond simple filming locations. We offer a comprehensive suite of professional services designed to handle any production scale, from independent projects to blockbuster features.",
-      "With a history spanning over a millennium, Polish architecture offers a versatile canvas. From pristine historical sites to modern urban landscapes, we can recreate almost any city in the world.",
-      "The seasons here offer unique visual narratives. Whether it's the lush, vibrant springs, golden autumnal color palettes, or dramatic winter landscapes that can stand in for Siberia or Alaska, Poland provides a natural studio for every script's needs.",
-      "At Sunset Hills, we believe film is the ultimate fine art. We combine this artistic passion with industry-leading efficiency, providing you with everything from local crew management to state-of-the-art post-production facilities."
-    ],
-    render: renderProduction
-  },
-  "/pl/production-in-poland/": {
-    title: translations.pl.nav.production,
-    eyebrow: "01. INFORMACJE O MOŻLIWOŚCIACH PRODUKCJI W POLSCE",
-    heroImage: "/public/assets/optimized/production-map.webp",
-    paragraphs: [
-      "Polska to potęga potencjału filmowego, strategicznie położona na skrzyżowaniu głównych europejskich szlaków produkcyjnych. Wykorzystujemy to centralne położenie, łącząc światowej klasy możliwości techniczne z niezrównaną różnorodnością lokalizacji i talentów.",
-      "Nasza infrastruktura wykracza poza proste lokacje filmowe. Oferujemy kompleksowy zestaw profesjonalnych usług zaprojektowanych z myślą o każdej skali produkcji, od niezależnych projektów po hity kinowe.",
-      "Dzięki historii sięgającej ponad tysiąclecia, polska architektura oferuje wszechstronne płótno. Od nieskazitelnych zabytków po nowoczesne krajobrazy miejskie, możemy odtworzyć niemal każde miasto na świecie.",
-      "Pory roku oferują tu unikalne narracje wizualne. Niezależnie od tego, czy jest to bujna, tętniąca życiem wiosna, złota jesienna paleta barw, czy dramatyczne zimowe krajobrazy, które mogą zastąpić Syberię lub Alaskę, Polska stanowi naturalne studio dla potrzeb każdego scenariusza.",
-      "W Sunset Hills wierzymy, że film to najwyższa forma sztuki. Łączymy tę artystyczną pasję z wiodącą w branży wydajnością, zapewniając wszystko, od lokalnego zarządzania ekipą po najnowocześniejsze obiekty postprodukcyjne."
-    ],
-    render: renderProduction
-  },
-  "/contact/": {
-    title: translations.en.nav.contact,
-    eyebrow: "01. Let's Talk",
-    heroImage: "/public/assets/optimized/production-map.webp",
-    render: renderContact
-  },
-  "/pl/contact/": {
-    title: translations.pl.nav.contact,
-    eyebrow: "01. Porozmawiajmy",
-    heroImage: "/public/assets/optimized/production-map.webp",
-    render: renderContact
-  },
-  [people.jack.path]: { ...people.jack, render: renderPerson },
-  [people.germano.path]: { ...people.germano, render: renderPerson },
-  [people.dawn.path]: { ...people.dawn, render: renderPerson }
-};
 
 const app = document.querySelector("#app");
 const nav = document.querySelector("#site-nav");
@@ -1299,34 +1309,6 @@ function renderHome() {
       </div>
     </section>
 
-    ${locationsAtlas()}
-
-    <section class="section slate-interactive editorial-layout" data-reveal>
-      <div class="technical-mark"></div>
-      <div class="section-header">
-        <span class="section-number">03.</span>
-        <h2 class="title-neural">${t.slate.title}</h2>
-      </div>
-      <div class="slate-grid-refined">
-        ${t.slate.items.map((item, i) => `
-          <a href="${lang === "pl" ? "/pl" : ""}${[ "/the-adventures-of-tom/", "/the-kings-of-life/", "/where-the-butterflies-fly/" ][i]}" class="slate-card" data-link data-reveal>
-            <div class="slate-card-bg">
-              ${i === 2 ? `<video src="/public/assets/butterflies-drive-download.mp4" muted loop playsinline autoplay></video>` : `<img src="${["/public/assets/optimized/tom-main.webp", "/public/assets/optimized/kings-catalog.webp"][i]}" alt="" />`}
-            </div>
-            <div class="slate-card-overlay"></div>
-            <div class="slate-card-content">
-              <span class="eyebrow">${item.eyebrow}</span>
-              <h3>${item.title}</h3>
-              <p>${item.desc}</p>
-              <span class="slate-card-cta">${item.cta} <i>&rarr;</i></span>
-            </div>
-          </a>
-        `).join("")}
-      </div>
-    </section>
-
-    ${trailerReel()}
-    ${lightLeak()}
   `;
 }
 
@@ -1384,8 +1366,8 @@ function aboutHero(page) {
           <span>${lang === "pl" ? "Z Wytrwałości" : "Finish Films."}</span>
         </h1>
         <p class="ab-hero-lede">${lang === "pl"
-          ? "Warszawa · Londyn · Los Angeles. Trzy biura, jedno credo: skończ historię, którą zacząłeś. Od 1991."
-          : "Warsaw · London · Los Angeles. Three rooms, one credo — finish the story you started. Since 1991."}</p>
+          ? "<strong>Warszawa · Londyn · Los Angeles.</strong> Trzy biura, jedno credo: skończ historię, którą zacząłeś. Od 1991."
+          : "<strong>Warsaw · London · Los Angeles.</strong> Three rooms, one credo — finish the story you started. Since 1991."}</p>
 
         <div class="ab-hero-chips" role="list">
           <span role="listitem"><b>EST.</b> 1991</span>
@@ -1577,7 +1559,7 @@ function aboutOffices() {
           <p class="ab-office-addr">ul. Dominikańska 21B<br/>02-738 Warszawa, Polska</p>
           <ul class="ab-office-list">
             <li><b>${lbl.function}</b><span>${lang === "pl" ? "Produkcja · Rozwój · Analizy" : "Production · Development · Coverage"}</span></li>
-            <li><b>${lbl.staff}</b><span>${lang === "pl" ? "21 stałych" : "21 permanent"}</span></li>
+            <li><b>${lbl.staff}</b><span>${lang === "pl" ? "03 stałych" : "03 permanent"}</span></li>
             <li><b>${lbl.hours}</b><span>09:00 — 19:00 CET</span></li>
             <li><b>${lbl.nearest}</b><span>WFDiF · Studio 3 · 4.2 km</span></li>
           </ul>
@@ -1587,7 +1569,7 @@ function aboutOffices() {
           <p class="ab-office-addr">Sunset Hills Investments Ltd<br/>27 Old Gloucester Street<br/>London, WC1N 3AX</p>
           <ul class="ab-office-list">
             <li><b>${lbl.function}</b><span>${lang === "pl" ? "Współfinansowanie · Sprzedaż zagraniczna" : "Co-financing · International sales"}</span></li>
-            <li><b>${lbl.staff}</b><span>${lang === "pl" ? "06 stałych" : "06 permanent"}</span></li>
+            <li><b>${lbl.staff}</b><span>${lang === "pl" ? "02 stałych" : "02 permanent"}</span></li>
             <li><b>${lbl.hours}</b><span>10:00 — 18:00 GMT</span></li>
             <li><b>${lbl.nearest}</b><span>Pinewood · Stage 7 · 32 km</span></li>
           </ul>
@@ -1763,6 +1745,7 @@ function renderTom(page) {
   return `
     ${tomHero(page)}
     ${tomSourceMaterial()}
+    ${tomStoryboard()}
     ${tomStats()}
     ${lightLeak()}
     ${tomSlate()}
@@ -2774,6 +2757,104 @@ function cinematicStack(team) {
   `;
 }
 
+function tomStoryboard() {
+  return `
+    <section class="section bf-teaser" data-reveal id="tom-storyboard">
+      <header class="bf-teaser-head">
+        <span class="eyebrow">${lang === "pl" ? "PRZYGODY TOMKA · WIZUALIZACJA" : "ADVENTURES OF TOM · VISUALIZATION"}</span>
+        <span class="bf-teaser-rule"></span>
+        <span class="bf-teaser-tag">${lang === "pl" ? "archiwalne · do wglądu" : "archival · for review"}</span>
+      </header>
+
+      <article class="bf-player">
+        <div class="bf-player-chrome">
+          <span class="bf-player-tl"></span><span class="bf-player-tr"></span>
+          <span class="bf-player-bl"></span><span class="bf-player-br"></span>
+
+          <div class="bf-player-bar bf-player-bar-top">
+            <span class="bf-player-rec"><i></i>REC</span>
+            <span class="bf-player-slug">${lang === "pl" ? "WIZUALIZACJA PRZYGÓD TOMKA · v.01" : "TOM'S ADVENTURES VISUALIZATION · v.01"}</span>
+            <span class="bf-player-tc">1.85 : 1 · 24fps</span>
+          </div>
+
+          <video
+            class="bf-player-video"
+            controls
+            preload="metadata"
+            playsinline
+            poster="/public/assets/optimized/tom-main.webp"
+            data-testid="tom-storyboard-video"
+          >
+            <source src="https://sunsethillsmotionpictures.com/wp-content/uploads/2024/05/storyboard.mp4" type="video/mp4">
+            ${lang === "pl" ? "Twoja przeglądarka nie obsługuje wideo." : "Your browser does not support the video tag."}
+          </video>
+
+          <div class="bf-player-bar bf-player-bar-bot">
+            <span class="bf-player-meta-l">${lang === "pl" ? "Czas: ok. 2 min · Narracja: brak" : "Run-time: ca. 2 min · Narration: none"}</span>
+            <span class="bf-player-meta-r">© Sunset Hills MP · ${new Date().getFullYear()}</span>
+          </div>
+        </div>
+
+        <ul class="bf-player-meta">
+          <li><b>${lang === "pl" ? "ŹRÓDŁO" : "SOURCE"}</b><span>${lang === "pl" ? "Archiwum produkcyjne" : "Production archive"}</span></li>
+          <li><b>${lang === "pl" ? "STATUS" : "STATUS"}</b><span>${lang === "pl" ? "Wczesna koncepcja" : "Early concept"}</span></li>
+          <li><b>${lang === "pl" ? "ZAWARTOŚĆ" : "CONTAINS"}</b><span>${lang === "pl" ? "Szkice · przejścia · nastrój" : "Sketches · transitions · mood"}</span></li>
+          <li><b>${lang === "pl" ? "POUFNOŚĆ" : "CONFIDENTIALITY"}</b><span>${lang === "pl" ? "Materiały poglądowe" : "Review materials"}</span></li>
+        </ul>
+      </article>
+    </section>
+  `;
+}
+
+function kingsStoryboard() {
+  return `
+    <section class="section bf-teaser" data-reveal id="kings-storyboard">
+      <header class="bf-teaser-head">
+        <span class="eyebrow">${lang === "pl" ? "SCENOPIS · WIZUALIZACJA" : "STORYBOARD · VISUALIZATION"}</span>
+        <span class="bf-teaser-rule"></span>
+        <span class="bf-teaser-tag">${lang === "pl" ? "archiwalne · do wglądu" : "archival · for review"}</span>
+      </header>
+
+      <article class="bf-player">
+        <div class="bf-player-chrome">
+          <span class="bf-player-tl"></span><span class="bf-player-tr"></span>
+          <span class="bf-player-bl"></span><span class="bf-player-br"></span>
+
+          <div class="bf-player-bar bf-player-bar-top">
+            <span class="bf-player-rec"><i></i>REC</span>
+            <span class="bf-player-slug">${lang === "pl" ? "WIZUALIZACJA SCENOPISU · v.01" : "STORYBOARD VISUALIZATION · v.01"}</span>
+            <span class="bf-player-tc">1.85 : 1 · 24fps</span>
+          </div>
+
+          <video
+            class="bf-player-video"
+            controls
+            preload="metadata"
+            playsinline
+            poster="/public/assets/optimized/kings-catalog.webp"
+            data-testid="kings-storyboard-video"
+          >
+            <source src="https://sunsethillsmotionpictures.com/wp-content/uploads/2024/05/storyboard.mp4" type="video/mp4">
+            ${lang === "pl" ? "Twoja przeglądarka nie obsługuje wideo." : "Your browser does not support the video tag."}
+          </video>
+
+          <div class="bf-player-bar bf-player-bar-bot">
+            <span class="bf-player-meta-l">${lang === "pl" ? "Czas: ok. 2 min · Narracja: brak" : "Run-time: ca. 2 min · Narration: none"}</span>
+            <span class="bf-player-meta-r">© Sunset Hills MP · ${new Date().getFullYear()}</span>
+          </div>
+        </div>
+
+        <ul class="bf-player-meta">
+          <li><b>${lang === "pl" ? "ŹRÓDŁO" : "SOURCE"}</b><span>${lang === "pl" ? "Archiwum produkcyjne" : "Production archive"}</span></li>
+          <li><b>${lang === "pl" ? "STATUS" : "STATUS"}</b><span>${lang === "pl" ? "Wczesna koncepcja" : "Early concept"}</span></li>
+          <li><b>${lang === "pl" ? "ZAWARTOŚĆ" : "CONTAINS"}</b><span>${lang === "pl" ? "Szkice · przejścia · nastrój" : "Sketches · transitions · mood"}</span></li>
+          <li><b>${lang === "pl" ? "POUFNOŚĆ" : "CONFIDENTIALITY"}</b><span>${lang === "pl" ? "Materiały poglądowe" : "Review materials"}</span></li>
+        </ul>
+      </article>
+    </section>
+  `;
+}
+
 function renderKings(page) {
   return `
     ${kingsHero(page)}
@@ -2784,6 +2865,7 @@ function renderKings(page) {
     ${kingsTestimonial(page)}
     ${lightLeak()}
     ${kingsTeam()}
+    ${kingsStoryboard()}
     ${kingsMission(page)}
     ${kingsCTA()}
   `;
@@ -3040,17 +3122,17 @@ function kingsMission() {
           </svg>
         </div>
         <div class="kings-mission-text">
-          <span class="kings-mission-eye">${lang === "pl" ? "MISJA · POZA EKRANEM" : "MISSION · OFF-SCREEN"}</span>
+          <span class="kings-mission-eye">${lang === "pl" ? "HISTORIA · PARAMETRY ŻYCIOWE" : "STORY · VITAL SIGNS"}</span>
           <h2>${lang === "pl"
-            ? "Przy każdym filmie — dzieci, których nie pokazują kamery."
-            : "Behind every picture — the children the cameras don't show."}</h2>
+            ? "Każda klatka ma tętno — emocjonalne serce „Królów życia”."
+            : "Every frame has a pulse — the emotional core of Kings of Life."}</h2>
           <p>${lang === "pl"
-            ? "Realizując misję firmy, oprócz produkcji filmów, aktywnie wspieramy potrzebujące dzieci cierpiące na choroby nowotworowe i choroby serca. Część przychodów z każdego dystrybuowanego tytułu trafia bezpośrednio do partnerskich szpitali w Warszawie, Londynie i Los Angeles."
-            : "Realising the studio's mission, alongside producing films we actively support children suffering from cancer and heart disease. A share of revenue from every distributed title flows directly to partner hospitals in Warsaw, London and Los Angeles."}</p>
+            ? "Poza techniczną precyzją i kinową skalą kryje się opowieść o odporności ludzkiego ducha. „Królowie życia” opierają się na trzech filarach emocji, które napędzają każdą scenę, każdy występ i każde cięcie w montażowni."
+            : "Beyond the technical precision and cinematic scale lies a story about the resilience of the human spirit. The Kings of Life is built on three pillars of emotion that drive every scene, every performance, and every cut."}</p>
           <ul class="kings-mission-list">
-            <li><b>WAW</b><span>${lang === "pl" ? "Centrum Zdrowia Dziecka — Międzylesie" : "Children's Memorial Health Institute — Międzylesie"}</span></li>
-            <li><b>LDN</b><span>${lang === "pl" ? "Great Ormond Street — Bloomsbury" : "Great Ormond Street — Bloomsbury"}</span></li>
-            <li><b>LAX</b><span>${lang === "pl" ? "Children's Hospital Los Angeles" : "Children's Hospital Los Angeles"}</span></li>
+            <li><b>PAM</b><span>${lang === "pl" ? "Pamięć: ciężar przeszłości, który niesiemy w przyszłość" : "Memory: the weight of the past we carry into the future"}</span></li>
+            <li><b>WIĘ</b><span>${lang === "pl" ? "Więź: rodziny, które wybieramy, gdy świat się rozpada" : "Kinship: the families we choose when the world falls apart"}</span></li>
+            <li><b>ODR</b><span>${lang === "pl" ? "Odrodzenie: siła, by zacząć od nowa na czystej karcie" : "Resurrection: the strength to start over on a blank page"}</span></li>
           </ul>
         </div>
       </article>
@@ -4025,6 +4107,7 @@ let _hasRoutedOnce = false;
 let _takeCount = 0;
 
 async function route() {
+  updateGlobals();
   const curtain = document.querySelector(".page-curtain");
   const path = normalizePath(window.location.pathname);
   const page = routes[path] || routes["/"];

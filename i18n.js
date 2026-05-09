@@ -263,7 +263,7 @@ export const translations = {
           foundedVal: "1991 · Warsaw",
           officesVal: "Warsaw · London",
           slateVal: "09 active titles",
-          staffVal: "27 permanent · ~ 280 freelance",
+          staffVal: "5 permanent · ~ 280 freelance",
           coproVal: "USA · UK · AUS · UA",
           mottoVal: "“A story earns its ending.”"
         }
@@ -705,7 +705,7 @@ export const translations = {
           foundedVal: "1991 · Warszawa",
           officesVal: "Warszawa · Londyn",
           slateVal: "09 aktywnych tytułów",
-          staffVal: "27 stałych · ~ 280 współpracowników",
+          staffVal: "5 stałych · ~ 280 współpracowników",
           coproVal: "USA · UK · AUS · UA",
           mottoVal: "„Historia zasługuje na swój finał.”"
         }
