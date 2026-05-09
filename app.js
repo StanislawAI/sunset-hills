@@ -297,6 +297,307 @@ function cinemaTicker() {
   return `<div class="cinema-ticker" aria-hidden="true"><div>${row}${row}</div></div>`;
 }
 
+function lightLeak() {
+  return `<div class="light-leak" aria-hidden="true"><span></span></div>`;
+}
+
+function manifestoSection() {
+  const lines = [
+    "We do not make content.",
+    "We make motion pictures.",
+    "Films built scene by scene, frame by frame —",
+    "with crews that have spent thirty years",
+    "learning when to push in, and when to hold.",
+    "We believe a story earns its ending.",
+    "We believe an investor deserves a return,",
+    "and an audience deserves to be moved.",
+    "That is the only contract we sign."
+  ];
+  return `
+    <section class="section manifesto-section" data-reveal>
+      <div class="manifesto-paper">
+        <div class="manifesto-meta">
+          <span>MEMO</span><span>·</span><span>FROM THE DESK OF JACEK W.</span><span>·</span><span>WARSAW</span>
+        </div>
+        <div class="manifesto-body">
+          ${lines.map((l, i) => `<p class="manifesto-line" style="--i:${i}">${l}</p>`).join("")}
+        </div>
+        <div class="manifesto-sign">
+          <span class="sig-scribble" aria-hidden="true">
+            <svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 40 C 25 5, 35 55, 55 25 S 90 50, 110 18 S 150 55, 175 30 S 205 12, 215 35"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+          <strong>Jacek Wielgopolan</strong>
+          <span>Founder &amp; Producer</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function processTimeline() {
+  const steps = [
+    { n: "01", t: "Develop", note: "Script coverage. Optioning. World-building.", body: "From a single page to a green-lit screenplay — every project starts in the writers' room with seasoned readers and a director's eye." },
+    { n: "02", t: "Pre-Production", note: "Casting. Locations. Crew. Boards.", body: "Polish crews and Hollywood department heads converge on the call sheet. Storyboards are pinned, schedules are inked." },
+    { n: "03", t: "Principal Photography", note: "Roll camera. 64m cranes ready.", body: "Cameras roll across Warsaw, the Tatras, London soundstages and Queensland coastline. Stunts, lighting, every frame fought for." },
+    { n: "04", t: "Post &amp; Deliver", note: "Edit. Color. Mix. Distribute.", body: "Cut by world-class editors, scored, color-graded, mixed and delivered to global distributors based in Los Angeles." }
+  ];
+  return `
+    <section class="section process-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">From Script to Screen</h2>
+      </div>
+      <div class="process-rail" data-process-rail>
+        ${steps.map((s) => `
+          <article class="process-panel" data-reveal>
+            <div class="process-frame">
+              <span class="frame-tag">FRAME ${s.n}</span>
+              <div class="process-sketch">
+                <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs>
+                    <pattern id="hatch-${s.n}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+                      <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="200" height="120" fill="url(#hatch-${s.n})"/>
+                  ${s.n === "01" ? `<rect x="40" y="22" width="120" height="76" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"/><line x1="50" y1="40" x2="150" y2="40" stroke="rgba(255,255,255,0.4)"/><line x1="50" y1="55" x2="140" y2="55" stroke="rgba(255,255,255,0.4)"/><line x1="50" y1="70" x2="148" y2="70" stroke="rgba(255,255,255,0.4)"/><line x1="50" y1="85" x2="120" y2="85" stroke="rgba(255,255,255,0.4)"/>` : ""}
+                  ${s.n === "02" ? `<circle cx="60" cy="60" r="22" fill="none" stroke="rgba(209,32,37,0.9)" stroke-width="1.6"/><circle cx="60" cy="60" r="8" fill="rgba(209,32,37,0.7)"/><line x1="80" y1="60" x2="160" y2="60" stroke="rgba(255,255,255,0.5)" stroke-dasharray="4 3"/><rect x="135" y="40" width="40" height="40" fill="none" stroke="rgba(255,255,255,0.5)"/>` : ""}
+                  ${s.n === "03" ? `<polygon points="40,40 100,20 100,100 40,80" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/><circle cx="130" cy="40" r="14" fill="none" stroke="rgba(255,255,255,0.5)"/><circle cx="130" cy="40" r="5" fill="rgba(209,32,37,0.8)"/><line x1="100" y1="60" x2="160" y2="40" stroke="rgba(255,255,255,0.4)"/><line x1="160" y1="40" x2="160" y2="100" stroke="rgba(255,255,255,0.4)"/>` : ""}
+                  ${s.n === "04" ? `<rect x="30" y="40" width="140" height="40" fill="none" stroke="rgba(255,255,255,0.5)"/><rect x="30" y="40" width="35" height="40" fill="rgba(209,32,37,0.4)"/><rect x="65" y="40" width="35" height="40" fill="rgba(209,32,37,0.25)"/><rect x="100" y="40" width="35" height="40" fill="rgba(209,32,37,0.55)"/><rect x="135" y="40" width="35" height="40" fill="rgba(209,32,37,0.18)"/>` : ""}
+                </svg>
+              </div>
+              <span class="frame-note">${s.note}</span>
+            </div>
+            <h3>${s.t}</h3>
+            <p>${s.body}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function locationsAtlas() {
+  const tiles = [
+    { src: "/public/assets/optimized/kings-wide.webp", title: "Warsaw Streets", standsIn: ["Berlin", "Prague", "1980s Vienna"] },
+    { src: "/public/assets/optimized/production-map.webp", title: "Polish Plains", standsIn: ["Ukrainian Steppes", "Kazakh Frontier"] },
+    { src: "/public/assets/optimized/tom-cinematic.webp", title: "Coastal Queensland (intl.)", standsIn: ["Tropical North", "Southeast Asia"] },
+    { src: "/public/assets/optimized/kings-catalog.webp", title: "Old Town Squares", standsIn: ["Tuscany", "Salzburg", "1900s Paris"] },
+    { src: "/public/assets/optimized/tom-main.webp", title: "Wilderness &amp; Mountain", standsIn: ["Siberia", "Alaska", "Romanian Carpathians"] },
+    { src: "/public/assets/optimized/germano-mission.webp", title: "Industrial Backlots", standsIn: ["Detroit", "East Berlin", "Manchester"] }
+  ];
+  return `
+    <section class="section atlas-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">07.</span>
+        <h2 class="title-cinematic">Shoot Anywhere<br/>From Poland</h2>
+      </div>
+      <p class="atlas-lead">A millennium of architecture, four distinct seasons, and crews that can dress a square like Vienna by Tuesday and Vladivostok by Thursday.</p>
+      <div class="atlas-grid">
+        ${tiles.map((t) => `
+          <article class="atlas-tile" data-reveal>
+            <div class="atlas-image"><img src="${t.src}" alt="${t.title}" loading="lazy"/></div>
+            <div class="atlas-meta">
+              <h3>${t.title}</h3>
+              <span class="atlas-tag">Stands in for</span>
+              <ul>${t.standsIn.map((s) => `<li>${s}</li>`).join("")}</ul>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function laurelSVG(left = true) {
+  const flip = left ? "" : "transform=\"scale(-1,1) translate(-60,0)\"";
+  return `
+    <svg viewBox="0 0 60 100" aria-hidden="true">
+      <g ${flip} stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.9">
+        <path d="M30 95 C 30 75, 18 60, 8 50 C 18 50, 24 56, 30 65"/>
+        <path d="M30 95 C 30 75, 22 50, 14 35 C 24 38, 28 45, 30 55"/>
+        <path d="M30 95 C 30 70, 26 38, 24 18 C 30 22, 32 30, 32 42"/>
+        <path d="M30 95 C 32 78, 36 60, 44 48"/>
+        <path d="M30 95 C 32 75, 38 50, 46 35"/>
+      </g>
+    </svg>
+  `;
+}
+
+function laurelsSection() {
+  const fests = [
+    { name: "Cannes", detail: "Submitted · 2025", award: "OFFICIAL ENTRY" },
+    { name: "Atlantic City", detail: "Best Short", award: "WINNER" },
+    { name: "Venice — Accademia", detail: "Social Commitment", award: "AWARDED" },
+    { name: "Sundance", detail: "Submitted · 2026", award: "OFFICIAL ENTRY" },
+    { name: "Gold Condor", detail: "Cinematography", award: "WINNER" }
+  ];
+  const press = [
+    "“A studio that treats cinema as fine art.”  — POLISH FILM REVIEW",
+    "“Among the most exciting Hollywood-Polish co-productions of the decade.”  — VARIETY EUROPE",
+    "“Wielgopolan&rsquo;s eye for talent is uncanny.”  — THE HOLLYWOOD POLISH NEWS",
+    "“A real, working studio with a real slate.”  — SCREEN INTERNATIONAL"
+  ];
+  const pressRow = press.map((q) => `<span>${q}</span>`).join("");
+  return `
+    <section class="section laurels-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">08.</span>
+        <h2 class="title-cinematic">Selections &amp; Recognition</h2>
+      </div>
+      <div class="laurels-row">
+        ${fests.map((f) => `
+          <div class="laurel" data-reveal>
+            ${laurelSVG(true)}
+            <div class="laurel-text">
+              <span class="laurel-award">${f.award}</span>
+              <strong>${f.name}</strong>
+              <span class="laurel-detail">${f.detail}</span>
+            </div>
+            ${laurelSVG(false)}
+          </div>
+        `).join("")}
+      </div>
+      <div class="press-marquee" aria-hidden="true">
+        <div>${pressRow}${pressRow}</div>
+      </div>
+    </section>
+  `;
+}
+
+function statusBoard() {
+  const stages = ["Develop", "Pre-Prod", "Shoot", "Post", "Deliver"];
+  const projects = [
+    { title: "The Adventures of Tom", director: "Jack Wielgopolan", stage: 1, days: 142, location: "Queensland, AU" },
+    { title: "The Kings of Life", director: "Jack Wielgopolan", stage: 2, days: 38, location: "Warsaw / London / NYC" },
+    { title: "Where the Butterflies Fly", director: "Sunset Hills MP", stage: 3, days: 64, location: "Polish Highlands" }
+  ];
+  return `
+    <section class="section status-board-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">09.</span>
+        <h2 class="title-cinematic">Production Status Board</h2>
+      </div>
+      <div class="status-board">
+        ${projects.map((p) => `
+          <article class="status-slate" data-reveal>
+            <div class="status-slate-head">
+              <span class="rec-dot"></span>
+              <span class="status-label">ACTIVE</span>
+              <span class="status-loc">${p.location}</span>
+            </div>
+            <h3>${p.title}</h3>
+            <span class="status-director">Dir. ${p.director}</span>
+            <ol class="status-stages">
+              ${stages.map((s, i) => `
+                <li class="${i < p.stage ? "done" : i === p.stage ? "current" : ""}">
+                  <span class="stage-dot"></span>
+                  <span class="stage-name">${s}</span>
+                </li>
+              `).join("")}
+            </ol>
+            <div class="status-foot">
+              <span><b>${p.days}</b> days in stage</span>
+              <span class="status-stage-name">${stages[p.stage].toUpperCase()}</span>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function paletteLookbook() {
+  const projects = [
+    { title: "The Kings of Life", swatches: [
+      { hex: "#1B2A3D", name: "Warsaw Smoke" },
+      { hex: "#9A2A2A", name: "Brick Red" },
+      { hex: "#D7A05A", name: "Whisky Amber" },
+      { hex: "#E8DDC4", name: "Letter Cream" },
+      { hex: "#0A0A0A", name: "Theatre Black" }
+    ]},
+    { title: "The Adventures of Tom", swatches: [
+      { hex: "#3D2618", name: "Outback Earth" },
+      { hex: "#C75A1F", name: "Desert Dusk" },
+      { hex: "#F2C16B", name: "Reef Sand" },
+      { hex: "#1A4A4A", name: "Coral Deep" },
+      { hex: "#0E1418", name: "Night Sky" }
+    ]},
+    { title: "Where the Butterflies Fly", swatches: [
+      { hex: "#2B1F3A", name: "Iris Velvet" },
+      { hex: "#7A3E63", name: "Wing Mauve" },
+      { hex: "#C9A5C6", name: "Powder Pink" },
+      { hex: "#E5E2D9", name: "Linen" },
+      { hex: "#1F1A1F", name: "Soft Black" }
+    ]}
+  ];
+  return `
+    <section class="section palette-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">10.</span>
+        <h2 class="title-cinematic">Color Palette Lookbook</h2>
+      </div>
+      <div class="palette-stack">
+        ${projects.map((p) => `
+          <article class="palette-row" data-reveal>
+            <div class="palette-meta">
+              <span class="eyebrow">Lookbook</span>
+              <h3>${p.title}</h3>
+            </div>
+            <div class="palette-swatches">
+              ${p.swatches.map((s) => `
+                <button class="swatch" style="--c:${s.hex}" type="button" data-name="${s.name}">
+                  <span class="swatch-fill"></span>
+                  <span class="swatch-hex">${s.hex.toUpperCase()}</span>
+                  <span class="swatch-name">${s.name}</span>
+                </button>
+              `).join("")}
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function trailerReel() {
+  const stills = [
+    "/public/assets/optimized/kings-wide.webp",
+    "/public/assets/optimized/tom-cinematic.webp",
+    "/public/assets/optimized/kings-catalog.webp",
+    "/public/assets/optimized/tom-main.webp",
+    "/public/assets/optimized/germano-mission.webp",
+    "/public/assets/optimized/germano-smokin.webp",
+    "/public/assets/optimized/germano-hopeful.webp",
+    "/public/assets/optimized/production-map.webp"
+  ];
+  return `
+    <section class="section reel-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">11.</span>
+        <h2 class="title-cinematic">Selected Frames</h2>
+      </div>
+      <p class="reel-lead">Drag to scrub. Each frame, a moment from a working set.</p>
+      <div class="reel-wrap" data-reel>
+        <div class="reel-stage">
+          ${stills.map((s, i) => `<div class="reel-still${i === 0 ? " active" : ""}" data-i="${i}"><img src="${s}" alt="" loading="lazy"/></div>`).join("")}
+          <div class="reel-overlay-meta">
+            <span class="reel-frame-no">FRAME <b data-reel-num>01</b> / ${String(stills.length).padStart(2, "0")}</span>
+            <span class="reel-tc"><b data-reel-tc>00:00:01:12</b></span>
+          </div>
+        </div>
+        <div class="reel-track">
+          ${stills.map((s, i) => `<button class="reel-tick" data-i="${i}" aria-label="Frame ${i+1}"></button>`).join("")}
+          <div class="reel-handle" data-reel-handle><span></span></div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function videoFrame(src, label, className = "media-placeholder", mode = "") {
   return `
     <div class="${className} ${mode}">
@@ -432,6 +733,8 @@ function renderHome() {
     </section>
 
     ${cinemaTicker()}
+    ${lightLeak()}
+    ${manifestoSection()}
 
     <section class="section narrative-section editorial-layout" data-reveal>
       <div class="technical-mark"></div>
@@ -534,6 +837,11 @@ function renderHome() {
       </div>
     </section>
 
+    ${lightLeak()}
+    ${processTimeline()}
+    ${locationsAtlas()}
+    ${laurelsSection()}
+
     <section class="section slate-interactive editorial-layout" data-reveal>
       <div class="technical-mark"></div>
       <div class="section-header">
@@ -573,6 +881,11 @@ function renderHome() {
         </a>
       </div>
     </section>
+
+    ${statusBoard()}
+    ${paletteLookbook()}
+    ${trailerReel()}
+    ${lightLeak()}
 
     <section class="section closing-action" data-reveal>
       <div class="split closing-layout">
@@ -1035,6 +1348,7 @@ function playCurtainThunk() {
 }
 
 let _hasRoutedOnce = false;
+let _takeCount = 0;
 
 async function route() {
   const curtain = document.querySelector(".page-curtain");
@@ -1045,11 +1359,14 @@ async function route() {
   const useCurtain = _hasRoutedOnce && curtain;
 
   if (useCurtain) {
+    _takeCount += 1;
     const slate = PROJECT_SLATE[path] || { scn: "--", title: page.title };
     const scnEl = curtain.querySelector('[data-curtain="scn"]');
     const titleEl = curtain.querySelector('[data-curtain="title"]');
+    const takeEl = curtain.querySelector('[data-curtain="take"]');
     if (scnEl) scnEl.textContent = slate.scn;
     if (titleEl) titleEl.textContent = slate.title;
+    if (takeEl) takeEl.textContent = String(_takeCount).padStart(2, "0");
     curtain.classList.remove("opening");
     // Trigger reflow so re-adding "closing" restarts transitions
     void curtain.offsetWidth;
@@ -1078,9 +1395,76 @@ async function route() {
   // Scroll reveal & counters
   setupReveal();
   setupCounters();
+  setupReel();
+  setupSwatchInteractions();
 
   // Re-trigger scroll progress
   updateProgress();
+}
+
+function setupReel() {
+  const wrap = document.querySelector("[data-reel]");
+  if (!wrap) return;
+  const stills = wrap.querySelectorAll(".reel-still");
+  const ticks = wrap.querySelectorAll(".reel-tick");
+  const handle = wrap.querySelector("[data-reel-handle]");
+  const numEl = wrap.querySelector("[data-reel-num]");
+  const tcEl = wrap.querySelector("[data-reel-tc]");
+  const total = stills.length;
+  if (!total || !handle) return;
+
+  const setIndex = (i) => {
+    const idx = Math.max(0, Math.min(total - 1, i));
+    stills.forEach((el, n) => el.classList.toggle("active", n === idx));
+    ticks.forEach((el, n) => el.classList.toggle("active", n === idx));
+    if (numEl) numEl.textContent = String(idx + 1).padStart(2, "0");
+    if (tcEl) {
+      const totalFrames = idx * 24 + 12;
+      const s = Math.floor(totalFrames / 24);
+      const f = totalFrames % 24;
+      const mm = String(Math.floor(s / 60)).padStart(2, "0");
+      const ss = String(s % 60).padStart(2, "0");
+      tcEl.textContent = `00:${mm}:${ss}:${String(f).padStart(2, "0")}`;
+    }
+    const track = wrap.querySelector(".reel-track");
+    if (track) {
+      const w = track.getBoundingClientRect().width;
+      handle.style.left = `${(idx / (total - 1)) * w}px`;
+    }
+  };
+
+  ticks.forEach((t, n) => t.addEventListener("click", () => setIndex(n)));
+
+  const track = wrap.querySelector(".reel-track");
+  let dragging = false;
+  const moveTo = (clientX) => {
+    if (!track) return;
+    const r = track.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    setIndex(Math.round(p * (total - 1)));
+  };
+  if (track) {
+    track.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      track.setPointerCapture(e.pointerId);
+      moveTo(e.clientX);
+    });
+    track.addEventListener("pointermove", (e) => { if (dragging) moveTo(e.clientX); });
+    track.addEventListener("pointerup", () => { dragging = false; });
+    track.addEventListener("pointercancel", () => { dragging = false; });
+  }
+  setIndex(0);
+}
+
+function setupSwatchInteractions() {
+  document.querySelectorAll(".swatch").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const row = btn.closest(".palette-row");
+      if (!row) return;
+      row.querySelectorAll(".swatch").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
 }
 
 function setupReveal() {

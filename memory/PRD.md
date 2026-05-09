@@ -9,15 +9,25 @@
 - Files: `/app/index.html`, `/app/app.js`, `/app/styles.css`, page folders (`/about-us/`, `/the-kings-of-life/`, etc.).
 
 ## What's been implemented (Jan 2026)
-- Cinematic dark theme already established (Archivo + IBM Plex Mono, red `#d12025` accent, grain overlay, page transition).
-- **Landing page redesign**: cinematic hero (REC frame, animated word-rise title, city marquee, glass info bar), filmstrip-marquee Brand Philosophy, "By the Numbers" animated counter section, hand-built CSS art for Core Capabilities tiles (filmstrip, lens iris, world-map pings), Germano Saracco pull-quote testimonial, refined slate cards (4:5, hover CTA reveal), stylised closing world-map CTA with city pulse markers (Warsaw / London / LA / Sydney). Scroll-reveal IntersectionObserver + counter animator added.
-- **Hero parallax**: `--mouse-x / --mouse-y` wired into 3 layered transforms (video moves most ~±35px, vignette subtle, grid counter-direction, content drifts subtly), `prefers-reduced-motion` respected.
-- **Curtain wipe transition (universal)**:
-  - Triggers on every page navigation (skipped only on first page load).
-  - Two letterbox panels close (cubic-bezier .86,0,.07,1 · 720ms) with a red center scanline flash.
-  - Slate clapper-board displays screenwriting-style scene heading per route — e.g. `INT. / SUNSET HILLS — DAY`, `EXT. / WARSAW STREET — NIGHT`, `EXT. / KANGAROO KINGDOM — DUSK`, `INT. / WRITERS' ROOM — DAY`, `INT. / PRODUCTION OFFICE — NIGHT`. Title field uses white→red gradient highlighting the time-of-day.
-  - Web-Audio synthesised "clack" (light: bright HP-filtered noise burst + brief 900→420 Hz triangle tick, no sub-bass) plays when panels seal (~360 ms in). Wrapped in try/catch with `failsilent`.
-  - Panels open (880ms) revealing the new page; `prefers-reduced-motion` disables all curtain animation.
+- Cinematic dark theme established (Archivo + IBM Plex Mono, red `#d12025` accent, grain overlay).
+- **Hero**: REC frame markers, animated word-rise title with white→red gradient, city marquee, glass info bar, mouse-tracked parallax (3 layers + content drift).
+- **Site-wide mouse-tracked lens flare** layered as a real DOM element (`<div class="lens-flare">`) with two-stop warm radial gradients, no `mix-blend-mode` so it works through every stacking context. Visible on every page.
+- **Curtain wipe transition (universal)** with screenwriting-style scene heading slate (INT./EXT., location, time of day) per route, synthesised clapper "clack" via Web Audio (no asset), and **TAKE counter** that increments every navigation.
+- **Light-leak section dividers** — pulsing orange/red film-burn strip between major sections.
+- **Brand Philosophy + filmstrip-marquee** with multi-still cycling.
+- **By the Numbers** — animated counters (35+, 9, 2, $45M).
+- **Director's Manifesto** — typewriter-style memo on faux-paper with red signature scribble that draws on reveal.
+- **Core Capabilities** — 3 hand-built CSS art tiles (filmstrip pattern, lens iris, world-map pings).
+- **From Script to Screen / Process Timeline** — 4 storyboard panels with custom SVG sketches (filmstrip page, camera+marker, camera+light, color bars).
+- **Shoot Anywhere From Poland (Locations Atlas)** — 6-tile grid with "STANDS IN FOR" tags (Berlin, Prague, Tuscany, Siberia, Detroit, etc.).
+- **Pull-quote testimonial** (Germano Saracco).
+- **Selections & Recognition** — 5 hand-drawn SVG laurel wreaths (Cannes, Atlantic City, Venice, Sundance, Gold Condor) + rotating press-quote marquee.
+- **Current Slate** — refined slate cards with hover CTA reveal.
+- **Production Status Board** — live-feeling clapper slates per project showing 5-stage pipeline (Develop → Pre-Prod → Shoot → Post → Deliver) with pulsing red current-stage marker, days-in-stage counter, location.
+- **Color Palette Lookbook** — 3 project rows × 5 swatches with hex codes and named scenes ("Warsaw Smoke", "Outback Earth", "Iris Velvet"...), click to lock active.
+- **Selected Frames (scrubbable trailer reel)** — 8-still horizontal scrubber with FRAME / TC overlay, drag-to-scrub via Pointer Events, click-tick navigation.
+- **Closing CTA** with stylised world-map and city pulse markers.
+- Scroll-reveal IntersectionObserver, counter animator, reel scrubber, and palette swatch interactions all wired into `route()`.
 
 ## Core requirements (static)
 - Aesthetic: cinematic, dark, premium, film-industry vibe.
