@@ -63,6 +63,16 @@
 - Existing generic `renderProject` retained for the Kings page; `/the-adventures-of-tom/` is now routed to the new `renderTom`.
 - **Atlas → Slate cross-linking** (May 2026): each atlas pin and its legend row are now native SVG/HTML anchors (`href="#tom-vol-I"`). Clicking either smooth-scrolls the corresponding volume card into view and fires a 1.6s red flash + left-bar reveal animation (`tom-vol-flash`). Pin hover scales 1.4× and warm-tints the dot; legend rows hover in red with a left red bar slide. Wired via `setupTomPins()` invoked at the end of `route()`.
 
+## The Kings of Life — page redesign (May 2026)
+- **Cinematic hero** (`kingsHero`): REC + scene slug `INT. WARSAW LANDFILL — DUSK`, A-440 / 24fps tag, kings-catalog background tinted in dusk-red, hand-drawn musical staff with notes/stems running across the lower hero, white→red gradient title `THE KINGS / OF LIFE.` (second line italic), 6 monospace stat chips (GENRE Comedy-Drama, LOCATIONS WAR·LDN·NYC, CAST Hollywood + Polish, MUSIC M. Zieliński, DP G. Saracco, MISSION Charitable).
+- **Logline card**: red-perforation top-bar, eyebrow `FILE · LOGLINE · CARD 003`, rotated `READER'S PICK` stamp, large italic logline (down-on-his-luck violinist…) in a red-bordered pull-block, plus a 6-cell facts grid (Genre/Locations/Language/Status/Screenplay/Distribution).
+- **Production at a glance** stat band (animated counters: 30+ years crew, 3 cities, 136 pages, 2 Hollywood leads, 100% charity).
+- **Three Cities — One Story**: WARSAW (warm), LONDON (cool), NEW YORK (rust) cards with role tags (`THE MOTHER`/`THE ECHO`/`THE SHADOW`), real coordinates, regional subtitle, role-in-the-film paragraph, weather strip, and pulsing red dot.
+- **Saracco testimonial**: oversized red-tinted blockquote with corner-mark, portrait in red ring, name + role + 5-star.
+- **Production Team**: 4 crew cards (Jacek/Filip/Germano/Maciej) with portraits, name overlay, JOINED YYYY red badge, role label and bio (proper EN/PL roles, no longer mixed-language).
+- **Mission card**: ECG-pulse heart SVG (red heart-line draws on load), title `Behind every picture — the children the cameras don't show.`, plus 3 hospital chips (WAW Children's Memorial, LDN Great Ormond Street, LAX Children's Hospital LA).
+- **Closing CTA**: "Step into The Kings of Life." with primary `mailto:` button and ghost link to `/script-coverage/`.
+
 ## Notes
 - No backend/MongoDB/auth involved.
 - No third-party integrations were added.

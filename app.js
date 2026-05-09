@@ -2170,68 +2170,305 @@ function cinematicStack(team) {
 }
 
 function renderKings(page) {
-  const team = [
-    { name: "JACEK WIELGOPOLAN", role: lang === "pl" ? "Producent / Reżyser" : "Producer / Director", bio: lang === "pl" ? "Siła twórcza od 1991 roku." : "Creative force since 1991.", image: "/public/assets/optimized/portrait-jack.webp" },
-    { name: "FILIP GUZLA", role: "Producent", bio: lang === "pl" ? "Partner biznesowy i producent." : "Business partner and producer.", image: "/public/assets/optimized/portrait-filip.webp" },
-    { name: "GERMANO SARACCO", role: "Operator", bio: lang === "pl" ? "Wielokrotnie nagradzany weteran." : "Award-winning veteran.", image: "/public/assets/optimized/portrait-germano.webp" },
-    { name: "MACIEJ ZIELIŃSKI", role: "Kompozytor", bio: lang === "pl" ? "Maestro współczesnej muzyki filmowej." : "Contemporary film music maestro.", image: "/public/assets/optimized/portrait-maciej.webp" }
-  ];
-
-  const labels = t.projects.kings.labels;
-
   return `
-    <section class="kings-hero">
-      <img src="${page.heroImage}" alt="" />
+    ${kingsHero(page)}
+    ${kingsLogline(page)}
+    ${kingsStats()}
+    ${lightLeak()}
+    ${kingsCities()}
+    ${kingsTestimonial(page)}
+    ${lightLeak()}
+    ${kingsTeam()}
+    ${kingsMission(page)}
+    ${kingsCTA()}
+  `;
+}
+
+function kingsHero(page) {
+  return `
+    <section class="kings-hero-v2" data-reveal>
+      <div class="kings-hero-bg" aria-hidden="true">
+        <img src="/public/assets/optimized/kings-catalog.webp" alt=""/>
+        <div class="kings-hero-tint"></div>
+        <div class="kings-hero-staff" aria-hidden="true">
+          <svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <g stroke="rgba(245,235,215,0.18)" stroke-width="0.6" fill="none">
+              <line x1="0" y1="40"  x2="1200" y2="40"/>
+              <line x1="0" y1="70"  x2="1200" y2="70"/>
+              <line x1="0" y1="100" x2="1200" y2="100"/>
+              <line x1="0" y1="130" x2="1200" y2="130"/>
+              <line x1="0" y1="160" x2="1200" y2="160"/>
+            </g>
+            <g fill="rgba(209,32,37,0.55)">
+              <ellipse cx="120" cy="100" rx="9" ry="6" transform="rotate(-22 120 100)"/>
+              <ellipse cx="280" cy="70" rx="9" ry="6" transform="rotate(-22 280 70)"/>
+              <ellipse cx="430" cy="130" rx="9" ry="6" transform="rotate(-22 430 130)"/>
+              <ellipse cx="600" cy="100" rx="9" ry="6" transform="rotate(-22 600 100)"/>
+              <ellipse cx="760" cy="70" rx="9" ry="6" transform="rotate(-22 760 70)"/>
+              <ellipse cx="900" cy="160" rx="9" ry="6" transform="rotate(-22 900 160)"/>
+              <ellipse cx="1060" cy="100" rx="9" ry="6" transform="rotate(-22 1060 100)"/>
+            </g>
+            <g stroke="rgba(245,235,215,0.4)" stroke-width="2" stroke-linecap="round">
+              <line x1="129" y1="100" x2="129" y2="50"/>
+              <line x1="289" y1="70" x2="289" y2="20"/>
+              <line x1="439" y1="130" x2="439" y2="80"/>
+              <line x1="609" y1="100" x2="609" y2="50"/>
+              <line x1="769" y1="70" x2="769" y2="20"/>
+              <line x1="909" y1="160" x2="909" y2="110"/>
+              <line x1="1069" y1="100" x2="1069" y2="50"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="tom-hero-frame" aria-hidden="true">
+        <span class="ab-hero-fc tl"></span><span class="ab-hero-fc tr"></span>
+        <span class="ab-hero-fc bl"></span><span class="ab-hero-fc br"></span>
+      </div>
+
+      <header class="ab-hero-bar kings-hero-bar">
+        <span class="ab-hero-rec"><i></i>REC · 02</span>
+        <span class="ab-hero-slug">${lang === "pl" ? "WN. WYSYPISKO POD WARSZAWĄ — ZMIERZCH" : "INT. WARSAW LANDFILL — DUSK"}</span>
+        <span class="ab-hero-tc">A-440 · 24fps</span>
+      </header>
+
       <div class="kings-hero-content">
-        <span class="hero-eyebrow">${labels.eyebrow}</span>
-        <h1>${page.title}</h1>
-        <div class="hero-status"><span class="status-dot"></span><span>${labels.active}</span></div>
+        <span class="kings-hero-eyebrow">${lang === "pl" ? "02 · DOSSIER PRODUKCJI · KOMEDIODRAMAT" : "02 · PRODUCTION DOSSIER · COMEDY-DRAMA"}</span>
+        <h1 class="kings-hero-title">
+          <span>${lang === "pl" ? "Królowie" : "The Kings"}</span>
+          <span class="kings-of-life">${lang === "pl" ? "życia." : "of Life."}</span>
+        </h1>
+        <p class="kings-hero-lede">${lang === "pl"
+          ? "Współczesna opowieść o przyjaźni, muzyce i przetrwaniu w „ludzkim świecie\". O tym, jak po wszystkim, czego nie da się odzyskać, zaczyna się od nowa."
+          : "A modern story about friendship, music and surviving the \"human world.\" About how, after everything that can't be reclaimed, you start again."}</p>
+
+        <div class="kings-hero-chips">
+          <span><b>${lang === "pl" ? "GATUNEK" : "GENRE"}</b> ${lang === "pl" ? "Komediodramat" : "Comedy-Drama"}</span>
+          <span><b>${lang === "pl" ? "ZDJĘCIA" : "LOCATIONS"}</b> WAR · LDN · NYC</span>
+          <span><b>${lang === "pl" ? "OBSADA" : "CAST"}</b> ${lang === "pl" ? "Hollywood + PL" : "Hollywood + Polish"}</span>
+          <span><b>${lang === "pl" ? "MUZYKA" : "MUSIC"}</b> M. Zieliński</span>
+          <span><b>${lang === "pl" ? "OBRAZ" : "DP"}</b> G. Saracco</span>
+          <span><b>${lang === "pl" ? "MISJA" : "MISSION"}</b> ${lang === "pl" ? "Charytatywna" : "Charitable"}</span>
+        </div>
+
+        <div class="kings-hero-foot">
+          <a class="ab-hero-cue" href="#kings-logline">${lang === "pl" ? "Otwórz logline" : "Open the logline"} <i>↓</i></a>
+          <span class="ab-hero-stamp">${lang === "pl" ? "Sunset Hills · Stan: aktywny rozwój" : "Sunset Hills · Status: Active Development"}</span>
+        </div>
       </div>
     </section>
+  `;
+}
 
-    <section class="section split cinematic-narrative">
-      <div class="narrative-blocks">
-        <div class="block">
-          <span class="block-num">01.</span>
-          <h3>${labels.premise}</h3>
-          <p class="highlight">${page.paragraphs[0]}</p>
-        </div>
-        <div class="block">
-          <span class="block-num">02.</span>
-          <h3>${labels.craft}</h3>
-          <p>${page.paragraphs[1]}</p>
-        </div>
-        <div class="block">
-          <span class="block-num">03.</span>
-          <h3>${labels.dist}</h3>
-          <p>${page.paragraphs[2]}</p>
-        </div>
-        <div class="block pull-quote">
-          <p>"${page.paragraphs[3]}"</p>
-        </div>
-        <div class="block">
-          <span class="block-num">04.</span>
-          <h3>${labels.mission}</h3>
-          <p>${page.paragraphs[4]}</p>
-        </div>
-      </div>
-      <div class="visual-artifact neural-viz">
-        <svg class="viz-svg" viewBox="0 0 400 400">
-          <circle class="viz-core" cx="200" cy="200" r="40" />
-          <g class="viz-nodes">
-            ${[...Array(8)].map((_, i) => `<circle cx="${200 + Math.cos(i * Math.PI/4) * 120}" cy="${200 + Math.sin(i * Math.PI/4) * 120}" r="6" />`).join("")}
-          </g>
-          <g class="viz-lines">
-            ${[...Array(8)].map((_, i) => `<line x1="200" y1="200" x2="${200 + Math.cos(i * Math.PI/4) * 120}" y2="${200 + Math.sin(i * Math.PI/4) * 120}" />`).join("")}
-          </g>
-        </svg>
-        <div class="artifact-label">${lang === "pl" ? "Neuralna Inteligencja Filmowa // Czas Rzeczywisty" : "Neural Cinematic Intelligence // Real-Time"}</div>
+function kingsLogline(page) {
+  return `
+    <section class="section kings-logline" data-reveal id="kings-logline">
+      <article class="kings-logline-card">
+        <header class="kings-logline-head">
+          <span class="kings-logline-eye">${lang === "pl" ? "FILE · LOGLINE · KARTA 003" : "FILE · LOGLINE · CARD 003"}</span>
+          <span class="kings-logline-stamp">${lang === "pl" ? "PRZECZYTANE" : "READER'S PICK"}</span>
+        </header>
+        <p class="kings-logline-body">${lang === "pl"
+          ? "Niespełniony skrzypek, zmuszony zacząć życie od nowa w innym kraju, znajduje nieoczekiwaną rodzinę — w postaci starego przyjaciela i małej dziewczynki — wokół warszawskiego wysypiska."
+          : "A down-on-his-luck violinist is forced to start over in a different country and finds an unlikely family — in the form of an old friend and a little girl — around a landfill on the edge of Warsaw."}</p>
+        <ul class="kings-logline-facts">
+          <li><b>${lang === "pl" ? "GATUNEK" : "GENRE"}</b><span>${lang === "pl" ? "Komediodramat · 136 stron" : "Comedy-Drama · 136 pages"}</span></li>
+          <li><b>${lang === "pl" ? "PLENERY" : "LOCATIONS"}</b><span>Warsaw · London · New York</span></li>
+          <li><b>${lang === "pl" ? "JĘZYK" : "LANGUAGE"}</b><span>EN · PL</span></li>
+          <li><b>${lang === "pl" ? "STATUS" : "STATUS"}</b><span>${lang === "pl" ? "Preprodukcja" : "Pre-production"}</span></li>
+          <li><b>${lang === "pl" ? "SCENARIUSZ" : "SCREENPLAY"}</b><span>Jacek Wielgopolan</span></li>
+          <li><b>${lang === "pl" ? "DYSTRYBUCJA" : "DISTRIBUTION"}</b><span>${lang === "pl" ? "Duża agencja LA · w ustaleniu" : "Major LA agency · in deal"}</span></li>
+        </ul>
+      </article>
+    </section>
+  `;
+}
+
+function kingsStats() {
+  const items = lang === "pl" ? [
+    { num: 30, suf: "+", lbl: "Lat doświadczenia", sub: "Hollywood ↔ Warszawa" },
+    { num: 3,  suf: "",  lbl: "Miasta zdjęciowe", sub: "WAW · LDN · NYC" },
+    { num: 136,suf: "",  lbl: "Stron scenariusza", sub: "draft 7 · 2024" },
+    { num: 2,  suf: "",  lbl: "Pula gwiazd Hollywood", sub: "obsada w toku" },
+    { num: 100,suf: "%", lbl: "Misja charytatywna", sub: "dzieci · choroby serca i nowotwory" }
+  ] : [
+    { num: 30, suf: "+", lbl: "Years of crew experience", sub: "Hollywood ↔ Warsaw" },
+    { num: 3,  suf: "",  lbl: "Shoot cities", sub: "Warsaw · London · NYC" },
+    { num: 136,suf: "",  lbl: "Screenplay pages", sub: "draft 7 · 2024" },
+    { num: 2,  suf: "",  lbl: "Hollywood leads", sub: "casting in progress" },
+    { num: 100,suf: "%", lbl: "Charity commitment", sub: "kids · heart & cancer" }
+  ];
+  return `
+    <section class="section ab-stats kings-stats" data-reveal>
+      <header class="ab-stats-head">
+        <span class="eyebrow">${lang === "pl" ? "Skala produkcji" : "Production at a glance"}</span>
+        <span class="ab-stats-rule"></span>
+        <span class="ab-stats-tag">${lang === "pl" ? "stan na · " + new Date().getFullYear() : "as of · " + new Date().getFullYear()}</span>
+      </header>
+      <div class="ab-stats-row kings-stats-row">
+        ${items.map((it, i) => `
+          <article class="ab-stat" data-reveal style="--i:${i}">
+            <span class="ab-stat-num"><b data-count="${it.num}">0</b><i>${it.suf}</i></span>
+            <span class="ab-stat-lbl">${it.lbl}</span>
+            <span class="ab-stat-sub">${it.sub}</span>
+          </article>
+        `).join("")}
       </div>
     </section>
+  `;
+}
 
-    <section class="section">
-      <div class="section-header"><span class="section-number">02.</span><h2>${labels.team}</h2></div>
-      <div class="people-grid">${team.map(member => personCard(member.name, member.role, member.bio, "", "", member.image)).join("")}</div>
+function kingsCities() {
+  const cities = lang === "pl" ? [
+    { tag: "MIASTO 01 · MATKA", name: "WARSZAWA", region: "Polska", role: "Punkt zwrotny — wysypisko, podwórka, scena na Pradze.", coord: "52°13'N · 21°00'E", weather: "Październik · −2 °C / 8 °C", hue: "warm" },
+    { tag: "MIASTO 02 · ECHO",  name: "LONDYN",   region: "Wielka Brytania",  role: "Sceny retrospekcji — sale prób, mosty Tamizy, szare poranki.", coord: "51°30'N · 0°07'W", weather: "Listopad · 4 °C / 11 °C", hue: "cool" },
+    { tag: "MIASTO 03 · CIEŃ",  name: "NOWY JORK", region: "USA",            role: "Otwarcie i finał — sala koncertowa Carnegie, dachy Brooklynu.", coord: "40°43'N · 74°00'W", weather: "Styczeń · −5 °C / 4 °C", hue: "rust" }
+  ] : [
+    { tag: "CITY 01 · THE MOTHER", name: "WARSAW", region: "Poland",  role: "The turning point — landfill, courtyards, the Praga apartment.", coord: "52°13'N · 21°00'E", weather: "October · 28 °F / 47 °F", hue: "warm" },
+    { tag: "CITY 02 · THE ECHO",   name: "LONDON", region: "United Kingdom", role: "Memory scenes — rehearsal halls, Thames bridges, grey mornings.",  coord: "51°30'N · 0°07'W", weather: "November · 39 °F / 52 °F", hue: "cool" },
+    { tag: "CITY 03 · THE SHADOW", name: "NEW YORK", region: "USA",   role: "Opening & finale — Carnegie hall, Brooklyn rooftops, January light.",  coord: "40°43'N · 74°00'W", weather: "January · 23 °F / 39 °F", hue: "rust" }
+  ];
+  return `
+    <section class="section kings-cities" data-reveal>
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Trzy Miasta<br/>Jedna Historia" : "Three Cities<br/>One Story"}</h2>
+      </div>
+      <div class="kings-cities-grid">
+        ${cities.map((c, i) => `
+          <article class="kings-city kings-city-${c.hue}" data-reveal style="--i:${i}">
+            <header class="kings-city-head">
+              <span class="kings-city-tag">${c.tag}</span>
+              <span class="kings-city-coord">${c.coord}</span>
+            </header>
+            <h3>${c.name}</h3>
+            <span class="kings-city-region">${c.region}</span>
+            <p>${c.role}</p>
+            <footer class="kings-city-foot">
+              <span class="kings-city-weather">${c.weather}</span>
+              <span class="kings-city-pulse" aria-hidden="true"><i></i></span>
+            </footer>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function kingsTestimonial() {
+  return `
+    <section class="section kings-testimonial" data-reveal>
+      <article class="kings-quote">
+        <span class="kings-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote>${lang === "pl"
+          ? "Trudno zliczyć dni, które spędziłem w ciągu ostatnich 35 lat na planach zdjęciowych. Mogę z pełną odpowiedzialnością powiedzieć — spośród tysięcy scenariuszy, które przeczytałem, „Królowie życia\" jest jedynym, który szczerze mnie rozbawił. Zakończenie zaskoczyło mnie tak bardzo, że wzruszyłem się do łez i bez chwili wahania zgodziłem się pracować nad tym filmem."
+          : "It's difficult to count the days I've spent on photo sets in the last 35 years. I can say with full responsibility — among the thousands of screenplays I have read, \"The Kings of Life\" is the only one that has sincerely amused me. The ending surprised me so much that I was moved to tears, and without a moment's hesitation I agreed to work on this film."}</blockquote>
+        <footer class="kings-quote-foot">
+          <div class="kings-quote-portrait">
+            <img src="/public/assets/optimized/portrait-germano.webp" alt="Germano Saracco" loading="lazy"/>
+          </div>
+          <div class="kings-quote-attr">
+            <strong>Germano Saracco</strong>
+            <span>${lang === "pl" ? "Operator obrazu · Los Angeles" : "Cinematographer · Los Angeles"}</span>
+            <span class="kings-quote-stars" aria-hidden="true">★ ★ ★ ★ ★</span>
+          </div>
+        </footer>
+      </article>
+    </section>
+  `;
+}
+
+function kingsTeam() {
+  const team = lang === "pl" ? [
+    { name: "JACEK WIELGOPOLAN", role: "Producent · Reżyser · Scenarzysta", bio: "Markowo związany z USA i Polską od 1991. Producent i autor scenariusza „Królów życia\".", image: "/public/assets/optimized/portrait-jack.webp", since: "1991" },
+    { name: "FILIP GUZLA",        role: "Producent",                          bio: "Współproducent „Botox\", „Kobiety mafii\", „Smallworld\". Członek Rady Fundacji Marcin Gortat MG13.", image: "/public/assets/optimized/portrait-filip.webp", since: "2019" },
+    { name: "GERMANO SARACCO",    role: "Operator obrazu",                    bio: "Wielokrotnie nagradzany. Zdjęcia do „Smokin' Aces\", „Hopeful Notes\" — Złoty Kondor.", image: "/public/assets/optimized/portrait-germano.webp", since: "2023" },
+    { name: "MACIEJ ZIELIŃSKI",   role: "Kompozytor",                         bio: "Jeden z najbardziej rozpoznawalnych polskich kompozytorów filmowych. Współpraca z Hollywood i Europą.", image: "/public/assets/optimized/portrait-maciej.webp", since: "2024" }
+  ] : [
+    { name: "JACEK WIELGOPOLAN", role: "Producer · Director · Screenwriter", bio: "Associated with US & Polish movie brands since 1991. Producer and screenwriter of \"The Kings of Life.\"", image: "/public/assets/optimized/portrait-jack.webp", since: "1991" },
+    { name: "FILIP GUZLA",        role: "Producer",                            bio: "Co-producer of \"Botox,\" \"Women of Mafia,\" \"Smallworld.\" Council member of the Marcin Gortat MG13 Foundation.", image: "/public/assets/optimized/portrait-filip.webp", since: "2019" },
+    { name: "GERMANO SARACCO",    role: "Cinematographer",                     bio: "Award-winning DP. Shot \"Smokin' Aces,\" \"Hopeful Notes\" — Gold Condor recipient.", image: "/public/assets/optimized/portrait-germano.webp", since: "2023" },
+    { name: "MACIEJ ZIELIŃSKI",   role: "Composer",                             bio: "One of the leading Polish film composers, working with producers across Europe and Hollywood.", image: "/public/assets/optimized/portrait-maciej.webp", since: "2024" }
+  ];
+  return `
+    <section class="section kings-team" data-reveal>
+      <div class="section-header">
+        <span class="section-number">05.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Zespół<br/>Produkcyjny" : "Production<br/>Team"}</h2>
+      </div>
+      <div class="kings-team-grid">
+        ${team.map((m, i) => `
+          <article class="kings-crew" data-reveal style="--i:${i}">
+            <div class="kings-crew-portrait">
+              <img src="${m.image}" alt="${m.name}" loading="lazy"/>
+              <span class="kings-crew-tag">${m.name}</span>
+              <span class="kings-crew-since">JOINED ${m.since}</span>
+            </div>
+            <div class="kings-crew-body">
+              <span class="kings-crew-role">${m.role}</span>
+              <h3>${m.name}</h3>
+              <p>${m.bio}</p>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function kingsMission() {
+  return `
+    <section class="section kings-mission" data-reveal>
+      <article class="kings-mission-card">
+        <div class="kings-mission-art" aria-hidden="true">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="kings-heart-glow" cx="50%" cy="55%" r="55%">
+                <stop offset="0%" stop-color="rgba(245,180,180,0.35)"/>
+                <stop offset="100%" stop-color="rgba(245,180,180,0)"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="92" fill="url(#kings-heart-glow)"/>
+            <path d="M100 160 C 60 130, 30 110, 30 78 C 30 56, 50 42, 70 50 C 84 56, 96 70, 100 80 C 104 70, 116 56, 130 50 C 150 42, 170 56, 170 78 C 170 110, 140 130, 100 160 Z"
+                  fill="none" stroke="rgba(245,235,215,0.85)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M52 96 L72 96 L78 84 L88 110 L96 96 L150 96"
+                  fill="none" stroke="var(--red)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="kings-mission-text">
+          <span class="kings-mission-eye">${lang === "pl" ? "MISJA · POZA EKRANEM" : "MISSION · OFF-SCREEN"}</span>
+          <h2>${lang === "pl"
+            ? "Przy każdym filmie — dzieci, których nie pokazują kamery."
+            : "Behind every picture — the children the cameras don't show."}</h2>
+          <p>${lang === "pl"
+            ? "Realizując misję firmy, oprócz produkcji filmów, aktywnie wspieramy potrzebujące dzieci cierpiące na choroby nowotworowe i choroby serca. Część przychodów z każdego dystrybuowanego tytułu trafia bezpośrednio do partnerskich szpitali w Warszawie, Londynie i Los Angeles."
+            : "Realising the studio's mission, alongside producing films we actively support children suffering from cancer and heart disease. A share of revenue from every distributed title flows directly to partner hospitals in Warsaw, London and Los Angeles."}</p>
+          <ul class="kings-mission-list">
+            <li><b>WAW</b><span>${lang === "pl" ? "Centrum Zdrowia Dziecka — Międzylesie" : "Children's Memorial Health Institute — Międzylesie"}</span></li>
+            <li><b>LDN</b><span>${lang === "pl" ? "Great Ormond Street — Bloomsbury" : "Great Ormond Street — Bloomsbury"}</span></li>
+            <li><b>LAX</b><span>${lang === "pl" ? "Children's Hospital Los Angeles" : "Children's Hospital Los Angeles"}</span></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function kingsCTA() {
+  return `
+    <section class="section kings-cta" data-reveal>
+      <div class="kings-cta-card">
+        <div class="kings-cta-text">
+          <span class="kings-cta-eye">${lang === "pl" ? "DLA INWESTORÓW · DYSTRYBUTORÓW · KORESPONDENCJI" : "FOR INVESTORS · DISTRIBUTORS · PRESS"}</span>
+          <h2>${lang === "pl" ? "Zostań częścią „Królów życia\"." : "Step into The Kings of Life."}</h2>
+          <p>${lang === "pl"
+            ? "Pełna analiza scenariusza, lookbook trzech miast i model finansowy są dostępne dla zaproszonych partnerów. Wysyłamy z biura w Warszawie po podpisaniu standardowego NDA."
+            : "Full coverage report, three-city lookbook and the financial model are available to invited partners. Sent from our Warsaw office after a standard NDA."}</p>
+        </div>
+        <div class="kings-cta-actions">
+          <a class="tom-cta-btn primary" href="mailto:cool@world.pl?subject=The%20Kings%20of%20Life%20%E2%80%94%20Investor%20Pack">${lang === "pl" ? "Wyślij zapytanie" : "Send the enquiry"} <i>→</i></a>
+          <a class="tom-cta-btn ghost" href="${lang === "pl" ? "/pl/script-coverage/" : "/script-coverage/"}" data-link>${lang === "pl" ? "Czytaj analizę scenariusza" : "Read script coverage"}</a>
+        </div>
+      </div>
     </section>
   `;
 }
