@@ -1296,22 +1296,117 @@ function renderHome() {
 
 function renderAbout(page) {
   return `
-    ${renderPageHero(page)}
+    ${aboutHero(page)}
     ${aboutIdCard()}
+    ${aboutStats()}
+    ${lightLeak()}
     ${aboutOrigin()}
     ${aboutFoundersBlock()}
+    ${lightLeak()}
     ${aboutBeliefs()}
     ${aboutOffices()}
+    ${lightLeak()}
     ${aboutRoster()}
     ${aboutAwards()}
     ${aboutSummary(page.paragraphs)}
   `;
 }
 
+function aboutHero(page) {
+  const ts = new Date();
+  const dateStr = ts.toUTCString().slice(0, 16);
+  return `
+    <section class="ab-hero" data-reveal>
+      <div class="ab-hero-bg" aria-hidden="true">
+        <div class="ab-hero-collage">
+          <span class="polaroid p1"><img src="/public/assets/optimized/portrait-jack.webp" alt="" loading="lazy"/></span>
+          <span class="polaroid p2"><img src="/public/assets/optimized/about-dawn.webp" alt="" loading="lazy"/></span>
+          <span class="polaroid p3"><img src="/public/assets/optimized/portrait-germano.webp" alt="" loading="lazy"/></span>
+          <span class="polaroid p4"><img src="/public/assets/optimized/kings-wide.webp" alt="" loading="lazy"/></span>
+          <span class="polaroid p5"><img src="/public/assets/optimized/tom-cinematic.webp" alt="" loading="lazy"/></span>
+        </div>
+        <div class="ab-hero-grid"></div>
+        <div class="ab-hero-vignette"></div>
+      </div>
+
+      <div class="ab-hero-frame" aria-hidden="true">
+        <span class="ab-hero-fc tl"></span><span class="ab-hero-fc tr"></span>
+        <span class="ab-hero-fc bl"></span><span class="ab-hero-fc br"></span>
+      </div>
+
+      <header class="ab-hero-bar">
+        <span class="ab-hero-rec"><i></i>REC · 01</span>
+        <span class="ab-hero-slug">${lang === "pl" ? "PLEN. STUDIO — DZIEŃ" : "EXT. STUDIO — DAY"}</span>
+        <span class="ab-hero-tc">TC&nbsp;01:00:00:01</span>
+      </header>
+
+      <div class="ab-hero-content">
+        <span class="ab-hero-eyebrow">${page.eyebrow || (lang === "pl" ? "01. O nas" : "01. About Us")}</span>
+        <h1 class="ab-hero-title">
+          <span>${lang === "pl" ? "Studio" : "A Studio"}</span>
+          <span>${lang === "pl" ? "Filmowe" : "Built To"}</span>
+          <span>${lang === "pl" ? "Z Wytrwałości" : "Finish Films."}</span>
+        </h1>
+        <p class="ab-hero-lede">${lang === "pl"
+          ? "Warszawa · Londyn · Los Angeles. Trzy biura, jedno credo: skończ historię, którą zacząłeś. Od 1991."
+          : "Warsaw · London · Los Angeles. Three rooms, one credo — finish the story you started. Since 1991."}</p>
+
+        <div class="ab-hero-chips" role="list">
+          <span role="listitem"><b>EST.</b> 1991</span>
+          <span role="listitem"><b>${lang === "pl" ? "LATA" : "YRS"}</b> 35</span>
+          <span role="listitem"><b>${lang === "pl" ? "BIURA" : "OFFICES"}</b> 02</span>
+          <span role="listitem"><b>${lang === "pl" ? "FILMY" : "PICTURES"}</b> 09</span>
+          <span role="listitem"><b>${lang === "pl" ? "EKIPA" : "CREW"}</b> 280+</span>
+          <span role="listitem"><b>${lang === "pl" ? "JĘZYKI" : "LANG."}</b> EN · PL · IT · ES</span>
+        </div>
+
+        <div class="ab-hero-foot">
+          <a class="ab-hero-cue" href="#ab-id-anchor">${lang === "pl" ? "Otwórz dossier" : "Open the dossier"} <i>↓</i></a>
+          <span class="ab-hero-stamp">${dateStr} · STUDIO REPORT</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function aboutStats() {
+  const items = lang === "pl" ? [
+    { num: 35, suf: "+", lbl: "Lat w produkcji", sub: "Hollywood ↔ Warszawa" },
+    { num: 9,  suf: "",  lbl: "Filmów fabularnych", sub: "rozwój / produkcja" },
+    { num: 2,  suf: "",  lbl: "Stałych biur", sub: "Warszawa · Londyn" },
+    { num: 4,  suf: "",  lbl: "Języków produkcji", sub: "EN · PL · IT · ES" },
+    { num: 280, suf: "+", lbl: "Wolnych strzelców", sub: "operatorzy · stunt · post" }
+  ] : [
+    { num: 35, suf: "+", lbl: "Years on set", sub: "Hollywood ↔ Warsaw" },
+    { num: 9,  suf: "",  lbl: "Feature films", sub: "in dev / production" },
+    { num: 2,  suf: "",  lbl: "Permanent offices", sub: "Warsaw · London" },
+    { num: 4,  suf: "",  lbl: "Production languages", sub: "EN · PL · IT · ES" },
+    { num: 280, suf: "+", lbl: "Freelancers on call", sub: "DPs · stunt · post" }
+  ];
+  return `
+    <section class="section ab-stats" data-reveal>
+      <header class="ab-stats-head">
+        <span class="eyebrow">${lang === "pl" ? "Po cyfrach" : "By the numbers"}</span>
+        <span class="ab-stats-rule"></span>
+        <span class="ab-stats-tag">${lang === "pl" ? "ostatnia aktualizacja · ${dateStr}".replace("${dateStr}", new Date().getFullYear()) : "last updated · " + new Date().getFullYear()}</span>
+      </header>
+      <div class="ab-stats-row">
+        ${items.map((it, i) => `
+          <article class="ab-stat" data-reveal style="--i:${i}">
+            <span class="ab-stat-num"><b data-count="${it.num}">0</b><i>${it.suf}</i></span>
+            <span class="ab-stat-lbl">${it.lbl}</span>
+            <span class="ab-stat-sub">${it.sub}</span>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function aboutIdCard() {
   const aid = t.about.id;
   return `
-    <section class="section ab-id" data-reveal>
+    <section class="section ab-id" data-reveal id="ab-id-anchor">
       <article class="ab-id-card">
         <header class="ab-id-head">
           <div class="ab-id-mark" aria-hidden="true">
@@ -1365,9 +1460,11 @@ function aboutOrigin() {
         <span class="section-number">02.</span>
         <h2 class="title-cinematic">${t.about.origin.title}</h2>
       </div>
-      <ol class="ab-origin-list">
+      <ol class="ab-origin-list ab-filmstrip">
         ${beats.map((b, i) => `
           <li class="ab-origin-row" data-reveal style="--i:${i}">
+            <span class="ab-origin-perf" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span class="ab-origin-frameid">F.${String(i + 1).padStart(3, "0")}</span>
             <span class="ab-origin-year">${b.y}</span>
             <div class="ab-origin-text">
               <strong>${b.t}</strong>
@@ -1480,6 +1577,10 @@ function aboutRoster() {
     { n: "POST &amp; DELIVERY", rows: [["WFDiF", "Lab partner", "1991"], ["ATM Studio", "VFX · Color", "2014"]] },
     { n: "DISTRIBUTION", rows: [["UIP / Warner / Local", "Theatrical partners", "Rolling"], ["Sales agents", "London &amp; LA", "Rolling"]] }
   ];
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
   return `
     <section class="section ab-roster" data-reveal>
       <div class="section-header">
@@ -1487,17 +1588,35 @@ function aboutRoster() {
         <h2 class="title-cinematic">${t.about.roster.title}</h2>
       </div>
       <p class="ab-roster-lead">${t.about.roster.lead}</p>
-      <div class="ab-roster-list">
-        ${departments.map((d) => `
-          <article class="ab-roster-block" data-reveal>
-            <h3>${d.n}</h3>
-            <ul>
-              ${d.rows.map(([name, role, year]) => `
-                <li><strong>${name}</strong><span>${role}</span><b>${year}</b></li>
-              `).join("")}
-            </ul>
-          </article>
-        `).join("")}
+      <div class="ab-callsheet">
+        <header class="ab-callsheet-bar">
+          <span><b>${lang === "pl" ? "ARKUSZ POŁĄCZEŃ" : "CALL SHEET"}</b> · ROSTER · 2026</span>
+          <span class="ab-callsheet-meta">${dd}.${mm}.${yyyy} · WAW + LDN</span>
+          <span class="ab-callsheet-status"><i></i> ${lang === "pl" ? "AKTYWNE" : "ACTIVE"}</span>
+        </header>
+        <div class="ab-callsheet-cols">
+          <span>${lang === "pl" ? "DZIAŁ" : "DEPT."}</span>
+          <span>${lang === "pl" ? "NAZWISKO" : "NAME"}</span>
+          <span>${lang === "pl" ? "ROLA / ZASŁUGA" : "ROLE / CREDIT"}</span>
+          <span>${lang === "pl" ? "OD" : "SINCE"}</span>
+        </div>
+        <div class="ab-roster-list">
+          ${departments.map((d) => `
+            <article class="ab-roster-block" data-reveal>
+              <h3>${d.n}</h3>
+              <ul>
+                ${d.rows.map(([name, role, year], i) => `
+                  <li style="--i:${i}">
+                    <span class="ab-roster-mark" aria-hidden="true"></span>
+                    <strong>${name}</strong>
+                    <span>${role}</span>
+                    <b>${year}</b>
+                  </li>
+                `).join("")}
+              </ul>
+            </article>
+          `).join("")}
+        </div>
       </div>
     </section>
   `;
@@ -1523,6 +1642,14 @@ function aboutAwards() {
         <span class="section-number">07.</span>
         <h2 class="title-cinematic">${t.about.cabinet.title}</h2>
       </div>
+      <div class="ab-laurels" aria-hidden="true">
+        <span class="ab-laurel-wrap">${laurelSVG(true)}</span>
+        <span class="ab-laurels-text">
+          <b>${lang === "pl" ? "GABLOTA" : "OFFICIAL"}</b>
+          <i>${lang === "pl" ? "Sunset Hills · 1991—2026" : "Sunset Hills · 1991—2026"}</i>
+        </span>
+        <span class="ab-laurel-wrap">${laurelSVG(false)}</span>
+      </div>
       <table class="ab-award-table">
         <thead>
           <tr>${t.about.cabinet.table.map(h => `<th>${h}</th>`).join("")}</tr>
@@ -1542,16 +1669,42 @@ function aboutAwards() {
   `;
 }
 
+function laurelSVGUnused() { return ""; }
+
+
 function aboutSummary(paragraphs) {
+  const today = new Date();
+  const stamp = today.toUTCString().slice(5, 16);
   return `
     <section class="section ab-summary" data-reveal>
       <div class="section-header">
         <span class="section-number">08.</span>
         <h2 class="title-cinematic">${t.about.summary.title}</h2>
       </div>
-      <div class="ab-summary-stack">
-        ${paragraphs.map((p, i) => `<p class="ab-summary-line" data-reveal style="--i:${i}">${p}</p>`).join("")}
-      </div>
+      <article class="ab-memo">
+        <header class="ab-memo-head">
+          <span class="ab-memo-stamp">SH · MEMO 026/${today.getFullYear()}</span>
+          <ul class="ab-memo-meta">
+            <li><b>${lang === "pl" ? "OD" : "FROM"}</b><span>Sunset Hills Motion Pictures</span></li>
+            <li><b>${lang === "pl" ? "DO" : "TO"}</b><span>${lang === "pl" ? "Inwestorów, partnerów, czytelników" : "Investors, partners, readers"}</span></li>
+            <li><b>${lang === "pl" ? "DATA" : "DATE"}</b><span>${stamp}</span></li>
+            <li><b>${lang === "pl" ? "TEMAT" : "RE"}</b><span>${lang === "pl" ? "Co robimy i jak myślimy" : "What we do, and how we think"}</span></li>
+          </ul>
+        </header>
+        <div class="ab-memo-body">
+          ${paragraphs.map((p, i) => `<p class="ab-memo-line" data-reveal style="--i:${i}">${p}</p>`).join("")}
+        </div>
+        <footer class="ab-memo-foot">
+          <span class="ab-memo-sig" aria-hidden="true">
+            <svg viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 42 C 22 8, 38 60, 60 22 S 102 60, 128 22 S 168 60, 196 28 C 210 22, 220 36, 232 30"
+                    stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+          <strong>Jacek Wielgopolan</strong>
+          <span>${lang === "pl" ? "Założyciel · Producent" : "Founder · Producer"}</span>
+        </footer>
+      </article>
     </section>
   `;
 }
@@ -2710,7 +2863,7 @@ function setupReveal() {
 }
 
 function setupCounters() {
-  const nums = document.querySelectorAll(".stat-num[data-count]");
+  const nums = document.querySelectorAll("[data-count]");
   if (!nums.length) return;
   const io = new IntersectionObserver(
     (entries) => {

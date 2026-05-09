@@ -41,6 +41,16 @@
 - P2: Lazy-load hero video poster fallback for slow connections.
 - P2: Press logos / festival laurels strip below testimonial.
 
+## About Us page — v2 enhancements (May 2026)
+- **Cinematic dossier hero** (`aboutHero`): REC dot, scene slug `EXT. STUDIO — DAY`, timecode, polaroid collage of Jack/Dawn/Germano + film stills, gradient title `A STUDIO BUILT TO FINISH FILMS.` (red accent on last word), monospace stat chips (EST. 1991, YRS 35, OFFICES 02, PICTURES 09, CREW 280+, LANG. EN·PL·IT·ES), corner-bracket frame, scroll cue.
+- **By the Numbers band** (`aboutStats`): 5 animated counters (35+ yrs, 9 features, 2 offices, 4 languages, 280+ freelancers) with red baseline reveal on hover.
+- **Origin filmstrip**: Three Decades of Pictures rebuilt with film perforations + `F.001` frame IDs.
+- **Roster Call Sheet**: red banner header with `CALL SHEET · ROSTER · 2026 · WAW + LDN · ACTIVE` + dept/name/credit/since columns + hover-fill mark squares.
+- **Festival Ledger laurels** above the awards table (hand-drawn SVG laurels reusing existing `laurelSVG`).
+- **Memo summary**: faux-paper letter with `FROM/TO/DATE/RE` header, drop-cap, hand-drawn animated signature (Jacek Wielgopolan), red circle stamp.
+- Light-leak dividers added between major About sections.
+- `setupCounters` selector loosened to `[data-count]` so non-`.stat-num` counters animate too.
+
 ## Notes
 - No backend/MongoDB/auth involved.
 - No third-party integrations were added.
