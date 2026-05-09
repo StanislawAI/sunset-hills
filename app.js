@@ -2777,17 +2777,14 @@ function tomStoryboard() {
             <span class="bf-player-tc">1.85 : 1 · 24fps</span>
           </div>
 
-          <video
-            class="bf-player-video"
-            controls
-            preload="metadata"
-            playsinline
-            poster="/public/assets/optimized/tom-main.webp"
+          <iframe 
+            src="https://player.vimeo.com/video/1190739740?h=0&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" 
+            class="bf-player-video" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
+            title="The Adventures of Tom - Storyboard"
             data-testid="tom-storyboard-video"
-          >
-            <source src="https://sunsethillsmotionpictures.com/wp-content/uploads/2024/05/storyboard.mp4" type="video/mp4">
-            ${lang === "pl" ? "Twoja przeglądarka nie obsługuje wideo." : "Your browser does not support the video tag."}
-          </video>
+          ></iframe>
 
           <div class="bf-player-bar bf-player-bar-bot">
             <span class="bf-player-meta-l">${lang === "pl" ? "Czas: ok. 2 min · Narracja: brak" : "Run-time: ca. 2 min · Narration: none"}</span>
