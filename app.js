@@ -598,6 +598,323 @@ function trailerReel() {
   `;
 }
 
+function lexiconSection() {
+  const terms = [
+    { word: "MOS", pos: "adv.", def: "Mit Out Sound. A shot recorded silent — sound to be added in post." },
+    { word: "Magic Hour", pos: "n.", def: "The 25 minutes after sunset that buy us a year of believability." },
+    { word: "Slate", pos: "n.", def: "The clap that syncs heaven and earth. Also: a studio's roster of pictures." },
+    { word: "Coverage", pos: "n.", def: "The reader&rsquo;s verdict on a screenplay. Pass, consider, recommend." },
+    { word: "Honey-Wagon", pos: "n.", def: "The trailer where a crew quietly survives a fourteen-hour day." },
+    { word: "Day-for-Night", pos: "n.", def: "Shooting a moonless midnight at 2 PM. Polish forests do this best." },
+    { word: "Crash Zoom", pos: "n.", def: "An emotion delivered in 18 frames. Used sparingly, it never fails." },
+    { word: "Final Cut", pos: "n.", def: "The version the director defends. The version the audience meets." }
+  ];
+  return `
+    <section class="section lexicon-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">12.</span>
+        <h2 class="title-cinematic">Studio Lexicon</h2>
+      </div>
+      <p class="lexicon-lead">A short dictionary of words we use on set, in the cutting room, and at four AM in production meetings.</p>
+      <div class="lexicon-grid">
+        ${terms.map((t, i) => `
+          <article class="lexicon-card" data-reveal style="--i:${i}">
+            <header>
+              <strong class="lex-word">${t.word}</strong>
+              <em class="lex-pos">${t.pos}</em>
+            </header>
+            <p class="lex-def">${t.def}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function aspectRatioLab() {
+  const ratios = [
+    { id: "1.33", w: 1.33, h: 1, label: "Academy", note: "Citizen Kane, 1941" },
+    { id: "1.85", w: 1.85, h: 1, label: "Theatrical Flat", note: "Most studio releases" },
+    { id: "2.39", w: 2.39, h: 1, label: "Anamorphic Scope", note: "The Searchers, 1956" },
+    { id: "2.76", w: 2.76, h: 1, label: "Ultra Panavision 70", note: "Ben-Hur, 1959" },
+    { id: "1.43", w: 1.43, h: 1, label: "IMAX 70mm", note: "Dunkirk, 2017" }
+  ];
+  return `
+    <section class="section ratio-lab-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">13.</span>
+        <h2 class="title-cinematic">Aspect Ratio Lab</h2>
+      </div>
+      <p class="ratio-lead">Every story chooses its window. Click a format to see how the world fits inside it.</p>
+      <div class="ratio-lab" data-ratio-lab>
+        <div class="ratio-stage">
+          <div class="ratio-frame" data-ratio-frame style="--w:1.85;--h:1">
+            <span class="frame-cross"></span>
+            <span class="frame-corner tl"></span><span class="frame-corner tr"></span>
+            <span class="frame-corner bl"></span><span class="frame-corner br"></span>
+            <span class="frame-id" data-ratio-id>1.85 : 1</span>
+            <span class="frame-note" data-ratio-note>Most studio releases</span>
+          </div>
+        </div>
+        <div class="ratio-controls" role="tablist">
+          ${ratios.map((r, i) => `
+            <button class="ratio-btn${i === 1 ? " active" : ""}" data-w="${r.w}" data-h="${r.h}" data-id="${r.id}" data-note="${r.note}" type="button">
+              <span class="ratio-num">${r.id} : 1</span>
+              <span class="ratio-label">${r.label}</span>
+            </button>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function dayOnSet() {
+  const items = [
+    { t: "05:00", l: "Crew Call", d: "Trucks roll in. First coffee. Camera tested under tungsten." },
+    { t: "06:30", l: "Hair · Makeup · Wardrobe", d: "Cast transforms. Continuity stills are taken for the script supervisor." },
+    { t: "07:15", l: "Blocking &amp; Rehearsal", d: "Director, DP and actors walk the scene. Marks are taped." },
+    { t: "08:00", l: "First Take", d: "Roll sound. Roll camera. Slate. Action." },
+    { t: "12:30", l: "Lunch", d: "Six minutes of laughter. Twelve minutes of silence. The set re-lights." },
+    { t: "16:00", l: "Magic Hour", d: "The unspoken contract. Whatever isn&rsquo;t shot now will not be shot today." },
+    { t: "18:30", l: "Wrap", d: "Cameras are wrapped. The 1st AD calls the next day." },
+    { t: "23:00", l: "Dailies", d: "The director, editor and producer watch what was actually captured." }
+  ];
+  return `
+    <section class="section dayonset-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">14.</span>
+        <h2 class="title-cinematic">A Day on Set</h2>
+      </div>
+      <ol class="dayonset-list">
+        ${items.map((it, i) => `
+          <li class="dayonset-row" data-reveal style="--i:${i}">
+            <span class="dayonset-time">${it.t}</span>
+            <span class="dayonset-rule"><i></i></span>
+            <div class="dayonset-text">
+              <strong>${it.l}</strong>
+              <span>${it.d}</span>
+            </div>
+          </li>
+        `).join("")}
+      </ol>
+    </section>
+  `;
+}
+
+function anatomyOfShot() {
+  return `
+    <section class="section anatomy-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">15.</span>
+        <h2 class="title-cinematic">Anatomy of a Shot</h2>
+      </div>
+      <p class="anatomy-lead">A frame is a contract with the audience. Every line of it is intentional.</p>
+      <div class="anatomy-wrap">
+        <svg class="anatomy-diagram" viewBox="0 0 1000 580" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <pattern id="ahatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect x="100" y="60" width="800" height="450" fill="url(#ahatch)" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+          <line x1="367" y1="60" x2="367" y2="510" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 5"/>
+          <line x1="633" y1="60" x2="633" y2="510" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 5"/>
+          <line x1="100" y1="210" x2="900" y2="210" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 5"/>
+          <line x1="100" y1="360" x2="900" y2="360" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3 5"/>
+          <circle cx="633" cy="290" r="64" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"/>
+          <line x1="633" y1="354" x2="633" y2="470" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+          <ellipse cx="180" cy="490" rx="60" ry="14" fill="none" stroke="rgba(255,255,255,0.3)"/>
+          <path d="M 60 480 Q 120 320 200 360 T 360 460" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M 800 470 Q 870 410 940 480" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="rgba(244,247,251,0.85)" letter-spacing="2">
+            <line x1="633" y1="226" x2="633" y2="120" stroke="rgba(209,32,37,0.7)"/>
+            <text x="640" y="115">HEADROOM</text>
+            <line x1="697" y1="290" x2="820" y2="290" stroke="rgba(209,32,37,0.7)"/>
+            <text x="828" y="294">LEAD ROOM</text>
+            <line x1="569" y1="290" x2="430" y2="290" stroke="rgba(209,32,37,0.7)"/>
+            <text x="426" y="294" text-anchor="end">SUBJECT (RULE OF THIRDS)</text>
+            <line x1="200" y1="476" x2="200" y2="540" stroke="rgba(209,32,37,0.7)"/>
+            <text x="200" y="555" text-anchor="middle">FOREGROUND ANCHOR</text>
+            <line x1="870" y1="450" x2="940" y2="540" stroke="rgba(209,32,37,0.7)"/>
+            <text x="940" y="555" text-anchor="end">BACKGROUND</text>
+            <line x1="120" y1="60" x2="60" y2="40" stroke="rgba(209,32,37,0.7)"/>
+            <text x="60" y="34" text-anchor="start">FRAME EDGE · 16 : 9</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+  `;
+}
+
+function budgetAnatomy() {
+  const slices = [
+    { pct: 22, name: "Above-the-line", note: "Director · cast · writers", c: "rgba(209,32,37,0.85)" },
+    { pct: 38, name: "Production",     note: "Crew · lighting · stunts", c: "rgba(255,168,92,0.9)" },
+    { pct: 12, name: "Post",           note: "Edit · VFX · sound", c: "rgba(232,221,196,0.85)" },
+    { pct: 18, name: "Marketing",      note: "P&amp;A · festivals", c: "rgba(122,62,99,0.9)" },
+    { pct: 10, name: "Contingency",    note: "The unknowable", c: "rgba(255,255,255,0.18)" }
+  ];
+  return `
+    <section class="section budget-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">16.</span>
+        <h2 class="title-cinematic">Budget Anatomy</h2>
+      </div>
+      <p class="budget-lead">Where a $45M feature actually goes — the numbers we share with every co-financier.</p>
+      <div class="budget-bar">
+        ${slices.map((s) => `<span class="budget-slice" style="flex:${s.pct};background:${s.c}"></span>`).join("")}
+      </div>
+      <div class="budget-legend">
+        ${slices.map((s) => `
+          <article class="budget-item" data-reveal>
+            <span class="budget-swatch" style="background:${s.c}"></span>
+            <div>
+              <strong>${s.pct}%</strong>
+              <span class="budget-name">${s.name}</span>
+              <span class="budget-note">${s.note}</span>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function callSheet() {
+  return `
+    <section class="section callsheet-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">17.</span>
+        <h2 class="title-cinematic">Today&rsquo;s Call Sheet</h2>
+      </div>
+      <div class="callsheet">
+        <div class="cs-watermark">CONFIDENTIAL</div>
+        <header class="cs-head">
+          <div>
+            <strong>SUNSET HILLS MOTION PICTURES</strong>
+            <span>"THE KINGS OF LIFE" · DAY 47 OF 64</span>
+          </div>
+          <div class="cs-meta">
+            <span><b>DATE</b> 09 . MAR . 2026</span>
+            <span><b>WEATHER</b> Overcast · 6°C · Light wind</span>
+            <span><b>SUNRISE</b> 06:14</span>
+            <span><b>SUNSET</b> 17:48</span>
+          </div>
+        </header>
+        <div class="cs-grid">
+          <section class="cs-block">
+            <h4>Crew Call</h4>
+            <ul>
+              <li><b>05:42</b><span>Crew breakfast</span></li>
+              <li><b>06:30</b><span>Lighting in</span></li>
+              <li><b>07:00</b><span>Cast on set</span></li>
+              <li><b>08:00</b><span>First shot</span></li>
+              <li><b>12:30</b><span>Lunch (60 min)</span></li>
+              <li><b>18:30</b><span>Camera wrap</span></li>
+            </ul>
+          </section>
+          <section class="cs-block">
+            <h4>Scenes</h4>
+            <ul>
+              <li><b>SC&nbsp;42</b><span>INT. JAZZ CLUB — NIGHT · 2 1/8 pages</span></li>
+              <li><b>SC&nbsp;43</b><span>EXT. ALLEY — NIGHT · 5/8 page</span></li>
+              <li><b>SC&nbsp;44</b><span>INT. APARTMENT — DAWN · 1 3/8 pages</span></li>
+            </ul>
+          </section>
+          <section class="cs-block">
+            <h4>Locations</h4>
+            <ul>
+              <li><b>UNIT&nbsp;A</b><span>Klub Stodoła · ul. Batorego 10 · Warszawa</span></li>
+              <li><b>UNIT&nbsp;B</b><span>Backlot · Studio 3 · Łódź</span></li>
+              <li><b>HOSP.</b><span>Szpital Praski · 2.4 km from set</span></li>
+            </ul>
+          </section>
+          <section class="cs-block">
+            <h4>Departments</h4>
+            <ul>
+              <li><b>CAM</b><span>3 bodies · ARRI Alexa 35 · Cooke S7/i</span></li>
+              <li><b>SND</b><span>Boom + 4 lavs · Sound Devices 833</span></li>
+              <li><b>LX</b><span>Two 18K HMI, two SkyPanel S360</span></li>
+              <li><b>STUNTS</b><span>2 performers · 1 fight choreographer</span></li>
+            </ul>
+          </section>
+        </div>
+        <footer class="cs-foot">
+          <span>1ST AD · M. KOWALSKI</span>
+          <span>UPM · D. JACOBS</span>
+          <span>DIR. · J. WIELGOPOLAN</span>
+          <span class="cs-stamp">RECEIVED · 04:18</span>
+        </footer>
+      </div>
+    </section>
+  `;
+}
+
+function telegramsSection() {
+  const tels = [
+    { from: "LOS ANGELES", at: "MAR 03 · 11:42PM", body: "GREENLIGHT CONFIRMED · STOP · CAMERA TESTS BEGIN MONDAY · STOP · WIRE SCHEDULE BY EOD · STOP", sig: "G. SARACCO" },
+    { from: "WARSAW",       at: "FEB 14 · 09:08AM", body: "OPTION SECURED ON SZKLARSKI ESTATE · STOP · NINE VOLUMES CONFIRMED · STOP · CHAMPAGNE NOT NECESSARY · STOP", sig: "J. WIELGOPOLAN" },
+    { from: "LONDON",       at: "JAN 22 · 02:17PM", body: "STAGE 7 BOOKED Q3 · STOP · BACKLOT BUILD APPROVED · STOP · BUDGET SAFE · STOP · WELCOME HOME · STOP", sig: "PINEWOOD OPS" },
+    { from: "QUEENSLAND",   at: "DEC 09 · 04:31AM", body: "SCOUTED 14 LOCATIONS · STOP · KANGAROOS COOPERATIVE · STOP · WATER CLEAR · STOP · BRING JACKETS · STOP", sig: "LOCATION UNIT" }
+  ];
+  return `
+    <section class="section telegram-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">18.</span>
+        <h2 class="title-cinematic">Telegrams</h2>
+      </div>
+      <p class="telegram-lead">A working studio is a wire room. A few from the file cabinet.</p>
+      <div class="telegram-grid">
+        ${tels.map((t, i) => `
+          <article class="telegram" data-reveal style="--i:${i}">
+            <header>
+              <span class="tg-stamp">SUNSET HILLS MP</span>
+              <span class="tg-from">FROM ${t.from}</span>
+              <span class="tg-at">${t.at}</span>
+            </header>
+            <p class="tg-body">${t.body}</p>
+            <footer>
+              <span class="tg-sig">${t.sig}</span>
+              <span class="tg-recv">RECEIVED · 1A</span>
+            </footer>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function dropZone() {
+  return `
+    <section class="section dropzone-section" data-reveal>
+      <div class="section-header">
+        <span class="section-number">19.</span>
+        <h2 class="title-cinematic">Submit a Screenplay</h2>
+      </div>
+      <a href="/contact/" class="dropzone" data-dropzone data-link>
+        <div class="dz-content">
+          <svg viewBox="0 0 64 64" class="dz-icon" aria-hidden="true">
+            <rect x="12" y="6" width="40" height="52" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="20" y1="18" x2="44" y2="18" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="20" y1="26" x2="44" y2="26" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="20" y1="34" x2="38" y2="34" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="20" y1="42" x2="42" y2="42" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <strong class="dz-title">Drop your screenplay here</strong>
+          <span class="dz-sub">PDF · Final Draft · Fountain · or send a logline. We read everything.</span>
+          <span class="dz-cta">→ Open the contact form</span>
+        </div>
+        <div class="dz-stamp" aria-hidden="true">
+          <span>RECEIVED</span>
+          <span class="dz-stamp-date">SUNSET HILLS · MP</span>
+        </div>
+      </a>
+    </section>
+  `;
+}
+
+
 function videoFrame(src, label, className = "media-placeholder", mode = "") {
   return `
     <div class="${className} ${mode}">
@@ -735,6 +1052,7 @@ function renderHome() {
     ${cinemaTicker()}
     ${lightLeak()}
     ${manifestoSection()}
+    ${lexiconSection()}
 
     <section class="section narrative-section editorial-layout" data-reveal>
       <div class="technical-mark"></div>
@@ -839,8 +1157,12 @@ function renderHome() {
 
     ${lightLeak()}
     ${processTimeline()}
+    ${dayOnSet()}
+    ${anatomyOfShot()}
     ${locationsAtlas()}
+    ${aspectRatioLab()}
     ${laurelsSection()}
+    ${telegramsSection()}
 
     <section class="section slate-interactive editorial-layout" data-reveal>
       <div class="technical-mark"></div>
@@ -883,8 +1205,11 @@ function renderHome() {
     </section>
 
     ${statusBoard()}
+    ${callSheet()}
     ${paletteLookbook()}
+    ${budgetAnatomy()}
     ${trailerReel()}
+    ${dropZone()}
     ${lightLeak()}
 
     <section class="section closing-action" data-reveal>
@@ -1397,6 +1722,7 @@ async function route() {
   setupCounters();
   setupReel();
   setupSwatchInteractions();
+  setupRatioLab();
 
   // Re-trigger scroll progress
   updateProgress();
@@ -1463,6 +1789,28 @@ function setupSwatchInteractions() {
       if (!row) return;
       row.querySelectorAll(".swatch").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
+    });
+  });
+}
+
+function setupRatioLab() {
+  const lab = document.querySelector("[data-ratio-lab]");
+  if (!lab) return;
+  const frame = lab.querySelector("[data-ratio-frame]");
+  const idEl = lab.querySelector("[data-ratio-id]");
+  const noteEl = lab.querySelector("[data-ratio-note]");
+  lab.querySelectorAll(".ratio-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      lab.querySelectorAll(".ratio-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const w = btn.dataset.w;
+      const h = btn.dataset.h;
+      if (frame) {
+        frame.style.setProperty("--w", w);
+        frame.style.setProperty("--h", h);
+      }
+      if (idEl) idEl.textContent = `${btn.dataset.id} : 1`;
+      if (noteEl) noteEl.textContent = btn.dataset.note;
     });
   });
 }
