@@ -99,6 +99,13 @@
 - Crew block expanded to 8 cards (4-up grid): Jack/Helen/Stanley/Matthew (twist · sealed) + screenplay (J. Wielgopolan), direction casting (sealed), DP (Germano Saracco soft-attached), score (Queen catalogue · in negotiation).
 - CTA copy updated: `Hollywood vs Motel` lookbook + Queen playlist with timecodes (no more Bieszczady reference).
 
+### Where the Butterflies Fly — added value sections (May 2026)
+- **Teaser player section** (`butterfliesTeaser`): proper HTML5 video chrome with red corner brackets, top bar (`REC · PRODUCER'S TEASER · v.04` + `2.39 : 1 · 24fps`), bottom bar (`RUN-TIME: ca. 8 MIN · NARRATION: PRODUCER` + `© Sunset Hills MP · 2026`), and a 4-cell side panel (SOURCE: Producer — direct / STATUS: Internal prototype / CONTAINS: Logline · score · outline / CONFIDENTIALITY: Under NDA only). Hero CTA now reads `Watch the teaser ↓` and jumps to this player.
+- **Author's Note pull-quote** (`butterfliesAuthorsNote`): full italic quote pulled directly from the producer's transcript ("…a plan for a love he has never lived, which he decided was the only way to reach the heart of a woman he could never meet in real life…"), credited to Jacek Wielgopolan, Screenplay 2024.
+- **The Reference Shelf** (`butterfliesComparables`): six comparable titles arranged 3×2 — Lost in Translation, Notting Hill, Birdman, The Bodyguard, Once, Malcolm & Marie — each with year, director and a one-line tonal pairing note.
+- **Closing Lyric** (`butterfliesLyric`): faux-paper card with the actual closing-credits song lyric from the transcript ("A cozy fireside, Jack…", "Mountains are zooming higher", climax `It's unbelievable.` rendered in the white→pink gradient), tagged `SC.072 · 04:12:00`.
+- Selector bug fix: tightened the corner-bracket selector to specific class names (was over-matching `bf-player-bar-top/bot` and `bf-player-tc`, collapsing the chrome bars to 32 px wide).
+
 ## Notes
 - No backend/MongoDB/auth involved.
 - No third-party integrations were added.

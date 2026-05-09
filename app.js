@@ -2155,16 +2155,20 @@ function renderProjectPlaceholder(page) {
 function renderButterflies(page) {
   return `
     ${butterfliesHero(page)}
+    ${butterfliesTeaser()}
     ${butterfliesClassified()}
     ${butterfliesStats()}
     ${lightLeak()}
     ${butterfliesTreatment()}
+    ${butterfliesAuthorsNote()}
     ${butterfliesMood()}
     ${lightLeak()}
     ${butterfliesSetting()}
     ${butterfliesSoundtrack()}
+    ${butterfliesComparables()}
     ${butterfliesSymbolism()}
     ${butterfliesCrew()}
+    ${butterfliesLyric()}
     ${butterfliesCTA()}
   `;
 }
@@ -2218,7 +2222,7 @@ function butterfliesHero() {
         </div>
 
         <div class="bf-hero-foot">
-          <a class="ab-hero-cue" href="#bf-classified">${lang === "pl" ? "Otwórz dossier (NDA)" : "Open the dossier (NDA)"} <i>↓</i></a>
+          <a class="ab-hero-cue" href="#bf-teaser">${lang === "pl" ? "Obejrzyj zwiastun" : "Watch the teaser"} <i>↓</i></a>
           <span class="ab-hero-stamp">${dateStr} · ${lang === "pl" ? "MEMO POUFNE" : "CONFIDENTIAL MEMO"}</span>
         </div>
       </div>
@@ -2560,6 +2564,134 @@ function butterfliesCrew() {
           </article>
         `).join("")}
       </div>
+    </section>
+  `;
+}
+
+function butterfliesTeaser() {
+  return `
+    <section class="section bf-teaser" data-reveal id="bf-teaser">
+      <header class="bf-teaser-head">
+        <span class="eyebrow">${lang === "pl" ? "ZWIASTUN · POUFNE" : "TEASER · CONFIDENTIAL"}</span>
+        <span class="bf-teaser-rule"></span>
+        <span class="bf-teaser-tag">${lang === "pl" ? "udostępniono · do oceny" : "shared · for evaluation"}</span>
+      </header>
+
+      <article class="bf-player">
+        <div class="bf-player-chrome">
+          <span class="bf-player-tl"></span><span class="bf-player-tr"></span>
+          <span class="bf-player-bl"></span><span class="bf-player-br"></span>
+
+          <div class="bf-player-bar bf-player-bar-top">
+            <span class="bf-player-rec"><i></i>REC</span>
+            <span class="bf-player-slug">${lang === "pl" ? "ZWIASTUN PRODUCENTA · v.04" : "PRODUCER'S TEASER · v.04"}</span>
+            <span class="bf-player-tc">2.39 : 1 · 24fps</span>
+          </div>
+
+          <video
+            class="bf-player-video"
+            controls
+            preload="metadata"
+            playsinline
+            poster="/public/assets/optimized/poster.jpg"
+            data-testid="bf-teaser-video"
+          >
+            <source src="/public/assets/butterflies-drive-download.mp4" type="video/mp4">
+            ${lang === "pl" ? "Twoja przeglądarka nie obsługuje wideo." : "Your browser does not support the video tag."}
+          </video>
+
+          <div class="bf-player-bar bf-player-bar-bot">
+            <span class="bf-player-meta-l">${lang === "pl" ? "Czas: ok. 8 min · Narracja: producent" : "Run-time: ca. 8 min · Narration: producer"}</span>
+            <span class="bf-player-meta-r">© Sunset Hills MP · ${new Date().getFullYear()}</span>
+          </div>
+        </div>
+
+        <ul class="bf-player-meta">
+          <li><b>${lang === "pl" ? "ŹRÓDŁO" : "SOURCE"}</b><span>${lang === "pl" ? "Producent — bezpośrednio" : "Producer — direct"}</span></li>
+          <li><b>${lang === "pl" ? "STATUS" : "STATUS"}</b><span>${lang === "pl" ? "Wewnętrzny prototyp" : "Internal prototype"}</span></li>
+          <li><b>${lang === "pl" ? "ZAWARTOŚĆ" : "CONTAINS"}</b><span>${lang === "pl" ? "Logline · ścieżka dźwiękowa · zarys" : "Logline · score · outline"}</span></li>
+          <li><b>${lang === "pl" ? "POUFNOŚĆ" : "CONFIDENTIALITY"}</b><span>${lang === "pl" ? "Tylko w ramach NDA" : "Under NDA only"}</span></li>
+        </ul>
+      </article>
+    </section>
+  `;
+}
+
+function butterfliesAuthorsNote() {
+  return `
+    <section class="section bf-note" data-reveal>
+      <article class="bf-note-card">
+        <span class="bf-note-mark" aria-hidden="true">&ldquo;</span>
+        <span class="bf-note-eye">${lang === "pl" ? "NOTATKA AUTORA · TYLKO W RAMACH POUFNOŚCI" : "AUTHOR'S NOTE · CONFIDENCE ONLY"}</span>
+        <blockquote>${lang === "pl"
+          ? "Scenariusz tego filmu zainspirowały głównie sny autora — plan miłości, której nigdy nie przeżył, i którą uznał za jedyny sposób, by dotrzeć do serca kobiety, której w prawdziwym życiu nigdy nie spotka, ani nawet nie zbliży się do niej."
+          : "The script for this film was mainly inspired by the author's dreams — a plan for a love he has never lived, which he decided was the only way to reach the heart of a woman he could never meet in real life, or even get close to."}</blockquote>
+        <footer>
+          <strong>Jacek Wielgopolan</strong>
+          <span>${lang === "pl" ? "Scenariusz · 2024" : "Screenplay · 2024"}</span>
+        </footer>
+      </article>
+    </section>
+  `;
+}
+
+function butterfliesComparables() {
+  const films = [
+    { yr: "2003", title: "Lost in Translation",       dir: "S. Coppola",   pair: lang === "pl" ? "kameralność, hotel, obcość" : "intimacy, hotel, strangeness" },
+    { yr: "1999", title: "Notting Hill",              dir: "R. Michell",   pair: lang === "pl" ? "gwiazda i nikt, romans niemożliwy" : "the star and the nobody, the impossible romance" },
+    { yr: "2014", title: "Birdman",                   dir: "A. G. Iñárritu", pair: lang === "pl" ? "metakino, autor w obrazie" : "meta-cinema, author inside the picture" },
+    { yr: "1992", title: "The Bodyguard",             dir: "M. Jackson",   pair: lang === "pl" ? "ikoniczna ścieżka, gwiazda, ochrona" : "iconic score, star, intimate guardian" },
+    { yr: "2007", title: "Once",                      dir: "J. Carney",    pair: lang === "pl" ? "muzyka jako drugi narrator" : "music as the second narrator" },
+    { yr: "2020", title: "Malcolm & Marie",           dir: "S. Levinson",  pair: lang === "pl" ? "para w jednym pokoju, przez całą noc" : "two people, one room, all night" }
+  ];
+  return `
+    <section class="section bf-comps" data-reveal>
+      <div class="section-header">
+        <span class="section-number">10.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Półka<br/>Referencji" : "The Reference<br/>Shelf"}</h2>
+      </div>
+      <p class="bf-comps-lead">${lang === "pl"
+        ? "Sześć filmów, które wskazują temperaturę, format i pole grawitacyjne — bez kopiowania. To kompas dla dystrybucji, nie spis życzeń."
+        : "Six pictures that locate the temperature, format and gravitational field — without copying. A compass for distribution, not a wish list."}</p>
+      <div class="bf-comps-grid">
+        ${films.map((f, i) => `
+          <article class="bf-comp" data-reveal style="--i:${i}">
+            <header>
+              <span class="bf-comp-yr">${f.yr}</span>
+              <span class="bf-comp-mark" aria-hidden="true">&#9678;</span>
+            </header>
+            <h3>${f.title}</h3>
+            <span class="bf-comp-dir">dir. ${f.dir}</span>
+            <p>${f.pair}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function butterfliesLyric() {
+  return `
+    <section class="section bf-lyric" data-reveal>
+      <article class="bf-lyric-card">
+        <span class="bf-lyric-eye">${lang === "pl" ? "FRAGMENT · NAPISY KOŃCOWE" : "FRAGMENT · END CREDITS"}</span>
+        <div class="bf-lyric-body">
+          <p>${lang === "pl" ? "Przy ognisku, przy Jacku." : "A cozy fireside, Jack."}</p>
+          <p>${lang === "pl" ? "Trochę tu, trochę tam." : "A little this, a little that."}</p>
+          <p>${lang === "pl" ? "Dźwięk wesołej miłości — niech tylko mija." : "The sound of merry love just skip."}</p>
+          <p>${lang === "pl" ? "Łagodny deszcz uderza w twarz." : "Gentle rain beating on my face."}</p>
+          <p class="bf-lyric-rest">&hellip;</p>
+          <p>${lang === "pl" ? "Wszystko jest tak piękne — jak pejzaż na niebie." : "It's all so beautiful — like a landscape painting in the sky."}</p>
+          <p>${lang === "pl" ? "Góry sięgają coraz wyżej." : "Mountains are zooming higher."}</p>
+          <p>${lang === "pl" ? "Mały krzyk i łza w dół." : "Little down — scream and cry."}</p>
+          <p>${lang === "pl" ? "Mój świat się kręci, kręci, kręci." : "My world is spinning and spinning and spinning."}</p>
+          <p class="bf-lyric-tail">${lang === "pl" ? "Niewiarygodne." : "It's unbelievable."}</p>
+        </div>
+        <footer>
+          <span class="bf-lyric-credit">${lang === "pl" ? "fragment · sekwencja zamykająca" : "fragment · closing sequence"}</span>
+          <span class="bf-lyric-stamp">SC.072 · 04:12:00</span>
+        </footer>
+      </article>
     </section>
   `;
 }
