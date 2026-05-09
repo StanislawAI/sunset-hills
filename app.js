@@ -31,12 +31,26 @@ const people = {
       "Jack Wielgopolan as a producer, distributor and script writer as been associated with movie brands in the USA and Poland since 1991.",
       "Nowadays, apart from \"Kings of Life\" he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski \"Adventures of Tom\". The first part is called \"Adventures of Tom: in the Kangaroo Kingdom\". The budget for this production amounts of $45,000,000"
     ],
+    meta: {
+      profileNum: "01",
+      since: "1991",
+      base: "Warsaw · Los Angeles",
+      languages: "PL · EN",
+      credits: "9+ pictures",
+      slug: lang === "pl" ? "WN. STUDIO · DOMINIKAŃSKA — ŚWIT" : "INT. STUDIO · DOMINIKAŃSKA — DAWN",
+      labels: lang === "pl"
+        ? ["Założyciel", "Producent", "Scenarzysta", "Reżyser"]
+        : ["Founder", "Producer", "Screenwriter", "Director"],
+      quote: lang === "pl"
+        ? null
+        : null
+    },
     films: [
-      ["Benefit of the Doubt 1993 Donald Sutherland Amy Irving", "/public/assets/optimized/poster-benefit.webp"],
-      ["Neverending Story III 1994 Jack Black Jason James Richter", "/public/assets/optimized/poster-never.webp"],
-      ["Dzieje mistrza Twardowskiego 1996", "/public/assets/optimized/poster-twardowski.webp"],
-      ["The Doubles 2006", "/public/assets/optimized/poster-doubles.webp"],
-      [t.nav.kings, "/public/assets/optimized/poster-tkol.webp"]
+      ["Benefit of the Doubt", "1993", "Dir. Jonathan Heap · Donald Sutherland · Amy Irving",       "/public/assets/optimized/poster-benefit.webp"],
+      ["Neverending Story III", "1994", "Dir. Peter MacDonald · Jack Black · Jason James Richter",   "/public/assets/optimized/poster-never.webp"],
+      ["Dzieje Mistrza Twardowskiego", "1996", lang === "pl" ? "Polski klasyk fantasy" : "Polish fantasy classic", "/public/assets/optimized/poster-twardowski.webp"],
+      ["The Doubles", "2006", lang === "pl" ? "Współczesny dramat" : "Contemporary drama",            "/public/assets/optimized/poster-doubles.webp"],
+      [t.nav.kings, "2026", lang === "pl" ? "W produkcji · scenariusz/reżyseria" : "In production · screenplay/direction", "/public/assets/optimized/poster-tkol.webp"]
     ]
   },
   germano: {
@@ -64,10 +78,21 @@ const people = {
       "Award for best short film “Eve’s Dropping In” in Atlantic City Film Festival."
     ],
     films: [
-      ["Americas Most Wanted - America Fights Back", "/public/assets/optimized/germano-mission.webp"],
-      ["Smokin' Aces", "/public/assets/optimized/germano-smokin.webp"],
-      ["Hopeful Notes", "/public/assets/optimized/germano-hopeful.webp"]
-    ]
+      ["Americas Most Wanted — America Fights Back", "TV",   lang === "pl" ? "Operator obrazu" : "Cinematographer", "/public/assets/optimized/germano-mission.webp"],
+      ["Smokin' Aces",                                "2006", lang === "pl" ? "Drugi operator" : "Additional photography", "/public/assets/optimized/germano-smokin.webp"],
+      ["Hopeful Notes",                               "2018", lang === "pl" ? "Operator · Złoty Kondor" : "DP · Gold Condor", "/public/assets/optimized/germano-hopeful.webp"]
+    ],
+    meta: {
+      profileNum: "02",
+      since: "2023",
+      base: "Los Angeles · CA",
+      languages: "EN · IT · ES",
+      credits: "30+ years on set",
+      slug: lang === "pl" ? "PLEN. WZGÓRZA HOLLYWOOD — ZMIERZCH" : "EXT. HOLLYWOOD HILLS — DUSK",
+      labels: lang === "pl"
+        ? ["Operator obrazu", "Złoty Kondor", "ISC · Floryencja", "U. Miami"]
+        : ["Cinematographer", "Gold Condor", "ISC · Florence", "U. Miami"]
+    }
   },
   dawn: {
     title: "Dawn Jacobs",
@@ -96,6 +121,17 @@ const people = {
       "• The Kellogg Company, Elmhurst, IL (Senior Customer Marketing Manager);",
       "• Griffith Laboratories, Alsip, IL (Senior Marketing Solutions Manager)."
     ],
+    meta: {
+      profileNum: "03",
+      since: "2009",
+      base: "Sun Valley · CA",
+      languages: "EN",
+      credits: "Strategy · brand · launch",
+      slug: lang === "pl" ? "WN. STUDIO MARKI · DOLINA SŁOŃCA — POŁUDNIE" : "INT. BRAND ROOM · SUN VALLEY — NOON",
+      labels: lang === "pl"
+        ? ["Dyrektor Kreatywna (CCO)", "Marketing", "Brand", "Strategia"]
+        : ["CCO", "Marketing", "Brand", "Strategy"]
+    },
     films: []
   }
 };
@@ -3748,34 +3784,168 @@ function nextPageSlate(path) {
 }
 
 function renderPerson(page) {
+  const m = page.meta || {};
   return `
-    ${renderPageHero(page)}
-    ${cinemaTicker()}
-    <section class="section detail-layout profile-layout">
-      <aside>
-        ${mediaFrame(page.image || "/public/assets/optimized/logo-s.webp", page.title, "portrait-placeholder profile-portrait")}
-      </aside>
-      <div class="copy-stack profile-copy">
-        <span class="chip">${page.role}</span>
-        <h2>${page.title}</h2>
-        <div class="bio-paragraphs">
-          ${paragraphs(page.paragraphs)}
+    ${personHero(page, m)}
+    ${personIdCard(page, m)}
+    ${personBio(page)}
+    ${page.films && page.films.length ? personFilmography(page) : ""}
+    ${lightLeak()}
+    ${personCTA(page)}
+  `;
+}
+
+function personHero(page, m) {
+  const yrs = m.since ? Math.max(0, new Date().getFullYear() - parseInt(m.since, 10)) : null;
+  const labelChips = (m.labels || []).map(l => `<span>${l}</span>`).join("");
+  return `
+    <section class="prof-hero" data-reveal>
+      <div class="prof-hero-bg" aria-hidden="true">
+        <img src="${page.image || "/public/assets/optimized/logo-s.webp"}" alt=""/>
+        <div class="prof-hero-tint"></div>
+        <div class="prof-hero-grid"></div>
+      </div>
+
+      <div class="tom-hero-frame" aria-hidden="true">
+        <span class="ab-hero-fc tl"></span><span class="ab-hero-fc tr"></span>
+        <span class="ab-hero-fc bl"></span><span class="ab-hero-fc br"></span>
+      </div>
+
+      <header class="ab-hero-bar prof-hero-bar">
+        <span class="ab-hero-rec"><i></i>REC · ${m.profileNum || "00"}</span>
+        <span class="ab-hero-slug">${m.slug || (lang === "pl" ? "WN. BIURO — DZIEŃ" : "INT. OFFICE — DAY")}</span>
+        <span class="ab-hero-tc">${lang === "pl" ? "PROFIL" : "PROFILE"} · ${m.profileNum || "00"} / 03</span>
+      </header>
+
+      <div class="prof-hero-grid-row">
+        <div class="prof-hero-portrait">
+          <img src="${page.image || "/public/assets/optimized/logo-s.webp"}" alt="${page.title}" loading="lazy"/>
+          <div class="prof-hero-portrait-bar">
+            <span>${page.title.toUpperCase()}</span>
+            <span class="prof-hero-portrait-since">${lang === "pl" ? "DOŁĄCZ." : "JOINED"} ${m.since || "—"}</span>
+          </div>
+          <span class="ab-id-bracket tl"></span><span class="ab-id-bracket tr"></span>
+          <span class="ab-id-bracket bl"></span><span class="ab-id-bracket br"></span>
+        </div>
+
+        <div class="prof-hero-content">
+          <span class="prof-hero-eyebrow">${m.profileNum || "00"} · ${lang === "pl" ? "PROFIL · DOSSIER" : "PROFILE · DOSSIER"}</span>
+          <h1 class="prof-hero-title">${page.title}</h1>
+          <p class="prof-hero-role">${page.role}</p>
+
+          <div class="prof-hero-chips">
+            ${labelChips}
+          </div>
+
+          <ul class="prof-hero-stats">
+            <li><b>${lang === "pl" ? "OD" : "SINCE"}</b><span>${m.since || "—"}${yrs ? ` · ${yrs} ${lang === "pl" ? "lat" : "yrs"}` : ""}</span></li>
+            <li><b>${lang === "pl" ? "BIURO" : "BASE"}</b><span>${m.base || "—"}</span></li>
+            <li><b>${lang === "pl" ? "JĘZYKI" : "LANGUAGES"}</b><span>${m.languages || "—"}</span></li>
+            <li><b>${lang === "pl" ? "WYSŁUGA" : "CREDITS"}</b><span>${m.credits || "—"}</span></li>
+          </ul>
+
+          <div class="prof-hero-foot">
+            <a class="ab-hero-cue" href="#prof-bio">${lang === "pl" ? "Czytaj biografię" : "Read the bio"} <i>↓</i></a>
+            <span class="ab-hero-stamp">${lang === "pl" ? "AKTA · TYLKO DO WGLĄDU" : "FILE · FOR REVIEW"}</span>
+          </div>
         </div>
       </div>
     </section>
-    ${
-      page.films.length
-        ? `<section class="section filmography-section">
-            <div class="section-header">
-              <span class="section-number">03.</span>
-              <h2>${lang === "pl" ? "Wybrana Filmografia" : "Selected Filmography"}</h2>
-            </div>
-            <div class="poster-grid centered-poster-grid">
-              ${page.films.map(([film, src]) => mediaFrame(src, film, "poster-placeholder")).join("")}
-            </div>
-          </section>`
-        : ""
-    }
+  `;
+}
+
+function personIdCard(page, m) {
+  return `
+    <section class="section prof-idcard" data-reveal>
+      <article class="prof-idcard-card">
+        <div class="prof-idcard-row">
+          <div class="prof-idcard-cell">
+            <span>${lang === "pl" ? "PEŁNE NAZWISKO" : "FULL NAME"}</span>
+            <strong>${page.title}</strong>
+          </div>
+          <div class="prof-idcard-cell">
+            <span>${lang === "pl" ? "ROLA" : "ROLE"}</span>
+            <strong>${page.role}</strong>
+          </div>
+          <div class="prof-idcard-cell">
+            <span>${lang === "pl" ? "BIURO" : "BASE"}</span>
+            <strong>${m.base || "—"}</strong>
+          </div>
+          <div class="prof-idcard-cell prof-idcard-cell-stamp">
+            <span>${lang === "pl" ? "STATUS" : "STATUS"}</span>
+            <strong class="prof-idcard-status">${lang === "pl" ? "AKTYWNY" : "ACTIVE"}</strong>
+          </div>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function personBio(page) {
+  const ps = (page.paragraphs || []).map((p, i) => `<p data-reveal style="--i:${i}">${p}</p>`).join("");
+  return `
+    <section class="section prof-bio" data-reveal id="prof-bio">
+      <div class="section-header">
+        <span class="section-number">02.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Biografia" : "Biography"}</h2>
+      </div>
+      <article class="prof-bio-card">
+        ${ps}
+      </article>
+    </section>
+  `;
+}
+
+function personFilmography(page) {
+  return `
+    <section class="section prof-films" data-reveal>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-cinematic">${lang === "pl" ? "Wybrana<br/>Filmografia" : "Selected<br/>Filmography"}</h2>
+      </div>
+      <div class="prof-films-grid">
+        ${page.films.map((f, i) => {
+          // Backwards-compatible: support both [title, src] and [title, year, role, src]
+          const title = f[0];
+          const year = f.length === 4 ? f[1] : "";
+          const role = f.length === 4 ? f[2] : "";
+          const src  = f[f.length - 1];
+          return `
+            <article class="prof-film" data-reveal style="--i:${i}">
+              <div class="prof-film-art">
+                <img src="${src}" alt="${title}" loading="lazy"/>
+                <div class="prof-film-shade"></div>
+                ${year ? `<span class="prof-film-year">${year}</span>` : ""}
+              </div>
+              <div class="prof-film-body">
+                <h3>${title}</h3>
+                ${role ? `<span>${role}</span>` : ""}
+              </div>
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function personCTA(page) {
+  return `
+    <section class="section prof-cta" data-reveal>
+      <div class="prof-cta-card">
+        <div class="prof-cta-text">
+          <span class="prof-cta-eye">${lang === "pl" ? "KONTAKT · PRZEZ STUDIO" : "CONTACT · VIA THE STUDIO"}</span>
+          <h2>${lang === "pl" ? `Skontaktuj się z ${page.title.split(" ")[0]}.` : `Reach out to ${page.title.split(" ")[0]}.`}</h2>
+          <p>${lang === "pl"
+            ? "Korespondencja zawodowa, prasa, zaproszenia na festiwale i rozmowy projektowe — wszystko przez biuro Sunset Hills w Warszawie."
+            : "Professional correspondence, press, festival invitations and project conversations — all routed through the Sunset Hills office in Warsaw."}</p>
+        </div>
+        <div class="prof-cta-actions">
+          <a class="tom-cta-btn primary" href="mailto:cool@world.pl?subject=${encodeURIComponent(page.title)}">${lang === "pl" ? "Wyślij wiadomość" : "Send a message"} <i>→</i></a>
+          <a class="tom-cta-btn ghost" href="${lang === "pl" ? "/pl/about-us/" : "/about-us/"}" data-link>${lang === "pl" ? "Wróć do studia" : "Back to the studio"}</a>
+        </div>
+      </div>
+    </section>
   `;
 }
 
