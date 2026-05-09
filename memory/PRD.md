@@ -86,6 +86,19 @@
   - **NDA-only CTA** — `Treatment v3 & lookbook — by invitation.` with `Request the NDA` primary button (mailto with subject prefilled) and ghost link to `/contact/`, plus phase/window/reply metadata.
 - Lint clean, no console errors, all 9 sections verified via screenshot.
 
+### Where the Butterflies Fly — content corrected to match real story (May 2026)
+- Replaced placeholder Bieszczady-entomology copy with the actual film treatment (per the producer's voiceover transcript): a contemporary Hollywood **melodrama** by Jacek Wielgopolan about Jack (29 — young screenwriter), Helen Thorne (35 — front-cover star), Stanley Silverberg (65 — legendary director), and the twist character Matthew (30).
+- Hero scene slug → `INT. SUBURBAN MOTEL — RAIN`; new lede ("Hollywood. A small suburban motel. A young screenwriter, a face from every magazine cover, and six Queen tracks on the score. A melodrama about a love never lived — narrated by an author hiding between the frames.").
+- Logline excerpt rewritten to the real plot (Jack's break, casting Helen, the unusual motel-shared-apartment condition, the slow burn, the unseen author).
+- Stats now read: 3 leads · 6 Queen tracks · 1 director on screen (Silverberg, 65) · 35 (Helen's age) · 1 modest motel.
+- Three Acts → `THE GREENLIGHT` (Hollywood/producer's office) · `THE MOTEL` (Suburbs/Room 7/long nights) · `THE SHADOW AUTHOR` (Dawn/labyrinth — REDACTED).
+- Mood frames retitled: producer's office, magazine cover, motel · Room 7, rain on the window, the first smile, dawn · the finale.
+- Setting card replaced (mountains → window with rain streaks + glowing motel lamp + typewriter silhouette SVG); copy: `Hollywood. A small motel. A typewriter.` plus 6-cell metadata (City LA · CA, Principal Motel · Room 7, Contrast Studio·set·red carpet, Shoot window Q3 2026 — Q1 2027, Palette pink dawn · neon · rain, Camera 2.39:1 · 35mm).
+- **NEW Soundtrack section** (`butterfliesSoundtrack` — "Six Tracks · One Band"): full Queen-catalog score table — A Winter's Tale, Who Wants to Live Forever, The Great Pretender (Mercury), Barcelona (Mercury & Caballé), Somebody to Love, These Are the Days of Our Lives — each with artist, scene tag and runtime, plus an "in conversation with Queen Productions Ltd." licensing footer.
+- "Four Wings" symbolism rewritten: DREAM / LOVE / AUTHOR / REVEAL (the labyrinth-ending question — "Was Jack actually Matthew?").
+- Crew block expanded to 8 cards (4-up grid): Jack/Helen/Stanley/Matthew (twist · sealed) + screenplay (J. Wielgopolan), direction casting (sealed), DP (Germano Saracco soft-attached), score (Queen catalogue · in negotiation).
+- CTA copy updated: `Hollywood vs Motel` lookbook + Queen playlist with timecodes (no more Bieszczady reference).
+
 ## Notes
 - No backend/MongoDB/auth involved.
 - No third-party integrations were added.

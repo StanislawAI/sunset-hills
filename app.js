@@ -2572,8 +2572,8 @@ function butterfliesCTA() {
           <span class="bf-cta-eye">${lang === "pl" ? "DOSTĘP TYLKO PRZEZ NDA" : "NDA-ONLY ACCESS"}</span>
           <h2>${lang === "pl" ? "Treatment v3 i lookbook — na zaproszenie." : "Treatment v3 & lookbook — by invitation."}</h2>
           <p>${lang === "pl"
-            ? "Pełna trzecia wersja treatmentu, lookbook Bieszczad, mapa lokalizacji i model finansowy są dostępne dla zaproszonych partnerów po podpisaniu krótkiej umowy o poufności."
-            : "The full third draft of the treatment, the Bieszczady lookbook, the location map and the financial model are available to invited partners after a brief confidentiality agreement."}</p>
+            ? "Pełna trzecia wersja treatmentu, lookbook „Hollywood vs Motel\", playlista Queen z timecodes i model finansowy są dostępne dla zaproszonych partnerów po podpisaniu krótkiej umowy o poufności."
+            : "The full third draft of the treatment, the \"Hollywood vs Motel\" lookbook, the Queen playlist with scene timecodes, and the financial model are available to invited partners after a brief confidentiality agreement."}</p>
         </div>
         <div class="bf-cta-actions">
           <a class="tom-cta-btn primary" href="mailto:cool@world.pl?subject=Where%20The%20Butterflies%20Fly%20%E2%80%94%20NDA%20Request">${lang === "pl" ? "Poproś o NDA" : "Request the NDA"} <i>→</i></a>
