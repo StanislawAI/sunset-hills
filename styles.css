@@ -2086,6 +2086,15 @@ p {
   object-fit: cover;
   z-index: -1;
   filter: brightness(0.4);
+  transform:
+    translate3d(
+      calc((var(--mouse-x) - 50%) * -0.04),
+      calc((var(--mouse-y) - 50%) * -0.04),
+      0
+    )
+    scale(1.08);
+  transition: transform 700ms cubic-bezier(.2, .8, .2, 1), filter 600ms ease;
+  will-change: transform;
 }
 
 .hero-cinematic .eyebrow {
@@ -2702,6 +2711,12 @@ p {
   background:
     radial-gradient(120% 80% at 50% 40%, transparent 0%, rgba(0,0,0,0.55) 70%, #000 100%),
     linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 22%, transparent 65%, rgba(0,0,0,0.85) 100%);
+  transform: translate3d(
+    calc((var(--mouse-x) - 50%) * -0.015),
+    calc((var(--mouse-y) - 50%) * -0.015),
+    0
+  );
+  transition: transform 700ms cubic-bezier(.2,.8,.2,1);
 }
 .hero-grid-overlay {
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -2711,6 +2726,31 @@ p {
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   opacity: 0.55;
+  transform: translate3d(
+    calc((var(--mouse-x) - 50%) * 0.025),
+    calc((var(--mouse-y) - 50%) * 0.025),
+    0
+  );
+  transition: transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.hero-content {
+  transform: translate3d(
+    calc((var(--mouse-x) - 50%) * 0.015),
+    calc((var(--mouse-y) - 50%) * 0.015),
+    0
+  );
+  transition: transform 800ms cubic-bezier(.2,.8,.2,1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinematic video,
+  .hero-vignette,
+  .hero-grid-overlay,
+  .hero-content {
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .hero-frame-corners { position: absolute; inset: 28px clamp(20px, 4vw, 64px); z-index: 1; pointer-events: none; }
