@@ -454,8 +454,8 @@ export const translations = {
     },
     hero: {
       eyebrow: "Sunset Hills",
-      title1: "Obrazy",
-      title2: "Filmowe.",
+      title1: "Produkcja",
+      title2: "Filmowa.",
       tag: "Architektura opowieści na styku tradycji kinowej i inteligencji wizualnej nowej generacji — produkowana w Polsce, Wielkiej Brytanii i Stanach Zjednoczonych.",
       ctaSlate: "Zobacz projekty",
       ctaStudio: "Studio",
@@ -478,7 +478,7 @@ export const translations = {
       loc: "WARSZAWA",
       lines: [
         "Nie tworzymy treści.",
-        "Tworzymy obrazy filmowe.",
+        "Tworzymy kino.",
         "Filmy budowane scena po scenie, klatka po klatce —",
         "z ekipami, które spędziły trzydzieści lat",
         "ucząc się, kiedy zbliżyć kamerę, a kiedy ją zatrzymać.",
@@ -711,7 +711,7 @@ export const translations = {
         }
       },
       origin: {
-        title: "Trzy dekady<br/>obrazów"
+        title: "Trzy dekady<br/>filmów"
       },
       founders: {
         title: "Nazwiska<br/>na drzwiach",
