@@ -84,25 +84,31 @@ body::after {
   opacity: 1;
 }
 
-/* Site-wide mouse-tracked lens flare (uses existing --mouse-x / --mouse-y) */
-body::before {
-  content: "";
+/* Site-wide mouse-tracked lens flare (uses existing --mouse-x / --mouse-y).
+   No mix-blend-mode: behaves identically across every stacking context. */
+.lens-flare {
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 9000;
   pointer-events: none;
-  background: radial-gradient(
-    circle 380px at var(--mouse-x) var(--mouse-y),
-    rgba(255, 224, 188, 0.18) 0%,
-    rgba(209, 32, 37, 0.10) 30%,
-    transparent 65%
-  );
-  mix-blend-mode: screen;
+  background:
+    radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      rgba(255, 235, 200, 0.55) 0%,
+      rgba(255, 200, 140, 0.28) 40%,
+      rgba(255, 200, 140, 0) 75%
+    ),
+    radial-gradient(
+      circle 520px at var(--mouse-x) var(--mouse-y),
+      rgba(255, 150, 80, 0.28) 0%,
+      rgba(220, 60, 70, 0.18) 38%,
+      rgba(220, 60, 70, 0) 78%
+    );
   will-change: background;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before { opacity: 0.35; }
+  .lens-flare { opacity: 0.4; }
 }
 
 .grain {
