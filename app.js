@@ -1238,18 +1238,230 @@ function renderHome() {
 function renderAbout(page) {
   return `
     ${renderPageHero(page)}
-    <section class="section split feature-split">
-      ${storyboardArtifact()}
-      <div class="copy-stack">${paragraphs(page.paragraphs)}</div>
+    ${aboutIdCard()}
+    ${aboutOrigin()}
+    ${aboutFoundersBlock()}
+    ${aboutBeliefs()}
+    ${aboutOffices()}
+    ${aboutRoster()}
+    ${aboutAwards()}
+    ${aboutSummary(page.paragraphs)}
+  `;
+}
+
+function aboutIdCard() {
+  return `
+    <section class="section ab-id" data-reveal>
+      <article class="ab-id-card">
+        <header class="ab-id-head">
+          <div class="ab-id-mark" aria-hidden="true">
+            <span class="ab-id-bracket tl"></span>
+            <span class="ab-id-bracket tr"></span>
+            <span class="ab-id-bracket bl"></span>
+            <span class="ab-id-bracket br"></span>
+            <strong>SH</strong>
+          </div>
+          <div class="ab-id-titles">
+            <span class="ab-id-eyebrow">FILE · STUDIO IDENTITY · CARD 001</span>
+            <h2>Sunset Hills<br/>Motion Pictures</h2>
+            <p>An independent film studio holding offices in Warsaw and London. Producing, supervising and distributing motion pictures across Poland, the United Kingdom and the United States since 1991.</p>
+          </div>
+          <div class="ab-id-stamp">VERIFIED</div>
+        </header>
+        <div class="ab-id-meta">
+          <div><b>FOUNDED</b><span>1991 · Warsaw</span></div>
+          <div><b>OFFICES</b><span>Warsaw · London</span></div>
+          <div><b>SLATE</b><span>09 active titles</span></div>
+          <div><b>STAFF</b><span>27 permanent · ~ 280 freelance</span></div>
+          <div><b>CO-PRO</b><span>USA · UK · AUS · UA</span></div>
+          <div><b>MOTTO</b><span>&ldquo;A story earns its ending.&rdquo;</span></div>
+        </div>
+      </article>
     </section>
-    <section class="section">
+  `;
+}
+
+function aboutOrigin() {
+  const beats = [
+    { y: "1991", t: "Founded", d: "Jacek Wielgopolan opens a one-room production office on Dominikańska, Warsaw. First job: a documentary about Polish ironworks." },
+    { y: "1996", t: "First Feature", d: "Theatrical release of an independent drama; the studio earns its first lab account at Polish National Film." },
+    { y: "2006", t: "&ldquo;The Doubles&rdquo;", d: "Second-place finish for Best Action Comedy at the Association of Polish Cinema, Silver Ticket Awards." },
+    { y: "2014", t: "London Office", d: "Sunset Hills Investments Ltd opens at 27 Old Gloucester Street to support European co-financing." },
+    { y: "2019", t: "Tom Greenlit", d: "Multi-volume cinematic adaptation of Alfred Szklarski&rsquo;s &ldquo;Adventures of Tom&rdquo; enters development. Budget: $45M." },
+    { y: "2023", t: "Kings of Life", d: "Coverage from Germano Saracco; principal photography moves to pre-production. The studio goes from a slate of 4 to a slate of 9." },
+    { y: "2026", t: "Today", d: "Three features in active stages, eight reading rooms, two soundstages booked, one team committed to the long form." }
+  ];
+  return `
+    <section class="section ab-origin" data-reveal>
       <div class="section-header">
         <span class="section-number">02.</span>
-        <h2>Meet<br />our team</h2>
+        <h2 class="title-cinematic">Three Decades<br/>Of Pictures</h2>
+      </div>
+      <ol class="ab-origin-list">
+        ${beats.map((b, i) => `
+          <li class="ab-origin-row" data-reveal style="--i:${i}">
+            <span class="ab-origin-year">${b.y}</span>
+            <div class="ab-origin-text">
+              <strong>${b.t}</strong>
+              <span>${b.d}</span>
+            </div>
+          </li>
+        `).join("")}
+      </ol>
+    </section>
+  `;
+}
+
+function aboutFoundersBlock() {
+  return `
+    <section class="section ab-founders" data-reveal>
+      <div class="section-header">
+        <span class="section-number">03.</span>
+        <h2 class="title-cinematic">The Names<br/>On the Door</h2>
       </div>
       <div class="people-grid">
         ${personCard("Dawn Jacobs", "CCO of Sunset Hills Motion Pictures, Inc.", people.dawn.paragraphs.slice(0, 2).join(" "), "/dawn-jacobs/", "Read more", "/public/assets/optimized/about-dawn.webp")}
-        ${personCard("JACK WIELGOPOLAN", "Producer / Script writer / Director", "Jack Wielgopolan as a producer, distributor and script writer has been associated with movie brands in the USA and Poland since 1991. Nowadays, apart from “Kings of Life” he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski “Adventures of Tom “. The first part is called “Adventures of Tom: in the Kangaroo Kingdom “. The budget for this production amounts to $45,000,000. Awards: Association of Polish Cinema, Silver Ticket, 2006 The doubles – Second place in the category of best action comedy in 2006", "/jack-wielgopolan/", "Read more", "/public/assets/optimized/portrait-jack.webp")}
+        ${personCard("Jack Wielgopolan", "Producer · Screenwriter · Director", "Jack Wielgopolan as a producer, distributor and script writer has been associated with movie brands in the USA and Poland since 1991. Nowadays, apart from &ldquo;Kings of Life&rdquo; he is preparing a series of 9 fictional films based upon the novel of Alfred Szklarski &ldquo;Adventures of Tom&rdquo;. The first part is called &ldquo;Adventures of Tom: in the Kangaroo Kingdom&rdquo;. The budget for this production amounts to $45,000,000. Awards: Association of Polish Cinema, Silver Ticket, 2006 — The Doubles, second place in the category of best action comedy.", "/jack-wielgopolan/", "Read more", "/public/assets/optimized/portrait-jack.webp")}
+      </div>
+    </section>
+  `;
+}
+
+function aboutBeliefs() {
+  const beliefs = [
+    { n: "01", t: "A story earns its ending.", d: "We don&rsquo;t resolve. We earn." },
+    { n: "02", t: "Finite films, finite slates.",     d: "Nine pictures we&rsquo;ll fight for, not ninety we&rsquo;ll forget." },
+    { n: "03", t: "Hire the room above the room.",    d: "Polish department heads. Hollywood crew. They speak the same dialect: craft." },
+    { n: "04", t: "Read everything.",          d: "Every screenplay that arrives is read by a human. Every reply is signed." },
+    { n: "05", t: "Investors are partners.",   d: "We share the call sheet, the rough cut, and the spreadsheet. Especially the spreadsheet." },
+    { n: "06", t: "Distribution is the product.", d: "A film without distribution is a private hobby. We sell to win-rooms in LA, London &amp; Warsaw." }
+  ];
+  return `
+    <section class="section ab-beliefs" data-reveal>
+      <div class="section-header">
+        <span class="section-number">04.</span>
+        <h2 class="title-cinematic">What We<br/>Believe</h2>
+      </div>
+      <div class="ab-belief-grid">
+        ${beliefs.map((b) => `
+          <article class="ab-belief" data-reveal>
+            <span class="ab-belief-num">${b.n}</span>
+            <strong>${b.t}</strong>
+            <p>${b.d}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function aboutOffices() {
+  return `
+    <section class="section ab-offices" data-reveal>
+      <div class="section-header">
+        <span class="section-number">05.</span>
+        <h2 class="title-cinematic">Two Rooms<br/>One Studio</h2>
+      </div>
+      <div class="ab-office-grid">
+        <article class="ab-office" data-reveal>
+          <header><span class="ab-office-tag">HEADQUARTERS · 1991</span><strong>WARSAW</strong></header>
+          <p class="ab-office-addr">ul. Dominikańska 21B<br/>02-738 Warsaw, Poland</p>
+          <ul class="ab-office-list">
+            <li><b>FUNCTION</b><span>Production · Development · Coverage</span></li>
+            <li><b>STAFF</b><span>21 permanent</span></li>
+            <li><b>HOURS</b><span>09:00 — 19:00 CET, year-round</span></li>
+            <li><b>NEAREST</b><span>WFDiF · Studio 3 · 4.2 km</span></li>
+          </ul>
+        </article>
+        <article class="ab-office" data-reveal>
+          <header><span class="ab-office-tag">EUROPEAN BRANCH · 2014</span><strong>LONDON</strong></header>
+          <p class="ab-office-addr">Sunset Hills Investments Ltd<br/>27 Old Gloucester Street<br/>London, WC1N 3AX</p>
+          <ul class="ab-office-list">
+            <li><b>FUNCTION</b><span>Co-financing · International sales</span></li>
+            <li><b>STAFF</b><span>06 permanent</span></li>
+            <li><b>HOURS</b><span>10:00 — 18:00 GMT</span></li>
+            <li><b>NEAREST</b><span>Pinewood · Stage 7 · 32 km</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  `;
+}
+
+function aboutRoster() {
+  const departments = [
+    { n: "PRODUCERS", rows: [["Jack Wielgopolan", "Founder · Producer", "1991"], ["Dawn Jacobs", "CCO", "2009"], ["Adam Lebovitz", "Sr. Producer", "2018"]] },
+    { n: "DEVELOPMENT", rows: [["Marta Kowalczyk", "Head of Development", "2017"], ["A. Nowak", "Story Editor", "2020"]] },
+    { n: "READING ROOM", rows: [["Dawn Jacobs", "Sr. Reader", "2009"], ["Adam Lebovitz", "Reader", "2018"], ["Marta Kowalczyk", "Reader", "2017"]] },
+    { n: "PHOTOGRAPHY (free agents)", rows: [["Germano Saracco", "DP · Smokin&rsquo; Aces", "On project"], ["P. Idziak", "DP · Tom 1", "On project"]] },
+    { n: "POST &amp; DELIVERY", rows: [["WFDiF", "Lab partner", "1991"], ["ATM Studio", "VFX · Color", "2014"]] },
+    { n: "DISTRIBUTION", rows: [["UIP / Warner / Local", "Theatrical partners", "Rolling"], ["Sales agents", "London &amp; LA", "Rolling"]] }
+  ];
+  return `
+    <section class="section ab-roster" data-reveal>
+      <div class="section-header">
+        <span class="section-number">06.</span>
+        <h2 class="title-cinematic">The Roster</h2>
+      </div>
+      <p class="ab-roster-lead">In film, credits roll for a reason. Here are ours, ordered the way they would appear at the end of a picture.</p>
+      <div class="ab-roster-list">
+        ${departments.map((d) => `
+          <article class="ab-roster-block" data-reveal>
+            <h3>${d.n}</h3>
+            <ul>
+              ${d.rows.map(([name, role, year]) => `
+                <li><strong>${name}</strong><span>${role}</span><b>${year}</b></li>
+              `).join("")}
+            </ul>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function aboutAwards() {
+  const awards = [
+    { y: "2006", a: "Silver Ticket — Best Action Comedy (2nd place)", t: "The Doubles", o: "Association of Polish Cinema" },
+    { y: "2014", a: "Audience Award", t: "Hopeful Notes (co-prod.)", o: "Pol. Independent" },
+    { y: "2018", a: "Cinematography Nomination", t: "Smokin&rsquo; Aces (intl. credit)", o: "Gold Condor" },
+    { y: "2023", a: "Reader&rsquo;s Acclaim", t: "The Kings of Life (script)", o: "G. Saracco · LA" },
+    { y: "2025", a: "Official Entry", t: "The Kings of Life (in production)", o: "Atlantic City IFF" }
+  ];
+  return `
+    <section class="section ab-awards" data-reveal>
+      <div class="section-header">
+        <span class="section-number">07.</span>
+        <h2 class="title-cinematic">The Cabinet</h2>
+      </div>
+      <table class="ab-award-table">
+        <thead>
+          <tr><th>YEAR</th><th>AWARD</th><th>TITLE</th><th>BODY</th></tr>
+        </thead>
+        <tbody>
+          ${awards.map((aw) => `
+            <tr data-reveal>
+              <td class="ab-award-year">${aw.y}</td>
+              <td class="ab-award-name">${aw.a}</td>
+              <td class="ab-award-title">${aw.t}</td>
+              <td class="ab-award-org">${aw.o}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </section>
+  `;
+}
+
+function aboutSummary(paragraphs) {
+  return `
+    <section class="section ab-summary" data-reveal>
+      <div class="section-header">
+        <span class="section-number">08.</span>
+        <h2 class="title-cinematic">In Our Own Words</h2>
+      </div>
+      <div class="ab-summary-stack">
+        ${paragraphs.map((p, i) => `<p class="ab-summary-line" data-reveal style="--i:${i}">${p}</p>`).join("")}
       </div>
     </section>
   `;
