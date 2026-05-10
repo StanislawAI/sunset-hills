@@ -564,11 +564,11 @@ function laurelSVG(left = true) {
 
 function laurelsSection() {
   const fests = [
-    { name: "Cannes", detail: "Submitted · 2025", award: t.laurels.entry },
-    { name: "Atlantic City", detail: "Best Short", award: t.laurels.winner },
-    { name: "Venice — Accademia", detail: "Social Commitment", award: t.laurels.award },
-    { name: "Sundance", detail: "Submitted · 2026", award: t.laurels.entry },
-    { name: "Gold Condor", detail: "Cinematography", award: t.laurels.winner }
+    { name: "Cannes", detail: "Tom Vol. I · 2025", award: t.laurels.entry },
+    { name: "Atlantic City", detail: "Kings of Life · 2025", award: t.laurels.winner },
+    { name: "Venice", detail: "Butterflies · 2026", award: t.laurels.entry },
+    { name: "Sundance", detail: "Tom Vol. I · 2026", award: t.laurels.entry },
+    { name: "Gold Condor", detail: "Kings of Life · 2023", award: t.laurels.winner }
   ];
   const press = t.laurels.press;
   const pressRow = press.map((q) => `<span>${q}</span>`).join("");
@@ -754,11 +754,11 @@ function lexiconSection() {
 
 function aspectRatioLab() {
   const ratios = [
-    { id: "1.33", w: 1.33, h: 1, label: lang === "pl" ? "Format Klasyczny" : "Academy", note: lang === "pl" ? "Obywatel Kane, 1941" : "Citizen Kane, 1941" },
-    { id: "1.85", w: 1.85, h: 1, label: lang === "pl" ? "Kinowy Panoramiczny" : "Theatrical Flat", note: lang === "pl" ? "Większość premier studyjnych" : "Most studio releases" },
-    { id: "2.39", w: 2.39, h: 1, label: lang === "pl" ? "Anamorfotyczny Panoramiczny" : "Anamorphic Scope", note: lang === "pl" ? "Poszukiwacze, 1956" : "The Searchers, 1956" },
-    { id: "2.76", w: 2.76, h: 1, label: "Ultra Panavision 70", note: "Ben-Hur, 1959" },
-    { id: "1.43", w: 1.43, h: 1, label: "IMAX 70mm", note: "Dunkierka, 2017" }
+    { id: "1.33", w: 1.33, h: 1, label: lang === "pl" ? "Format Klasyczny" : "Academy", note: lang === "pl" ? "Tam, gdzie latają motyle" : "Where the Butterflies Fly" },
+    { id: "1.85", w: 1.85, h: 1, label: lang === "pl" ? "Kinowy Panoramiczny" : "Theatrical Flat", note: lang === "pl" ? "Królowie życia" : "The Kings of Life" },
+    { id: "2.39", w: 2.39, h: 1, label: lang === "pl" ? "Anamorfotyczny Panoramiczny" : "Anamorphic Scope", note: lang === "pl" ? "Przygody Tomka · Vol. I" : "The Adventures of Tom · Vol. I" },
+    { id: "2.76", w: 2.76, h: 1, label: "Ultra Panavision 70", note: lang === "pl" ? "Tomek · Sceny epickie" : "Tom · Epic Landscapes" },
+    { id: "1.43", w: 1.43, h: 1, label: "IMAX 70mm", note: lang === "pl" ? "Tomek · Wydanie specjalne" : "Tom · Special Engagement" }
   ];
   return `
     <section class="section ratio-lab-section" data-reveal>
@@ -907,7 +907,7 @@ function callSheet() {
         <header class="cs-head">
           <div>
             <strong>SUNSET HILLS MOTION PICTURES</strong>
-            <span>"${lang === "pl" ? "KRÓLOWIE ŻYCIA" : "THE KINGS OF LIFE"}" · ${lang === "pl" ? "DZIEŃ 47 Z 64" : "DAY 47 OF 64"}</span>
+            <span>"${lang === "pl" ? "PRZYGODY TOMKA · TOM I" : "THE ADVENTURES OF TOM · VOL I"}" · ${lang === "pl" ? "DZIEŃ 12 Z 90" : "DAY 12 OF 90"}</span>
           </div>
           <div class="cs-meta">
             <span><b>${lang === "pl" ? "DATA" : "DATE"}</b> 09 . MAR . 2026</span>
@@ -931,17 +931,17 @@ function callSheet() {
           <section class="cs-block">
             <h4>${c.blocks.scenes}</h4>
             <ul>
-              <li><b>SC&nbsp;42</b><span>INT. JAZZ CLUB — NIGHT · 2 1/8 pages</span></li>
-              <li><b>SC&nbsp;43</b><span>EXT. ALLEY — NIGHT · 5/8 page</span></li>
-              <li><b>SC&nbsp;44</b><span>INT. APARTMENT — DAWN · 1 3/8 pages</span></li>
+              <li><b>SC&nbsp;34</b><span>EXT. KANGAROO KINGDOM — DAY · 3 1/8 pages</span></li>
+              <li><b>SC&nbsp;35</b><span>EXT. REEF EDGE — MAGIC HOUR · 1/8 page</span></li>
+              <li><b>SC&nbsp;36</b><span>EXT. BASECAMP — DUSK · 2 4/8 pages</span></li>
             </ul>
           </section>
           <section class="cs-block">
             <h4>${c.blocks.locations}</h4>
             <ul>
-              <li><b>UNIT&nbsp;A</b><span>Klub Stodoła · ul. Batorego 10 · Warszawa</span></li>
-              <li><b>UNIT&nbsp;B</b><span>Backlot · Studio 3 · Łódź</span></li>
-              <li><b>HOSP.</b><span>${lang === "pl" ? "Szpital Praski · 2.4 km od planu" : "Szpital Praski · 2.4 km from set"}</span></li>
+              <li><b>UNIT&nbsp;A</b><span>Queensland Coast · North Scrub · Australia</span></li>
+              <li><b>UNIT&nbsp;B</b><span>Basecamp · Location 7 · Reef Access</span></li>
+              <li><b>HOSP.</b><span>${lang === "pl" ? "Cairns Hospital · 42 km transportem lotniczym" : "Cairns Hospital · 42 km via air med"}</span></li>
             </ul>
           </section>
           <section class="cs-block">
