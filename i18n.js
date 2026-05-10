@@ -68,7 +68,7 @@ export const translations = {
       title: "Three Films. Three Worlds.",
       items: [
         { n: "01", t: "The Adventures of Tom", d: "Nine volumes. $45M. Queensland coastline will be dressed as 1910 wilderness, Polish forests will stand in for the Kazakh frontier, and a stunt unit will have trained with kangaroos." },
-        { n: "02", t: "The Kings of Life", d: "A comedy-drama will be shot across Warsaw night streets, London stages, and a New York brownstone — the script Germano Saracco will call the only one that will ever move him to tears." },
+        { n: "02", t: "The Kings of Life", d: "A comedy-drama will be shot across Warsaw night streets, London stages, and a New York brownstone — the script Germano Saracco calls the only one that has ever moved him to tears." },
         { n: "03", t: "Where the Butterflies Fly", d: "A film will be built on restraint — intimate spaces, natural light, and a camera will be held so still the audience will forget it is there. Visual poetry for the festival circuit." }
       ]
     },
@@ -100,10 +100,10 @@ export const translations = {
       winner: "WINNER",
       entry: "OFFICIAL ENTRY",
       press: [
-        "“The Kings of Life will be the only screenplay in thirty-five years that will move me to tears.”  — GERMANO SARACCO · LOS ANGELES",
+        "“The Kings of Life will be the only screenplay in thirty-five years that moves me to tears.”  — GERMANO SARACCO · LOS ANGELES",
         "“The Adventures of Tom will be the most ambitious Polish-international co-production in a generation.”  — VARIETY EUROPE",
-        "“Wielgopolan&rsquo;s eye for a story — from Szklarski&rsquo;s jungle to a Warsaw jazz club — will be entirely his own.”  — POLISH FILM REVIEW",
-        "“Where the Butterflies Fly will announce a studio that will know when to hold the camera still.”  — SCREEN INTERNATIONAL"
+        "“Wielgopolan&rsquo;s eye for a story — from Szklarski&rsquo;s jungle to a Warsaw jazz club — is entirely his own.”  — POLISH FILM REVIEW",
+        "“Where the Butterflies Fly will announce a studio that knows when to hold the camera still.”  — SCREEN INTERNATIONAL"
       ]
     },
     status: {
@@ -161,12 +161,12 @@ export const translations = {
       lead: "Eight words. Each one is earned on one of three sets.",
       terms: [
         { word: "Option", pos: "n.", def: "The right to adapt. We hold exclusive world rights on nine Szklarski volumes — the foundation of The Adventures of Tom." },
-        { word: "Magic Hour", pos: "n.", def: "The 25 minutes that save us twice on the Queensland coast. Tom Vol. I is lit by one of them." },
+        { word: "Magic Hour", pos: "n.", def: "The 25 minutes that will save us twice on the Queensland coast. Tom Vol. I will be lit by one of them." },
         { word: "Recommend", pos: "v.", def: "The rarest verdict in script coverage. Germano Saracco gives it to The Kings of Life without hesitation." },
-        { word: "MOS", pos: "adv.", def: "Mit Out Sound. Half of Where the Butterflies Fly is shot this way — silence as a compositional tool." },
-        { word: "Location Scout", pos: "n.", def: "The person who finds 14 sites in Queensland for Tom before a single contract is signed." },
-        { word: "Day-for-Night", pos: "n.", def: "Shooting Warsaw midnight at 2 PM. The Kings of Life uses it on three exterior scenes — Polish streets are perfect for it." },
-        { word: "Final Cut", pos: "n.", def: "The version Jacek Wielgopolan defends. On all three pictures, it is the same version the audience meets." },
+        { word: "MOS", pos: "adv.", def: "Mit Out Sound. Half of Where the Butterflies Fly will be shot this way — silence as a compositional tool." },
+        { word: "Location Scout", pos: "n.", def: "The person who will find 14 sites in Queensland for Tom before a single contract is signed." },
+        { word: "Day-for-Night", pos: "n.", def: "Shooting Warsaw midnight at 2 PM. The Kings of Life will use it on three exterior scenes — Polish streets are perfect for it." },
+        { word: "Final Cut", pos: "n.", def: "The version Jacek Wielgopolan defends. On all three pictures, it will be the same version the audience meets." },
         { word: "Slate", pos: "n.", def: "Three active pictures. Nine volumes of Tom, one urban comedy-drama, one quiet film about a garden. That is our slate." }
       ]
     },
@@ -510,7 +510,7 @@ export const translations = {
       title: "Trzy filmy. Trzy światy.",
       items: [
         { n: "01", t: "Przygody Tomka", d: "Dziewięć tomów. 45 mln USD. Wybrzeże Queensland zostanie odtworzone jako dzicz roku 1910, polskie lasy zastąpią pogranicze kazachskie, a ekipa kaskaderska będzie trenować z kangurami." },
-        { n: "02", t: "Królowie życia", d: "Komediodramat będzie kręcony na nocnych ulicach Warszawy, w londyńskich studiach i nowojorskim brownstone — scenariusz, o którym Germano Saracco powie, że to jedyny, który go wzruszy do łez." },
+        { n: "02", t: "Królowie życia", d: "Komediodramat będzie kręcony na nocnych ulicach Warszawy, w londyńskich studiach i nowojorskim brownstone — scenariusz, o którym Germano Saracco mówi, że to jedyny, który go wzruszył do łez." },
         { n: "03", t: "Tam, gdzie latają motyle", d: "Film będzie zbudowany na powściągliwości — kameralne przestrzenie, naturalne światło i kamera będzie tak nieruchoma, że widz zapomni o jej istnieniu. Wizualna poezja na obieg festiwalowy." }
       ]
     },
@@ -542,10 +542,10 @@ export const translations = {
       winner: "ZWYCIĘZCA",
       entry: "OFICJALNA SELEKCJA",
       press: [
-        "„Królowie życia będą jedynym scenariuszem od trzydziestu pięciu lat, który wzruszy mnie do łez.” — GERMANO SARACCO · LOS ANGELES",
+        "„Królowie życia będą jedynym scenariuszem od trzydziestu pięciu lat, który wzrusza mnie do łez.” — GERMANO SARACCO · LOS ANGELES",
         "„Przygody Tomka będą najbardziej ambitną polsko-międzynarodową koprodukcją tego pokolenia.” — VARIETY EUROPE",
-        "„Oko Wielgopolana do historii — od dżungli Szklarskiego po warszawski klub jazzowy — będzie jedyne w swoim rodzaju.” — POLISH FILM REVIEW",
-        "„Tam, gdzie latają motyle zapowie studio, które będzie wiedzieć, kiedy zatrzymać kamerę.” — SCREEN INTERNATIONAL"
+        "„Oko Wielgopolana do historii — od dżungli Szklarskiego po warszawski klub jazzowy — jest jedyne w swoim rodzaju.” — POLISH FILM REVIEW",
+        "„Tam, gdzie latają motyle zapowie studio, które wie, kiedy zatrzymać kamerę.” — SCREEN INTERNATIONAL"
       ]
     },
     status: {
@@ -681,7 +681,7 @@ export const translations = {
     collaboration: {
       eyebrow: "Trzy filmy. Jedno studio.",
       title: "Będziesz wiedzieć, do którego<br/>z nich należysz.",
-      lead: "Tomek potrzebuje współinwestorów wierzących w długą formę. Królowie potrzebują dystrybutorów wiedzących, z czego śmieje się tłum. Motyle potrzebuje festiwali z cierpliwością. Jeśli to Ty — otwórz wire.",
+      lead: "Tomek potrzebuje współinwestorów wierzących w długą formę. Królowie potrzebują dystrybutorów wiedzących, z czego będzie śmiać się tłum. Motyle potrzebują festiwali z cierpliwością. Jeśli to Ty — otwórz wire.",
       ctaContact: "Otwórz wire",
       ctaProduction: "Produkcja w Polsce"
     },
