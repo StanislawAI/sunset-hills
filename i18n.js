@@ -14,7 +14,7 @@ export const translations = {
       eyebrow: "Sunset Hills",
       title1: "Motion",
       title2: "Pictures.",
-      tag: "Architecting stories at the intersection of cinematic tradition and next-generation visual intelligence — produced across Poland, Great Britain & the United States.",
+      tag: "Architecting stories at the intersection of cinematic tradition and next-generation visual intelligence — to be produced across Poland, Great Britain & the United States.",
       ctaSlate: "View Slate",
       ctaStudio: "The Studio",
       scroll: "Scroll",
@@ -35,15 +35,15 @@ export const translations = {
       from: "FROM THE DESK OF JACEK W.",
       loc: "WARSAW",
       lines: [
-        "We do not make content.",
-        "We make motion pictures.",
-        "Films built scene by scene, frame by frame —",
-        "with crews that have spent thirty years",
-        "learning when to push in, and when to hold.",
-        "We believe a story earns its ending.",
-        "We believe an investor deserves a return,",
-        "and an audience deserves to be moved.",
-        "That is the only contract we sign."
+        "We will not make content.",
+        "We will make motion pictures.",
+        "Films will be built scene by scene, frame by frame —",
+        "with crews that will have spent thirty years",
+        "to learn when to push in, and when to hold.",
+        "We believe a story will earn its ending.",
+        "We believe an investor will deserve a return,",
+        "and an audience will deserve to be moved.",
+        "That will be the only contract we sign."
       ],
       founder: "Jacek Wielgopolan",
       role: "Founder & Producer"
@@ -51,7 +51,7 @@ export const translations = {
     philosophy: {
       eyebrow: "01. Brand Philosophy",
       title: "The Domain<br/>of Fine Art",
-      lead: "From the $45M epic wilderness of The Adventures of Tom to the intimate night streets of The Kings of Life, we have spent three decades pairing Hollywood craft with the rigour of European cinema.",
+      lead: "From the $45M epic wilderness of The Adventures of Tom to the intimate night streets of The Kings of Life, we will spend three decades pairing Hollywood craft with the rigour of European cinema.",
       tags: ["30+ Years Legacy", "Hollywood & Poland", "Global Distribution", "Original IP"],
       cta: "Get to know us better"
     },
@@ -67,31 +67,31 @@ export const translations = {
     capabilities: {
       title: "Three Films. Three Worlds.",
       items: [
-        { n: "01", t: "The Adventures of Tom", d: "Nine volumes. $45M. Queensland coastline dressed as 1910 wilderness, Polish forests standing in for the Kazakh frontier, and a stunt unit that has trained with kangaroos." },
-        { n: "02", t: "The Kings of Life", d: "A comedy-drama shot across Warsaw night streets, London stages, and a New York brownstone — the script Germano Saracco called the only one that ever moved him to tears." },
-        { n: "03", t: "Where the Butterflies Fly", d: "A film built on restraint — intimate spaces, natural light, and a camera held so still the audience forgets it is there. Visual poetry for the festival circuit." }
+        { n: "01", t: "The Adventures of Tom", d: "Nine volumes. $45M. Queensland coastline will be dressed as 1910 wilderness, Polish forests will stand in for the Kazakh frontier, and a stunt unit will have trained with kangaroos." },
+        { n: "02", t: "The Kings of Life", d: "A comedy-drama will be shot across Warsaw night streets, London stages, and a New York brownstone — the script Germano Saracco will call the only one that will ever move him to tears." },
+        { n: "03", t: "Where the Butterflies Fly", d: "A film will be built on restraint — intimate spaces, natural light, and a camera will be held so still the audience will forget it is there. Visual poetry for the festival circuit." }
       ]
     },
     process: {
-      title: "How We Made These Three Films",
+      title: "How We Will Make These Three Films",
       steps: [
-        { n: "01", t: "Develop", note: "Szklarski estate optioned · Kings script covered · Butterflies outline drafted.", body: "Tom began with nine Szklarski novels and a $45M greenlight. Kings began with Germano Saracco reading a screenplay at 2 AM in Los Angeles. Butterflies began with a single image of a garden in September." },
-        { n: "02", t: "Pre-Production", note: "14 Queensland locations scouted · Warsaw streets locked · garden found.", body: "Tom's unit scouted 14 locations in Queensland before a single frame was shot. Kings required three city permits across two continents. Butterflies needed one room, one window, and the right afternoon light." },
-        { n: "03", t: "Principal Photography", note: "Kangaroos cooperative · Warsaw backlot approved · garden dressed.", body: "Tom cameras rolled across Queensland coast, Polish plains and London Stage 7. Kings shot night exteriors on Warsaw streets no one had dressed for film in a decade. Butterflies held its frame and waited." },
-        { n: "04", t: "Post & Deliver", note: "Color graded · mixed · distributed from Los Angeles.", body: "All three pictures are cut in Warsaw, color-graded in London, mixed by partners in Los Angeles and delivered to theatrical distributors who know what fine art looks like on a balance sheet." }
+        { n: "01", t: "Develop", note: "Szklarski estate will be optioned · Kings script will be covered · Butterflies outline will be drafted.", body: "Tom will begin with nine Szklarski novels and a $45M greenlight. Kings will begin with Germano Saracco reading a screenplay at 2 AM in Los Angeles. Butterflies will begin with a single image of a garden in September." },
+        { n: "02", t: "Pre-Production", note: "14 Queensland locations will be scouted · Warsaw streets will be locked · garden will be found.", body: "Tom's unit will scout 14 locations in Queensland before a single frame is shot. Kings will require three city permits across two continents. Butterflies will need one room, one window, and the right afternoon light." },
+        { n: "03", t: "Principal Photography", note: "Kangaroos will be cooperative · Warsaw backlot will be approved · garden will be dressed.", body: "Tom cameras will roll across Queensland coast, Polish plains and London Stage 7. Kings will shoot night exteriors on Warsaw streets no one will have dressed for film in a decade. Butterflies will hold its frame and wait." },
+        { n: "04", t: "Post & Deliver", note: "Color will be graded · mixed · distributed from Los Angeles.", body: "All three pictures will be cut in Warsaw, color-graded in London, mixed by partners in Los Angeles and delivered to theatrical distributors who will know what fine art looks like on a balance sheet." }
       ]
     },
     atlas: {
-      title: "Where Our<br/>Films Were Shot",
-      lead: "Three films. Three different answers to the same question: where does this story live?",
+      title: "Where Our<br/>Films Will Be Shot",
+      lead: "Three films. Three different answers to the same question: where will this story live?",
       tag: "Film",
       tiles: [
         { title: "Queensland Coast, Australia", standsIn: ["The Adventures of Tom — Vol. I", "Kangaroo Kingdom · 1910", "$45M principal photography"] },
-        { title: "Warsaw Night Streets", standsIn: ["The Kings of Life", "Urban drama · present day", "Dressed in a week, shot in six"] },
-        { title: "London · Stage 7, Pinewood", standsIn: ["The Adventures of Tom — multiple volumes", "Interior sets · period construction", "Backlot build approved Q3"] },
+        { title: "Warsaw Night Streets", standsIn: ["The Kings of Life", "Urban drama · present day", "Will be dressed in a week, shot in six"] },
+        { title: "London · Stage 7, Pinewood", standsIn: ["The Adventures of Tom — multiple volumes", "Interior sets · period construction", "Backlot build will be approved Q3"] },
         { title: "New York Exteriors", standsIn: ["The Kings of Life", "Third-act location", "Brownstone · Upper West Side"] },
-        { title: "Polish Highlands & Forests", standsIn: ["The Adventures of Tom — Vol. IV & V", "Standing in for Tibet and Siberia", "Four seasons available"] },
-        { title: "A Single Garden, Poland", standsIn: ["Where the Butterflies Fly", "One location · natural light only", "Shot in September afternoon"] }
+        { title: "Polish Highlands & Forests", standsIn: ["The Adventures of Tom — Vol. IV & V", "Will stand in for Tibet and Siberia", "Four seasons will be available"] },
+        { title: "A Single Garden, Poland", standsIn: ["Where the Butterflies Fly", "One location · natural light only", "Will be shot in September afternoon"] }
       ]
     },
     laurels: {
@@ -100,10 +100,10 @@ export const translations = {
       winner: "WINNER",
       entry: "OFFICIAL ENTRY",
       press: [
-        "“The Kings of Life is the only screenplay in thirty-five years that moved me to tears.”  — GERMANO SARACCO · LOS ANGELES",
-        "“The Adventures of Tom is the most ambitious Polish-international co-production in a generation.”  — VARIETY EUROPE",
-        "“Wielgopolan&rsquo;s eye for a story — from Szklarski&rsquo;s jungle to a Warsaw jazz club — is entirely his own.”  — POLISH FILM REVIEW",
-        "“Where the Butterflies Fly announces a studio that knows when to hold the camera still.”  — SCREEN INTERNATIONAL"
+        "“The Kings of Life will be the only screenplay in thirty-five years that will move me to tears.”  — GERMANO SARACCO · LOS ANGELES",
+        "“The Adventures of Tom will be the most ambitious Polish-international co-production in a generation.”  — VARIETY EUROPE",
+        "“Wielgopolan&rsquo;s eye for a story — from Szklarski&rsquo;s jungle to a Warsaw jazz club — will be entirely his own.”  — POLISH FILM REVIEW",
+        "“Where the Butterflies Fly will announce a studio that will know when to hold the camera still.”  — SCREEN INTERNATIONAL"
       ]
     },
     status: {
@@ -113,7 +113,7 @@ export const translations = {
       days: "days in stage"
     },
     quote: {
-      body: "Among the literally thousands of screenplays I&rsquo;ve read, the scenario written by Jacek Wielgopolan, &ldquo;The Kings of Life&rdquo;, is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears.",
+      body: "Among the literally thousands of screenplays I will have read, the scenario written by Jacek Wielgopolan, &ldquo;The Kings of Life&rdquo;, will be the only one that will sincerely amuse me. The ending will surprise me so much that in just a moment I will be moved to tears.",
       author: "Germano Saracco",
       role: "Cinematographer · Smokin&rsquo; Aces, Hopeful Notes"
     },
@@ -153,43 +153,43 @@ export const translations = {
     },
     frames: {
       title: "Selected Frames",
-      lead: "Drag to scrub. Each frame, a moment from a working set.",
+      lead: "Drag to scrub. Each frame will be a moment from a working set.",
       frame: "FRAME"
     },
     lexicon: {
       title: "Studio Lexicon",
-      lead: "Eight words. Each one earned on one of three sets.",
+      lead: "Eight words. Each one will be earned on one of three sets.",
       terms: [
-        { word: "Option", pos: "n.", def: "The right to adapt. We hold exclusive world rights on nine Szklarski volumes — the foundation of The Adventures of Tom." },
-        { word: "Magic Hour", pos: "n.", def: "The 25 minutes that saved us twice on the Queensland coast. Tom Vol. I was lit by one of them." },
-        { word: "Recommend", pos: "v.", def: "The rarest verdict in script coverage. Germano Saracco gave it to The Kings of Life without hesitation." },
-        { word: "MOS", pos: "adv.", def: "Mit Out Sound. Half of Where the Butterflies Fly was shot this way — silence as a compositional tool." },
-        { word: "Location Scout", pos: "n.", def: "The person who found 14 sites in Queensland for Tom before a single contract was signed." },
-        { word: "Day-for-Night", pos: "n.", def: "Shooting Warsaw midnight at 2 PM. The Kings of Life used it on three exterior scenes — Polish streets are perfect for it." },
-        { word: "Final Cut", pos: "n.", def: "The version Jacek Wielgopolan defends. On all three pictures, it is the same version the audience meets." },
-        { word: "Slate", pos: "n.", def: "Three active pictures. Nine volumes of Tom, one urban comedy-drama, one quiet film about a garden. That is our slate." }
+        { word: "Option", pos: "n.", def: "The right to adapt. We will hold exclusive world rights on nine Szklarski volumes — the foundation of The Adventures of Tom." },
+        { word: "Magic Hour", pos: "n.", def: "The 25 minutes that will save us twice on the Queensland coast. Tom Vol. I will be lit by one of them." },
+        { word: "Recommend", pos: "v.", def: "The rarest verdict in script coverage. Germano Saracco will give it to The Kings of Life without hesitation." },
+        { word: "MOS", pos: "adv.", def: "Mit Out Sound. Half of Where the Butterflies Fly will be shot this way — silence as a compositional tool." },
+        { word: "Location Scout", pos: "n.", def: "The person who will find 14 sites in Queensland for Tom before a single contract is signed." },
+        { word: "Day-for-Night", pos: "n.", def: "Shooting Warsaw midnight at 2 PM. The Kings of Life will use it on three exterior scenes — Polish streets will be perfect for it." },
+        { word: "Final Cut", pos: "n.", def: "The version Jacek Wielgopolan will defend. On all three pictures, it will be the same version the audience will meet." },
+        { word: "Slate", pos: "n.", def: "Three active pictures. Nine volumes of Tom, one urban comedy-drama, one quiet film about a garden. That will be our slate." }
       ]
     },
     ratio: {
       title: "Aspect Ratio Lab",
-      lead: "Tom shoots 2.39 anamorphic scope. Kings shoots 1.85 theatrical flat. Butterflies shoots 1.33 Academy square. Every story chooses its own window."
+      lead: "Tom will shoot 2.39 anamorphic scope. Kings will shoot 1.85 theatrical flat. Butterflies will shoot 1.33 Academy square. Every story will choose its own window."
     },
     day: {
       title: "A Day on Set — Tom Vol. I, Queensland",
       items: [
-        { t: "04:30", l: "Crew Call · Queensland Coast", d: "Trucks roll into the Kangaroo Kingdom basecamp. Fourteen locations scouted. We are on number seven." },
-        { t: "05:15", l: "Camera & Lighting", d: "The ARRI Alexa is loaded with Cooke anamorphics — Tom shoots 2.39 scope. The sun over the reef gives us exactly what no stage can replicate." },
-        { t: "06:00", l: "Period Wardrobe · 1910", d: "Cast in Edwardian costume. Continuity supervisor photographs every button. Period accuracy is non-negotiable on a $45M production." },
-        { t: "07:00", l: "Blocking · Exterior Wilderness", d: "Jack walks the scene with the DP across 400 metres of dressed scrubland. The kangaroos are unscheduled but cooperative." },
-        { t: "08:00", l: "First Take", d: "Roll sound. Roll camera. Slate: Tom — Vol. I — Sc. 34 — Take 1. Action." },
-        { t: "16:20", l: "Magic Hour", d: "Twenty-five minutes. The Queensland sky turns gold in a way Poland never does. Three shots remain. We get all three." },
-        { t: "17:00", l: "Camera Wrap", d: "Lenses wrapped. Location unit begins restoring the site. The 1st AD locks tomorrow at Loc. 8 — the inland waterway." },
-        { t: "22:00", l: "Dailies · Basecamp", d: "Jack, the editor and Germano watch what was captured. Scene 34 is in the picture. Scene 35 goes again tomorrow." }
+        { t: "04:30", l: "Crew Call · Queensland Coast", d: "Trucks will roll into the Kangaroo Kingdom basecamp. Fourteen locations will be scouted. We will be on number seven." },
+        { t: "05:15", l: "Camera & Lighting", d: "The ARRI Alexa will be loaded with Cooke anamorphics — Tom will shoot 2.39 scope. The sun over the reef will give us exactly what no stage will be able to replicate." },
+        { t: "06:00", l: "Period Wardrobe · 1910", d: "Cast will be in Edwardian costume. Continuity supervisor will photograph every button. Period accuracy will be non-negotiable on a $45M production." },
+        { t: "07:00", l: "Blocking · Exterior Wilderness", d: "Jack will walk the scene with the DP across 400 metres of dressed scrubland. The kangaroos will be unscheduled but will be cooperative." },
+        { t: "08:00", l: "First Take", d: "Sound will roll. Camera will roll. Slate: Tom — Vol. I — Sc. 34 — Take 1. Action." },
+        { t: "16:20", l: "Magic Hour", d: "Twenty-five minutes. The Queensland sky will turn gold in a way Poland never will. Three shots will remain. We will get all three." },
+        { t: "17:00", l: "Camera Wrap", d: "Lenses will be wrapped. Location unit will begin restoring the site. The 1st AD will lock tomorrow at Loc. 8 — the inland waterway." },
+        { t: "22:00", l: "Dailies · Basecamp", d: "Jack, the editor and Germano will watch what will be captured. Scene 34 will be in the picture. Scene 35 will go again tomorrow." }
       ]
     },
     anatomy: {
       title: "Anatomy of a Shot",
-      lead: "The Kings of Life — Scene 42, INT. Jazz Club, Warsaw, Night. The frame Germano Saracco and Jack Wielgopolan agreed on in take three.",
+      lead: "The Kings of Life — Scene 42, INT. Jazz Club, Warsaw, Night. The frame Germano Saracco and Jack Wielgopolan will agree on in take three.",
       labels: {
         headroom: "HEADROOM · KINGS SC.42",
         leadroom: "LEAD ROOM · WARSAW NIGHT",
@@ -201,7 +201,7 @@ export const translations = {
     },
     budget: {
       title: "Budget Anatomy · Tom Vol. I",
-      lead: "Where the $45M Adventures of Tom production budget goes — the numbers we share with every co-financier before a wire is sent.",
+      lead: "Where the $45M Adventures of Tom production budget will go — the numbers we will share with every co-financier before a wire is sent.",
       slices: [
         { name: "Above-the-line", note: "Wielgopolan · period cast · Szklarski rights" },
         { name: "Production",     note: "Queensland crew · 64m cranes · stunt animals" },
@@ -222,24 +222,24 @@ export const translations = {
         locations: "Locations",
         depts: "Departments"
       },
-      received: "RECEIVED"
+      received: "TO BE RECEIVED"
     },
     telegrams: {
       title: "Telegrams",
-      lead: "A working studio is a wire room. A few from the file cabinet.",
-      received: "RECEIVED · 1A"
+      lead: "A working studio will be a wire room. A few will be pulled from the file cabinet.",
+      received: "TO BE RECEIVED · 1A"
     },
     dropzone: {
       title: "Submit a Screenplay",
       drop: "Drop your screenplay here",
-      sub: "PDF · Final Draft · Fountain · or send a logline. We read everything.",
+      sub: "PDF · Final Draft · Fountain · or send a logline. We will read everything.",
       cta: "→ Open the contact form",
-      received: "RECEIVED"
+      received: "TO BE RECEIVED"
     },
     collaboration: {
       eyebrow: "Three Films. One Studio.",
-      title: "You know which<br/>one you belong to.",
-      lead: "Tom needs co-financiers who believe in the long form. Kings needs distributors who know what a crowd laughs at. Butterflies needs festival programmers with patience. If that is you — open the wire.",
+      title: "You will know which<br/>one you belong to.",
+      lead: "Tom will need co-financiers who believe in the long form. Kings will need distributors who know what a crowd will laugh at. Butterflies will need festival programmers with patience. If that is you — open the wire.",
       ctaContact: "Open the Wire",
       ctaProduction: "Production in Poland"
     },
@@ -251,7 +251,7 @@ export const translations = {
       id: {
         eyebrow: "FILE · STUDIO IDENTITY · CARD 001",
         title: "Sunset Hills<br/>Motion Pictures",
-        lead: "An independent film studio holding offices in Warsaw and London. Producing, supervising and distributing motion pictures across Poland, the United Kingdom and the United States since 1991.",
+        lead: "An independent film studio holding offices in Warsaw and London. Will be producing, supervising and distributing motion pictures across Poland, the United Kingdom and the United States.",
         stamp: "VERIFIED",
         meta: {
           founded: "FOUNDED",
@@ -265,7 +265,7 @@ export const translations = {
           slateVal: "09 active titles",
           staffVal: "5 permanent · ~ 280 freelance",
           coproVal: "USA · UK · AUS · UA",
-          mottoVal: "“A story earns its ending.”"
+          mottoVal: "“A story will earn its ending.”"
         }
       },
       origin: {
@@ -276,7 +276,7 @@ export const translations = {
         readMore: "Read more"
       },
       beliefs: {
-        title: "What We<br/>Believe"
+        title: "What We<br/>Will Believe"
       },
       offices: {
         title: "Two Rooms<br/>One Studio",
@@ -291,7 +291,7 @@ export const translations = {
       },
       roster: {
         title: "The Roster",
-        lead: "In film, credits roll for a reason. Here are ours, ordered the way they would appear at the end of a picture."
+        lead: "In film, credits will roll for a reason. Here will be ours, ordered the way they will appear at the end of a picture."
       },
       cabinet: {
         title: "The Cabinet",
@@ -324,8 +324,8 @@ export const translations = {
     coverage: {
       intro: {
         eyebrow: "The Reader&rsquo;s Verdict",
-        title: "Coverage<br/>is the<br/>first cut.",
-        lead: "Before a screenplay reaches a producer&rsquo;s desk, it passes through a reader. Coverage is the document that summarises the story, evaluates the craft, and assigns one of three verdicts &mdash; <strong>Pass</strong>, <strong>Consider</strong>, or <strong>Recommend</strong>. We do this work for our own development slate and, by referral, for partners around the world.",
+        title: "Coverage<br/>will be the<br/>first cut.",
+        lead: "Before a screenplay reaches a producer&rsquo;s desk, it will pass through a reader. Coverage will be the document that summarises the story, evaluates the craft, and assigns one of three verdicts &mdash; <strong>Pass</strong>, <strong>Consider</strong>, or <strong>Recommend</strong>. We will do this work for our own development slate and, by referral, for partners around the world.",
         stats: {
           scripts: "SCRIPTS / YEAR",
           turnaround: "AVG TURNAROUND",
@@ -336,18 +336,18 @@ export const translations = {
       tiers: {
         title: "Three Verdicts",
         items: [
-          { code: "PASS",      n: "01", note: "The script is not a fit. Sometimes a craft issue, often a market one. Reader notes go to the writer regardless.", count: "78%" },
-          { code: "CONSIDER",  n: "02", note: "Strong elements that warrant a second read. Forwarded to a senior producer with the reader&rsquo;s annotations.", count: "18%" },
-          { code: "RECOMMEND", n: "03", note: "Rare. The reader is willing to stake their reputation on it. Goes directly to head of development within 24 hours.", count: "4%" }
+          { code: "PASS",      n: "01", note: "The script will not be a fit. Sometimes a craft issue, often a market one. Reader notes will go to the writer regardless.", count: "78%" },
+          { code: "CONSIDER",  n: "02", note: "Strong elements that will warrant a second read. Will be forwarded to a senior producer with the reader&rsquo;s annotations.", count: "18%" },
+          { code: "RECOMMEND", n: "03", note: "Rare. The reader will be willing to stake their reputation on it. Will go directly to head of development within 24 hours.", count: "4%" }
         ]
       },
       process: {
         title: "From Page to Verdict",
         steps: [
-          { n: "01", t: "Intake", note: "Slug-line scan. Format check. Deduplication.", body: "Every screenplay is assigned a coverage ID, logged with title / writer / pages, and assigned to a reader by genre." },
-          { n: "02", t: "Read", note: "Two passes. First fast. Second annotated.", body: "Readers track structure beats on a one-pager — Inciting Incident, Midpoint, Climax. Marginalia is preserved verbatim." },
-          { n: "03", t: "Synopsis", note: "1 page. No spoilers withheld.", body: "A precise prose summary, plus a logline tightened beyond the writer&rsquo;s. The story is told, not teased." },
-          { n: "04", t: "Verdict", note: "Pass · Consider · Recommend.", body: "Concept, Story, Characters and Dialogue are graded. The reader signs the verdict. The writer receives the notes within 14 days." }
+          { n: "01", t: "Intake", note: "Slug-line scan. Format check. Deduplication.", body: "Every screenplay will be assigned a coverage ID, logged with title / writer / pages, and assigned to a reader by genre." },
+          { n: "02", t: "Read", note: "Two passes. First fast. Second annotated.", body: "Readers will track structure beats on a one-pager — Inciting Incident, Midpoint, Climax. Marginalia will be preserved verbatim." },
+          { n: "03", t: "Synopsis", note: "1 page. No spoilers withheld.", body: "A precise prose summary, plus a logline tightened beyond the writer&rsquo;s. The story will be told, not teased." },
+          { n: "04", t: "Verdict", note: "Pass · Consider · Recommend.", body: "Concept, Story, Characters and Dialogue will be graded. The reader will sign the verdict. The writer will receive the notes within 14 days." }
         ]
       },
       sample: {
@@ -355,38 +355,38 @@ export const translations = {
         confidential: "CONFIDENTIAL",
         report: "STUDIO COVERAGE REPORT &middot; FILE 0427-A",
         logline: "Logline",
-        loglineBody: "A down-on-his-luck violinist is forced to start over in a different country and finds an unlikely family &mdash; in the form of an old friend and a little girl &mdash; around a landfill on the edge of Warsaw.",
+        loglineBody: "A down-on-his-luck violinist will be forced to start over in a different country and will find an unlikely family &mdash; in the form of an old friend and a little girl &mdash; around a landfill on the edge of Warsaw.",
         synopsis: "Synopsis",
         synopsisBody: [
-          "Wiktor, once a celebrated first violin in a state symphony, arrives in a foreign city with a passport, a letter, and a single suitcase. The orchestra he had been promised has folded. He sleeps the first night under a bridge, the second on a friend&rsquo;s sofa, the third in a clearing behind a hauling yard.",
-          "It is at the yard that he meets <em>Filip</em> &mdash; an old conservatoire classmate now running the daily sort &mdash; and <em>Ola</em>, a child who lives nearby and treats the landfill the way other children treat a public park. The three of them, by accident at first and then by gravity, become each other&rsquo;s family.",
-          "The third act turns on a sealed letter Wiktor was carrying when he first crossed the border. The letter, when opened, returns to him a piece of his old life he had assumed was permanently lost."
+          "Wiktor, once a celebrated first violin in a state symphony, will arrive in a foreign city with a passport, a letter, and a single suitcase. The orchestra he had been promised will have folded. He will sleep the first night under a bridge, the second on a friend&rsquo;s sofa, the third in a clearing behind a hauling yard.",
+          "It is at the yard that he will meet <em>Filip</em> &mdash; an old conservatoire classmate now running the daily sort &mdash; and <em>Ola</em>, a child who will live nearby and will treat the landfill the way other children treat a public park. The three of them, by accident at first and then by gravity, will become each other&rsquo;s family.",
+          "The third act will turn on a sealed letter Wiktor will be carrying when he first crosses the border. The letter, when opened, will return to him a piece of his old life he will have assumed was permanently lost."
         ],
         strengths: "Strengths",
         strengthsBody: [
-          "The setting &mdash; a working landfill &mdash; is fresh, photographable, and metaphorically rich.",
-          "Wiktor&rsquo;s relationship with Ola is unforced and earned.",
-          "The third-act letter pays off a long set-up cleanly."
+          "The setting &mdash; a working landfill &mdash; will be fresh, photographable, and metaphorically rich.",
+          "Wiktor&rsquo;s relationship with Ola will be unforced and earned.",
+          "The third-act letter will pay off a long set-up cleanly."
         ],
         weaknesses: "Weaknesses",
         weaknessesBody: [
-          "Filip&rsquo;s arc plateaus around p. 70; he disappears for 14 pages and returns unchanged.",
-          "Two of the dialogue scenes between Wiktor and the social worker repeat information.",
-          "The opening flashback is easy to cut and would tighten Act One by 6 pages."
+          "Filip&rsquo;s arc will plateau around p. 70; he will disappear for 14 pages and return unchanged.",
+          "Two of the dialogue scenes between Wiktor and the social worker will repeat information.",
+          "The opening flashback will be easy to cut and would tighten Act One by 6 pages."
         ],
         evaluation: "Evaluation",
         recommendation: "RECOMMENDATION",
-        recBody: "The setting and central trio make this a memorable script. The structure could tighten by ten pages, and Filip&rsquo;s arc deserves a stronger reversal in Act Two. With those revisions, this moves to <em>Recommend</em>.",
+        recBody: "The setting and central trio will make this a memorable script. The structure could tighten by ten pages, and Filip&rsquo;s arc will deserve a stronger reversal in Act Two. With those revisions, this will move to <em>Recommend</em>.",
         reader: "READER"
       },
       readers: {
         title: "The Room",
-        lead: "Coverage is read by humans. These are ours."
+        lead: "Coverage will be read by humans. These will be ours."
       },
       submit: {
         eyebrow: "Send your pages",
         title: "Submit a<br/>screenplay.",
-        lead: "PDF or Final Draft. English or Polish. We read everything that arrives at <b>cool@world.pl</b> and reply within fourteen days.",
+        lead: "PDF or Final Draft. English or Polish. We will read everything that arrives at <b>cool@world.pl</b> and will reply within fourteen days.",
         cta: "Open the wire"
       }
     },
@@ -405,7 +405,7 @@ export const translations = {
       },
       eras: {
         title: "A Millennium of Backlots",
-        lead: "Poland is one of the few countries where you can scout the 12th and 21st centuries inside a single afternoon."
+        lead: "Poland will remain one of the few countries where you will be able to scout the 12th and 21st centuries inside a single afternoon."
       },
       seasons: {
         title: "Four Working Seasons"
@@ -417,7 +417,7 @@ export const translations = {
     contact: {
       eyebrow: "Open a wire",
       title: "Send a<br/>Transmission",
-      lead: "Investors, distributors, festival programmers, screenwriters &mdash; we read every wire that comes in. Most replies go out within 48 hours, Warsaw time.",
+      lead: "Investors, distributors, festival programmers, screenwriters &mdash; we will read every wire that comes in. Most replies will go out within 48 hours, Warsaw time.",
       form: {
         outgoing: "OUTGOING WIRE",
         to: "TO",
@@ -456,7 +456,7 @@ export const translations = {
       eyebrow: "Sunset Hills",
       title1: "Produkcja",
       title2: "Filmowa.",
-      tag: "Architektura opowieści na styku tradycji kinowej i inteligencji wizualnej nowej generacji — produkowana w Polsce, Wielkiej Brytanii i Stanach Zjednoczonych.",
+      tag: "Architektura opowieści na styku tradycji kinowej i inteligencji wizualnej nowej generacji — będzie produkowana w Polsce, Wielkiej Brytanii i Stanach Zjednoczonych.",
       ctaSlate: "Zobacz projekty",
       ctaStudio: "Studio",
       scroll: "Przewiń",
@@ -477,15 +477,15 @@ export const translations = {
       from: "Z BIURKA JACKA W.",
       loc: "WARSZAWA",
       lines: [
-        "Nie tworzymy treści.",
-        "Tworzymy kino.",
-        "Filmy budowane scena po scenie, klatka po klatce —",
-        "z ekipami, które spędziły trzydzieści lat",
+        "Nie będziemy tworzyć contentu.",
+        "Będziemy tworzyć kino.",
+        "Filmy będą budowane scena po scenie, klatka po klatce —",
+        "z ekipami, które spędzą trzydzieści lat",
         "ucząc się, kiedy zbliżyć kamerę, a kiedy ją zatrzymać.",
-        "Wierzymy, że historia zasługuje na swój finał.",
-        "Wierzymy, że inwestor zasługuje na zwrot,",
-        "a widownia zasługuje na wzruszenie.",
-        "To jedyny kontrakt, który podpisujemy."
+        "Wierzymy, że historia zasłuży na swój finał.",
+        "Wierzymy, że inwestor zasłuży na zwrot,",
+        "a widownia zasłuży na wzruszenie.",
+        "To będzie jedyny kontrakt, który podpiszemy."
       ],
       founder: "Jacek Wielgopolan",
       role: "Założyciel i Producent"
@@ -493,7 +493,7 @@ export const translations = {
     philosophy: {
       eyebrow: "01. Filozofia marki",
       title: "Domena<br/>Sztuk Pięknych",
-      lead: "Od epickiej dziczy Przygód Tomka po intymne, nocne ulice Królów życia — od trzech dekad łączymy hollywoodzki kunszt z rygorem europejskiego kina.",
+      lead: "Od epickiej dziczy Przygód Tomka po intymne, nocne ulice Królów życia — będziemy łączyć hollywoodzki kunszt z rygorem europejskiego kina.",
       tags: ["30+ Lat Dziedzictwa", "Hollywood i Polska", "Globalna Dystrybucja", "Oryginalne IP"],
       cta: "Poznaj nas lepiej"
     },
@@ -509,31 +509,31 @@ export const translations = {
     capabilities: {
       title: "Trzy filmy. Trzy światy.",
       items: [
-        { n: "01", t: "Przygody Tomka", d: "Dziewięć tomów. 45 mln USD. Wybrzeże Queensland odtworzone jako dzicz roku 1910, polskie lasy jako pogranicze kazachskie i ekipa kaskaderska, która trenowała z kangurami." },
-        { n: "02", t: "Królowie życia", d: "Komediodramat kręcony na nocnych ulicach Warszawy, w londyńskich studiach i nowojorskim brownstone — scenariusz, o którym Germano Saracco powiedział, że to jedyny, który go wzruszył do łez." },
-        { n: "03", t: "Tam, gdzie latają motyle", d: "Film zbudowany na powściągliwości — kameralne przestrzenie, naturalne światło i kamera tak nieruchoma, że widz zapomina o jej istnieniu. Wizualna poezja na obieg festiwalowy." }
+        { n: "01", t: "Przygody Tomka", d: "Dziewięć tomów. 45 mln USD. Wybrzeże Queensland zostanie odtworzone jako dzicz roku 1910, polskie lasy zastąpią pogranicze kazachskie, a ekipa kaskaderska będzie trenować z kangurami." },
+        { n: "02", t: "Królowie życia", d: "Komediodramat będzie kręcony na nocnych ulicach Warszawy, w londyńskich studiach i nowojorskim brownstone — scenariusz, o którym Germano Saracco powie, że to jedyny, który go wzruszy do łez." },
+        { n: "03", t: "Tam, gdzie latają motyle", d: "Film będzie zbudowany na powściągliwości — kameralne przestrzenie, naturalne światło i kamera będzie tak nieruchoma, że widz zapomni o jej istnieniu. Wizualna poezja na obieg festiwalowy." }
       ]
     },
     process: {
-      title: "Jak powstały te trzy filmy",
+      title: "Jak powstaną te trzy filmy",
       steps: [
-        { n: "01", t: "Rozwój", note: "Opcja na spadek Szklarskiego · Analiza Królów · Zarys Motyli.", body: "Tomek zaczął się od dziewięciu powieści Szklarskiego i zielonego światła na 45 mln USD. Królowie zaczęli się od Germano Saracco czytającego scenariusz o 2 w nocy w Los Angeles. Motyle zaczęły się od jednego obrazu ogrodu we wrześniu." },
-        { n: "02", t: "Preprodukcja", note: "14 lokacji w Queensland · ulice Warszawy zabezpieczone · ogród znaleziony.", body: "Ekipa Tomka sprawdziła 14 lokacji w Queensland, zanim padła pierwsza klatka. Królowie wymagali trzech pozwoleń miejskich na dwóch kontynentach. Motyle potrzebowały jednego pokoju, jednego okna i odpowiedniego popołudniowego światła." },
-        { n: "03", t: "Zdjęcia", note: "Kangury współpracują · Plan w Warszawie zatwierdzony · Ogród przygotowany.", body: "Kamery Tomka kręciły na wybrzeżu Queensland, polskich równinach i londyńskim Studio 7. Królowie kręcili nocne plenery na warszawskich ulicach. Motyle trzymały kadr i czekały." },
-        { n: "04", t: "Postprodukcja", note: "Korekcja barwna · miks · dystrybucja z Los Angeles.", body: "Wszystkie trzy filmy są montowane w Warszawie, kolorowane w Londynie, miksowane przez partnerów w Los Angeles i dostarczane do dystrybutorów kinowych, którzy wiedzą, jak sztuka wygląda w bilansie." }
+        { n: "01", t: "Rozwój", note: "Opcja na spadek Szklarskiego zostanie zabezpieczona · Analiza Królów zostanie wykonana · Zarys Motyli powstanie.", body: "Tomek zacznie się od dziewięciu powieści Szklarskiego i zielonego światła na 45 mln USD. Królowie zaczną się od Germano Saracco czytającego scenariusz o 2 w nocy w Los Angeles. Motyle zaczną się od jednego obrazu ogrodu we wrześniu." },
+        { n: "02", t: "Preprodukcja", note: "14 lokacji w Queensland zostanie sprawdzonych · ulice Warszawy zostaną zabezpieczone · ogród zostanie znaleziony.", body: "Ekipa Tomka sprawdzi 14 lokacji w Queensland, zanim padnie pierwsza klatka. Królowie będą wymagać trzech pozwoleń miejskich na dwóch kontynentach. Motyle będą potrzebować jednego pokoju, jednego okna i odpowiedniego popołudniowego światła." },
+        { n: "03", t: "Zdjęcia", note: "Kangury będą współpracować · Plan w Warszawie zostanie zatwierdzony · Ogród zostanie przygotowany.", body: "Kamery Tomka będą kręcić na wybrzeżu Queensland, polskich równinach i londyńskim Studio 7. Królowie będą kręcić nocne plenery na warszawskich ulicach. Motyle będą trzymać kadr i czekać." },
+        { n: "04", t: "Postprodukcja", note: "Korekcja barwna · miks · dystrybucja z Los Angeles.", body: "Wszystkie trzy filmy będą montowane w Warszawie, kolorowane w Londynie, miksowane przez partnerów w Los Angeles i dostarczane do dystrybutorów kinowych, którzy będą wiedzieć, jak sztuka wygląda w bilansie." }
       ]
     },
     atlas: {
-      title: "Gdzie kręciliśmy<br/>nasze filmy",
-      lead: "Trzy filmy. Trzy różne odpowiedzi na to samo pytanie: gdzie żyje ta historia?",
+      title: "Gdzie będziemy kręcić<br/>nasze filmy",
+      lead: "Trzy filmy. Trzy różne odpowiedzi na to samo pytanie: gdzie będzie żyć ta historia?",
       tag: "Film",
       tiles: [
         { title: "Wybrzeże Queensland, Australia", standsIn: ["Przygody Tomka — Tom I", "Królestwo Kangurów · 1910", "Główne zdjęcia za 45 mln USD"] },
-        { title: "Nocne ulice Warszawy", standsIn: ["Królowie życia", "Dramat miejski · współczesność", "Przygotowane w tydzień, nakręcone w sześć"] },
-        { title: "Londyn · Studio 7, Pinewood", standsIn: ["Przygody Tomka — wiele tomów", "Wnętrza · budowa dekoracji", "Zarezerwowane na Q3"] },
+        { title: "Nocne ulice Warszawy", standsIn: ["Królowie życia", "Dramat miejski · współczesność", "Zostaną przygotowane w tydzień, nakręcone w sześć"] },
+        { title: "Londyn · Studio 7, Pinewood", standsIn: ["Przygody Tomka — wiele tomów", "Wnętrza · budowa dekoracji", "Zostaną zarezerwowane na Q3"] },
         { title: "Plenery Nowego Jorku", standsIn: ["Królowie życia", "Lokacja trzeciego aktu", "Brownstone · Upper West Side"] },
-        { title: "Polskie góry i lasy", standsIn: ["Przygody Tomka — Tom IV i V", "Zastępują Tybet i Syberię", "Cztery pory roku dostępne"] },
-        { title: "Jeden ogród, Polska", standsIn: ["Tam, gdzie latają motyle", "Jedna lokacja · tylko naturalne światło", "Kręcone we wrześniowe popołudnie"] }
+        { title: "Polskie góry i lasy", standsIn: ["Przygody Tomka — Tom IV i V", "Zastąpią Tybet i Syberię", "Cztery pory roku będą dostępne"] },
+        { title: "Jeden ogród, Polska", standsIn: ["Tam, gdzie latają motyle", "Jedna lokacja · tylko naturalne światło", "Będą kręcone we wrześniowe popołudnie"] }
       ]
     },
     laurels: {
@@ -542,10 +542,10 @@ export const translations = {
       winner: "ZWYCIĘZCA",
       entry: "OFICJALNA SELEKCJA",
       press: [
-        "„Królowie życia to jedyny scenariusz od trzydziestu pięciu lat, który wzruszył mnie do łez.” — GERMANO SARACCO · LOS ANGELES",
-        "„Przygody Tomka to najbardziej ambitna polsko-międzynarodowa koprodukcja tego pokolenia.” — VARIETY EUROPE",
-        "„Oko Wielgopolana do historii — od dżungli Szklarskiego po warszawski klub jazzowy — jest jedyne w swoim rodzaju.” — POLISH FILM REVIEW",
-        "„Tam, gdzie latają motyle zapowiada studio, które wie, kiedy zatrzymać kamerę.” — SCREEN INTERNATIONAL"
+        "„Królowie życia będą jedynym scenariuszem od trzydziestu pięciu lat, który wzruszy mnie do łez.” — GERMANO SARACCO · LOS ANGELES",
+        "„Przygody Tomka będą najbardziej ambitną polsko-międzynarodową koprodukcją tego pokolenia.” — VARIETY EUROPE",
+        "„Oko Wielgopolana do historii — od dżungli Szklarskiego po warszawski klub jazzowy — będzie jedyne w swoim rodzaju.” — POLISH FILM REVIEW",
+        "„Tam, gdzie latają motyle zapowie studio, które będzie wiedzieć, kiedy zatrzymać kamerę.” — SCREEN INTERNATIONAL"
       ]
     },
     status: {
@@ -555,7 +555,7 @@ export const translations = {
       days: "dni w etapie"
     },
     quote: {
-      body: "Spośród tysięcy scenariuszy, jakie przeczytałem, tekst Jacka Wielgopolana „Królowie życia” jest jedynym, który szczerze mnie rozbawił. Zakończenie zaskoczyło mnie tak bardzo, że w jednej chwili wzruszyłem się do łez.",
+      body: "Spośród tysięcy scenariuszy, jakie przeczytam, tekst Jacka Wielgopolana „Królowie życia” będzie jedynym, który szczerze mnie rozbawi. Zakończenie zaskoczy mnie tak bardzo, że w jednej chwili wzruszę się do łez.",
       author: "Germano Saracco",
       role: "Operator obrazu · Smokin’ Aces, Hopeful Notes"
     },
@@ -595,43 +595,43 @@ export const translations = {
     },
     frames: {
       title: "Wybrane kadry",
-      lead: "Przesuń, aby przewijać. Każdy kadr to moment z pracującego planu.",
+      lead: "Przesuń, aby przewijać. Każdy kadr będzie momentem z pracującego planu.",
       frame: "KLATKA"
     },
     lexicon: {
       title: "Leksykon studia",
-      lead: "Osiem słów. Każde z nich zdobyte na jednym z trzech planów.",
+      lead: "Osiem słów. Każde z nich zostanie zdobyte na jednym z trzech planów.",
       terms: [
-        { word: "Opcja", pos: "rzecz.", def: "Prawo do adaptacji. Posiadamy wyłączne światowe prawa do dziewięciu tomów Szklarskiego — fundamentu Przygód Tomka." },
-        { word: "Magic Hour", pos: "rzecz.", def: "Złota godzina. 25 minut, które dwukrotnie uratowały nas na wybrzeżu Queensland. Tomek Vol. I został nią oświetlony." },
-        { word: "Rekomenduj", pos: "czas.", def: "Najrzadszy werdykt w analizie scenariusza. Germano Saracco przyznał go Królom życia bez wahania." },
-        { word: "MOS", pos: "przysł.", def: "Mit Out Sound. Połowa filmu Tam, gdzie latają motyle została nakręcona w ten sposób — cisza jako narzędzie kompozycji." },
-        { word: "Scout", pos: "rzecz.", def: "Osoba, która znalazła 14 lokalizacji w Queensland dla Tomka, zanim podpisano pierwszy kontrakt." },
-        { word: "Day-for-Night", pos: "rzecz.", def: "Noc amerykańska. Kręcenie warszawskiej północy o 14:00. Królowie życia użyli jej w trzech scenach plenerowych." },
-        { word: "Final Cut", pos: "rzecz.", def: "Wersja, której broni Jacek Wielgopolan. We wszystkich trzech filmach jest to ta sama wersja, którą poznaje widz." },
-        { word: "Slate", pos: "rzecz.", def: "Trzy aktywne filmy. Dziewięć tomów Tomka, jeden miejski komediodramat, jeden cichy film o ogrodzie. Oto nasza lista." }
+        { word: "Opcja", pos: "rzecz.", def: "Prawo do adaptacji. Będziemy posiadać wyłączne światowe prawa do dziewięciu tomów Szklarskiego — fundamentu Przygód Tomka." },
+        { word: "Magic Hour", pos: "rzecz.", def: "Złota godzina. 25 minut, które dwukrotnie uratują nas na wybrzeżu Queensland. Tomek Vol. I zostanie nią oświetlony." },
+        { word: "Rekomenduj", pos: "czas.", def: "Najrzadszy werdykt w analizie scenariusza. Germano Saracco przyzna go Królom życia bez wahania." },
+        { word: "MOS", pos: "przysł.", def: "Mit Out Sound. Połowa filmu Tam, gdzie latają motyle zostanie nakręcona w ten sposób — cisza jako narzędzie kompozycji." },
+        { word: "Scout", pos: "rzecz.", def: "Osoba, która znajdzie 14 lokalizacji w Queensland dla Tomka, zanim zostanie podpisany pierwszy kontrakt." },
+        { word: "Day-for-Night", pos: "rzecz.", def: "Noc amerykańska. Kręcenie warszawskiej północy o 14:00. Królowie życia użyją jej w trzech scenach plenerowych." },
+        { word: "Final Cut", pos: "rzecz.", def: "Wersja, której będzie bronił Jacek Wielgopolan. We wszystkich trzech filmach będzie to ta sama wersja, którą pozna widz." },
+        { word: "Slate", pos: "rzecz.", def: "Trzy aktywne filmy. Dziewięć tomów Tomka, jeden miejski komediodramat, jeden cichy film o ogrodzie. To będzie nasza lista." }
       ]
     },
     ratio: {
       title: "Laboratorium formatów",
-      lead: "Tomek to anamorfotyczny Scope 2.39. Królowie to kinowy Flat 1.85. Motyle to kwadrat Akademii 1.33. Każda historia wybiera własne okno."
+      lead: "Tomek będzie anamorfotycznym Scope 2.39. Królowie będą kinowym Flat 1.85. Motyle będą kwadratem Akademii 1.33. Każda historia wybierze własne okno."
     },
     day: {
       title: "Dzień na planie — Tomek Vol. I, Queensland",
       items: [
-        { t: "04:30", l: "Wejście ekipy · Wybrzeże Queensland", d: "Ciężarówki wjeżdżają do bazy Kangaroo Kingdom. 14 lokacji sprawdzonych. Jesteśmy na numerze siedem." },
-        { t: "05:15", l: "Kamera i oświetlenie", d: "ARRI Alexa uzbrojona w optykę anamorfotyczną Cooke — Tomek kręcony jest w formacie 2.39. Słońce nad rafą daje to, czego nie odda żadne studio." },
-        { t: "06:00", l: "Kostiumy z epoki · 1910", d: "Obsada w strojach edwardiańskich. Sekretarka planu fotografuje każdy guzik. Wierność epoce przy budżecie 45 mln USD jest bezdyskusyjna." },
-        { t: "07:00", l: "Próba sytuacyjna · Plener", d: "Jacek przechodzi scenę z operatorem przez 400 metrów przygotowanego terenu. Kangury nie były w planie, ale współpracują." },
-        { t: "08:00", l: "Pierwszy klaps", d: "Dźwięk idzie. Kamera idzie. Klaps: Tomek — Tom I — Sc. 34 — Dubel 1. Akcja." },
-        { t: "16:20", l: "Złota godzina", d: "25 minut. Niebo nad Queensland staje się złote w sposób, którego Polska nie zna. Zostały trzy ujęcia. Mamy wszystkie." },
-        { t: "17:00", l: "Koniec zdjęć", d: "Sprzęt spakowany. Pion lokacji przywraca teren do stanu pierwotnego. Pierwszy asystent ogłasza jutrzejszy plan: Lokacja 8 — śródlądowy szlak wodny." },
-        { t: "22:00", l: "Materiały dzienne · Baza", d: "Jacek, montażysta i Germano oglądają to, co zostało zarejestrowane. Scena 34 jest w filmie. Scena 35 jutro raz jeszcze." }
+        { t: "04:30", l: "Wejście ekipy · Wybrzeże Queensland", d: "Ciężarówki wjadą do bazy Kangaroo Kingdom. 14 lokacji zostanie sprawdzonych. Będziemy na numerze siedem." },
+        { t: "05:15", l: "Kamera i oświetlenie", d: "ARRI Alexa zostanie uzbrojona w optykę anamorfotyczną Cooke — Tomek będzie kręcony w formacie 2.39. Słońce nad rafą da to, czego nie odda żadne studio." },
+        { t: "06:00", l: "Kostiumy z epoki · 1910", d: "Obsada będzie w strojach edwardiańskich. Sekretarka planu będzie fotografować każdy guzik. Wierność epoce przy budżecie 45 mln USD będzie bezdyskusyjna." },
+        { t: "07:00", l: "Próba sytuacyjna · Plener", d: "Jacek przejdzie scenę z operatorem przez 400 metrów przygotowanego terenu. Kangury nie będą w planie, ale będą współpracować." },
+        { t: "08:00", l: "Pierwszy klaps", d: "Dźwięk będzie iść. Kamera będzie iść. Klaps: Tomek — Tom I — Sc. 34 — Dubel 1. Akcja." },
+        { t: "16:20", l: "Złota godzina", d: "25 minut. Niebo nad Queensland stanie się złote w sposób, którego Polska nie pozna. Zostaną trzy ujęcia. Będziemy mieć wszystkie." },
+        { t: "17:00", l: "Koniec zdjęć", d: "Sprzęt zostanie spakowany. Pion lokacji przywróci teren do stanu pierwotnego. Pierwszy asystent ogłosi jutrzejszy plan: Lokacja 8 — śródlądowy szlak wodny." },
+        { t: "22:00", l: "Materiały dzienne · Baza", d: "Jacek, montażysta i Germano obejrzą to, co zostanie zarejestrowane. Scena 34 będzie w filmie. Scena 35 jutro raz jeszcze." }
       ]
     },
     anatomy: {
       title: "Anatomia kadru",
-      lead: "Królowie życia — Scena 42, WNĘTRZE. Klub Jazzowy, Warszawa, Noc. Kadr, który Germano Saracco i Jacek Wielgopolan ustalili w trzecim dublu.",
+      lead: "Królowie życia — Scena 42, WNĘTRZE. Klub Jazzowy, Warszawa, Noc. Kadr, który Germano Saracco i Jacek Wielgopolan ustalą w trzecim dublu.",
       labels: {
         headroom: "ODSTĘP · KRÓLOWIE SC.42",
         leadroom: "POLE PRZED OBIEKTEM",
@@ -643,7 +643,7 @@ export const translations = {
     },
     budget: {
       title: "Anatomia budżetu · Tomek Tom I",
-      lead: "Gdzie trafia 45 mln USD budżetu Przygód Tomka — liczby, którymi dzielimy się z każdym współfinansującym przed wysłaniem przelewu.",
+      lead: "Gdzie trafi 45 mln USD budżetu Przygód Tomka — liczby, którymi będziemy się dzielić z każdym współfinansującym przed wysłaniem przelewu.",
       slices: [
         { name: "Above-the-line", note: "Wielgopolan · obsada z epoki · prawa Szklarskiego" },
         { name: "Produkcja",     note: "Ekipa z Queensland · dźwigi 64m · kaskaderzy i zwierzęta" },
@@ -664,24 +664,24 @@ export const translations = {
         locations: "Lokacje",
         depts: "Piony"
       },
-      received: "ODEBRANO"
+      received: "DO ODEBRANIA"
     },
     telegrams: {
       title: "Telegramy",
-      lead: "Pracujące studio to centrum dowodzenia. Kilka depesz z archiwum.",
-      received: "ODEBRANO · 1A"
+      lead: "Pracujące studio będzie centrum dowodzenia. Kilka depesz zostanie wyciągniętych z archiwum.",
+      received: "DO ODEBRANIA · 1A"
     },
     dropzone: {
       title: "Zgłoś scenariusz",
       drop: "Upuść swój scenariusz tutaj",
-      sub: "PDF · Final Draft · Fountain · lub wyślij logline. Czytamy wszystko.",
+      sub: "PDF · Final Draft · Fountain · lub wyślij logline. Będziemy czytać wszystko.",
       cta: "→ Otwórz formularz kontaktowy",
-      received: "ODEBRANO"
+      received: "DO ODEBRANIA"
     },
     collaboration: {
       eyebrow: "Trzy filmy. Jedno studio.",
-      title: "Wiesz, do którego<br/>z nich należysz.",
-      lead: "Tomek potrzebuje współinwestorów wierzących w długą formę. Królowie potrzebują dystrybutorów wiedzących, z czego śmieje się tłum. Motyle potrzebują festiwali z cierpliwością. Jeśli to Ty — otwórz wire.",
+      title: "Będziesz wiedzieć, do którego<br/>z nich należysz.",
+      lead: "Tomek będzie potrzebować współinwestorów wierzących w długą formę. Królowie będą potrzebować dystrybutorów wiedzących, z czego będzie śmiać się tłum. Motyle będą potrzebować festiwali z cierpliwością. Jeśli to Ty — otwórz wire.",
       ctaContact: "Otwórz wire",
       ctaProduction: "Produkcja w Polsce"
     },
@@ -693,7 +693,7 @@ export const translations = {
       id: {
         eyebrow: "PLIK · IDENTYFIKACJA STUDIA · KARTA 001",
         title: "Sunset Hills<br/>Motion Pictures",
-        lead: "Niezależne studio filmowe z biurami w Warszawie i Londynie. Produkcja, nadzór i dystrybucja filmów w Polsce, Wielkiej Brytanii i USA od 1991 roku.",
+        lead: "Niezależne studio filmowe z biurami w Warszawie i Londynie. Będzie zajmować się produkcją, nadzorem i dystrybucją filmów w Polsce, Wielkiej Brytanii i USA.",
         stamp: "ZWERYFIKOWANO",
         meta: {
           founded: "ZAŁOŻONO",
@@ -702,12 +702,12 @@ export const translations = {
           staff: "ZESPÓŁ",
           copro: "KOPRODUKCJA",
           motto: "MOTTO",
-          foundedVal: "1991 · Warszawa",
+          foundedVal: "1991 · Warsaw",
           officesVal: "Warszawa · Londyn",
           slateVal: "09 aktywnych tytułów",
           staffVal: "5 stałych · ~ 280 współpracowników",
           coproVal: "USA · UK · AUS · UA",
-          mottoVal: "„Historia zasługuje na swój finał.”"
+          mottoVal: "“Historia zasłuży na swój finał.”"
         }
       },
       origin: {
@@ -718,7 +718,7 @@ export const translations = {
         readMore: "Czytaj więcej"
       },
       beliefs: {
-        title: "W co<br/>wierzymy"
+        title: "W co<br/>będziemy wierzyć"
       },
       offices: {
         title: "Dwa biura<br/>jedno studio",
@@ -733,7 +733,7 @@ export const translations = {
       },
       roster: {
         title: "Skład zespołu",
-        lead: "W filmie napisy końcowe nie bez powodu są długie. Oto nasi ludzie, w kolejności pojawiania się na ekranie."
+        lead: "W filmie napisy końcowe nie bez powodu będą długie. Oto będą nasi ludzie, w kolejności pojawiania się na ekranie."
       },
       cabinet: {
         title: "Gablota nagród",
@@ -766,8 +766,8 @@ export const translations = {
     coverage: {
       intro: {
         eyebrow: "Werdykt lektora",
-        title: "Analiza<br/>to pierwszy<br/>montaż.",
-        lead: "Zanim scenariusz trafi na biurko producenta, przechodzi przez lektora. Analiza (coverage) to dokument podsumowujący historię, oceniający warsztat i przypisujący jeden z trzech werdyktów — <strong>Odrzuć</strong>, <strong>Rozważ</strong> lub <strong>Rekomenduj</strong>. Wykonujemy tę pracę dla własnych projektów oraz, z polecenia, dla partnerów na całym świecie.",
+        title: "Analiza<br/>będzie pierwszym<br/>montażem.",
+        lead: "Zanim scenariusz trafi na biurko producenta, przejdzie przez lektora. Analiza (coverage) będzie dokumentem podsumowującym historię, oceniającym warsztat i przypisującym jeden z trzech werdyktów — <strong>Odrzuć</strong>, <strong>Rozważ</strong> lub <strong>Rekomenduj</strong>. Będziemy wykonywać tę pracę dla własnych projektów oraz, z polecenia, dla partnerów na całym świecie.",
         stats: {
           scripts: "SCENARIUSZY / ROK",
           turnaround: "CZAS REALIZACJI",
@@ -778,18 +778,18 @@ export const translations = {
       tiers: {
         title: "Trzy werdykty",
         items: [
-          { code: "ODRZUĆ",      n: "01", note: "Scenariusz nie pasuje do profilu. Często problem warsztatowy, rzadziej rynkowy. Uwagi lektora trafiają do autora.", count: "78%" },
-          { code: "ROZWAŻ",      n: "02", note: "Mocne elementy warte drugiego czytania. Przekazane do starszego producenta z adnotacjami lektora.", count: "18%" },
-          { code: "REKOMENDUJ",  n: "03", note: "Rzadkość. Lektor ręczy za to własnym nazwiskiem. Trafia bezpośrednio do szefa rozwoju w ciągu 24h.", count: "4%" }
+          { code: "ODRZUĆ",      n: "01", note: "Scenariusz nie będzie pasować do profilu. Często będzie to problem warsztatowy, rzadziej rynkowy. Uwagi lektora trafią do autora.", count: "78%" },
+          { code: "ROZWAŻ",      n: "02", note: "Mocne elementy będą warte drugiego czytania. Zostaną przekazane do starszego producenta z adnotacjami lektora.", count: "18%" },
+          { code: "REKOMENDUJ",  n: "03", note: "Rzadkość. Lektor będzie ręczyć za to własnym nazwiskiem. Trafi bezpośrednio do szefa rozwoju w ciągu 24h.", count: "4%" }
         ]
       },
       process: {
         title: "Od strony do werdyktu",
         steps: [
-          { n: "01", t: "Przyjęcie", note: "Szybki skan. Formatowanie. Logowanie.", body: "Każdy scenariusz otrzymuje ID, jest logowany (tytuł/autor/strony) i przypisywany lektorowi według gatunku." },
-          { n: "02", t: "Czytanie", note: "Dwa przejścia. Pierwsze szybkie. Drugie z notatkami.", body: "Lektorzy śledzą punkty zwrotne — incydent inicjujący, punkt środkowy, kulminacja. Uwagi na marginesie są zachowywane." },
-          { n: "03", t: "Streszczenie", note: "1 strona. Bez ukrywania spoilerów.", body: "Precyzyjne podsumowanie fabuły plus logline poprawiony przez lektora. Historia jest opowiedziana, nie zapowiedziana." },
-          { n: "04", t: "Werdykt", note: "Odrzuć · Rozważ · Rekomenduj.", body: "Oceniane są: koncept, fabuła, bohaterowie i dialogi. Lektor podpisuje werdykt. Autor otrzymuje uwagi w ciągu 14 dni." }
+          { n: "01", t: "Przyjęcie", note: "Szybki skan. Formatowanie. Logowanie.", body: "Każdy scenariusz otrzyma ID, zostanie zalogowany (tytuł/autor/strony) i przypisany lektorowi według gatunku." },
+          { n: "02", t: "Czytanie", note: "Dwa przejścia. Pierwsze szybkie. Drugie z notatkami.", body: "Lektorzy będą śledzić punkty zwrotne — incydent inicjujący, punkt środkowy, kulminacja. Uwagi na marginesie zostaną zachowane." },
+          { n: "03", t: "Streszczenie", note: "1 strona. Bez ukrywania spoilerów.", body: "Precyzyjne podsumowanie fabuły plus logline poprawiony przez lektora. Historia zostanie opowiedziana, nie zapowiedziana." },
+          { n: "04", t: "Werdykt", note: "Odrzuć · Rozważ · Rekomenduj.", body: "Oceniane będą: koncept, fabuła, bohaterowie i dialogi. Lektor podpisze werdykt. Autor otrzyma uwagi w ciągu 14 dni." }
         ]
       },
       sample: {
@@ -797,38 +797,38 @@ export const translations = {
         confidential: "POUFNE",
         report: "RAPORT ANALIZY STUDIA &middot; PLIK 0427-A",
         logline: "Logline",
-        loglineBody: "Pechowy skrzypek zostaje zmuszony do rozpoczęcia życia od nowa w innym kraju i znajduje niezwykłą rodzinę &mdash; w postaci starego przyjaciela i małej dziewczynki &mdash; wokół wysypiska śmieci na obrzeżach Warszawy.",
+        loglineBody: "Pechowy skrzypek zostanie zmuszony do rozpoczęcia życia od nowa w innym kraju i znajdzie niezwykłą rodzinę &mdash; w postaci starego przyjaciela i małej dziewczynki &mdash; wokół wysypiska śmieci na obrzeżach Warszawy.",
         synopsis: "Streszczenie",
         synopsisBody: [
-          "Wiktor, niegdyś celebrowany pierwszy skrzypek w państwowej symfonii, przybywa do obcego miasta z paszportem, listem i jedną walizką. Orkiestra, którą mu obiecano, przestała istnieć. Pierwszą noc spędza pod mostem, drugą na kanapie u przyjaciela, trzecią na polanie za bazą transportową.",
-          "To tam poznaje <em>Filip</em> &mdash; dawnego kolegę z konserwatorium, który teraz zarządza sortownią &mdash; oraz <em>Olę</em>, dziecko mieszkające w pobliżu, które traktuje wysypisko jak park. Tak trójka, najpierw przez przypadek, a potem siłą grawitacji, staje się dla siebie rodziną.",
-          "Trzeci akt opiera się na zapieczętowanym liście, który Wiktor miał przy sobie przekraczając granicę. List, po otwarciu, przywraca mu fragment dawnego życia, który uważał za bezpowrotnie stracony."
+          "Wiktor, niegdyś celebrowany pierwszy skrzypek w państwowej symfonii, przybędzie do obcego miasta z paszportem, listem i jedną walizką. Orkiestra, którą mu obiecano, nie będzie już istnieć. Pierwszą noc spędzi pod mostem, drugą na kanapie u przyjaciela, trzecią na polanie za bazą transportową.",
+          "To tam pozna <em>Filip</em> &mdash; dawnego kolegę z konserwatorium, który teraz zarządza sortownią &mdash; oraz <em>Olę</em>, dziecko mieszkające w pobliżu, które będzie traktować wysypisko jak park. Tak trójka, najpierw przez przypadek, a potem siłą grawitacji, stanie się dla siebie rodziną.",
+          "Trzeci akt będzie opierać się na zapieczętowanym liście, który Wiktor będzie mieć przy sobie przekraczając granicę. List, po otwarciu, przywróci mu fragment dawnego życia, który uważał będzie za bezpowrotnie stracony."
         ],
         strengths: "Mocne strony",
         strengthsBody: [
-          "Sceneria &mdash; działające wysypisko &mdash; jest świeża, fotogeniczna i bogata metaforycznie.",
-          "Relacja Wiktora z Olą jest naturalna i wypracowana.",
-          "List w trzecim akcie domyka wątki w czysty sposób."
+          "Sceneria &mdash; działające wysypisko &mdash; będzie świeża, fotogeniczna i bogata metaforycznie.",
+          "Relacja Wiktora z Olą będzie naturalna i wypracowana.",
+          "List w trzecim akcie domknie wątki w czysty sposób."
         ],
         weaknesses: "Słabe strony",
         weaknessesBody: [
-          "Wątek Filipa traci tempo około 70. strony; znika na 14 stron i wraca bez przemiany.",
-          "Dwie sceny dialogowe między Wiktorem a pracownikiem socjalnym powielają informacje.",
-          "Początkowy flashback jest łatwy do usunięcia, co skróciłoby akt pierwszy o 6 stron."
+          "Wątek Filipa straci tempo około 70. strony; zniknie na 14 stron i wróci bez przemiany.",
+          "Dwie sceny dialogowe między Wiktorem a pracownikiem socjalnym będą powielać informacje.",
+          "Początkowy flashback będzie łatwy do usunięcia, co skróci akt pierwszy o 6 stron."
         ],
         evaluation: "Ocena",
         recommendation: "REKOMENDACJA",
-        recBody: "Sceneria i centralne trio czynią ten scenariusz pamiętnym. Strukturę można skrócić o dziesięć stron, a wątek Filipa zasługuje na silniejszy zwrot w drugim akcie. Po tych poprawkach projekt kwalifikuje się do <em>Rekomendacji</em>.",
+        recBody: "Sceneria i centralne trio uczynią ten scenariusz pamiętnym. Strukturę będzie można skrócić o dziesięć stron, a wątek Filipa zasłuży na silniejszy zwrot w drugim akcie. Po tych poprawkach projekt zakwalifikuje się do <em>Rekomendacji</em>.",
         reader: "LEKTOR"
       },
       readers: {
         title: "Zespół",
-        lead: "Analizy są czytane przez ludzi. Oto nasi lektorzy."
+        lead: "Analizy będą czytane przez ludzi. Oto będą nasi lektorzy."
       },
       submit: {
         eyebrow: "Wyślij swój tekst",
         title: "Zgłoś<br/>scenariusz.",
-        lead: "PDF lub Final Draft. Po angielsku lub polsku. Czytamy wszystko, co trafi na <b>cool@world.pl</b> i odpowiadamy w ciągu czternastu dni.",
+        lead: "PDF lub Final Draft. Po angielsku lub polsku. Będziemy czytać wszystko, co trafi na <b>cool@world.pl</b> i odpowiemy w ciągu czternastu dni.",
         cta: "Otwórz łączność"
       }
     },
@@ -847,7 +847,7 @@ export const translations = {
       },
       eras: {
         title: "Tysiąc lat planów filmowych",
-        lead: "Polska to jeden z niewielu krajów, gdzie w ciągu jednego popołudnia można odwiedzić XII i XXI wiek."
+        lead: "Polska pozostanie jednym z niewielu krajów, gdzie w ciągu jednego popołudnia będzie można odwiedzić XII i XXI wiek."
       },
       seasons: {
         title: "Cztery pory pracy"
@@ -859,7 +859,7 @@ export const translations = {
     contact: {
       eyebrow: "Nawiąż łączność",
       title: "Wyślij<br/>depeszę",
-      lead: "Inwestorzy, dystrybutorzy, programerzy festiwalowi, scenarzyści — czytamy każdą wiadomość. Większość odpowiedzi wysyłamy w ciągu 48 godzin czasu warszawskiego.",
+      lead: "Inwestorzy, dystrybutorzy, programerzy festiwalowi, scenarzyści — będziemy czytać każdą wiadomość. Większość odpowiedzi wyślemy w ciągu 48 godzin czasu warszawskiego.",
       form: {
         outgoing: "DEPESSZA WYCHODZĄCA",
         to: "DO",
