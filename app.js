@@ -1967,10 +1967,12 @@ function tomAtlas() {
             const { x, y } = proj(v.lat, v.lng);
             return `
               <a class="tom-pin" href="#tom-vol-${v.vol}" data-tom-pin="${v.vol}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})" aria-label="VOL. ${v.vol} — ${v.place[lang]}">
-                <circle class="tom-pin-pulse" r="14"/>
-                <circle class="tom-pin-hit" r="20" fill="transparent"/>
-                <circle class="tom-pin-dot" r="5"/>
-                <text x="10" y="-8" class="tom-pin-label">VOL. ${v.vol}</text>
+                <g class="tom-pin-main">
+                  <circle class="tom-pin-pulse" r="14"/>
+                  <circle class="tom-pin-hit" r="20" fill="transparent"/>
+                  <circle class="tom-pin-dot" r="5"/>
+                  <text x="10" y="-8" class="tom-pin-label">VOL. ${v.vol}</text>
+                </g>
               </a>
             `;
           }).join("")}

@@ -7615,12 +7615,13 @@ p {
 .tom-pin {
   cursor: pointer;
   outline: none;
+}
+.tom-pin-main {
   transition: transform 280ms cubic-bezier(.22,.8,.27,1);
-  transform-box: fill-box;
-  transform-origin: center;
+  transform-origin: 0 0;
 }
 .tom-pin:focus-visible { outline: 2px solid rgba(245, 235, 215, 0.85); outline-offset: 2px; }
-.tom-pin:hover { transform: scale(1.4); }
+.tom-pin:hover .tom-pin-main { transform: scale(1.4); }
 .tom-pin .tom-pin-pulse {
   fill: rgba(209, 32, 37, 0.18);
   stroke: rgba(209, 32, 37, 0.7);
