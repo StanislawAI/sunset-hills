@@ -35,15 +35,15 @@ export const translations = {
       from: "FROM THE DESK OF JACEK W.",
       loc: "WARSAW",
       lines: [
-        "We will not make content.",
-        "We will make motion pictures.",
-        "Films will be built scene by scene, frame by frame —",
-        "with crews that will have spent thirty years",
-        "to learn when to push in, and when to hold.",
-        "We believe a story will earn its ending.",
-        "We believe an investor will deserve a return,",
-        "and an audience will deserve to be moved.",
-        "That will be the only contract we sign."
+        "We do not make content.",
+        "We make motion pictures.",
+        "Films are built scene by scene, frame by frame —",
+        "with crews that have spent thirty years",
+        "learning when to push in, and when to hold.",
+        "We believe a story earns its ending.",
+        "We believe an investor deserves a return,",
+        "and an audience deserves to be moved.",
+        "That is the only contract we sign."
       ],
       founder: "Jacek Wielgopolan",
       role: "Founder & Producer"
@@ -113,7 +113,7 @@ export const translations = {
       days: "days in stage"
     },
     quote: {
-      body: "Among the literally thousands of screenplays I will have read, the scenario written by Jacek Wielgopolan, &ldquo;The Kings of Life&rdquo;, will be the only one that will sincerely amuse me. The ending will surprise me so much that in just a moment I will be moved to tears.",
+      body: "Among the literally thousands of screenplays I&rsquo;ve read, the scenario written by Jacek Wielgopolan, &ldquo;The Kings of Life&rdquo;, is the only one that has sincerely amused me. The ending surprised me so much that in just a moment I was moved to tears.",
       author: "Germano Saracco",
       role: "Cinematographer · Smokin&rsquo; Aces, Hopeful Notes"
     },
@@ -477,15 +477,15 @@ export const translations = {
       from: "Z BIURKA JACKA W.",
       loc: "WARSZAWA",
       lines: [
-        "Nie będziemy tworzyć contentu.",
-        "Będziemy tworzyć kino.",
-        "Filmy będą budowane scena po scenie, klatka po klatce —",
-        "z ekipami, które spędzą trzydzieści lat",
+        "Nie tworzymy contentu.",
+        "Tworzymy kino.",
+        "Filmy budowane scena po scenie, klatka po klatce —",
+        "z ekipami, które spędziły trzydzieści lat",
         "ucząc się, kiedy zbliżyć kamerę, a kiedy ją zatrzymać.",
-        "Wierzymy, że historia zasłuży na swój finał.",
-        "Wierzymy, że inwestor zasłuży na zwrot,",
-        "a widownia zasłuży na wzruszenie.",
-        "To będzie jedyny kontrakt, który podpiszemy."
+        "Wierzymy, że historia zasługuje na swój finał.",
+        "Wierzymy, że inwestor zasługuje na zwrot,",
+        "a widownia zasługuje na wzruszenie.",
+        "To jedyny kontrakt, który podpisujemy."
       ],
       founder: "Jacek Wielgopolan",
       role: "Założyciel i Producent"
@@ -555,7 +555,7 @@ export const translations = {
       days: "dni w etapie"
     },
     quote: {
-      body: "Spośród tysięcy scenariuszy, jakie przeczytam, tekst Jacka Wielgopolana „Królowie życia” będzie jedynym, który szczerze mnie rozbawi. Zakończenie zaskoczy mnie tak bardzo, że w jednej chwili wzruszę się do łez.",
+      body: "Spośród tysięcy scenariuszy, jakie przeczytałem, tekst Jacka Wielgopolana „Królowie życia” jest jedynym, który szczerze mnie rozbawił. Zakończenie zaskoczyło mnie tak bardzo, że w jednej chwili wzruszyłem się do łez.",
       author: "Germano Saracco",
       role: "Operator obrazu · Smokin’ Aces, Hopeful Notes"
     },
