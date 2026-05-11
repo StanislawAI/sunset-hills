@@ -1462,7 +1462,7 @@ function aboutOrigin() {
     { y: "2014", t: "Biuro w Londynie", d: "Sunset Hills Investments Ltd otwiera siedzibę przy 27 Old Gloucester Street, wspierając europejskie współfinansowanie." },
     { y: "2019", t: "Zielone światło dla Tomka", d: "Wielotomowa kinowa adaptacja „Przygód Tomka” Alfreda Szklarskiego wchodzi w fazę rozwoju. Budżet: 45 mln USD." },
     { y: "2023", t: "Królowie życia", d: "Recenzja Germano Saracco; zdjęcia przenoszą się do preprodukcji. Studio powiększa listę projektów z 4 do 9." },
-    { y: "2026", t: "Dzisiaj", d: "Trzy filmy fabularne na aktywnych etapach, osiem czytelni, dwa zarezerwowane studia dźwiękowe, jeden zespół oddany długiej formie." }
+    { y: "2026", t: "Dzisiaj", d: "Trzy filmy fabularne na aktywnych etapach, dziewięć czytelni, dwa zarezerwowane studia dźwiękowe, jeden zespół oddany długiej formie." }
   ] : [
     { y: "1991", t: "Founded", d: "Jacek Wielgopolan opens a one-room production office on Dominikańska, Warsaw. First job: a documentary about Polish ironworks." },
     { y: "1996", t: "First Feature", d: "Theatrical release of an independent drama; the studio earns its first lab account at Polish National Film." },
@@ -1470,7 +1470,7 @@ function aboutOrigin() {
     { y: "2014", t: "London Office", d: "Sunset Hills Investments Ltd opens at 27 Old Gloucester Street to support European co-financing." },
     { y: "2019", t: "Tom Greenlit", d: "Multi-volume cinematic adaptation of Alfred Szklarski&rsquo;s &ldquo;Adventures of Tom&rdquo; enters development. Budget: $45M." },
     { y: "2023", t: "Kings of Life", d: "Coverage from Germano Saracco; principal photography moves to pre-production. The studio goes from a slate of 4 to a slate of 9." },
-    { y: "2026", t: "Today", d: "Three features in active stages, eight reading rooms, two soundstages booked, one team committed to the long form." }
+    { y: "2026", t: "Today", d: "Three features in active stages, nine reading rooms, two soundstages booked, one team committed to the long form." }
   ];
   return `
     <section class="section ab-origin" data-reveal>
@@ -1758,15 +1758,15 @@ function renderTom(page) {
 }
 
 const tomVolumes = [
-  { vol: "I",   name: { en: "The Kangaroo Kingdom", pl: "W krainie kangurów" }, place: { en: "Queensland · Australia", pl: "Queensland · Australia" }, year: "1910", status: { en: "GREENLIT", pl: "ZIELONE ŚWIATŁO" }, tone: "warm", file: "/public/assets/optimized/tom-main.webp", lat: -22, lng: 144 },
-  { vol: "II",  name: { en: "Black Continent",     pl: "Na Czarnym Lądzie" },  place: { en: "Kenya · Tanzania",      pl: "Kenia · Tanzania" },     year: "1911", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "earth", file: "/public/assets/optimized/book-tomek.webp", lat: -1, lng: 36 },
-  { vol: "III", name: { en: "The War Path",        pl: "Na wojennej ścieżce" }, place: { en: "Arizona · USA",         pl: "Arizona · USA" },         year: "1912", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "rust", file: "/public/assets/optimized/book-wojnie.webp", lat: 34, lng: -111 },
-  { vol: "IV",  name: { en: "Trail of the Yeti",   pl: "Na tropach Yeti" },    place: { en: "Tibet · Nepal",         pl: "Tybet · Nepal" },         year: "1914", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "ice",  file: "/public/assets/optimized/book-yeti.webp", lat: 28, lng: 86 },
-  { vol: "V",   name: { en: "The Mysterious Expedition", pl: "Tajemnicza wyprawa" }, place: { en: "Siberia · Russia",  pl: "Syberia · Rosja" },     year: "1916", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "ice",  file: "/public/assets/optimized/book-wyprawa.webp", lat: 62, lng: 105 },
-  { vol: "VI",  name: { en: "Among the Headhunters", pl: "Wśród łowców głów" }, place: { en: "Papua · New Guinea",   pl: "Papua-Nowa Gwinea" },    year: "1917", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "warm", file: "/public/assets/optimized/book-glowy.webp", lat: -6, lng: 143 },
-  { vol: "VII", name: { en: "Sources of the Amazon", pl: "U źródeł Amazonki" }, place: { en: "Peru · Brazil",        pl: "Peru · Brazylia" },      year: "1919", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "earth", file: "/public/assets/optimized/book-amazonka.webp", lat: -8, lng: -75 },
-  { vol: "VIII", name: { en: "In Gran Chaco",       pl: "W Gran Chaco" },       place: { en: "Bolivia · Paraguay",    pl: "Boliwia · Paragwaj" },   year: "1921", status: { en: "CONCEPT", pl: "KONCEPCJA" }, tone: "earth", file: "/public/assets/optimized/book-chaco.webp", lat: -22, lng: -60 },
-  { vol: "IX",  name: { en: "Tombs of the Pharaohs", pl: "W grobowcach faraonów" }, place: { en: "Cairo · Egypt",     pl: "Kair · Egipt" },         year: "1923", status: { en: "CONCEPT", pl: "KONCEPCJA" }, tone: "rust",  file: "/public/assets/optimized/book-faraon.webp", lat: 30, lng: 31 }
+  { vol: "I",   name: { en: "The Kangaroo Kingdom", pl: "W krainie kangurów" }, place: { en: "Queensland · Australia", pl: "Queensland · Australia" }, year: "1907", status: { en: "GREENLIT", pl: "ZIELONE ŚWIATŁO" }, tone: "warm", file: "/public/assets/optimized/tom-main.webp", lat: -22, lng: 144 },
+  { vol: "II",  name: { en: "Black Continent",     pl: "Na Czarnym Lądzie" },  place: { en: "Kenya · Tanzania",      pl: "Kenia · Tanzania" },     year: "1908", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "earth", file: "/public/assets/optimized/book-tomek.webp", lat: -1, lng: 36 },
+  { vol: "III", name: { en: "The War Path",        pl: "Na wojennej ścieżce" }, place: { en: "Arizona · USA",         pl: "Arizona · USA" },         year: "1909", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "rust", file: "/public/assets/optimized/book-wojnie.webp", lat: 34, lng: -111 },
+  { vol: "IV",  name: { en: "Trail of the Yeti",   pl: "Na tropach Yeti" },    place: { en: "Tibet · Nepal",         pl: "Tybet · Nepal" },         year: "1911", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "ice",  file: "/public/assets/optimized/book-yeti.webp", lat: 28, lng: 86 },
+  { vol: "V",   name: { en: "The Mysterious Expedition", pl: "Tajemnicza wyprawa" }, place: { en: "Siberia · Russia",  pl: "Syberia · Rosja" },     year: "1913", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "ice",  file: "/public/assets/optimized/book-wyprawa.webp", lat: 62, lng: 105 },
+  { vol: "VI",  name: { en: "Among the Headhunters", pl: "Wśród łowców głów" }, place: { en: "Papua · New Guinea",   pl: "Papua-Nowa Gwinea" },    year: "1914", status: { en: "OPTIONED", pl: "ZAKONTRAKTOWANO" }, tone: "warm", file: "/public/assets/optimized/book-glowy.webp", lat: -6, lng: 143 },
+  { vol: "VII", name: { en: "Sources of the Amazon", pl: "U źródeł Amazonki" }, place: { en: "Peru · Brazil",        pl: "Peru · Brazylia" },      year: "1916", status: { en: "DEVELOPMENT", pl: "ROZWÓJ" }, tone: "earth", file: "/public/assets/optimized/book-amazonka.webp", lat: -8, lng: -75 },
+  { vol: "VIII", name: { en: "In Gran Chaco",       pl: "W Gran Chaco" },       place: { en: "Bolivia · Paraguay",    pl: "Boliwia · Paragwaj" },   year: "1918", status: { en: "CONCEPT", pl: "KONCEPCJA" }, tone: "earth", file: "/public/assets/optimized/book-chaco.webp", lat: -22, lng: -60 },
+  { vol: "IX",  name: { en: "Tombs of the Pharaohs", pl: "W grobowcach faraonów" }, place: { en: "Cairo · Egypt",     pl: "Kair · Egipt" },         year: "1920", status: { en: "CONCEPT", pl: "KONCEPCJA" }, tone: "rust",  file: "/public/assets/optimized/book-faraon.webp", lat: 30, lng: 31 }
 ];
 
 function tomHero(page) {
@@ -1802,8 +1802,8 @@ function tomHero(page) {
           <span class="tom-of-tom-2">${lang === "pl" ? "" : "of Tom."}</span>
         </h1>
         <p class="tom-hero-lede">${lang === "pl"
-          ? "Dziewięć kontynentów. Dziewięć filmów. Jedna seria, którą Polska czytała przez sześćdziesiąt lat — teraz prosto z buszu Queensland do kin świata."
-          : "Nine continents. Nine pictures. One book series that Poland has been reading for sixty years — now from the Queensland bush to cinemas worldwide."}</p>
+          ? "Siedem kontynentów. Dziewięć filmów. Jedna seria, którą Polska czytała przez blisko siedemdziesiąt lat — teraz prosto z buszu Queensland do kin świata."
+          : "Seven continents. Nine pictures. One book series that Poland has been reading for nearly seventy years — now from the Queensland bush to cinemas worldwide."}</p>
 
         <div class="tom-hero-chips">
           <span><b>${lang === "pl" ? "BUDŻET" : "BUDGET"}</b> $45M · ${lang === "pl" ? "VOL. I" : "VOL. I"}</span>
@@ -1896,8 +1896,8 @@ function tomSlate() {
         <h2 class="title-cinematic">${lang === "pl" ? "Dziewięć obrazów" : "The Nine-Picture Slate"}</h2>
       </div>
       <p class="tom-slate-lead">${lang === "pl"
-        ? "Każdy tom — jedna pełnometrażowa adaptacja. Każda adaptacja — własna scenografia, własny kontynent. Po Volume I, kolejność wynika z możliwości produkcyjnych, a nie kalendarza wydawniczego."
-        : "One volume — one feature. Each picture has its own continent and its own department. After Volume I, the order follows what production allows, not the publishing calendar."}</p>
+        ? "Każdy tom — jedna pełnometrażowa adaptacja. Każda adaptacja — własna scenografia, unikalna lokalizacja. Po Volume I, kolejność wynika z możliwości produkcyjnych, a nie kalendarza wydawniczego."
+        : "One volume — one feature. Each picture has its own unique location and its own department. After Volume I, the order follows what production allows, not the publishing calendar."}</p>
       <div class="tom-slate-grid">
         ${tomVolumes.map((v, i) => `
           <article class="tom-vol tom-tone-${v.tone}" data-reveal style="--i:${i}" id="tom-vol-${v.vol}">

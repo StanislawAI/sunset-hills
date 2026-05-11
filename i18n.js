@@ -67,7 +67,7 @@ export const translations = {
     capabilities: {
       title: "Three Films. Three Worlds.",
       items: [
-        { n: "01", t: "The Adventures of Tom", d: "Nine volumes. $45M. Queensland coastline will be dressed as 1910 wilderness, Polish forests will stand in for the Kazakh frontier, and a stunt unit will have trained with kangaroos." },
+        { n: "01", t: "The Adventures of Tom", d: "Nine volumes. $45M. Queensland coastline will be dressed as 1907 wilderness, Polish forests will stand in for the Kazakh frontier, and a stunt unit will have trained with kangaroos." },
         { n: "02", t: "The Kings of Life", d: "A comedy-drama will be shot across Warsaw night streets, London stages, and a New York brownstone — the script Germano Saracco calls the only one that has ever moved him to tears." },
         { n: "03", t: "Where the Butterflies Fly", d: "A film will be built on restraint — intimate spaces, natural light, and a camera will be held so still the audience will forget it is there. Visual poetry for the festival circuit." }
       ]
@@ -86,7 +86,7 @@ export const translations = {
       lead: "Three films. Three different answers to the same question: where will this story live?",
       tag: "Film",
       tiles: [
-        { title: "Queensland Coast, Australia", standsIn: ["The Adventures of Tom — Vol. I", "Kangaroo Kingdom · 1910", "$45M principal photography"] },
+        { title: "Queensland Coast, Australia", standsIn: ["The Adventures of Tom — Vol. I", "Kangaroo Kingdom · 1907", "$45M principal photography"] },
         { title: "Warsaw Night Streets", standsIn: ["The Kings of Life", "Urban drama · present day", "Will be dressed in a week, shot in six"] },
         { title: "London · Stage 7, Pinewood", standsIn: ["The Adventures of Tom — multiple volumes", "Interior sets · period construction", "Backlot build will be approved Q3"] },
         { title: "New York Exteriors", standsIn: ["The Kings of Life", "Third-act location", "Brownstone · Upper West Side"] },
@@ -179,7 +179,7 @@ export const translations = {
       items: [
         { t: "04:30", l: "Crew Call · Queensland Coast", d: "Trucks will roll into the Kangaroo Kingdom basecamp. Fourteen locations will be scouted. We will be on number seven." },
         { t: "05:15", l: "Camera & Lighting", d: "The ARRI Alexa will be loaded with Cooke anamorphics — Tom will shoot 2.39 scope. The sun over the reef will give us exactly what no stage will be able to replicate." },
-        { t: "06:00", l: "Period Wardrobe · 1910", d: "Cast will be in Edwardian costume. Continuity supervisor will photograph every button. Period accuracy will be non-negotiable on a $45M production." },
+        { t: "06:00", l: "Period Wardrobe · 1907", d: "Cast will be in Edwardian costume. Continuity supervisor will photograph every button. Period accuracy will be non-negotiable on a $45M production." },
         { t: "07:00", l: "Blocking · Exterior Wilderness", d: "Jack will walk the scene with the DP across 400 metres of dressed scrubland. The kangaroos will be unscheduled but will be cooperative." },
         { t: "08:00", l: "First Take", d: "Sound will roll. Camera will roll. Slate: Tom — Vol. I — Sc. 34 — Take 1. Action." },
         { t: "16:20", l: "Magic Hour", d: "Twenty-five minutes. The Queensland sky will turn gold in a way Poland never will. Three shots will remain. We will get all three." },
@@ -509,7 +509,7 @@ export const translations = {
     capabilities: {
       title: "Trzy filmy. Trzy światy.",
       items: [
-        { n: "01", t: "Przygody Tomka", d: "Dziewięć tomów. 45 mln USD. Wybrzeże Queensland zostanie odtworzone jako dzicz roku 1910, polskie lasy zastąpią pogranicze kazachskie, a ekipa kaskaderska będzie trenować z kangurami." },
+        { n: "01", t: "Przygody Tomka", d: "Dziewięć tomów. 45 mln USD. Wybrzeże Queensland zostanie odtworzone jako dzicz roku 1907, polskie lasy zastąpią pogranicze kazachskie, a ekipa kaskaderska będzie trenować z kangurami." },
         { n: "02", t: "Królowie życia", d: "Komediodramat będzie kręcony na nocnych ulicach Warszawy, w londyńskich studiach i nowojorskim brownstone — scenariusz, o którym Germano Saracco mówi, że to jedyny, który go wzruszył do łez." },
         { n: "03", t: "Tam, gdzie latają motyle", d: "Film będzie zbudowany na powściągliwości — kameralne przestrzenie, naturalne światło i kamera będzie tak nieruchoma, że widz zapomni o jej istnieniu. Wizualna poezja na obieg festiwalowy." }
       ]
@@ -528,7 +528,7 @@ export const translations = {
       lead: "Trzy filmy. Trzy różne odpowiedzi na to samo pytanie: gdzie będzie żyć ta historia?",
       tag: "Film",
       tiles: [
-        { title: "Wybrzeże Queensland, Australia", standsIn: ["Przygody Tomka — Tom I", "Królestwo Kangurów · 1910", "Główne zdjęcia za 45 mln USD"] },
+        { title: "Wybrzeże Queensland, Australia", standsIn: ["Przygody Tomka — Tom I", "Królestwo Kangurów · 1907", "Główne zdjęcia za 45 mln USD"] },
         { title: "Nocne ulice Warszawy", standsIn: ["Królowie życia", "Dramat miejski · współczesność", "Zostaną przygotowane w tydzień, nakręcone w sześć"] },
         { title: "Londyn · Studio 7, Pinewood", standsIn: ["Przygody Tomka — wiele tomów", "Wnętrza · budowa dekoracji", "Zostaną zarezerwowane na Q3"] },
         { title: "Plenery Nowego Jorku", standsIn: ["Królowie życia", "Lokacja trzeciego aktu", "Brownstone · Upper West Side"] },
@@ -621,7 +621,7 @@ export const translations = {
       items: [
         { t: "04:30", l: "Wejście ekipy · Wybrzeże Queensland", d: "Ciężarówki wjadą do bazy Kangaroo Kingdom. 14 lokacji zostanie sprawdzonych. Będziemy na numerze siedem." },
         { t: "05:15", l: "Kamera i oświetlenie", d: "ARRI Alexa zostanie uzbrojona w optykę anamorfotyczną Cooke — Tomek będzie kręcony w formacie 2.39. Słońce nad rafą da to, czego nie odda żadne studio." },
-        { t: "06:00", l: "Kostiumy z epoki · 1910", d: "Obsada będzie w strojach edwardiańskich. Sekretarka planu będzie fotografować każdy guzik. Wierność epoce przy budżecie 45 mln USD będzie bezdyskusyjna." },
+        { t: "06:00", l: "Kostiumy z epoki · 1907", d: "Obsada będzie w strojach edwardiańskich. Sekretarka planu będzie fotografować każdy guzik. Wierność epoce przy budżecie 45 mln USD będzie bezdyskusyjna." },
         { t: "07:00", l: "Próba sytuacyjna · Plener", d: "Jacek przejdzie scenę z operatorem przez 400 metrów przygotowanego terenu. Kangury nie będą w planie, ale będą współpracować." },
         { t: "08:00", l: "Pierwszy klaps", d: "Dźwięk będzie iść. Kamera będzie iść. Klaps: Tomek — Tom I — Sc. 34 — Dubel 1. Akcja." },
         { t: "16:20", l: "Złota godzina", d: "25 minut. Niebo nad Queensland stanie się złote w sposób, którego Polska nie pozna. Zostaną trzy ujęcia. Będziemy mieć wszystkie." },
