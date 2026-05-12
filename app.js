@@ -4137,13 +4137,38 @@ async function route() {
     await new Promise(r => setTimeout(r, 720));
   }
 
+  document.documentElement.lang = lang;
   document.title = `${page.title} - Sunset Hills Motion Pictures`;
+  
   const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) {
-    metaDesc.setAttribute('content', lang === "pl" 
-      ? "Sunset Hills Motion Pictures - produkcja filmowa, międzynarodowe wsparcie produkcji i projekty filmów fabularnych."
-      : "Sunset Hills Motion Pictures - film production, international production support, and feature film projects.");
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  
+  const descText = lang === "pl" 
+    ? "Sunset Hills Motion Pictures - produkcja filmowa, międzynarodowe wsparcie produkcji i projekty filmów fabularnych."
+    : "Sunset Hills Motion Pictures - film production, international production support, and feature film projects.";
+
+  if (metaDesc) metaDesc.setAttribute('content', descText);
+  if (ogTitle) ogTitle.setAttribute('content', document.title);
+  if (ogDesc) ogDesc.setAttribute('content', descText);
+
+  const currentUrl = `https://sunset-hills.com${path}`;
+  
+  let ogUrl = document.querySelector('meta[property="og:url"]');
+  if (!ogUrl) {
+    ogUrl = document.createElement('meta');
+    ogUrl.setAttribute('property', 'og:url');
+    document.head.appendChild(ogUrl);
   }
+  ogUrl.setAttribute('content', currentUrl);
+
+  let canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (!canonicalLink) {
+    canonicalLink = document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalLink);
+  }
+  canonicalLink.setAttribute('href', currentUrl);
   renderNav();
   app.innerHTML = page.render(page);
   window.scrollTo({ top: 0, behavior: "instant" });
